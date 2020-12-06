@@ -1,0 +1,401 @@
+\documentclass[14pt,a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{ragged2e}
+\usepackage[english,russian]{babel}
+\usepackage{misccorr,color,ragged2e,amsfonts,amsthm,graphicx,systeme,amsmath,mdframed,lipsum}
+\renewcommand\qedsymbol{$\blacksquare$}
+\renewcommand*{\proofname}{\text{Доведення}}
+\theoremstyle{definition}
+\newtheorem{defo}{Означення}[section]
+\newtheorem*{teo}{Теорема}
+\newtheorem*{example}{Приклад}
+\theoremstyle{remark}
+\newtheorem*{remark}{Зауваження}
+\theoremstyle{definition}
+\newtheorem*{consequence}{Наслідок}
+\theoremstyle{definition}
+\newtheorem{statement}{Утверждение}[section]
+\newmdtheoremenv{boxteo}{Теорема}[section]
+\setlength\parindent{0pt}
+\DeclareMathOperator*\lowlim{\underline{lim}}
+\DeclareMathOperator*\uplim{\overline{lim}}
+
+
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+\usepackage{listings}
+
+% Python style for highlighting
+\newcommand\pythonstyle{\lstset{
+language=Python,
+basicstyle=\ttm,
+otherkeywords={self},             % Add keywords here
+keywordstyle=\ttb\color{deepblue},
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle=\ttb\color{deepred},    % Custom highlighting style
+stringstyle=\color{deepgreen},
+frame=tb,                         % Any extra options here
+showstringspaces=false            %
+}}
+
+\definecolor{javared}{rgb}{0.6,0,0} % for strings
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
+\definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
+\definecolor{javadocblue}{rgb}{0.25,0.35,0.75} % javadoc
+
+\lstset{language=C++,
+basicstyle=\ttfamily,
+keywordstyle=\color{javapurple}\bfseries,
+stringstyle=\color{javared},
+commentstyle=\color{javagreen},
+morecomment=[s][\color{javadocblue}]{/**}{*/},
+numbers=left,
+numberstyle=\tiny\color{black},
+stepnumber=2,
+numbersep=10pt,
+tabsize=4,
+showspaces=false,
+showstringspaces=false}
+
+
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+\pythonstyle
+\lstset{#1}
+}
+{}
+
+% Python for external files
+\newcommand\pythonexternal[2][]{{
+\pythonstyle
+\lstinputlisting[#1]{#2}}}
+
+% Python for inline
+\newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+%
+% \begin{python}
+% class MyClass(Yourclass):
+%     def __init__(self, my, yours):
+%         bla = '5 1 2 3 4'
+%         print bla
+% \end{python}
+
+\begin{document}
+
+
+
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+
+\def\bd{\begin{defo}}
+\def\ed{\end{defo}}
+
+\def\bbt{\begin{boxteo}}
+\def\ebt{\end{boxteo}}
+
+\begin{titlepage}
+\centering
+	\vspace{1cm}
+	{ МІНІСТЕРСТВО ОСВІТИ І НАУКИ УКРАЇНИ\\
+  НАВЧАЛЬНО-НАУКОВИЙ КОМПЛЕКС\\
+  ``ІНСТИТУТ ПРИКЛАДНОГО СИСТЕМНОГО АНАЛІЗУ``\\
+  НАЦІОНАЛЬНОГО ТЕХНІЧНОГО УНІВЕРСИТЕТУ УКРАЇНИ\\
+  ``КИЇВСЬКИЙ ПОЛІТЕХНІЧНИЙ ІНСТИТУТ ІМЕНІ ІГОРЯ СІКОРСЬКОГО``\\
+  КАФЕДРА МАТЕМАТИЧНИХ МЕТОДІВ  СИСТЕМНОГО АНАЛІЗУ\\\par}
+	\vspace{5cm}
+	{\large Лабораторна робота №2 \\
+\textbf{ПРЯМІ МЕТОДИ РОЗ'ЯЗАННЯ СИСТЕМ ЛІНІЙНИХ АЛГЕБРАЇЧНИХ РІВНЯНЬ.\\ Варіант-27} \\ \par}
+	\vfill
+  \begin{flushright}
+  Виконав:\\
+   Терещенко Денис, КА-96\\
+   Прийняла:\\
+   Шубенкова І. А.\\
+  \end{flushright}
+
+
+	\vfill
+
+% Bottom of the page
+	{\large КИЇВ - 2020 \par}
+\end{titlepage}
+
+
+\begin{center}
+
+ЗВІТ
+
+
+\end{center}
+
+\section{Постановка завдання.}
+
+1. Проаналізувати конкретну СЛАР та обгрунтувати обрання методу розв’язання. Реалізувати обраний метод у вигляді окремої процедури або методу відповідного об'єкту "СЛАР".\\
+2. Розвязати СЛАР з точністю $\varepsilon = 10^{-5}$.\\
+3. За необхідності зробити ітераційне уточнення. \\
+4. Обчислити $A^{-1}$ та $\det A$. Визначник матриці повинен бути бічним результатом процедури з першого пункту. Обернену матрицю треба знайти, скориставшись тією ж процедурою, передаючи їй як вектори правої частини стовпці одиничної матриці. Тому краще за все реалізувати будь-який прямий метод у формі, що дозоляє працювати з низкою стовпців правої частини.
+
+\section{Аналітична частина.}
+Завдання варіанту:
+$$
+A = \begin{bmatrix}
+  7.03 & 0.94 & 1.13 & 1.135 & -0.81 \\
+	1.26 & 3.39 & 1.3 & -1.63 & -1.53  \\
+	0.81 & -2.46 & 6.21 & 2.1 & -1.067\\
+	1.345 & 0.16 & 2.1 & 5.33 & 16 \\
+	1.29 & 0.87 & 1.333 & -8 & 15
+\end{bmatrix} \qquad
+b = \begin{bmatrix} 2.1 \\ 0.84 \\ -3.44 \\ -0.92 \\ -1.47 \end{bmatrix}
+$$
+
+Матриця є несиметричною, тому будемо застосовувати метод Гаусса.\\
+\section{Лістинг програми.}
+
+{\small
+\begin{lstlisting}
+#include "stdafx.h"
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+void Decomposition(vector <vector <double>> A, vector <vector <double>> &L,
+vector <vector <double>> &U, int n)
+{
+	for (int j = 0; j < n; j++) {
+		L[j][0] = A[j][0];
+		U[0][j] = A[0][j] / L[0][0];
+	}
+	for (int i = 1; i < n; i++) {
+		for (int j = i; j < n; j++) {
+			for (int k = 0; k < i; k++) {
+				U[i][j] += (L[i][k] * U[k][j]);
+				L[j][i] += (L[j][k] * U[k][i]);
+			}
+			L[j][i] = A[j][i] - L[j][i];
+			U[i][j] = (1 / L[i][i])*(A[i][j] - U[i][j]);
+
+		}
+	}
+
+}
+void print_matrix(vector <vector <double>> A, int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			cout << "\t" << A[i][j] << "\t";
+		}
+		cout << endl;
+	}
+}
+void print_matrixv(vector <double> A, int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		cout << "\t" << A[i] << "\t";
+	}
+	cout << endl;
+}
+void inverse(vector <vector <double>> A, vector <vector <double>> &B, int n) {
+	for (int i = 0; i < n; i++)
+		for (int j = 0; j < n; j++) {
+			if (i == j) B[i][j] = 1 / A[i][j];
+			else {
+				if (i < j) B[i][j] = 0;
+				else
+					for (int k = 0; k < i; k++) {
+						B[i][j] += (((-1 / A[i][i])*B[k][j]) * A[i][k]);
+					}
+			}
+		}
+}
+void inverse2(vector <vector <double>> A, vector <vector <double>> &B, int n) {
+	for (int i = 0; i < n; i++)
+		for (int j = 0; j < n; j++) {
+			if (i == j) B[i][j] = 1 / A[i][j];
+			else {
+				if (i > j) B[i][j] = 0;
+				else
+					for (int k = 0; k < j; k++) {
+						B[i][j] += (((-1 / A[i][i])*B[i][k]) * A[k][j]);
+					}
+			}
+		}
+}
+void monm(vector <vector <double>> A, vector <vector <double>> B,
+	vector <vector <double>> &R, int n)
+{
+	for (int i = 0; i < n; i++)
+		for (int j = 0; j < n; j++)
+			for (int k = 0; k < n; k++)
+				R[i][j] += A[i][k] * B[k][j];
+}
+void calc_monv(vector <vector <double>> A, vector <double> B,
+	vector <double> &R, int n)
+{
+	for (int i = 0; i < n; i++)
+		for (int j = 0; j < n; j++)
+				R[i] += A[i][j] * B[j];
+}
+void vonm(vector <double> A, vector <vector <double>> B,
+	vector <double> &R, int n)
+{
+	for (int i = 0; i < n; i++)
+		for (int j = 0; j < n; j++)
+				R[i] += A[j] * B[i][j];
+}
+void vmv(vector<double> b, vector <double> x, vector<double>&r,int n) {
+	for (int i = 0; i < n; i++) {
+		r[i] = b[i] - x[i];
+	}
+}
+int main()
+{
+	int n;
+	cin >> n;
+	double n1;
+	vector <vector <double>> A(n), L(n), U(n), R(n), Li(n), Ui(n), E(n);
+	vector <double> B(n,0), Y(n,0), X(n,0), r(n,0),r1(n,0);
+	for (size_t row = 0; row < n; ++row) {
+		A[row].resize(n);
+		L[row].resize(n);
+		U[row].resize(n);
+		R[row].resize(n);
+		Li[row].resize(n);
+		Ui[row].resize(n);
+		E[row].resize(n);
+	}
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			cin >> n1;
+			A[i][j] = n1;
+			L[i][j] = 0;
+			U[i][j] = 0;
+			R[i][j] = 0;
+			Ui[i][j] = 0;
+			Li[i][j] = 0;
+			E[i][j] = 0;
+		}
+	}
+	for (int i = 0; i < n; i++)
+	{
+		cin >> n1;
+		B[i] = n1;
+	}
+	Decomposition(A, L, U, n);
+	cout << "|----- input matrix -----|" << endl;
+	print_matrix(A, n);
+	cout << "|----- U matrix -----|" << endl;
+	print_matrix(U, n);
+	cout << "|----- L matrix -----|" << endl;
+	print_matrix(L, n);
+	monm(L, U, R, n);
+	cout << "|----- L*U matrix -----|" << endl;
+	print_matrix(R, n);
+	inverse(L, Li, n);
+	cout << "|----- inverse L matrix -----|" << endl;
+	print_matrix(Li, n);
+	inverse2(U, Ui, n);
+	cout << "|----- inverse U matrix -----|" << endl;
+	print_matrix(Ui, n);
+	calc_monv(Li,B,Y,n);
+	cout << "|----- L^(-1)*b -----|" << endl;
+	print_matrixv(Y, n);
+	calc_monv(Ui,Y, X, n);
+	cout << "|----- solution -----|" << endl;
+	print_matrixv(X, n);
+	calc_monv(A, X, r, n);
+	vmv(B, r, r1, n);
+	cout << "|----- residual vector -----|" << endl;
+	print_matrixv(r1, n);
+	cout << "|----- inverse A matrix -----|" << endl;
+	print_matrix(Ai, n);
+	calc_monv(Ai,A,Y,n);
+	cout << "|----- det A -----|" << endl; calc_det(L, U);
+	return 0;
+}
+\end{lstlisting}}
+\section{Результати роботи.}
+\begin{verbatim}
+|----- input matrix -----|
+	7.03        0.94        1.13        1.135       -0.81
+	1.26        3.39        1.3     -1.63       -1.53
+	0.81        -2.46       6.21        2.1     -1.067
+	1.345       0.16        2.1     5.33        16
+	1.29        0.87        1.333       -8      15
+|----- U matrix -----|
+	1       0.133713        0.16074     0.161451        -0.11522
+	0       1       0.340668        -0.569119       -0.429866
+	0       0       1       0.0729795       -0.298746
+	0       0       0       1       3.36677
+	0       0       0       0       1
+|----- L matrix -----|
+	7.03        0       0       0       0
+	1.26        3.22152     0       0       0
+	0.81        -2.56831        6.95474     0       0
+	1.345       -0.0198435      1.89057     4.96358     0
+	1.29        0.697511        0.888027        -7.87611        42.2308
+|----- L*U matrix -----|
+	7.03        0.94        1.13        1.135       -0.81
+	1.26        3.39        1.3     -1.63       -1.53
+	0.81        -2.46       6.21        2.1     -1.067
+	1.345       0.16        2.1     5.33        16
+	1.29        0.87        1.333       -8      15
+|----- inverse L matrix -----|
+	0.142248        0       0       0       0
+	-0.0556358      0.310412        0       0       0
+	-0.0371129      0.114632        0.143787        0       0
+	-0.0246319      -0.0424208      -0.0547666      0.201467        0
+	-0.00723972     -0.015449       -0.0132376      0.037574        0.0236794
+|----- inverse U matrix -----|
+	1       -0.133713       -0.115188       -0.229143       0.794801
+	0       1       -0.340668       0.59398     -1.6717
+	0       0       1       -0.0729795      0.544451
+	0       0       0       1       -3.36677
+	0       0       0       0       1
+|----- L^(-1)*b -----|
+	0.29872     0.143911        -0.476273       -0.0843135      -0.05202
+|----- solution -----|
+	0.312312        0.343043        -0.498442       0.0908259       -0.05202
+|----- residual vector -----|
+	4.44089e-16     5.55112e-16     8.88178e-16     5.55112e-16     6.66134e-16
+|----- inverse A matrix -----|
+	0.144984     -0.0133376     -0.0200064     -0.0100561     0.00850358
+	-0.044635     0.298825     -0.0517625     0.0427649     -0.0291451
+	-0.0167602     0.100349     0.150524     -0.00370488     0.0206768
+	0.00187008     -0.00698634     -0.0104795     0.0740976     -0.0802018
+	-0.0075509     -0.00952683     -0.0142903     0.0404361     0.021947
+|----- det A -----|
+28341
+\end{verbatim}
+\textbf{Результат}. З точністю $\varepsilon = 10^{-5} $ отримали наступний роз'язок системи лінійних рівнянь:
+$$
+x_1=0.312312 \quad
+x_2=0.343047 \quad
+x_3=-0.498441 \quad
+x_4=0.0908238 \quad
+x_5=-0.0520194 \quad
+$$
+$$
+\det A = 28341.234$$$$ \qquad A^{-1} = \begin{bmatrix}
+0.144984   &  -0.013337  &   -0.020006  &   -0.010056  &   0.008508\\
+-0.044635   &  0.298825   &  -0.051762  &   0.042764 &    -0.029145\\
+-0.016760  &   0.100349   &  0.150524   &  -0.003704 &   0.020676\\
+0.001870  &   -0.006986  &   -0.010479  &   0.074097   &  -0.080201\\
+-0.007550  &  -0.009526  &  -0.014290   &  0.040436  &   0.021947 \\
+\end{bmatrix}
+$$
+\end{document}

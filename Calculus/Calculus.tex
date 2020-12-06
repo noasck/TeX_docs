@@ -1,0 +1,617 @@
+\documentclass[14pt,a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{misccorr,color,ragged2e,amsfonts,amsthm,graphicx,systeme,amsmath,mdframed,lipsum}
+\renewcommand\qedsymbol{$\blacksquare$}
+\renewcommand*{\proofname}{\text{Доведення}}
+\theoremstyle{definition}
+\newtheorem{defo}{Означення}[section]
+\newtheorem*{teo}{Теорема}
+\newtheorem*{example}{Приклад}
+\theoremstyle{remark}
+\newtheorem*{remark}{Зауваження}
+\theoremstyle{definition}
+\newtheorem*{consequence}{Наслідок}
+\theoremstyle{definition}
+\newtheorem{statement}{Утверждение}[section]
+\newmdtheoremenv{boxteo}{Теорема}[section]
+\setlength\parindent{0pt}
+\begin{document}
+
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+
+\def\bd{\begin{defo}}
+\def\ed{\end{defo}}
+
+\def\bbt{\begin{boxteo}}
+\def\ebt{\end{boxteo}}
+
+\tableofcontents
+\pagebreak
+\section{Введение}
+\subsection{Комплексные числа}
+Рассмотрим уравнение одной переменной:\\
+$ x^2 + 1 = 0$; \qquad
+$ i = \sqrt{-1}$; \qquad
+$ i^2 = -1 $; \qquad $i$ - мнимая единица\\
+$\mathbb{N}$ - множество всех натуральных чисел\\
+$\mathbb{Z}$ - множество всех целых чисел\\
+$\mathbb{R}$ - множество всех рациональных чисел\\
+$\mathbb{Q}$ - множество всех действительных чисел\\
+$\mathbb{C}$ - множество всех комплексных чисел\\
+\begin{center}
+Действия над комплексными числами:\\
+($t_1 = a_1 + ib_1;\quad t_2 = a_2 + ib_2$)
+\end{center}
+1.\qquad $t_1 = t_2 \Longleftrightarrow
+\systeme*{a_1 = a_2;, b_1 = b_2;}
+$\\
+2. Арифметика: $t_1 \pm t_2 = (a_1 \pm a_2) + i(b_1 \pm b_2)$\\
+3. $t_1*t_2 = a_1a_2 - b_1b_2 + i(a_1b_2 + a_2b_1)$\\
+4. \[\frac{t_1}{t_2} = \frac{a_1a_2 + b_1b_2 + i(a_2b_1 - a_1b_2)}{a_2^2 + b_2^2} = \frac{a_1a_2 + b_1b_2 }{a_2^2 + b_2^2} + i*\frac{a_2b_1 - a_1b_2}{a_2^2 + b_2^2}\]\\
+
+\begin{center}
+{\textbf{Операции сравнения не определены \\ НЕРАВЕНСТВ НЕТ}}
+\end{center}
+Действительная и мнимая часть комплесного числа, полярные координаты:
+$z = x + iy \qquad x,y \in \mathbb{R}, z \in \mathbb{C}$\\
+$x = \operatorname{Re}z$ - действительная часть\\
+$y = \operatorname{Im}z$ - мнимая часть\\
+$\bar{z} = x - iy$ - комплексное сопряжение\\
+Модулем комплексного числа z называется расстояние от $z$ до начала координат $\Rightarrow$
+$\vert OZ \vert = \sqrt{x^2 + y^2}$. \quad
+$(x-iy)(x+iy) = x^2 + y^2 \Rightarrow  |z|= z*\bar{z}$ \\
+$\varphi = \operatorname{arg} z$ - аргумент комплексного числа $z$. Следствие:\\
+Тригонометрическое представление комплексного числа:\\
+$\systeme*{x = |z|\cos{\varphi}\qquad\qquad z = |z|(\cos{\varphi} + i\sin{\varphi}) , y = |z|\sin{\varphi}}$
+\pagebreak
+\subsection{Композиция, отображение, ассоциативность композиции}
+\subsubsection{Композиция(суперпозиция)}
+\subsubsection{Ассоциативность композиции}
+\subsection{Образы и полные прообразы}
+\subsection{Индуктивные множества}
+\paragraph{Принцип мат. индукции}
+\subsubsection{Биноминальные коэфициенты. Бином Ньютона}
+\subsection{Аксиомы множества действительных чисел}
+\subsection{Основные утверждения анализа}
+\section{Последовательности, пределы}
+\begin{defo}
+Последовательность - это пронумерованый набор чисел. \\ Обозначение: $\lbrace a_n, n \geq 1\rbrace \quad$ или $\quad\lbrace a_n, n \in \mathbb{N}\rbrace$
+\end{defo}
+\begin{defo}
+Задана последовательность $\lbrace a_n, n \geq 1\rbrace$
+Число а называется пределом последовательности $\lbrace a_n\rbrace$ если:
+\noindent\fbox{$
+\forall \varepsilon >  0 \quad \exists N \in \mathbb{N}: \forall n \geq N \quad \vert a_n - a \vert < \varepsilon
+$}
+\end{defo}
+\noindentОбозначение:$$\lim_{n\to\infty}{a_n}$$
+Базовые примеры пределов последовательностей: (Для а>1)\\
+$$
+1) \lim_{n\to\infty}{\frac{1}{n}} = 0 \qquad
+2) \lim_{n\to\infty}{\sqrt[n]{a}} = 1 \qquad
+3) \lim_{n\to\infty}{\sqrt[n]{n}} = 1 \qquad
+4) \lim_{n\to\infty}{\frac{n^k}{a^n}} = 0
+$$
+\pagebreak
+
+\section{Неперервність}
+
+\begin{defo}
+  $f: A \to \mathbb{R} \qquad x_0 \in A \qquad x_0 -$ гранична точка $A$\\
+  $f$ називається неперервною в т. $x_0$ якщо:
+  $$\exists  \lim\limits_{x\to x_0}{f(x)} = f(x_0)$$
+  $$\forall \varepsilon >0 \quad \exists \delta \quad \forall x \in A \quad |x - x_0|<\delta \rightarrow |f(x) - f(x_0)|<\varepsilon $$
+\end{defo}
+
+\begin{defo}
+$f: A \to \mathbb{R} \qquad x_0 \in A \qquad x_0 -$ гранична точка $A$\\
+$f$ називається неперервною в т. $x_0$ справа(зліва), якщо:
+$$\exists  \lim\limits_{x\to x_0+}{f(x)} = f(x_0) \qquad
+(\exists  \lim\limits_{x\to x_0 -}{f(x)} = f(x_0))$$
+\end{defo}
+
+\begin{boxteo}
+$f: A \to \mathbb{R} \qquad x_0 \in A \qquad x_0 -$ гранична точка $A$\\
+$f(x)$ неперервна в т. $x_0$ т.т.т.к. \quad
+$\lim\limits_{x\to x_0+}{f(x)} =  \lim\limits_{x\to x_0 -}{f(x)} = f(x_0) $
+\end{boxteo}
+
+\begin{defo}
+$f: A \to \mathbb{R} \qquad x_0 \in A \qquad x_0 -$ гранична точка $A$ \\
+Точка $x_0$ називається \textbf{точкою розриву функції} якщо $f(x)$ не є неперервною в точці $x_0$\\
+\end{defo}
+
+\subsection{Класифікація точок розриву}
+
+Нехай задано: $f: A \to \mathbb{R} \qquad x_0 \in A \qquad x_0 -$ гранична точка $A$\\
+
+0) Точка $x_0$ називається \textbf{усувною} точкою розриву, якщо:\\
+$$\exists  \lim\limits_{x\to x_0}{f(x)} \neq f(x_0) $$\\
+\begin{example}
+  $f(x) = \frac{\sin{x}}{x} \quad x\neq 0\quad $АЛЕ:$ \quad  \lim\limits_{x\to0}{f(x)} = 1$\\
+\end{example}
+
+1) Точка $x_0$ називається точкою розриву типу \textbf{стрибок}, якщо:
+$$\exists  \lim\limits_{x\to x_0+}{f(x)} \quad
+\exists  \lim\limits_{x\to x_0 -}{f(x)}$$
+$$ \lim\limits_{x\to x_0+}{f(x)} \neq
+\lim\limits_{x\to x_0 -}{f(x)} $$\\
+
+\begin{remark}
+  Точки розриву 0) та 1) загалом називають т. розриву I роду
+\end{remark}
+
+\pagebreak
+
+2) Точка $x_0$ називається точкою розриву \textbf{II роду}, якщо виконується хоча б одна з умов:\\
+1.  $\lim\limits_{x\to x_0 -}{f(x)} = \infty$\\
+2.  $\lim\limits_{x\to x_0+}{f(x)} = \infty$\\
+3.  $\nexists\lim\limits_{x\to x_0+}{f(x)} $\\
+4.  $\nexists\lim\limits_{x\to x_0 -}{f(x)} $ \\
+
+\subsection{Арифметичні властивості неперевних функцій}
+
+\begin{teo}
+  $f,g:A\to\mathbb{R} \quad x_0\in A$ - гранична точка
+  \quad $f,g$ - неперервны в т. $x_0$.\\
+  1)$\forall c \in \mathbb{R}\qquad cf(x)$ - неперевна в т. $x_0$\\
+  2)$f(x)+g(x)$ - неперевна в т. $x_0$\\
+  3)$f(x)*g(x)$ - неперевна в т. $x_0$\\
+  4)$g(x_0)\neq 0$ то $\frac{f(x)}{g(x)} $ - неперевна в т. $x_0$\\
+\end{teo}
+
+\begin{proof}[Доведення]
+  3) $ \lim\limits_{x\to x_0}{f(x)g(x)} =  \lim\limits_{x\to x_0}{f(x)}* \lim\limits_{x\to x_0}{g(x)} = f(x_0)*g(x_0)$. Таким чином, f(x)g(x) - неперервна.
+\end{proof}
+
+\begin{proof}[Доведення]
+  4) $g(x_0) \neq 0$, тож \quad
+  $\exists \delta \quad \forall \in A \quad x \neq x_0 \quad \vert x - x_0 \vert \quad g(x) \neq 0 $.\\
+  Неперервна в т. $x_0$ : \quad $\forall \varepsilon > 0 \quad \exists \delta \quad\forall x\in A \quad x\neq x_0 \\
+  \vert x - x_0 \vert < \delta \rightarrow
+  \vert g(x) - g(x_0) \vert < \varepsilon.\qquad$\\
+  - 1. У випадку якщо $\vert g(x_0) \vert = g(x_0)$:  розв'яжемо відносно $\varepsilon = \frac{g(x_0)}{2}>0 $\\
+  $\vert g(x) - g(x_0) \vert < \varepsilon
+  \qquad \qquad g(x_0) - \varepsilon < g(x) < \varepsilon + g(x_0)$\\
+  Маємо: $0 < \frac{g(x_0)}{2} < g(x) < \frac{3g(x_0)}{2} \quad \rightarrow \quad g(x) \neq 0$\\
+  - 2. Якщо $\vert g(x_0) \vert= -g(x_0)$:  розв'яжемо відносно $\varepsilon = -\frac{g(x_0)}{2}>0 $\\
+  Маємо: $ \frac{3g(x_0)}{2} < g(x) < \frac{g(x_0)}{2} < 0 \quad \rightarrow \quad g(x) \neq 0$\\
+  Таким чином: $\frac{f(x)}{g(x)} $ - корректно визначено, отже за властивістю границь:
+  $$ \lim\limits_{x\to x_0}{\frac{f(x)}{g(x)}} =  \frac{\lim\limits_{x\to x_0}{f(x)}}{ \lim\limits_{x\to x_0}{g(x)}} = \frac{f(x_0)}{g(x_0)} = \frac{f(x)}{g(x)}$$
+\end{proof}
+\pagebreak
+\begin{boxteo}[Неперервність композиції функцій]Дано:\\
+  $f: A \to B \quad g: B \to \mathbb{R} \quad x_0$ - гранична точка $A$ \quad \\ $y_0 = f(x_0)\quad f(x)$ - неперервна в т. $x_0$\quad $g(y_0)$ - неперервна в т. $y_0$.\\
+  Тоді:\quad $h: A\to \mathbb{R} \quad h(x)=g(f(x)) \quad h = g \circ f(x)$ - неперервна в т. $x_0$
+\end{boxteo}
+\begin{proof}[Доведення]
+  За властивістю границь суперпозиції функцій:\\
+  $$ \lim\limits_{x\to x_0}{g(f(x))} = g(y_0) = g(f(x_0)) = h(x_0)$$
+\end{proof}
+\begin{remark}
+  $f$ - неперервна в т. $x_0$, тоді:
+  $$ \lim\limits_{x\to x_0}{f(x)} = f(x_0) = f( \lim\limits_{x\to x_0}{x}) $$
+  Aбо для композиції: \quad
+  $ \lim\limits_{x\to x_0}{g(f(x))} = g(y_0) = g( \lim\limits_{x\to x_0}{f(x)} ) $
+\end{remark}
+\subsection{Неперервність елеменарних математичних функцій}
+\noindent0) $f(x) = x$ - неперервна в т. $x_0$\\
+$$\forall \varepsilon  > 0 \quad \exists \delta \quad \forall x \in A \quad \vert x - x_0 \vert<\delta =  \varepsilon $$
+$$\vert f(x) - f(x_0) \vert = \vert x - x_0 \vert < \delta < \varepsilon  $$
+1a) $f(x) = x^n$ - неперервна в т. $x_0$ за арифм. властивостями неперервних.\\
+1б) $g(x) = a_nx^n + a_{n-1}x^{n-1} + ... + a_1x + a_0$ - неперервна в будь-якій т.$x_0$:\\ Неперервна як сумма неперервних.
+
+\begin{defo}
+  Функцiя неперервна на всій множині A, якщо вона неперервна $\forall x \in A$.
+  Позначення: Множина всіх функцій неперервних на А: $C(A)$\\
+  Тоді: з 1б) випливає, що многочлени $\in C(\mathbb{R})$
+\end{defo}
+\noindent
+2) $f(x) = \sin x$\\
+Відомо, що: $1 -\frac{x^2}{2} < \frac{\sin x}{x} < 1$. Перевіримо: т.$x_0 = a\in \mathbb{R}$.
+$$f(x) - f(a) = \sin x - \sin a = 2\sin \frac{x-a}{2}\cos \frac{x+a}{2} $$
+$$ \lim\limits_{x\to a}{(\sin x - \sin a)} =
+\lim\limits_{x\to a}{2\sin \frac{x-a}{2}\cos \frac{x+a}{2}} =
+\Bigg\vert \begin{gathered}
+  \frac{x-a}{2} = t\\
+  t\to 0\\
+\end{gathered} \Bigg\vert =
+ \lim\limits_{t\to 0}{(\sin t \cos (t+a))} = 0
+ $$
+ Таким чином: $\forall x \in \mathbb{R} :\quad \lim\limits_{x\to a}{\sin{x}} = \sin{a}  \Longrightarrow f(x) $ - неперервна $\forall x \in \mathbb{R}$\\
+ Отже: \quad $f(x) = sin(x) \in C(\mathbb{R})$\\
+ \clearpage
+\noindent
+ 3) $h(x) = \cos{x} = \sin{(\frac{\pi}{2} -x)}$\\
+ $f(x) = \frac{\pi}{2} - x \in C(\mathbb{R})$;\quad $g(y) = \sin{y} \in C(\mathbb{R}) \Longrightarrow h(x) = g\circ f(x) \in C(\mathbb{R})$
+ 4а)$f(x) = \tg{x} = \displaystyle\frac{\sin{x}}{\cos{x}} $ - неперервна $\forall  x \neq \frac{\pi}{2} + \pi k$ - за арифм. властивостями.\par
+ 4б)$f(x) = \ctg{x} = \displaystyle\frac{\cos{x}}{\sin{x}} $ - неперервна $\forall  x \neq \pi k, k\in \mathbb{N}$ - аналогічно.\\
+ 5) $f(x) = e^x $
+ $$ \lim\limits_{x\to0}{e^x - 1} =  \lim\limits_{x\to0}{\frac{(e^x - 1)*x}{x} } = 1*0 =0 \qquad
+ \lim\limits_{x\to 0}{e^x} = 1 = e^0 $$
+ $$ \lim\limits_{x\to a}{e^x - e^a} =  \lim\limits_{x\to a}{e^a(e^{x-a} -1)}= \begin{vmatrix}
+   x \to a\\
+   x-a = t\to 0\\
+ \end{vmatrix}   = e^a\lim\limits_{t\to 0}{e^t -1} =0$$
+Таким чином, $f(x) = e^x$ - неперервна $\forall x \in \mathbb{R}$.\\
+\begin{boxteo}[Теорема про існування та неперервність оберненої функції для строго монотонної та неперервної]
+$f: (a,b) \rightarrow (c,d)$ \qquad $\begin{gathered}
+   \lim\limits_{x\to a}{f(x)} = c\\
+    \lim\limits_{x\to b}{f(x)} = d\\
+\end{gathered}$\\
+$f(x)$ - строго монотонно зростаюча та неперервна.\\
+Тоді:\quad $\exists g: (c,d) \rightarrow (a,b)$ - монотонна та неперервна.\\
+1) $\forall x \in (a,b) \qquad g(f(x)) = x$.\\
+2) $\forall y \in (c,d) \qquad f(g(y)) = y$.
+\end{boxteo}
+\begin{proof}[Доведення]
+  Розглянемо випадок $f(x)$ - строго зростаюча.\\
+  Визначимо монотонну: $\forall y \in (c,d): \qquad M_y = \lbrace x, f(x) < y \rbrace $.\\
+  1) $M_y$ - обмежена, оскільки $M_y \subset (a,b)$\qquad (Окремо: $b= +\infty)$\\
+  $M_y$ - обмежена зверху. \qquad $y< d - \varepsilon  < d \Rightarrow \varepsilon >0$
+  $$ \lim\limits_{x\to b-}{f(x)} = d \Rightarrow \forall \varepsilon \quad \exists \delta: \quad b - x < \delta \Rightarrow \vert f(x) - d \vert < \varepsilon  $$
+  Отже для $x$: \quad $x> b- \delta$ \quad $f(x)> d- \varepsilon  > y$.\\
+  Тобто для $M_y$ - обмеження зверху $ b - \delta$. $(x > b- \delta \Rightarrow f(x)> y\Rightarrow  x\notin M_y)$.\\
+  Аналогічно - $M_y$ - обмежена знизу.\\
+  2) Доведемо, що $M_y$ - не порожня.\\
+  $$ \lim\limits_{x\to a+}{f(x)} = c \quad \exists \varepsilon \quad c+ \varepsilon  < y$$
+  Тоді: \quad $ \exists \delta \quad \forall x \quad 0< x-a < \delta \Rightarrow \vert f(x) - c \vert < \varepsilon  $ або $c- \varepsilon < f(x) < c+ \varepsilon $.\\
+  Тобто: $\quad \forall x  \quad 0<x-a< \delta \Rightarrow f(x)< c+\varepsilon  < y \Rightarrow x \in M_y $.\\
+  Отже $M_y$ - непорожня обмежена множина. $\Rightarrow \exists \sup M_y$.\\
+  Позначимо: \quad $\sup \lbrace x: f(x)< y \rbrace = x_y $.
+  Отримали(побуд.): $\forall y \in (c,d) \xrightarrow{one} \exists ! x_y$\\
+  Визначимо $g: (c,d) \rightarrow (a,b)$ наступним чином: \quad $g(y) = x_y$\\
+  Перевіримо, що $g(y)$ обернена для всіх $f(x)$:
+  $$\forall x \in (a,b) \quad f(x) = y \quad g(y) = x_y \quad g(f(x))= x_y$$
+  Перевіримо, що $x_y = x$: $x_y = \sup \lbrace  x, f(x) <y \rbrace $
+  $$\lbrace x_n, n \geq 1 \rbrace = M_y = \lbrace x, f(x) < y \rbrace \Longrightarrow  \lim\limits_{n\to \infty}{x_n} = x_y  $$
+  $f(x_n) < y; \quad f(x)$ - неперервна, тож $ \lim\limits_{n\to\infty}{f(x_n)} = f(x_y) \Rightarrow f(x_y) \leq y$\\
+  Розглянемо $\lbrace \tilde{x_n}, n \geq 1 \rbrace  \subset (x_y; b):$
+  $$ \lim\limits_{n\to\infty}{\tilde{x_n}} > y \qquad f(\tilde{x_n}) > y \qquad  \lim\limits_{n\to\infty}{f(\tilde{x_n})} = f(x_y) \qquad f(x_y) \geq y  $$
+  Отримали: $f(x_y) = y$ або $f(g(y)) = y$. Також маємо: $f(x) = f(x_y) = y$\\
+  Таким чином: \quad $g(f(x)) = x \quad g$ - строго зростаюча, обмежена, неперервна.\\
+  Зробимо перевірку. 1) $g(y)$ - строго зростаюча?\\
+  $y_1 < y_2 \quad x_1 = g(y_1) \quad x_2 = g(y_2)$; Якщо $x_1> x_2 \Rightarrow f(x_1) \geq f(x_2) \Rightarrow y_1 \geq y_2$.\\
+  Протиріччя: \quad $x_1 < x_2 \Rightarrow g(y)$ - строго зростаюча.\\
+  2) $g(y)$ - неперервна на $(c, d)$ - Від супротивного:\\
+  Нехай: $\exists y_0 $ таке, що $g$ - не є неперервною в т.$y_0$.\\
+  Тобто $\quad\exists \lbrace y_n, n \geq 1 \rbrace \subset (c,d) \quad  \lim\limits_{n\to \infty}{y_n} = y_0 \quad  \lim\limits_{n\to \infty}{\lbrace g(y_n), n\geq 1 \rbrace } \neq x_0  = g(y_0)$\\
+  $g(y_n) = x_n \in (a,b)$. \quad Послідовність $\lbrace x_n , n \geq 1 \rbrace $ не збігається до $x_0$. \\
+  Тоді \quad $ \exists \lbrace x_{n_k}, k \geq 1 \rbrace $ - підпослідовність, така, що $  \lim\limits_{k\to\infty}{x_{n_k}} = x^* \neq x_0$.\\
+  Таким чином, отримали: \quad $  \lim\limits_{k\to \infty}{y_{n_k}}  = y_0 \quad  \lim\limits_{k\to  \infty}{x_{n_k}} = x^* \neq x_0 \Rightarrow\\  \lim\limits_{k\to  \infty}{f(x_{n_k})} = f(x^*)  \Rightarrow f(x_{n_k}) = y_{n_k} \quad f(x_0) = y_0$\\
+  Отже: \quad $ \lim\limits_{k \to  \infty}{y_{n_k}} = f(x^*) \neq y_0 $ - $  \bigotimes $ протиріччя.
+\end{proof}
+\begin{remark}
+  Аналогічна теорема є для випадку $f(x)$ - строго спадаюча. \\
+  Тоді: \quad $g(y)$ - обернена, також строго монотонно спадна.
+\end{remark}
+
+\begin{remark}
+  Теорема вірна для випадків $\Bigg[ \begin{gathered}
+  b = + \infty\\
+  a = - \infty \\
+  \end{gathered}$
+\end{remark}
+\subsection{Приклади неперервних функцій}
+7) $g(y) = \ln y \quad y > 0; \quad \text{Розглянемо: } f(x) = e^x - \text{строго зростає}.$
+$$g: (0; +\infty) \rightarrow (-\infty; + \infty)\qquad f: (-\infty; +\infty) \rightarrow (0; + \infty)$$ $$  \lim\limits_{x\to - \infty}{e^x} = \begin{vmatrix}
+  x = -t\\
+  t \to + \infty
+\end{vmatrix} =  \lim\limits_{t \to  +\infty}{ \frac{1}{e^t} } = 0 \qquad  \lim\limits_{x\to + \infty}{e^x} = + \infty$$ $ g(y) \text{ та } f(x) - \text{взаємнообернені} \Rightarrow \text{з теореми 3.3 - } g(x) - \text{неперервна.}$\\
+8)$g(y) = \sqrt[k]{x}$\quad Розглянемо: $\quad f(x) = x^k $;\\
+a) $k = 2m \quad f:(-\infty; +\infty) \rightarrow (0; +\infty);$\\
+b) $k = 2m+1 \quad  f:(-\infty; +\infty) \rightarrow (-\infty; +\infty);$\\
+$f(x)$ - строго зростаюча і неперервна;\quad  $f(g(y)) = y; \quad g(f(x)) = x \Longrightarrow\\ f(x) \text{ i } g(x)$ - взаємно обернені та неперервні.\\
+9) $g(y) = \arcsin{x} \qquad f(x) = \sin{x} \quad f: (- \frac{\pi}{2}; \frac{\pi}{2}  ) \rightarrow (-1, 1)$ \\
+$f(x)$ - строго монотонна, зростає, неперервна. \quad $f(g(x))=\sin{\arcsin{x}} = x$\\
+За попередньою теоремою $\rightarrow g(y) = \arcsin{y}$ - неперервна.\\
+Аналогічно: $\arccos{x}, \arctg{x}, \arcctg{x}$ - неперервні.
+\begin{boxteo}[Перша теорема Вейерштрасса]
+Задана $f(x) \in C([a,b])$.\\ Тоді $f(x)$ обмежена на [a,b].
+\end{boxteo}
+\begin{proof}[Доведення]
+  Від супротивного: \quad Нехай $f(x)$ - не є обмеженою.
+  $$\forall n \in \mathbb{N} \quad \exists x_n \in [a,b]: \quad \vert f(x_n) \vert > n \quad \lbrace x_n, n \geq 1 \rbrace \text{ - отримали послідовність.} $$
+  Тоді \quad $\exists \lbrace x_{n_k}, k \geq 1 \rbrace  \quad f(x_{n_k}) \geq n_k $ або $\lbrace x_{n_m} \rbrace \quad f(x_{n_m}) \leq - n_{m}$\\
+  Розглянемо: $\lbrace x_{n_k}, k \geq 1 \rbrace \subset [a,b] \quad f(x_{n_k}) \geq n_k \Rightarrow \lbrace x_{n_k} \rbrace $ - обмежена.\\
+  За теоремою Вейерштрасса: \quad $\exists \lbrace x_{n_{k_p}}, p \geq 1 \rbrace \quad \exists  \lim\limits_{p \to  \infty}{x_{n_{k_p}}} =  x^\star $\\
+   $f(x_{n_{k_p}}) \geq n_{k_p} \rightarrow \infty$ - за припущенням.\\
+   Але за неперервністю: $ \lim\limits_{p\to  \infty}{f(x_{n_{k_p}})} = f(x^\star)$ - $\bigotimes $ протиріччя.
+\end{proof}
+\begin{boxteo} [Друга теорема Вейерштрасса]
+Якщо $f \in C([a,b]) $ тоді:\\
+1) $\exists x_{\star} \in [a,b]: \quad \inf\limits_{x\in [a,b]}{f(x)}= f(x_{\star})$\\
+2) $\exists x^{\star} \in [a,b]: \quad \sup\limits_{x\in [a,b]}{f(x)}= f(x^{\star})$
+\end{boxteo}
+\begin{proof}[Доведення]
+  Розглянемо $\inf\limits_{x\in [a,b]}{f(x)} = c $ - з І теореми Вейерштрасса.\\
+  Тоді за критерієм $\inf$: 1) $\forall x \in [a,b] \quad f(x) \geq c$ \\
+  2) $\forall \varepsilon > 0 \quad \exists x_{\varepsilon } \in [a,b] \quad f(x) < c+ \varepsilon $ \\
+  Розглянемо $\varepsilon = \frac{1}{n} $:\quad
+  $\exists x_{\varepsilon } = x_n \in [a,b] : c\leq f(x_n) < c + \frac{1}{n}  $\\
+  $\lbrace x_n, n \geq 1\rbrace \subset [a,b] -$ обмежена послідовність.\\
+  Тоді, $\exists \lbrace x_{n_k} , k \geq 1 \rbrace -$ збіжна підпослідовність за теоремою Вейерштрасса.\\
+  $\exists  \lim\limits_{k\to  \infty}{x_{n_k}} = x_{\star}$, тоді $c \leq f(x_{n_k}) < c + \frac{1}{n_k}$ \\
+  1) $ \lim\limits_{k\to  \infty}{f(x_{n_k})} = f(x_{\star}) $ - з неперервності. \\
+  2) З нерівностей: $c \to c \leq f(x_{n_k}) \to c < c + \frac{1}{n_{k}} \to c $ - теорема про 3 функції.\\
+  $\exists  \lim\limits_{k\to  \infty}{f(x_{n_k})} = f(x_{\star}) = c$. З 1) та 2) та єдності границі маємо:\\ $\inf\limits_{x\in [a,b] }{f(x)} = c = f(x_{\star})\qquad$ Аналогічно для $\sup{}.$\\
+\end{proof}
+\begin{boxteo}[Теорема Коши про 0-ве значення]
+  $f(x) \in C([a,b])\quad\\ f(a)*f(b) < 0 \Longrightarrow \exists x_0 \in (a,b): \quad f(x_0) = 0$\\
+\end{boxteo}
+\begin{proof}[Доведення]
+Нехай $f(a) < 0 $ та $ f(b) > 0.$\\
+  Розглянемо $M = \lbrace x \in [a,b], f(x) \leq 0 \rbrace $. Перевіримо: M - не пуста і обмежена.
+  1) $M \subset [a,b] \Longrightarrow$ обмежена.\\
+  2) $f(a) < 0 \quad \exists \varepsilon  \quad f(a) < 0 $. Для даного $\varepsilon$: $\exists \Delta \quad \forall x \in [a,b] \quad \vert x - a \vert < \Delta $\\
+  Оскільки $f(x)$ - нерозривна: $\vert f(x) - f(a) \vert < \varepsilon \quad f(a) =  \lim\limits_{x\to a+}{f(x)}$
+  \\Тоді $f(x) < f(a) + \varepsilon \quad f(x)>f(a) - \varepsilon \qquad \forall x \in [a,b] \quad \vert x-a \vert<\Delta  $ \\
+  Тоді $x \in M \quad M$ - не пуста множина $\Rightarrow
+  \exists \sup{M} > a.$ \\
+  Позначимо $\sup{M} = x_0$. \\
+  Розглянемо $\{x_n, n\geq 1\} \subset M \quad  \lim\limits_{n\to  \infty}{x_n} = x_0$ \quad  $f(x_n)  < 0 - $ за визначенням $M$.
+  $$ \lim\limits_{n\to  \infty}{f(x_n)} = f(x_0) \leq 0$$\\
+  $f(b) > 0 \quad \exists \tilde{\varepsilon} > 0 \quad f(b) - \varepsilon > 0$ \quad Для $\tilde{\varepsilon}: \quad\exists \delta >0 \quad \forall x \in [a,b] $\\
+  $\vert f(x) - f(b) \vert < \tilde{\varepsilon } \quad \vert x - b \vert < \delta.$ Тобто $\forall x \in [a,b] \quad \vert x -b \vert < \delta \quad x \in [a,b] \setminus M$\\
+  $x_0 = \sup{M} \quad \forall x \Rightarrow \forall n \geq 1: \quad x_0+ \frac{1}{n} \neq M \quad \tilde{x_n} = x + \frac{1}{n} \quad f(\tilde{x_n}) \geq 0$
+  $$ \lim\limits_{n \to  \infty}{\tilde{x_n}} = x_0 \Rightarrow  \lim\limits_{n\to  \infty}{f(\tilde{x_n})} = f(x_0) \geq 0$$
+  Тому, випливає, що  $f(x_0) = 0$
+  \end{proof}
+  \begin{consequence}
+    $f(x) \in C[a,b] \Rightarrow \forall L \in (f(a), f(b)) \quad \exists x_L \in (a,b) \quad f(x_L) = L$
+  \end{consequence}
+  \begin{proof}[Доведення]
+    $$g_L(x) = f(x) - L. \text{ \quad З умов теореми:\quad} \begin{gathered}
+      g_L(a) > 0\\
+      g_L(b) < 0\\
+    \end{gathered} \Longrightarrow g_L(a) * g_L(b) < 0$$
+    $g_L(x) \in C([a,b]) \Rightarrow$ з попередньої теореми: $\exists x_L \in (a,b) \quad g_L(x_L) = 0$\\
+    Тобто $f(x_L) - L = 0$ або $f(x_L) = 0 $.
+    \end{proof}
+
+  \begin{remark}
+    Щодо неперервності  $f(x)$ на $[a,b]$:
+    $$f(a) =  \lim\limits_{x\to a+}{f(x)} \qquad   f(b) = \lim\limits_{x\to b-}{f(x)}$$
+  \end{remark}
+\begin{remark}[Узагальнення теореми про 0-ві(проміжні) значення]
+$f \in C([a,b]) \quad$\\
+ $\lim\limits_{x\to a+}{f(x)} *  \lim\limits_{x\to b-}{f(x)} < 0 \Rightarrow \exists x_0 \in (a, b) \quad f(x_0) = 0$\\
+ Також: $\forall L \in (\lim\limits_{x\to a+}{f(x)}, \lim\limits_{x\to b-}{f(x)} ) \quad \exists x_L \in (a,b) \quad f(x_L) = L$
+\end{remark}
+
+
+\subsection{Асимптотика графіків функцій}
+\bdВы
+Пряма $x = x_0$ називається вертикальною асимптотою, якщо:\\
+$$\Bigg[ \begin{gathered}
+  \lim\limits_{x\to x_0+}{f(x)} = \pm \infty\\
+  \lim\limits_{x\to x_0-}{f(x)} = \pm \infty\\
+\end{gathered}$$
+\ed
+\bd
+  Пряма $y = kx + b$ нахивається похилою асимптотою, якщо:\\
+  $$ \lim\limits_{x\to \pm\infty}{(f(x) - (kx+b))} = 0$$
+\ed
+\bbt
+  Пряма $y = kx + b$ є похилою асимптотою функції т.т.т.к:\\
+  $$
+      k_{\pm} =  \lim\limits_{x\to \pm \infty}{ \frac{f(x)}{x} } \qquad\qquad
+      b_{\pm} =  \lim\limits_{x\to \pm \infty}{(f(x) - k_{\pm}x)}
+  $$
+\ebt
+\begin{proof}[Доведення]
+Розглянемо випадок $x\to + \infty : y = kx + b \Longleftrightarrow \\ \Longleftrightarrow$\big( Пряма $y = k_+x+ b_+$ є похилою асимптотою \big) $\Longleftrightarrow \big( f(x) = k_+x + b_+ + o(x)\big) $ $\overset{\text{ОЗН}}{\Longleftrightarrow}  \big(  \lim\limits_{x\to  +\infty}{(f(x) - k_+ + \frac{b_+}{x} } \big)$\\
+ \end{proof}
+\subsection{Рівномірно неперервна функція на множині}
+\begin{remark}
+Функція $f(x)$ є {\textbf{неперервною}} на множині $A \Longleftrightarrow \\ \Longleftrightarrow f(x)$ неперервна $\forall x_0\in A \Longleftrightarrow \forall x_0 \in A : \lim\limits_{x\to x_0}{f(x)} = f(x_0) \Longleftrightarrow \\ \Longleftrightarrow  \forall x_0 \in A: \exists \varepsilon >0 \quad \exists \delta (\varepsilon , x_0) > 0 \quad \forall x \in A \quad \vert x - x_0 \vert < \delta \quad \vert f(x) - f(x_0) \vert < \varepsilon $
+\end{remark}
+\begin{defo}
+$f(x)$ називається \textbf{ріномірно неперервною} на $A$, якщо: \\
+$\forall x_0 \in A: \exists \varepsilon >0 \quad \exists \delta (\varepsilon) > 0 \quad \forall x \in A \quad \vert x - x_0 \vert < \delta(\varepsilon) \quad \vert f(x) - f(x_0) \vert < \varepsilon \\
+\text{Або:}\qquad \forall \varepsilon > 0 \quad \exists \delta(\varepsilon ) \quad \forall x_1, x_2 \in A \quad \vert x_1 - x_2 \vert < \delta(\varepsilon) \quad \vert f(x_1) - f(x_2) \vert < \varepsilon $
+\end{defo}
+\begin{teo}
+  Функція $f(x)$ - рівномірно неперервна на множині A,\\ тоді вона неперервна на цій множині А.
+\end{teo}
+\begin{proof}[Доведення]
+Дано: функція ріномірно неперервна на множині А:\\ $ \forall \varepsilon > 0 \quad \exists \delta(\varepsilon ) \quad \forall x_1, x_2 \in A \quad \vert x_1 - x_2 \vert < \delta(\varepsilon) \quad \vert f(x_1) - f(x_2) \vert < \varepsilon $.  Тоді: \\
+$\forall x_0 \in A: \exists \varepsilon >0 \quad \exists \delta (\varepsilon) > 0 \quad \forall x \in A \quad \vert x - x_0 \vert < \delta(\varepsilon) \quad \vert f(x) - f(x_0) \vert < \varepsilon \\$
+Тобто, $f(x)$ - неперервна на А.
+\end{proof}
+\begin{boxteo}[Теорема Кантера]
+$f(x) \in C([a,b]) $ (Неперервна на відрізку)\\ Тоді $ f(x)$ - рівномірно неперервна на $[a,b]$.
+\end{boxteo}
+\begin{proof}[Доведення]
+  Від супротивного: нехай $f(x)$ - не є рівномірно неперервною. \\
+  Тобто: $\exists  \varepsilon^\star : \forall \delta \quad  \exists x_{1\delta}, x_{2\delta} \in [a,b] \quad \vert x_{1\delta} - x_{2\delta} \vert < \delta \Rightarrow \vert f(x_{1\delta} = f(x_{2\delta})) \vert \geq  \varepsilon ^\star  $\\
+  Тоді розглянемо $\delta = \frac{1}{n} $: \quad
+  $x_{1\delta} = x_{1,n} \qquad x_{2\delta} = x_{2,n} $ - перепозначення.\\
+  $\lbrace x_{1,n}, n\geq 1 \rbrace$ - послідовність точок на $[a,b]$ - обмежена, тому: \\ $\exists \lbrace x_{1,n_{k_m}}, k\geq 1 \rbrace $ - збіжна: $a \leq x_{1,n_{k_m}} \leq b \Rightarrow  \lim\limits_{k\to  \infty}{x_{1,n_{k_m}}} =  x^{\star}_1 \in [a,b]$\\
+  Розглянемо підпослідовність $\lbrace x_{2,n}, n\geq 1 \rbrace$ - також обмежена, тому:\\ $\exists \lbrace x_{2,n_{k_m}}, k\geq 1 \rbrace $ - збіжна:
+  $a \leq x_{2,n_{k_m}} \leq b \Rightarrow  \lim\limits_{k\to  \infty}{x_{2,n_{k_m}}} =  x^{\star}_2 \in [a,b]$\\
+  Отримали: $\vert x_{1,n} - x_{2,n} \vert < \frac{1}{n} \Longrightarrow \vert x_{1,n_{k_m}} - x_{2,n_{k_m}} \vert < \frac{1}{n_{k_m}} $\\
+  Але за побудовою $x_{1,n}, x_{2,n} $  маємо протиріччя: $\vert f(x_{1,n_{k_m}}) - f(x_{2,n_{k_m}}) \vert \geq \varepsilon^\star $\\
+  $$f(x_{1,n_{k_m}}) \to f(x^\star) \qquad f(x_{2,n_{k_m}} \to f(x^\star)$$\\
+\end{proof}
+\pagebreak
+
+\section{Ряды}
+\begin{defo}
+  Рядом называется формальная бесконечная сумма поcледовательности чисел.
+  $$ a_1+ a_2+ a_3 + ... + a_n + ... = \text{або} =  \sum\limits_{n = 1}^{ \infty}{a_n}  $$
+
+\end{defo}
+\begin{defo}
+  Частичной суммой ряда  $\sum\limits_{n = 1}^{ \infty}{a_n}$ называется каждая конечная сумма k-слагаемых:
+  $ S_k =  \sum\limits_{n = 1}^{ k}{a_n}; $\\
+  Тоесть возникает послдовательность частичных сумм: $\lbrace S_k =  \sum\limits_{n = 1}^{k}{a_n}; k \in \mathbb{N} \rbrace $.
+\end{defo}
+\begin{defo}
+  Ряд $ \sum\limits_{n = 1}^{ \infty}{a_n} $ называется сходящимся, если последовательность его частичных сумм является сходящейся. Суммой сходящегося ряда $ \sum\limits_{n = 1}^{ \infty}{a_n} $ называется $\rho =  \lim\limits_{k\to  \infty}{S_k} $. Если последовательность частичных сумм расходится, то ряд называется расходящимся.
+\end{defo}
+
+\begin{example}-\\
+  1) $1-1+1-1+1+...$\\
+  $1+(-1+1)+(-1+1)+... = 0$\\
+  $
+  S_k = \Bigg[
+  \begin{gathered}
+    0 \quad k=2m\\
+    1 \quad k = 2m+1
+  \end{gathered}
+  $ - ряд не сходится.\\
+  2)  $ \sum\limits_{n = 1}^{ \infty}{a^n} = S_k = $ сумма геом. прогрессии = $ a\displaystyle\frac{1-a^k}{1-a} $\\
+  a) $ \quad a\neq 1 \quad  \lim\limits_{k\to  \infty}{a \displaystyle\frac{1-a^k}{1-a} } = \frac{a}{1-a} *  \lim\limits_{n\to  \infty}{1-a^n} = \Bigg[ \begin{gathered}
+    \frac{a}{1-a}, \vert a \vert < 1 - \text{сходится}\\
+    \nexists, \vert a \vert > 1 - \text{расходится}
+  \end{gathered} $
+  b)$\quad a = 1 \quad S_k = n \to \infty$ - расходится;\\
+  Вывод:\\
+  $ \sum\limits_{n = 1}^{ \infty}{a^n} - \Bigg[ \begin{gathered}
+    \quad\vert a \vert < 1 - \text{сходится}\\
+    \quad\vert a \vert \geq 1 - \text{расходится}
+  \end{gathered}$
+\end{example}
+\pagebreak
+\begin{boxteo}[Необходимый признак сходящегося ряда]
+  Задан\\ сходящийся ряд $ \sum\limits_{n = 1}^{ \infty}{a_n} $. Тогда $\exists  \lim\limits_{n\to  \infty}{a_n} = 0$.\\
+\end{boxteo}
+\begin{proof}
+ $$S_{k+1} =  \sum\limits_{n = 1}^{ k+1}{a_n};\quad S_k =  \sum\limits_{n = 1}^{ k}{a_n}  $$
+ $$S_{k+1} - S_k = a_{k+1}$$
+ $$ \lim\limits_{k\to  \infty}{a_{k+1}} =   \lim\limits_{k\to  \infty}{S_{k+1}- S_k} = (\text{Ряд сходится}) = S-S = 0$$
+ Таким образом, $ \lim\limits_{n\to  \infty}{a_n} = 0.$\\
+\end{proof}
+Применение. Задан ряд $ \sum\limits_{n = 1}^{ \infty}{a_n} $.
+Если $ \lim\limits_{n\to  \infty}{a_n} \neq 0$ - ряд расходящийся.\\
+Заметим, что $\exists  \lim\limits_{n\to  \infty}{a_n} = 0$ - неизвестно. Нужно дополнительное исследование.
+\begin{boxteo}[Критерий Коши] \qquad\qquad
+  Задан ряд $ \sum\limits_{n = 1}^{ \infty}{a_n} $. Ряд является сходящимся т.т.т.к. $\forall \varepsilon > 0 \quad \exists K \quad \forall k\geq K \quad \forall p \geq 1 \quad \vert \sum\limits_{n = k+1}^{k+p}{a_n}  \vert <\varepsilon  $\\
+
+\end{boxteo}
+\begin{proof}
+ $( \sum\limits_{n = 1}^{ \infty}{a_n} \text{- сходящийся}) \Leftrightarrow (\exists  \lim\limits_{k\to  \infty}{S_k} \neq \infty ) \Leftrightarrow $ Кр. Коши для последовательностей $ \Longleftrightarrow \Bigg(  \begin{gathered}
+   \forall \varepsilon > 0 \quad \exists K: \quad \forall k \geq K \quad \forall p\geq 1 \\
+   \vert S_{k+p} - S_k \vert < \varepsilon \quad (m = k+p; \vert S_m - S_k \vert < \varepsilon )
+ \end{gathered} \Bigg) \Longleftrightarrow \\ \Longleftrightarrow
+ \Bigg(  \begin{gathered}
+   \forall \varepsilon > 0 \quad \exists K: \quad \forall k \geq K \quad \\ \forall p\geq 1 \quad
+   \vert  \sum\limits_{n = 1}^{k+p}{a_n} -  \sum\limits_{n = 1}^{k}{a_n} \vert < \varepsilon
+ \end{gathered} \Bigg)
+ \Longleftrightarrow
+ \Bigg(  \begin{gathered}
+   \forall \varepsilon > 0 \quad \exists K: \quad \forall k \geq K \quad \\ \forall  p\geq 1 \quad
+   \vert  \sum\limits_{n = k+1}^{k+p}{a_n} \vert < \varepsilon
+ \end{gathered} \Bigg)
+ \\ $
+\end{proof}
+\pagebreak
+\subsection{Арифметика рядов}
+\begin{boxteo}[Арифметика рядов]
+Если ряды $ \sum\limits_{n = 1}^{ \infty}{a_n}\quad $ и $ \sum\limits_{n = 1}^{ \infty}{b_n} $ сходящиеся, то сходящимися являются:\\
+  1) $\forall \alpha \in \mathbb{R} \quad  \sum\limits_{n = 1}^{ \infty}{\alpha \cdot a_n} =   \alpha \cdot \sum\limits_{n = 1}^{ \infty}{a_n}; $\\
+  2) $  \sum\limits_{n = 1}^{ \infty}{(a_n + b_n)} =  \sum\limits_{n = 1}^{ \infty}{a_n} +  \sum\limits_{n = 1}^{ \infty}{b_n}; $\\
+
+ \end{boxteo}
+\begin{proof}
+2) $S_k(a) =  \sum\limits_{n = 1}^{k}{a_n}; \quad S_k(b) =  \sum\limits_{n = 1}^{k}{b_n}; \quad S_k(a+b) =  \sum\limits_{n = 1}^{k}{(a_n + b_n)};$\\
+$$S(a+b) =  \sum\limits_{n = 1}^{ \infty}{a_n + b_n} =  \lim\limits_{k\to  \infty}{S_k(a+b)} =  \lim\limits_{k\to  \infty}{S_k(a)} +$$$$+  \lim\limits_{k\to  \infty}{S_k(b)} = S(a) + S(b) =  \sum\limits_{n = 1}^{ \infty}{a_n}+  \sum\limits_{n = 1}^{ \infty}{b_n}  $$
+\end{proof}
+
+ \begin{boxteo}
+ ``Хвост'' ряда $ \sum\limits_{n = 1}^{ \infty}{a_n}$ - это ряд $ \sum\limits_{n = m}^{ \infty}{a_n}$, где $ m \in \mathbb{N} $.\\
+
+  Ряд $ \sum\limits_{n = 1}^{ \infty}{a_n} $ - сходящийся т.т.т.к. сходится ``хвост'' ряда, тоесть $ \sum\limits_{n = m}^{ \infty}{a_n} $.
+\end{boxteo}
+\begin{proof}
+ $$ \sum\limits_{n = 1}^{ \infty}{a_n} \text{ - сходящийся}  \Longleftrightarrow $$
+ $$ \Longleftrightarrow \text{Критерий Коши}\quad  \Bigg( \forall \varepsilon >0\quad \exists K \quad
+ \forall k \geq K  \quad\forall p\geq 1 \quad \Bigg\vert   \sum\limits_{n = k+1}^{k+p}{a_n}  \Bigg\vert  < \varepsilon   \Bigg) \Longleftrightarrow $$
+
+ $$\Longleftrightarrow
+ \Bigg( \forall \varepsilon > 0 \quad
+ \exists \tilde{K} = \max(K,m) \quad \forall k\geq \tilde{K} \quad \forall p\geq 1 \quad  \Bigg\vert  \sum\limits_{n = k+1}^{k+p}{a_n} \Bigg\vert < \varepsilon  \Bigg) \Longleftrightarrow $$
+
+ $$ \Longleftrightarrow \text{Критерий Коши}\quad  \Bigg(  \sum\limits_{n = m}^{ \infty}{a_n} - \text{сходящийся.}  \Bigg)$$
+
+
+\end{proof}
+\subsection{Знакоположительные ряды}
+$$ \sum\limits_{n = 1}^{ \infty}{a_n} \quad a_n \geq 0 \quad \forall n\geq 1$$
+\begin{statement}
+  Задан знакоположительный ряд:
+  $ \sum\limits_{n = 1}^{ \infty}{a_n} \quad a_n \geq 0 \quad \forall n\geq 1$.\\ Тогда $\{ S_k; k\geq 1 \}$ - монотонная, неубывающая последовательность.\\
+
+\end{statement}
+
+\begin{proof}
+ $\forall k\geq 1 : \quad S_{k+1} - S_k = a_{k+1} \geq 0 \Rightarrow S_{k+1} \geq S_k $\\
+\end{proof}
+
+\begin{statement}
+Задан знакоположительный ряд:
+$ \sum\limits_{n = 1}^{ \infty}{a_n} \quad a_n \geq 0 \quad \forall n\geq 1$.\\
+Если $\exists M\geq 0 \quad \forall k\geq 1 \quad S_k\leq M$, то ряд $ \sum\limits_{n = 1}^{ \infty}{a_n} $ - сходящийся.
+\end{statement}
+\begin{proof}
+ Утв.1 $\Longrightarrow \lbrace S_k, k\geq 1 \rbrace  $ - не убывает.\\
+ Условие  $\Longrightarrow \forall k\geq 1 \quad 0\leq S_k \leq M $.
+ Следовательно, $ \lim\limits_{k\to  \infty}{S_k} \neq \infty $.\\
+\end{proof}
+
+\begin{boxteo}(Признак сходимости знакоположительных рядов)\\
+Заданны ряды $ \sum\limits_{n = 1}^{ \infty}{a_n} $ и $
+               \sum\limits_{n = 1}^{ \infty}{b_n} $
+такие, что $\exists N \in \mathbb{N} \quad \forall n\geq N \quad 0\leq  a_n\leq b_n$.\\ Тогда:
+a) Если ряд $ \sum\limits_{n = 1}^{ \infty}{b_n} - $ сходящийся, то ряд $ \sum\limits_{n = 1}^{ \infty}{a_n} -$ сходящийся.\\
+b) Если ряд $ \sum\limits_{n = 1}^{ \infty}{a_n} -$  - расходящийся, то ряд $ \sum\limits_{n = 1}^{ \infty}{b_n} -$ расходящийся.
+\end{boxteo}
+
+\begin{proof}
+  a) $ \sum\limits_{n = 1}^{ \infty}{b_n} $ - сходится.\\ Рассмотрим ряды:
+  $ \sum\limits_{n = N}^{ \infty}{a_n};\quad  \sum\limits_{n = N}^{ \infty}{b_n};$ \quad
+  $ \sum\limits_{n = N}^{ \infty}{b_n} -$ сходится как ``хвост'' ряда. \\
+  $\tilde{S_k}(a) =  \sum\limits_{n = N}^{k}{a_n} - $ частичная сумма ряда $ \sum\limits_{n = N}^{ \infty}{a_n} $; $\tilde{S_k}(b) - $ частичная сумма $ \sum\limits_{n = N}^{ \infty}{b_n} $;\\
+  1) Поскольку $\forall n \geq N \quad a_n\leq b_n$,
+   то $\forall k\geq N :  \tilde{S_k}(a) \leq \tilde{S_k}(b). \\
+   2) \lbrace \tilde{S_k}(b), k\geq N \rbrace $ - монотонная, неуб. посл. $\Longrightarrow  \lim\limits_{k\to  \infty}{\tilde{S_k}(b)} = \sup\limits_{k\geq  N}{\tilde{S_k}(b)} \neq \infty $\\
+   Таким образом, $\exists \tilde{S}(b) : \forall k\geq N \quad \tilde{S_k}(b) \leq \tilde{S_k}(b).$\\
+   Отсюда,
+$  \begin{gathered}
+ \forall k\geq N:  \tilde{S_k}(a) \leq \tilde{S_k}(b) \text{ - огр. сверху}\\
+ \lbrace \tilde{S_k}(a), k\geq N \rbrace  \text{- монотонная, неуб. посл.}\\
+   \end{gathered} $ \Bigg)
+ $\Longrightarrow \exists  \lim\limits_{ k \to  \infty }{\tilde{S_k}(a)} $\\
+ Таким образом, ряд $ \sum\limits_{n = N}^{ \infty}{a_n} $ сходится, а значит ряд $ \sum\limits_{n = 1}^{ \infty}{a_n} - $ сходится\\
+ б) Если $ \sum\limits_{n = 1}^{ \infty}{a_n} $ - расходится, то из а) $\Longrightarrow  \sum\limits_{n = 1}^{ \infty}{b_n} - $ расходится.\\
+
+\end{proof}
+
+\begin{boxteo}[Признак сравнения в пределах]
+Заданы ряды:\\ $ \sum\limits_{n = 1}^{ \infty}{a_n},  \sum\limits_{n = 1}^{ \infty}{b_n}  $, такие, что \quad $\forall n\geq 1\quad a_n\geq 0\quad b_n\geq 0 $ и $\exists  \displaystyle\lim\limits_{n\to  \infty}{ \frac{a_n}{b_n}  } = l\quad$.
+Тогда:\\ а) Если $l \neq 0, l \neq \infty$ то оба ряда сходятся, или расходятся одновременно.\\
+b) $l = 0 \Rightarrow $ из сходимости $ \sum\limits_{n = 1}^{ \infty}{b_n} $ следует сходимость $ \sum\limits_{n = 1}^{ \infty}{a_n} $
+
+\end{boxteo}
+\begin{proof}
+ a) $\exists  \lim\limits_{n\to  \infty}{ \frac{a_n}{b_n}  } = l$ поскольку $a_n \geq 0, b_n \geq  0 \text{, то } l > 0$. \\
+ $$\forall \varepsilon  >0 \quad \exists N : \forall n\geq N \quad \vert \frac{a_n}{b_n}  - l \vert < \varepsilon  $$
+ Рассмотрим $\varepsilon = l/2$: \quad $\forall n\geq N: \frac{l}{2}  < \frac{a_n}{b_n} < \frac{3l}{2}  $. Или $ \frac{1}{2}l b_n < a_n < \frac{3}{2} l b_n  $.\\
+ Далее по признаку сравнения в неравенствах:\\
+ Если $ \sum\limits_{n = 1}^{ \infty}{b_n}$ - расходится $ \Longrightarrow \sum\limits_{n = 1}^{ \infty}{ \frac{1}{2}l b_n } -$ расходится $\Longrightarrow$  $ \sum\limits_{n = 1}^{ \infty}{a_n}$ - расходящийся.\\
+ Если $ \sum\limits_{n = 1}^{ \infty}{b_n}$ - сходится  $\Longrightarrow \sum\limits_{n = 1}^{ \infty}{ \frac{3}{2}l b_n } -$ сходится $\Longrightarrow$  $ \sum\limits_{n = 1}^{ \infty}{a_n}$ - сходящийся.\\
+ Если $ \sum\limits_{n = 1}^{ \infty}{a_n} -$ сходится $\Longrightarrow  \sum\limits_{n = 1}^{ \infty}{ \frac{1}{2}l b_n } - $ сходится $\Longrightarrow  \sum\limits_{n = 1}^{ \infty}{b_n} - $ сходящийся.\\
+ Если $ \sum\limits_{n = 1}^{ \infty}{a_n} -$ расходится $\Longrightarrow  \sum\limits_{n = 1}^{ \infty}{ \frac{3}{2}l b_n } - $ расходится $\Longrightarrow  \sum\limits_ {n = 1}^{ \infty}{b_n} - $ расходящийся.\\
+ b) $\exists  \lim\limits_{n\to  \infty}{ \frac{a_n}{b_n}  } =  0 = l$ $\Longleftrightarrow (\forall \varepsilon >0 \quad \exists N : \forall n\geq N \quad \vert \frac{a_n}{b_n}  \vert < \varepsilon  )$.\\
+ Рассмотрим $\varepsilon = 1$: \quad $ 0\leq a_n < b_n \Longrightarrow $ По признаку сравнения в неравенствах:\\
+  Из сходимости ряда $ \sum\limits_{n = 1}^{ \infty}{b_n}$ следует сходимость ряда $ \sum\limits_{n = 1}^{ \infty}{a_n}$. Ч.и.т.д. \\
+
+\end{proof}
+
+
+
+
+\end{document}

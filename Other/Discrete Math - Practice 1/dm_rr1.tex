@@ -1,0 +1,183 @@
+\documentclass[14pt,a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{misccorr,color,ragged2e,amsfonts,amsthm,graphicx,systeme,amsmath,mdframed,lipsum}
+\renewcommand\qedsymbol{$\blacksquare$}
+\renewcommand*{\proofname}{\text{Доведення}}
+\theoremstyle{definition}
+\newtheorem{defo}{Означення}[section]
+\newtheorem*{teo}{Теорема}
+\newtheorem*{example}{Приклад}
+\theoremstyle{remark}
+\newtheorem*{remark}{Зауваження}
+\theoremstyle{definition}
+\newtheorem*{consequence}{Наслідок}
+\theoremstyle{definition}
+\newtheorem{statement}{Утверждение}[section]
+\newmdtheoremenv{boxteo}{Теорема}[section]
+\setlength\parindent{0pt}
+\begin{document}
+
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+
+\def\bd{\begin{defo}}
+\def\ed{\end{defo}}
+
+\def\bbt{\begin{boxteo}}
+\def\ebt{\end{boxteo}}
+
+2.b)\\
+Скористуємося методом Квайна - Мак-Класкі. Випишемо кон'юнкти ДДНФ.
+1. 1110\\
+2. 1101\\
+3. 1011\\
+---------------\\
+4. 1100\\
+5. 1010\\
+6. 1001\\
+7. 0110\\
+8. 0101\\
+Застосуємо закон неповного склеювання:\\
+9. 11-0 (1, 4)\\
+10. 110- (2, 4)\\
+11. 1-10 (1, 5)\\
+12. -110 (1, 7)\\
+13. 1-01 (2,6)\\
+14. -101 (2, 8)\\
+15. 101- (3, 5)\\
+16. 10-1 (3, 6)\\
+Далі скористаємося законом поглинання. Вилучимо кон'юнкти 1-8. Тобто задана функція $f$ має таку скорочену ДНФ:\\
+$(x_1 \wedge x_2 \wedge \overline{x_4})\vee (x_1 \wedge x_2 \wedge \overline{x_3}) \vee (x_1 \wedge x_3 \wedge \overline{x_4}) \vee (x_2 \wedge x_3 \wedge \overline{x_4}) \vee (x_1 \wedge \overline{x_3} \wedge x_4) \vee (x_2 \wedge \overline{x_3} \wedge x_4) \vee (x_1 \wedge \overline{x_2} \wedge x_3) \vee (x_1 \wedge \overline{x_2} \wedge x_4)$\\
+Далі складемо імлікантну таблицю, визначимо ядро та побудуємо спрощену імплікантну таблицю.\\
+
+Ядровими імплікантами є $-110$ та $-101$.\\ Відповідні кон'юнкти:
+$(x_2 \wedge x_3 \wedge \overline{x_4})$
+та
+$(x_2 \wedge \overline{x_3} \wedge x_4)$.
+Викреслимо необхідні строки та стовбці. В результаті отримаємо спрощену імлікантну таблицю.\\
+\pagebreak
+\\
+Випишемо у вигляді формули алгебри висловлень умову \\коректності тупикової ДНФ: $$
+(A+B)\&(C+E)\&(D+F)\&(E+F) = (AC + BC + AE + BE)(F + DE) =$$ $$= ACF + BCF + AEF + BEF + ACBE + BCDE + BDE + ADE = $$ $$ = \textbf{скористуємося законом поглинання} =$$ $$ =
+ACF + BCF + AEF + BEF + BDE + ADE
+$$
+Цей запис означає існування 6-ти тупикових форм. Переведемо:\\
+$$A = (x_1 \wedge x_2 \wedge \overline{x_4})$$
+$$B = (x_1 \wedge x_2 \wedge \overline{x_3})$$
+$$C = (x_1 \wedge x_3 \wedge \overline{x_4})$$
+$$D = (x_1 \wedge \overline{x_3} \wedge x_4)$$
+$$E = (x_1 \wedge \overline{x_2} \wedge x_3)$$
+$$F = (x_1 \wedge \overline{x_2} \wedge x_4)$$
+
+Випишемо отримані тупикові ДНФ:\\
+1. $(x_1 \wedge x_2 \wedge \overline{x_4}) \vee (x_1 \wedge x_3 \wedge \overline{x_4}) \vee (x_1 \wedge \overline{x_2} \wedge x_4) \vee
+(x_2 \wedge x_3 \wedge \overline{x_4}) \vee (x_2 \wedge \overline{x_3} \wedge x_4) $
+2. $  (x_1 \wedge x_2 \wedge \overline{x_3}) \vee (x_1 \wedge x_3 \wedge \overline{x_4}) \vee (x_1 \wedge \overline{x_2} \wedge x_4) \vee
+(x_2 \wedge x_3 \wedge \overline{x_4}) \vee (x_2 \wedge \overline{x_3} \wedge x_4) $
+3. $ (x_1 \wedge x_2 \wedge \overline{x_4}) \vee (x_1 \wedge \overline{x_2} \wedge x_3) \vee (x_1 \wedge \overline{x_2} \wedge x_4) \vee
+(x_2 \wedge x_3 \wedge \overline{x_4}) \vee (x_2 \wedge \overline{x_3} \wedge x_4) $
+4. $ (x_1 \wedge x_2 \wedge \overline{x_3}) \vee (x_1 \wedge \overline{x_2} \wedge x_3) \vee (x_1 \wedge \overline{x_2} \wedge x_4) \vee
+(x_2 \wedge x_3 \wedge \overline{x_4}) \vee (x_2 \wedge \overline{x_3} \wedge x_4)$
+5. $(x_1 \wedge x_2 \wedge \overline{x_3}) \vee(x_1 \wedge \overline{x_3} \wedge x_4) \vee (x_1 \wedge \overline{x_2} \wedge x_3) \vee
+(x_2 \wedge x_3 \wedge \overline{x_4}) \vee (x_2 \wedge \overline{x_3} \wedge x_4)$
+6. $(x_1 \wedge x_2 \wedge \overline{x_4}) \vee(x_1 \wedge \overline{x_3} \wedge x_4) \vee (x_1 \wedge \overline{x_2} \wedge x_3) \vee
+(x_2 \wedge x_3 \wedge \overline{x_4}) \vee (x_2 \wedge \overline{x_3} \wedge x_4)$\\
+Отримані тупикові ДНФ повністю збігаються з результатом, отриманим за методом карт Картно - 6 тупикових ДНФ по 5 кон'юнктів.
+\pagebreak\\
+1. Дослідимо на належність основним функціонально-замкненим класам функцію $f_1 (x, y, z) = \left( \overline{x} \rightarrow \overline{y} \right) \vee \overline{z} = (x \vee \overline{y}) \wedge \overline{z}.$
+$$
+f_1(0, 0, 0) = 1; \quad f_1(1, 1, 1) = 0 \Longrightarrow \begin{gathered}
+ f_1 \notin T_1;\\
+ f_1 \notin T_0;\\
+ f_1 \notin M;\\
+\end{gathered}
+$$
+Обчислимо двоїсту функцію до $f_1:$
+$$f_1^*(x,y,z) = (x \wedge \overline{y}) \vee \overline{z} $$
+$f^*_1(1, 0, 1) = 1 \neq f_1(0, 0, 0)$, отже $f_1 \notin S$.\\
+Обчислимо поліном Жегалкіна. Отримаємо, функція не є лінійною $f_1 \notin L$:\\
+$$
+f_1(x, y, z) = \overline{(\overline{x} \wedge y) }\wedge \overline{z} =
+(1 \oplus(1 \oplus x)y)(1\oplus z) = 1 \oplus y \oplus z \oplus xy \oplus xz \oplus xyz
+$$
+2. Дослідимо на належність основним функціонально-замкненим класам функцію
+$f_2(x, y, z) = (\overline{x} \leftrightarrow \overline{y}) \oplus (\overline{x} \land z) = 1 \oplus x \oplus y \oplus (z \land (1\oplus x)) =
+\mathbf{1 \oplus x \oplus y \oplus z \oplus (x \land z)}
+$
+$$
+f_2(0, 0, 0) = 1; \quad f_2(1, 1, 1) = 1; \quad f_2(1,0,1) = 0; \Longrightarrow \begin{gathered}
+ f_2\notin T_0;\\
+ f_2 \in T_1;\\
+ f_2 \notin M;
+\end{gathered}
+$$
+Обчислимо двоїсту функцію до $f_2:$
+$$f_2^*(x,y,z) = \overline{1 \oplus \overline{x} \oplus \overline{y} \oplus \overline{z} \oplus (\overline{x} \land \overline{z})} =
+1 \oplus x \oplus 1 \oplus 1 \oplus 1 \oplus y \oplus z \oplus x \oplus (x \land z)=
+$$
+$$ = y \oplus (x \land z) \quad | \quad f^*_2 (0,0,0) = 0 \neq f_2(0,0,0) \Longrightarrow f_2 \notin S $$
+Обчислимо поліном Жегалкіна. Отримаємо, функція не є лінійною $f_2 \notin L$:
+$$f_2 (x,y,z) = 1 \oplus x\oplus y\oplus z \oplus xz$$
+3. Дослідимо на належність основним функціонально-замкненим класам\\ функцію
+$f_3(x, y, z) = \overline{x} \land \overline{y} \land z$;\\
+$$f_3(0,0,0) = 0; \quad f_3(1,1,1) = 0; \quad f(0,0,1) = 1 \Longrightarrow \begin{gathered}
+ f_3 \notin T_1\\
+ f_3 \in T_0\\
+ f_3 \notin M
+\end{gathered}
+$$
+Обчислимо двоїсту функцію до $f_3:$
+$$f_3^*(x,y,z) = \overline{x \land y \land \overline{z}} = \overline{x} \lor \overline{y} \lor z \Longrightarrow f_3^*(0,0,0) = 1 \neq  f_3(0,0,0)\Longrightarrow f_3 \notin S
+$$
+Обчислимо поліном Жегалкіна. Отримаємо, функція не є лінійною $f_3 \notin L$:
+$$f_3 (x,y,z) = (x \oplus 1)(y\oplus 1)z = z \oplus xz \oplus yz \oplus xyz$$
+\pagebreak\\
+Заповнимо таблицю Поста для заданого набору фунцій:\\
+$$\begin{gathered}
+ \textbf{Функція} \\
+ (x \wedge \overline{y}) \vee \overline{z} \\
+ (\overline{x} \leftrightarrow \overline{y}) \oplus (\overline{x} \land z)\\
+ \overline{x} \land \overline{y} \land z
+\end{gathered}
+\left|
+\quad
+\begin{gathered}
+T_0\\
+-\\
+-\\
++
+\end{gathered}
+\quad
+\begin{gathered}
+ T_1\\
+ -\\
+ +\\
+ -
+\end{gathered}
+\quad
+\begin{gathered}
+ M\\
+ -\\
+ -\\
+ -
+\end{gathered}
+\quad
+\begin{gathered}
+ S\\
+ -\\
+ -\\
+ -
+\end{gathered}
+\quad
+\begin{gathered}
+ L\\
+ -\\
+ -\\
+ -
+\end{gathered}
+\quad
+ \right|
+$$Отже, для кожного з п'яти основних функціонально-замкнених класів існує принаймі одна функція з набору К, яка цьому класу не належить.\\
+\textbf{Таким чином, за теоремою Поста набір К є функціонально повним.}
+\end{document}

@@ -29,7 +29,7 @@ $$
 \subsubsection{Дискретний вектор}
 $$
 \begin{gathered}
-\includegraphics[scale=0.2]{images/14.png}
+\includegraphics[scale=0.16]{images/14.png}
 \end{gathered}\qquad\quad
 \begin{gathered}
 \text{Розподіли } \xi_2 \text{ за } \xi_1\\
@@ -39,7 +39,7 @@ $$
 $$
 
 \begin{center}
-\textbf{Умовний ряд розподілу }\includegraphics[scale=0.3]{images/20.png} \end{center}
+\includegraphics[scale=0.28]{images/20.png} \end{center}
 $$
 \mathbb{E}(\xi_2 | \xi_1 = x_i)  =  \sum\limits_{j = 1}^{ n}{ y_j \mathbb{P} \left\lbrace \xi_2 = y_j | \xi_1 = x_i \right\rbrace } =  \sum\limits_{j = 1}^{n}{ y_{j} \cdot \frac{p_{ij} }{  \sum\limits_{k = 1}^{ n}{p_{ik}}}}= \frac{  \sum\limits_{j = 1}^{ n}{ y_j p_{ij}}}{  \sum\limits_{j = 1}^{n}{ p_{ij}}}
 $$
@@ -54,12 +54,6 @@ $$
 \mathbb{E}(\xi_2| \xi_1)
 \end{gathered}
 $$
-$
-\mathbb{E} (\xi_2 | \xi_1)
-$ - умовне математичне сподівання $\xi_2$ за умови, що $\xi_1$ набула деяке своє значення $(x_1 \lor x_2 \lor ... \lor x_m)$
-\begin{center}
-	Формула повного математичного сподівання
-\end{center}
 $$
 \mathbb{E}[ \mathbb{E} (\xi_2 | \xi_1)] =
 \frac{  \sum\limits_{j = 1}^{n}  {y_j \cdot p_{1j}} }   {  \sum\limits_{j = 1}^{ n}{ p_{1j}}} \cdot  \sum\limits_{j = 1}^{ n}{ p_{1j}}+ ... +
@@ -106,3 +100,79 @@ $\mathbb{E}(\xi_2| \xi_1)$ - набуває значення $ \mathbb{E}(\xi_2 
 $$\xi_1 \longrightarrow x \Rightarrow \mathbb{E}(\xi_2 | \xi_1) \longrightarrow \mathbb{E}(\xi_2 | \xi_1 = x)$$
 $ \mathbb{E}(\xi_2 | \xi_1)$ є функцією від $\xi_1$. Якою? $ \mathbb{E}(\xi_2 | \xi_1 = x)$\\
 $ \mathbb{E} (\xi_2 | \xi_1 ) = \Psi (\xi_1)$, де $ \Psi(x) = \mathbb{E}( \xi_2 | \xi_1 = x)$
+
+\begin{center}
+	Формула повного математичного сподівання (?$\mathbb{E}[\mathbb{E}(\xi_2 | \xi_1)] = \mathbb{E}\xi_2$?)
+\end{center}
+$$\mathbb{E}[\mathbb{E}(\xi_2 | \xi_1)] = \mathbb{E}\Psi  (\xi_2) =  \int\limits_{-\i}^{ +\infty}{\Psi(x) \cdot f_{\xi_1} (x)dx} =  \int\limits_{-\i}^{ +\infty}{
+\frac{
+\int\limits_{-\i}^{ +\infty}{ y \cdot f_{\overline{\xi}}(x,y)}dy}{ f_{\xi_1} (x)} \cdot f_{\xi_1} (x) dx} = \mathbb{E} \xi_2$$
+
+\section{Характеристичні функції}
+
+$\xi$ - випадкова величина. Загальна характеристика такої величини - функція розподілу. Існує для кожної величинию. Також є характеристики, такі як ряд розподілу та щільність розподілу - існують не завжди. Введемо ще одну характеристику, яка буде існувати для будь-якої випадкової величини.\\
+\bd
+\textbf{Характеристична функція випадкової величини.}
+$$
+\chi_ \xi (t) = \mathbb{E}(\cos{(t \xi)} + i \sin{(t \xi)}   ) =  \mathbb{E}( e^{ it \xi})
+$$
+\begin{center}
+	\fbox{$ X_ \xi : \mathbb{R} \rightarrow \mathbb{C}$}
+\end{center}
+\ed
+Як шукати? Дискретний випадок: $  \sum\limits_{i = 1}^{ n(\infty)}{ e^{itx_i}p_i}$\\
+Для абсолютно неперервної величини: $  \int\limits_{-\i}^{ +\infty}{ e^{itx}f_ \xi (x)dx}$
+
+\subsection{Властивості характеристичних функцій}
+
+$\xi$ - випадкова величина. $\chi_ \xi(t) = \mathbb{E} e^{et \xi} =  \int\limits_{-\i}^{ +\infty}{ e^itx f_{\xi}(x)dx}$\\
+
+1. Характеристична функція є унікальною характеристикою ймовірнісного розподілу.\\
+2. $ \chi_{\xi} (0) = 1  \qquad \chi_{\xi} (0) =  \mathbb{E} e^0 = 1$.\\
+3. $	\left| \chi_ \xi (t)\right| \leq 1 \quad \forall t \in \mathbb{R}$
+$$
+\left| \mathbb{E} e^{it \xi} \right| = \left| \mathbb{E}\cos{(t \xi)} + i \mathbb{E} \sin{(t \xi)}   \right| = \sqrt{
+\mathbb{E} \cos{(t \xi)}^2 + \mathbb{E} \sin{(t \xi)}^2
+}  = 1
+$$
+4. $\chi_ \xi$ - неперервна за $t$ для $\xi$ - абсолютно неперервна випадкова величина.
+$$
+\chi_ {\xi} (t) =  \int\limits_{-\i}^{ +\infty}{ e^{itx} f_{\xi} (x) dx}
+\quad \longleftarrow \quad
+\chi_ {\xi} (t+h) =  \int\limits_{-\i}^{ +\infty}{ e^{i(t+h)x} f_{\xi} (x) dx}
+$$
+$$
+(\chi_{\xi} - \text{ непервна в т. } t ) \Longleftrightarrow  \lim\limits_{h\to0}{ \chi_ \xi (t+h) } = \chi_{\xi} (t)
+$$
+Для $
+ \lim\limits_{h\to  0}{  \int\limits_{-\i}^{ +\infty}{ e^{i(t+h)x} f_{\xi}(x)}dx} =  \int\limits_{-\i}^{ +\infty}{ e^{itx} f_ \xi(x) dx}
+$, треба щоб $  \int\limits_{ -\i}^{ +\infty}{e^{itx}f_ \xi (x)dx}$ збігався рівномірно на $t \in \mathbb{R}$. $ \left| e^{itx} \cdot f_{\xi}(x) \right| = \left| f_{\xi}(x) \right| = f_{\xi}(x) = M(x) $- мажорантний ряд.\\
+$$
+ \int\limits_{-\i}^{ +\infty}{ M(x) dx } =  \int\limits_{-\i}^{ +\infty}{f_{\xi}(x)dx } = 1 < \i
+$$
+$
+ \int\limits_{-\i}^{ +\infty}{ e^{itx} f_{\xi} (x) dx }
+$ - збігається рівномірно за озн. Вейерштрасса.\\
+5. $ \xi_1 \independent \xi_2 \Longrightarrow \chi_{\xi_1 + \xi_2} (t) = \chi_ {\xi_1} (t) \cdot  \chi_ {\xi_2} (t) $\\
+6. Якщо $ \exists \mathbb{E} \xi^n$, то $\mathbb{E} \xi^n = \frac{1}{i^n}\cdot \chi^{(n)}_ \xi (0) $.
+\begin{proof} В неперервному випадку.
+$$
+\mathbb{E} \xi^n =  \int\limits_{-\i}^{ +\infty}{x^n \cdot f_ {\xi} (x)dx}
+$$
+$$
+\chi (t) = \mathbb{E} e^{it \xi} =  \int\limits_{-\i}^{ +\infty}{ e^{itx} f_ \xi(x) dx}
+$$
+$$
+\chi^{(n)}(t) =  \int\limits_{-\i}^{ +\infty}{ (ix)^n e^{itx} f_ \xi  (x) dx}
+$$
+Але потрібна рівномірна збіжність. Скористаємося озн. Вейерштрасса:
+$$
+\left| (ix)^n e^{itx} f_ \xi  (x)  \right| = \left| x \right|^n \cdot f_ \xi (x) = M(x):
+$$
+$$
+ \int\limits_{-\i}^{ +\infty}{ M(x)dx} =  \int\limits_{-\i}^{ +\infty}{ \left| x \right|^n \cdot f_{\xi}(x)dx < \i }
+$$
+$$
+\chi^{(n)}(0) = i^n  \int\limits_{-\i}^{ +\infty}{ x^n \cdot f_{\xi} (x)dx} = i^n \cdot \mathbb{E}(\xi^n)
+$$
+\end{proof}

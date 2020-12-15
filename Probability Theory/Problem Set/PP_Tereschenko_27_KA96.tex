@@ -962,14 +962,14 @@ $$
 
 Координатну площину $XOY$ розіб’ємо на області $D_1, D_2,..., D_{14}$.
 
-\begin{center} \includegraphics[scale=0.5]{assets/fixobl0.png}
+\begin{center} \includegraphics[scale=0.35]{assets/fixobl0.png}
 \end{center}
 1. $D_0 = \left\lbrace (x,y) \Bigg| \begin{gathered}
  (x\leq -1)  \lor \left( (x \leq  -\sqrt{1 - y^2}) \land (y \leq  -\sqrt{1-x^2}) \right) \lor \\
  \lor \left( (0 \leq x \leq 1 )\land ( -2  \leq y \leq -1) \right) \lor (y \leq -2)
 \end{gathered} \right\rbrace $\\
 2. $D_1 = \left\lbrace (x,y) \big| \begin{gathered}
-(y\leq 0) \land (x^2 + y^2 < 1)
+(x\leq 0) \land (x^2 + y^2 < 1)
 \end{gathered} \right\rbrace $\\
 3.  $D_2 = \left\lbrace (x,y) \big| \begin{gathered}
 \left( (-1<x\leq 0) \land (1<y) \right)
@@ -978,8 +978,282 @@ $$
 4.  $D_3 = \left\lbrace (x,y) \big| \begin{gathered}
 ( 0 < x \leq 1) \land (-1 < y \leq 1)
 \end{gathered} \right\rbrace $\\
-\end{document}
 5. $D_4 = \left\lbrace (x,y) \big| \begin{gathered}
-( 0 < x \leq 1) \land (-1 < y \leq 1)
+( 0 < x \leq 1) \land (1 < y )
 \end{gathered} \right\rbrace $\\
+6. $D_5 = \left\lbrace (x,y) \big| \begin{gathered}
+\left( (x-1)^2 + y^2 < 2 \right) \land ( y \leq -1 ) \land (x >1)
+\end{gathered} \right\rbrace $\\
+7. $D_6 = \left\lbrace (x,y) \big| \begin{gathered}
+(-2 < y \leq  -1) \land \left( (x-1)^2 + y^2 \geq 2 \right) \land (x > 1)
+\end{gathered} \right\rbrace $\\
+8. $D_7 = \left\lbrace (x,y) \big| \begin{gathered}
+\left( (x-1)^2 + y^2 < 2 \right) \land (-1< y \leq 1 ) \land (x >1)
+\end{gathered} \right\rbrace $\\
+9. $D_8 = \left\lbrace (x,y) \big| \begin{gathered}
+\left( (-1 < y \leq  0) \land \left( (x-1)^2 + y^2 \geq 2 \right) \land (x > 1) \right) \\ \lor
+\left( (3 < x ) \land (0 <y \leq 1)  \right)
+\end{gathered} \right\rbrace $\\
+10. $D_9 = \left\lbrace (x,y) \big| \begin{gathered}
+(1 < y \leq  2) \land \left( (x-1)^2 + y^2 \geq 2 \right) \land (x > 1)
+\end{gathered} \right\rbrace $\\
+11. $D_{10} = \left\lbrace (x,y) \big| \begin{gathered}
+( 1 < x \leq 3) \land (2 < y )
+\end{gathered} \right\rbrace $\\
+12. $D_{11} = \left\lbrace (x,y) \big| \begin{gathered}
+(0 < y \leq  1) \land \left( (x-1)^2 + y^2 \geq 2 \right) \land (0 < x \leq 3)
+\end{gathered} \right\rbrace $\\
+13. $D_{12} = \left\lbrace (x,y) \big| \begin{gathered}
+(1 < y \leq  2) \land \left( (x-1)^2 + y^2 \geq 2 \right) \land (0 < x \leq 3)
+\end{gathered} \right\rbrace $\\
+14. $D_{13} = \left\lbrace (x,y) \big| \begin{gathered}
+\left( (3 < x ) \land (1 <y \leq 2)  \right)
+\end{gathered} \right\rbrace $\\
+15. $D_{14} = \left\lbrace (x,y) \big| \begin{gathered}
+\left( (3 < x ) \land (2<y)  \right)
+\end{gathered} \right\rbrace $\\
+
+\newpage
+
+1. $(x,y) \in D_0$
+\begin{center} \includegraphics[scale=0.4]{assets/zone10.png} \end{center}
+$$
+\Fx (x,y) = 0
+$$
+Перевірка:
+$\dfrac{\d^2 \Fx}{\d x \d y}(x,y) = 0  = \fx (x,y)$
+\newpage
+2. $(x,y) \in D_1$
+\begin{center} \includegraphics[scale=0.4]{assets/zone21.png} \end{center}
+$$
+\Fx (x,y) =  \frac{1}{2.5\pi + 2} \cdot  \int\limits_{-\sqrt{1- x^2}}^{y}{ds  \int\limits_{-\sqrt{1-s^2}}^{x}{dt}} =   \int\limits_{-\sqrt{1- x^2}}^{y}{x+\sqrt{1-s^2}ds  } =
+$$
+$$
+=\frac{1}{2.5\pi + 2} \cdot \dfrac{\arcsin\left(y\right)+y\sqrt{1-y^2}+2xy+\arcsin\left(\sqrt{1-x^2}\right)+3x\sqrt{1-x^2}}{2}
+$$
+Перевірка:\\
+$\dfrac{\d^2 \Fx}{\d x \d y}(x,y) = \dfrac{\d^2}{\d x \d y} \left( \dfrac{\arcsin\left(y\right)+y\sqrt{1-y^2}+2xy+\arcsin\left(\sqrt{1-x^2}\right)+3x\sqrt{1-x^2}}{5\pi + 4}  \right) =$\\
+$ = \frac{1}{2.5\pi + 2} \cdot \dfrac{\d}{\d x} \left( \dfrac{x\sqrt{1-y^2}-y^2+1}{\sqrt{1-y^2}} \right) =\frac{1}{2.5\pi + 2} \cdot 1  =\fx (x,y)$\\
+Перевірка ліній стику областей:\\
+$D_0 - D_1: y = -\sqrt{1- x^2}, (y \leq 0)$\\
+$ \Fx (x,-\sqrt{1- x^2})^{D_1} = $\\
+$=\dfrac{\arcsin\left(-\sqrt{1-x^2}\right)-x\sqrt{1-x^2}-2x\sqrt{1-x^2}+\arcsin\left(\sqrt{1-x^2}\right)+3x\sqrt{1-x^2}}{5\pi + 4} =$
+\\$= 0= \Fx (x,-\sqrt{1- x^2})^{D_0} = 0$
+\newpage
+3. $(x,y) \in D_2$
+\begin{center} \includegraphics[scale=0.4]{assets/zone32.png} \end{center}
+$$
+\Fx (x,y) =  \frac{1}{2.5\pi + 2} \cdot  \int\limits_{-\sqrt{1- x^2}}^{\sqrt{1- x^2}}{ds  \int\limits_{-\sqrt{1-s^2}}^{x}{dt}} =
+\frac{1}{2.5\pi + 2} \cdot  \int\limits_{-\sqrt{1- x^2}}^{\sqrt{1- x^2}}{\sqrt{1-s^2}+xds  }
+$$
+$$
+= \frac{1}{2.5\pi + 2} \cdot \left( \arcsin\left(\sqrt{1-x^2}\right)+3x\sqrt{1-x^2} \right)
+$$
+Перевірка:\\
+$\dfrac{\d^2 \Fx}{\d x \d y}(x,y) = \dfrac{\d^2}{\d x \d y} \left( \frac{1}{2.5\pi + 2} \cdot\arcsin\left(\sqrt{1-x^2}\right)+3x\sqrt{1-x^2} \right) =$\\
+$ = \frac{1}{2.5\pi + 2} \cdot \dfrac{\d}{\d x} 0 = 0 =\fx (x,y)$\\
+
+Перевірка ліній стику областей:\\
+$D_1 - D_2: y = \sqrt{1- x^2}$\\
+$ \Fx (x,\sqrt{1- x^2})^{D_1} = $\\
+$=\dfrac{\arcsin\left(\sqrt{1-x^2}\right)+x\sqrt{1-x^2}+2x\sqrt{1-x^2}+\arcsin\left(\sqrt{1-x^2}\right)+3x\sqrt{1-x^2}}{5\pi + 4} =$
+\\$= \frac{1}{2.5\pi + 2} \cdot \left( \arcsin\left(\sqrt{1-x^2}\right)+3x\sqrt{1-x^2} \right)  =\Fx (x,-\sqrt{1+x^2})^{D_2}$
+\newpage
+4. $(x,y) \in D_3$
+\begin{center} \includegraphics[scale=0.4]{assets/zone43.png} \end{center}
+$$
+\Fx (x,y) =  \Fx (0,y)^{D_1}+ \frac{1}{2.5\pi + 2} \cdot  \int\limits_{0}^{ x}{dt  \int\limits_{-1}^{y }{ds}} =$$\\$$= \frac{1}{2.5\pi + 2} \cdot \left( \dfrac{\arcsin\left(y\right)+y\sqrt{1-y^2} + \frac{\pi}{2} }{2}+ x(y+1)\right)
+$$
+
+Перевірка:\\
+$\dfrac{\d^2 \Fx}{\d x \d y}(x,y) = \dfrac{\d^2}{\d x \d y} \left(\frac{1}{2.5\pi + 2} \cdot \left( \dfrac{\arcsin\left(y\right)+y\sqrt{1-y^2} + \frac{\pi}{2} }{2}+ x(y+1)\right) \right) =$\\
+$ = \frac{1}{2.5\pi + 2} \cdot \dfrac{\d}{\d y} (y+1) = \frac{1}{2.5\pi + 2} =\fx (x,y)$\\
+
+Перевірка ліній стику областей:\\
+$D_2 - D_3: x = 0$\\
+$ \Fx (0,y)^{D_1} =\frac{1}{2.5\pi + 2} \cdot\dfrac{\arcsin\left(y\right)+y\sqrt{1-y^2} + \frac{\pi}{2} }{2} =\Fx (0,y)^{D_3}$
+
+\newpage
+5. $(x,y) \in D_4$
+\begin{center} \includegraphics[scale=0.4]{assets/zone655.png} \end{center}
+$$
+\Fx (x,y) =  \Fx (x, 1)^{D_3} = \frac{1}{2.5\pi + 2} \cdot \left( \dfrac{\pi}{2}+ 2x\right)
+$$
+
+Перевірка:\\
+$\dfrac{\d^2 \Fx}{\d x \d y}(x,y) =
+\dfrac{\d^2}{\d x \d y} \left( \frac{1}{2.5\pi + 2} \cdot \left( \dfrac{\pi}{2}+ 2x\right)
+\right) = 0 =\fx (x,y)$\\
+
+Перевірка ліній стику областей:\\
+$D_2 - D_4: x = 0$\\
+$ \Fx (0,y)^{D_2} =\frac{\arcsin(1)}{2.5\pi + 2}   = \frac{\pi}{5\pi + 4} = \Fx (0,y)^{D_3}$\\
+\newpage
+
+6. $(x,y) \in D_5$
+\begin{center} \includegraphics[scale=0.4]{assets/zone54.png} \end{center}
+$$
+\Fx (x,y) = \frac{1}{2.5\pi + 2} \cdot \int\limits_{1}^{x}{dt  \int\limits_{-\sqrt{4 - (t-1)^2}}^{ y}{ds}}   = \frac{1}{2.5\pi + 2} \cdot  \int\limits_{1}^{x}{\sqrt{4-\left(t-1\right)^2}+y dt}  =
+$$
+$$
+=\frac{1}{2.5\pi + 2} \cdot \dfrac{\left(2x-2\right)y+\left(x-1\right)\sqrt{-x^2+2x+3}+4\arcsin\left(\frac{x-1}{2}\right)}{2}
+$$
+
+Перевірка:\\
+$\dfrac{\d^2 \Fx}{\d x \d y}(x,y) =
+\dfrac{\d^2}{\d x \d y} \left( \dfrac{\left(2x-2\right)y+\left(x-1\right)\sqrt{-x^2+2x+3}+4\arcsin\left(\frac{x-1}{2}\right)}{5\pi + 4}\right) = $\\$=\dfrac{1}{2.5\pi + 2} \cdot  \dfrac{\d}{\d x} \dfrac{2x-2}{2} = \dfrac{1}{2.5\pi + 2}  =\fx (x,y)$\\
+
+Перевірка ліній стику областей:\\
+$D_0 - D_5: x = 1$\\
+$ \Fx (1,y)^{D_0} = 0 =  \Fx (1,y)^{D_3} = \frac{0*y + 0\sqrt{3} + 4* 0}{5\pi + 4} =  0$\\
+\newpage
+
+7. $(x,y) \in D_6$
+\begin{center} \includegraphics[scale=0.4]{assets/zone766.png} \end{center}
+$$
+\Fx (x,y) =  \Fx (1+\sqrt{4 - y^2}, y)^{D_5} =  \dfrac{2\left(y\sqrt{4 - y^2}\right)-y\sqrt{4 - y^2}+4\arcsin\left(\frac{\sqrt{4 - y^2}}{2}\right)}{5\pi +4}=
+$$
+$$
+= \dfrac{\left(y\sqrt{4 - y^2}\right) + 4\arcsin\left(\frac{\sqrt{4 - y^2}}{2}\right)}{5\pi +4} =  \dfrac{y\sqrt{4 - y^2} + 4\arcsin\left(\dfrac{y}{2}\right) + 2\pi }{5\pi +4}
+$$
+
+
+Перевірка:\\
+$\dfrac{\d^2 \Fx}{\d x \d y}(x,y) =
+\dfrac{\d^2}{\d x \d y} \left(  \dfrac{y\sqrt{4 - y^2} + 4\arcsin\left(\dfrac{y}{2}\right) + 2\pi }{5\pi +4}
+\right) = \dfrac{\d}{ \d y} \left(0 \right)  = 0=\fx (x,y)$\\
+
+Перевірка ліній стику областей:\\
+$D_6 - D_5: x = 1 + \sqrt{4 - y^2}$\\
+$ \Fx (1 + \sqrt{4 - y^2},y)^{D_5} =  \dfrac{y\sqrt{4 - y^2} + 4\arcsin\left(\dfrac{y}{2}\right) + 2\pi }{5\pi +4} = \Fx (1 + \sqrt{4 - y^2},y)^{D_6}$\\
+$D_6 - D_0: y = -2$\\
+$ \Fx (x,-2)^{D_5} =  \frac{0\cdot (-2) + 4 \cdot \frac{-\pi}{2}+ 2\pi  }{5\pi +4} = 0  = \Fx (x,-2)^{D_0} = 0$\\
+
+\newpage
+
+8. $(x,y) \in D_7$
+\begin{center} \includegraphics[scale=0.3]{assets/zone885.png} \end{center}
+$$
+\Fx (x,y) =  \Fx (1, y)^{D_3} + \Fx (x, -1)^{D_5} +\frac{1}{2.5\pi + 2} \cdot  \int\limits_{1}^{ x}{ds  \int\limits_{-1}^{ y}{ dt}} =
+$$
+$$
+= \frac{1}{2.5\pi + 2} \cdot \left( \dfrac{\arcsin\left(y\right)+y\sqrt{1-y^2} + \frac{\pi}{2} }{2}+ (y+1) \right.+$$\\$$+\left. \dfrac{\left(2-2x\right)+\left(x-1\right)\sqrt{-x^2+2x+3}+4\arcsin\left(\frac{x-1}{2}\right)}{2} + (x-1)(y+1)\right)=
+$$
+$
+=\frac{\arcsin\left(y\right)+y\sqrt{1-y^2} + \frac{\pi}{2} + \left(2-2x\right)+\left(x-1\right)\sqrt{-x^2+2x+3}+4\arcsin\left(\frac{x-1}{2}\right)+ 2x(y+1)}{5\pi + 4}
+$
+
+Перевірка:\\
+$\dfrac{\d^2 \Fx}{\d x \d y}(x,y) =
+\dfrac{\d^2}{\d x \d y} \left(  \frac{\arcsin\left(y\right)+y\sqrt{1-y^2} + \frac{\pi}{2} + \left(2-2x\right)+\left(x-1\right)\sqrt{-x^2+2x+3}+4\arcsin\left(\frac{x-1}{2}\right)+ 2x(y+1)}{5\pi + 4}
+\right) =$\\
+$= \dfrac{\d}{ \d x} {\dfrac{\left(x\sqrt{1-y^2}-y^2+1\right)}{(2.5\pi + 2)\sqrt{1-y^2}}} = \frac{1}{2.5\pi + 2}=\fx (x,y)$\\
+
+Перевірка ліній стику областей:\\
+$D_7 - D_5: y = -1$\\
+$ \Fx (x,-1)^{D_7} =  \frac{0+0 + \left(2-2x\right)+\left(x-1\right)\sqrt{-x^2+2x+3}+4\arcsin\left(\frac{x-1}{2}\right)+0}{5\pi + 4} =$\\$= \Fx (x,-1)^{D_5}= \frac{1}{2.5\pi + 2} \cdot \frac{\left(2-2x\right)+\left(x-1\right)\sqrt{-x^2+2x+3}+4\arcsin\left(\frac{x-1}{2}\right)}{2} = $\\
+$D_7 - D_3 : x = 1$\\
+$ \Fx (1,y)^{D_7} = \frac{\arcsin\left(y\right)+y\sqrt{1-y^2} + \frac{\pi}{2} + 0+0+4\arcsin\left(\frac{x-1}{2}\right)+ 2(y+1)}{5\pi + 4} =$\\
+$= \Fx (1,y)^{D_3} = \frac{1}{2.5\pi + 2} \cdot \left( \frac{\arcsin\left(y\right)+y\sqrt{1-y^2} + \frac{\pi}{2} }{2}+ (y+1)\right)$
+\newpage
+
+9. $(x,y) \in D_{13}$
+\begin{center} \includegraphics[scale=0.4]{assets/zone131245.png} \end{center}
+$$
+\Fx (x,y) =1 -  \frac{1}{2.5\pi + 2} \cdot  \int\limits_{y}^{ 2}{dt  \int\limits_{1}^{1 + \sqrt{4 - t^2}}{ds}}  =\dfrac{3\pi + 4 + y\sqrt{4-y^2}+4\arcsin\left(\frac{y}{2} \right)}{5\pi + 4}
+$$
+
+Перевірка:\\
+$\dfrac{\d^2 \Fx}{\d x \d y}(x,y) =
+\dfrac{\d^2}{\d x \d y} \left( \dfrac{3\pi + 4 + y\sqrt{4-y^2}+4\arcsin\left(\frac{y}{2} \right)}{5\pi + 4} \right)  = \frac{\d}{\d y}0 = 0=\fx (x,y)$\\
+
+Перевірка ліній стику областей:\\
+Зробимо пізніше, коли знайдемо функції розподілу у інших зонах.
+\newpage
+
+10. $(x,y) \in D_9$
+\begin{center} \includegraphics[scale=0.4]{assets/zone1091.png} \end{center}
+$$
+\Fx (x,y) =  \Fx (x, 1)^{D_7} + \frac{1}{2.5\pi + 2} \cdot  \int\limits_{1}^{ x}{ds  \int\limits_{1}^{ y}{dt}} =
+$$
+\begin{center}
+$
+=\frac{\left(2-2x\right)+\left(x-1\right)\sqrt{-x^2+2x+3}+4\arcsin\left(\frac{x-1}{2}\right)+ 4x +\pi}{5\pi + 4} + \frac{2(x-1)(y-1)}{5\pi + 4} =
+$\\
+$
+=\frac{\left(x-1\right)\sqrt{-x^2+2x+3}+4\arcsin\left(\frac{x-1}{2}\right)+4 +2y(x-1) +\pi}{5\pi + 4}
+$
+\end{center}
+
+
+Перевірка:\\
+$\dfrac{\d^2 \Fx}{\d x \d y}(x,y) =
+\dfrac{\d^2}{\d x \d y} \left( \frac{\left(x-1\right)\sqrt{-x^2+2x+3}+4\arcsin\left(\frac{x-1}{2}\right)+4 +2y(x-1) +\pi}{5\pi + 4}
+\right) =$\\
+$= \dfrac{\d}{ \d x} \dfrac{2x-2}{5\pi + 4} = \dfrac{1}{2.5\pi + 2}=\fx (x,y)$\\
+
+Перевірка ліній стику областей:\\
+$D_9 - D_7: y = 1$\\
+$ \Fx (x,1)^{D_9} =  \frac{\left(x-1\right)\sqrt{-x^2+2x+3}+4\arcsin\left(\frac{x-1}{2}\right)+4 +2(x-1) +\pi}{5\pi + 4} =$\\
+$ \Fx (x,1)^{D_7} = \frac{\pi+ 0 + 2-2x+\left(x-1\right)\sqrt{-x^2+2x+3}+4\arcsin\left(\frac{x-1}{2}\right)+ 4x}{5\pi + 4}$\\
+$D_9 - D_4 : x = 1$\\
+$ \Fx (1,y)^{D_9} = \frac{0+4\arcsin(0)+4 +\pi}{5\pi + 4} =$\\
+$= \Fx (1,y)^{D_4} = \frac{1}{2.5\pi + 2} \cdot \left( \frac{\pi}{2} + 2 \right)$
+\newpage
+
+11. $(x,y) \in D_{10}$
+\begin{center} \includegraphics[scale=0.4]{assets/1110.png} \end{center}
+$$
+\Fx (x,y) =  1 -   \frac{1}{2.5\pi + 2} \cdot \int\limits_{x}^{ 3}{ dt  \int\limits_{\sqrt{4 - (t-1)^2}}^{ - \sqrt{4 - (t-1)^2}}{ds}}=   1 + \frac{2}{2.5\pi + 2} \cdot  \int\limits_{3}^{ x}{\sqrt{4 - (t-1)^2}dt} =
+$$
+$$
+= \dfrac{\left(x-1\right)\sqrt{-x^2+2x+3}+4\arcsin\left(\frac{x-1}{2}\right)-2{\pi}}{2.5\pi + 2}+ 1  =
+$$
+$$
+= \dfrac{\left(x-1\right)\sqrt{-x^2+2x+3}+4\arcsin\left(\frac{x-1}{2}\right) + \frac{\pi}{2} + 2 }{2.5\pi + 2}
+$$
+
+Перевірка:\\
+$\dfrac{\d^2 \Fx}{\d x \d y}(x,y) =
+\dfrac{\d^2}{\d x \d y} \left( \frac{\left(x-1\right)\sqrt{-x^2+2x+3}+4\arcsin\left(\frac{x-1}{2}\right)+\frac{{\pi}}{2}+2}{2.5\pi + 2}
+\right) = \dfrac{\d}{ \d x} 0 = 0=\fx (x,y)$\\
+
+Перевірка ліній стику областей:\\
+$D_{10} - D_4 : x = 1$\\
+$ \Fx (1,y)^{D_10} = \frac{0+4\arcsin(0)+4 +\pi/2 + 2}{2.5\pi + 2} = \frac{ \frac{\pi}{2} + 2  }{2.5\pi + 2}  = \Fx (x,y)^{D_4}$\\
+\newpage
+
+
+
+9. $(x,y) \in D_8$.
+З малюнку та інтегралу видно, що зону $D_8$ доведеться розбити ще на 2: $-1<y \leq 0$ та $ 0< y < 1$, але функції розподілу виявилися однаковими. Для $-1<y \leq 0$ можемо скористатися вже знайденим виразом (при обчисленні виникає модуль, який розкриваємо з -):
+\begin{center} \includegraphics[scale=0.34]{assets/zone945.png} \end{center}
+$$
+\Fx (x,y) =  \Fx (1+\sqrt{4 - y^2}, y)^{D_7}_{-} =
+$$
+$$
+= \dfrac{\arcsin\left(y\right)+y\sqrt{1-y^2} - \left|  y \right|\sqrt{4-y^2}-4\arcsin\left(\frac{ \left|  y \right|}{2}\right) + 2.5\pi + 2y + 2}{5\pi + 4}
+$$
+
+Перевірка:\\
+$\frac{\d^2 \Fx}{\d x \d y}(x,y) =
+\frac{\d^2}{\d x \d y} \frac{\arcsin\left(y\right)+y\sqrt{1-y^2}+  y  \sqrt{4-y^2}+4\arcsin\left(\frac{y}{2}\right) + 2.5\pi + 2y + 2}{5\pi + 4}  = \frac{\d}{\d y}0 = 0=\fx (x,y)$\\
+Далі, знайдемо $\Fx(x,y)^{D_8}$ для $ 0< y < 1$:
+$$
+\Fx (x,y) =  \Fx (1+\sqrt{4 - y^2}, y)^{D_7}_{+} + \frac{1}{2.5\pi + 2} \cdot  \int\limits_{-y}^{ y}{ds  \int\limits_{1 + \sqrt{4 - y^2}}^{1 + \sqrt{4 -  s^2}}{dt}} =
+$$
+$$
+= \dfrac{\arcsin\left(y\right)+y\sqrt{1-y^2} +  y \sqrt{4-y^2}+4\arcsin\left(\frac{  y }{2}\right) + 2.5\pi + 2y + 2}{5\pi + 4}
+$$
+Перевірка ліній стику областей:\\
+$D_8 - D_7: x = 1 + \sqrt{4 - y^2}$\\
+Вже знаходили під час пошуку площі зони:\\
+$ \Fx (1 + \sqrt{4 - y^2},y)^{D_7} =  \frac{\arcsin\left(y\right)+y\sqrt{1-y^2}+ \sqrt{4-y^2}+4\arcsin\left(\frac{y}{2}\right) + 2.5\pi + 2y + 2}{5\pi + 4} = \Fx (1 + \sqrt{4 - y^2},y)^{D_8}$\\
+$D_8 - D_6: y = -1$\\
+$ \Fx (x,-1)^{D_8} = \frac{- \frac{\pi}{2} +0-\sqrt{3}-4\frac{\pi}{6}  + 2.5\pi}{5\pi + 4}
+ = \Fx (x,-1)^{D_6}  =  \frac{-\sqrt{3} + 4\frac{-\pi}{2}  + 2\pi }{5\pi +4}$\\
+ $D_8 - D_13: y = 1$\\
+
+
+\newpage
 \end{document}

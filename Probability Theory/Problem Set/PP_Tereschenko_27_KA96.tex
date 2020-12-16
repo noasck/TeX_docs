@@ -205,10 +205,10 @@ $$F_{\xi_1}(x) = \mathbb{P} \left\lbrace \xi_1 < x \right\rbrace =
 
 $$F_{\xi_1}(x) =
 \begin{cases}
-	0,\quad x \leq -3;\\
-	0.19,\quad -3 < x \leq 0;\\
-	0.51,\quad 0 < x \leq 3  \\
-	1,\quad 3 < x \\
+	0,\quad& x \leq -3;\\
+	0.19,\quad &-3 < x \leq 0;\\
+	0.51,\quad&0 < x \leq 3  \\
+	1,\quad& 3 < x \\
 \end{cases} $$
 Для $\xi_2:$
 $$F_{\xi_2}(x) = \mathbb{P} \left\lbrace \xi_2 < x \right\rbrace =
@@ -221,11 +221,11 @@ $$F_{\xi_2}(x) = \mathbb{P} \left\lbrace \xi_2 < x \right\rbrace =
 \end{cases} $$
 $$F_{\xi_2}(x) =
 \begin{cases}
-	0, \quad x \leq -5\\
-	0.19, \quad -5 < x \leq 1\\
-  0.49, \quad  1 < x \leq 4\\
-	0.65, \quad  4 < x \leq 8\\
-	1, \quad  8 < x \\
+	0, \quad& x \leq -5\\
+	0.19, \quad &-5 < x \leq 1\\
+  0.49, \quad & 1 < x \leq 4\\
+	0.65, \quad & 4 < x \leq 8\\
+	1, \quad&  8 < x \\
 \end{cases} $$
 
 \begin{center} \includegraphics[scale=0.34]{assets/6.png} \end{center}
@@ -470,19 +470,19 @@ $ \lim\limits_{y\to  +\infty}{\Fx (x,y)} = F_{\xi_1}(x) $ -
 Або у вигляді сукупності:
 $$
 \Fx(x,y) = \begin{cases}
-0,\quad (x \leq -3) \lor (y\leq -5);\\
-0.06, \quad(-3 < x \leq 0)\land (-5< y\leq1);\\
-0.1, \quad(-3 < x \leq 0)\land (1< y\leq4);\\
-0.16, \quad(-3 < x \leq 0)\land (4< y\leq8);\\
-0.19, \quad(-3 < x \leq 0)\land (8< y);\\
-0.07, \quad(0 < x \leq 3)\land (-5< y\leq1);\\
-0.25, \quad(0 < x \leq 3)\land (1< y\leq4);\\
-0.35, \quad(0 < x \leq 3)\land (4< y\leq8);\\
-0.51, \quad(0 < x \leq 3)\land (8< y);\\
-0.19, \quad(3 < x )\land (-5< y\leq1);\\
-0.49, \quad(3 < x )\land (1< y\leq4);\\
-0.65, \quad(3 < x )\land (4< y\leq8);\\
-1, \quad(3 < x )\land (8< y);
+0,\quad& (x \leq -3) \lor (y\leq -5);\\
+0.06, \quad&(-3 < x \leq 0)\land (-5< y\leq1);\\
+0.1, \quad&(-3 < x \leq 0)\land (1< y\leq4);\\
+0.16, \quad&(-3 < x \leq 0)\land (4< y\leq8);\\
+0.19, \quad&(-3 < x \leq 0)\land (8< y);\\
+0.07, \quad&(0 < x \leq 3)\land (-5< y\leq1);\\
+0.25, \quad&(0 < x \leq 3)\land (1< y\leq4);\\
+0.35, \quad&(0 < x \leq 3)\land (4< y\leq8);\\
+0.51, \quad&(0 < x \leq 3)\land (8< y);\\
+0.19, \quad&(3 < x )\land (-5< y\leq1);\\
+0.49, \quad&(3 < x )\land (1< y\leq4);\\
+0.65, \quad&(3 < x )\land (4< y\leq8);\\
+1, \quad&(3 < x )\land (8< y);
 \end{cases}
 $$
 
@@ -728,8 +728,8 @@ $$
 \def\fx{f_{\overline{\xi}}}
 $$
 \fx  (x,y ) = \begin{cases}
-	\dfrac{1}{ 2.5\pi + 2}, \quad(x,y) \in G; \\
-	0, \quad (x,y) \notin G
+	\dfrac{1}{ 2.5\pi + 2}, \quad&(x,y) \in G; \\
+	0, \quad& (x,y) \notin G
 \end{cases}
 $$
 Із визначення рівномірного розподілу випливає, що умова нормування для $\fx (x,y)$ виконана $ \left( \frac{1}{S_G}  * \iint\limits_{G}{dxdy} = (2.5\pi +2 )\cdot \dfrac{1}{2.5\pi + 2} =1 \right)$.\\
@@ -899,10 +899,10 @@ $$
 
 Перевіримо на неперервність у точках стику:\\
 $
- \lim\limits_{y\to  -2-}{ F_{\xi_2}(y)} =  \lim\limits_{y\to  2-}{0} = 0
+ \lim\limits_{y\to  -2-}{ F_{\xi_2}(y)} =  \lim\limits_{y\to  -2-}{0} = 0
 $\\
 $
- \lim\limits_{y\to  -2+}{ F_{\xi_2}(y)} =  \lim\limits_{y\to  2+}{\dfrac{y\sqrt{4-y^2}+4\arcsin\left(\frac{y}{2}\right) + 2\pi}{5\pi + 4}} = \dfrac{
+ \lim\limits_{y\to  -2+}{ F_{\xi_2}(y)} =  \lim\limits_{y\to  -2+}{\dfrac{y\sqrt{4-y^2}+4\arcsin\left(\frac{y}{2}\right) + 2\pi}{5\pi + 4}} = \dfrac{
  -2*0+4 \frac{\pi}{2} +2{\pi}
  }{ 5\pi + 4}= 0
 $\\
@@ -1047,17 +1047,17 @@ $$
 \frac{1}{2.5\pi + 2} \cdot  \int\limits_{-\sqrt{1- x^2}}^{\sqrt{1- x^2}}{\sqrt{1-s^2}+xds  }
 $$
 $$
-= \frac{1}{2.5\pi + 2} \cdot \left( \arcsin\left(\sqrt{1-x^2}\right)+3x\sqrt{1-x^2} \right)
+= \frac{1}{2.5\pi + 2} \cdot \left( \arcsin\left(\sqrt{1-x^2}\right)+x\sqrt{1-x^2} \right)
 $$
 Перевірка:\\
-$\dfrac{\d^2 \Fx}{\d x \d y}(x,y) = \dfrac{\d^2}{\d x \d y} \left( \frac{1}{2.5\pi + 2} \cdot\arcsin\left(\sqrt{1-x^2}\right)+3x\sqrt{1-x^2} \right) =$\\
+$\dfrac{\d^2 \Fx}{\d x \d y}(x,y) = \dfrac{\d^2}{\d x \d y} \left( \frac{1}{2.5\pi + 2} \cdot\arcsin\left(\sqrt{1-x^2}\right)+x\sqrt{1-x^2} \right) =$\\
 $ = \frac{1}{2.5\pi + 2} \cdot \dfrac{\d}{\d x} 0 = 0 =\fx (x,y)$\\
 
 Перевірка ліній стику областей:\\
 $D_1 - D_2: y = \sqrt{1- x^2}$\\
 $ \Fx (x,\sqrt{1- x^2})^{D_1} = $\\
-$=\dfrac{\arcsin\left(\sqrt{1-x^2}\right)+x\sqrt{1-x^2}+2x\sqrt{1-x^2}+\arcsin\left(\sqrt{1-x^2}\right)+3x\sqrt{1-x^2}}{5\pi + 4} =$
-\\$= \frac{1}{2.5\pi + 2} \cdot \left( \arcsin\left(\sqrt{1-x^2}\right)+3x\sqrt{1-x^2} \right)  =\Fx (x,-\sqrt{1+x^2})^{D_2}$
+$=\dfrac{\arcsin\left(\sqrt{1-x^2}\right)-x\sqrt{1-x^2}+2x\sqrt{1-x^2}+\arcsin\left(\sqrt{1-x^2}\right)+x\sqrt{1-x^2}}{5\pi + 4} =$
+\\$= \frac{1}{2.5\pi + 2} \cdot \left( \arcsin\left(\sqrt{1-x^2}\right)+x\sqrt{1-x^2} \right)  =\Fx (x,-\sqrt{1+x^2})^{D_2}$
 \newpage
 4. $(x,y) \in D_3$
 \begin{center} \includegraphics[scale=0.4]{assets/zone43.png} \end{center}
@@ -1225,7 +1225,7 @@ $ \Fx (1,y)^{D_10} = \frac{0+4\arcsin(0)+4 +\pi/2 + 2}{2.5\pi + 2} = \frac{ \fra
 
 
 
-9. $(x,y) \in D_8$.
+12. $(x,y) \in D_8$.
 З малюнку та інтегралу видно, що зону $D_8$ доведеться розбити ще на 2: $-1<y \leq 0$ та $ 0< y < 1$, але функції розподілу виявилися однаковими. Для $-1<y \leq 0$ можемо скористатися вже знайденим виразом (при обчисленні виникає модуль, який розкриваємо з -):
 \begin{center} \includegraphics[scale=0.34]{assets/zone945.png} \end{center}
 $$
@@ -1252,8 +1252,235 @@ $ \Fx (1 + \sqrt{4 - y^2},y)^{D_7} =  \frac{\arcsin\left(y\right)+y\sqrt{1-y^2}+
 $D_8 - D_6: y = -1$\\
 $ \Fx (x,-1)^{D_8} = \frac{- \frac{\pi}{2} +0-\sqrt{3}-4\frac{\pi}{6}  + 2.5\pi}{5\pi + 4}
  = \Fx (x,-1)^{D_6}  =  \frac{-\sqrt{3} + 4\frac{-\pi}{2}  + 2\pi }{5\pi +4}$\\
- $D_8 - D_13: y = 1$\\
-
+ Повертаємося до зони $D_13:$\\
+ $D_8 - D_{13}: y = 1$\\
+$
+\Fx (x, 1)^{D_8} = \frac{ \frac{\pi}{2} + 0 + \sqrt{3} + 4\frac{\pi }{6} + 2.5\pi + 4  }{5\pi + 4}   = \Fx (x, 1)^{D_13} = \frac{3\pi + 4 + \sqrt{3} + 4\frac{\pi}{6} }{ 5\pi + 4}
+$
 
 \newpage
+
+
+
+13. $(x,y) \in D_{11}$
+\begin{center} \includegraphics[scale=0.3]{assets/zones13111.png}\includegraphics[scale=0.27]{assets/zone13113.png} \end{center}
+$$
+\Fx (x,y) = \Fx(x,y)^{D_8} -  \frac{1}{2.5\pi + 2} \cdot
+ \int\limits_{x}^{3}{ds  \int\limits_{-\sqrt{4 - (s-1)^2}}^{ \sqrt{4 - (s-1)^2}}{dt}} =
+$$
+$$
+ = \frac{\arcsin\left(y\right)+y\sqrt{1-y^2}+  y  \sqrt{4-y^2}+4\arcsin\left(\frac{y}{2}\right) + 2.5\pi + 2y + 2}{5\pi + 4} -
+ $$
+ $$- \frac{-\left(1-x\right)\sqrt{-x^2+2x+3}-4\arcsin\left(\dfrac{x-1}{2}\right)+2{\pi}}{2.5\pi + 2} =
+$$
+\begin{center}
+$
+= \frac{\arcsin\left(y\right)+y\sqrt{1-y^2}+  y  \sqrt{4-y^2}+4\arcsin\left(\frac{y}{2}\right)-  1.5\pi + 2y + 2 +2\left(1-x\right)\sqrt{-x^2+2x+3}+8\arcsin\left(\frac{x-1}{2}\right) }{5\pi + 4}
+$
+\end{center}
+
+
+Перевірка:\\
+$\frac{\d^2 \Fx}{\d x \d y}(x,y) =
+\frac{\d^2}{\d x \d y} \left(  \frac{\arcsin\left(y\right)+y\sqrt{1-y^2}+  y  \sqrt{4-y^2}+4\arcsin\left(\frac{y}{2}\right)-  1.5\pi + 2y + 2 +2\left(1-x\right)\sqrt{-x^2+2x+3}+8\arcsin\left(\frac{x-1}{2}\right) }{5\pi + 4}
+\right) =$\\
+$ = \dfrac{\d}{ \d y} \left( \frac{-2\sqrt{-x^2+2x+3}-\frac{\left(2-2x\right)\left(x-1\right)}{\sqrt{-x^2+2x+3}}-\frac{4}{\sqrt{1-\frac{\left(x-1\right)^2}{4}}}}{2} \right)  = 0=\fx (x,y)$\\
+
+Перевірка ліній стику областей:\\
+$D_{11} - D_6 : x = 3$\\
+$ \Fx (3,y)^{D_11} = \frac{\arcsin\left(y\right)+y\sqrt{1-y^2}+  y  \sqrt{4-y^2}+4\arcsin\left(\frac{y}{2}\right) + 2.5\pi + 2y + 2}{5\pi + 4}  = \Fx (x,y)^{D_6}$\\
+\newpage
+
+14. $(x,y) \in D_{12}$
+\begin{center} \includegraphics[scale=0.3]{assets/zones13111.png}\includegraphics[scale=0.27]{assets/zone14132.png} \end{center}
+$$
+\Fx (x,y) = \Fx(x,y)^{D_{13}} -  \frac{1}{2.5\pi + 2} \cdot
+ \int\limits_{x}^{3}{ds  \int\limits_{-\sqrt{4 - (s-1)^2}}^{ \sqrt{4 - (s-1)^2}}{dt}} =
+$$
+$$
+ = \dfrac{3\pi + 4 + y\sqrt{4-y^2}+4\arcsin\left(\frac{y}{2} \right)}{5\pi + 4} -
+ $$
+ $$- \frac{-\left(1-x\right)\sqrt{-x^2+2x+3}-4\arcsin\left(\dfrac{x-1}{2}\right)+2{\pi}}{2.5\pi + 2} =
+$$
+$$
+= \frac{ 4-\pi + y\sqrt{4-y^2}+4\arcsin\left(\frac{y}{2} \right) +2\left(1-x\right)\sqrt{-x^2+2x+3}+8\arcsin\left(\frac{x-1}{2}\right) }{5\pi + 4}
+$$
+
+
+Перевірка:\\
+$\frac{\d^2 \Fx}{\d x \d y}(x,y) =
+\frac{\d^2}{\d x \d y} \left(  \frac{\arcsin\left(y\right)+y\sqrt{1-y^2}+  y  \sqrt{4-y^2}+4\arcsin\left(\frac{y}{2}\right)-  1.5\pi + 2y + 2 +2\left(1-x\right)\sqrt{-x^2+2x+3}+8\arcsin\left(\frac{x-1}{2}\right) }{5\pi + 4}
+\right) =$\\
+$ = \dfrac{\d}{ \d y} \left( \frac{-2\sqrt{-x^2+2x+3}-\frac{\left(2-2x\right)\left(x-1\right)}{\sqrt{-x^2+2x+3}}-\frac{4}{\sqrt{1-\frac{\left(x-1\right)^2}{4}}}}{2} \right)  = 0=\fx (x,y)$\\
+
+Перевірка ліній стику областей:\\
+$D_{12} - D_{13} : x = 3$\\
+$ \Fx (3,y)^{D_11} = \dfrac{3\pi + 4 + y\sqrt{4-y^2}+4\arcsin\left(\frac{y}{2} \right)}{5\pi + 4}  = \Fx (x,y)^{D_13}$\\
+$D_{12} - D_{13} : y = 2$\\
+$ \Fx (x,2)^{D_11} = \frac{ 4-\pi + 0+2\pi +2\left(1-x\right)\sqrt{-x^2+2x+3}+8\arcsin\left(\frac{x-1}{2}\right) }{5\pi + 4} = \frac{ 2+\pi/2 +\left(1-x\right)\sqrt{-x^2+2x+3}+4\arcsin\left(\frac{x-1}{2}\right) }{2.5\pi + 2} = \\= \Fx (x,y)^{D_{10}}$\\
+
+\newpage
+15. $(x,y) \in D_{14}$
+\begin{center} \includegraphics[scale=0.4]{assets/15finalzone.png} \end{center}
+$$
+\Fx (x,y) = 1
+$$
+Перевірка:
+$\dfrac{\d^2 \Fx}{\d x \d y}(x,y) = 0  = \fx (x,y)$\\
+Перевірка ліній стику областей:\\
+$D_{14} - D_{10}: x = 3$\\
+$ \Fx (3,y)^{D_{10}} = \dfrac{\pi/2+ 2\pi + 2} { 2.5\pi + 2} = 1 =  \Fx (3,y)^{D_{14}} $\\
+$D_{14} - D_{13}: y = 1$\\
+$ \Fx (x,1)^{D_{13}} = \frac{\pi/2+ 2\pi + 2} { 2.5\pi + 2} = 1 =  \Fx (x,1)^{D_{14}} $\\
+$D_{14} - D_{12}: x = 3, y =2$\\
+$ \Fx (3,2)^{D_{12}} = \frac{4 - \pi + 2\pi + 4\pi} { 5\pi + 4} = 1 =  \Fx (3,y)^{D_{14}} $\\
+
+\newpage
+\textbf{Остаточно отримали відповідь у вигляді системи:}
+$$
+\Fx(x,y) = \begin{cases}
+	0, & (x,y) \in D_{0};\\
+	\frac{1}{2.5\pi + 2} \cdot \frac{\arcsin\left(y\right)+y\sqrt{1-y^2}+2xy+\arcsin\left(\sqrt{1-x^2}\right)+3x\sqrt{1-x^2}}{2} , & (x,y) \in D_{1};\\
+	 \frac{1}{2.5\pi + 2} \cdot \left( \arcsin\left(\sqrt{1-x^2}\right)+x\sqrt{1-x^2} \right), & (x,y) \in D_{2};\\
+	 \frac{1}{2.5\pi + 2} \cdot \left( \frac{\arcsin\left(y\right)+y\sqrt{1-y^2} + \frac{\pi}{2} }{2}+ x(y+1)\right), & (x,y) \in D_{3};\\
+	 \frac{1}{2.5\pi + 2} \cdot \left( \frac{\pi}{2}+ 2x\right), & (x,y) \in D_{4};\\
+	 \frac{1}{2.5\pi + 2} \cdot \frac{\left(2x-2\right)y+\left(x-1\right)\sqrt{-x^2+2x+3}+4\arcsin\left(\frac{x-1}{2}\right)}{2}, & (x,y) \in D_{5};\\
+	 \frac{y\sqrt{4 - y^2} + 4\arcsin\left(\frac{y}{2}\right) + 2\pi }{5\pi +4}, & (x,y) \in D_{6};\\
+	 \frac{\arcsin\left(y\right)+y\sqrt{1-y^2} + \frac{\pi}{2} + \left(2-2x\right)+\left(x-1\right)\sqrt{-x^2+2x+3}+4\arcsin\left(\frac{x-1}{2}\right)+ 2x(y+1)}{5\pi + 4},& (x,y) \in D_{7};\\
+	 \frac{\arcsin\left(y\right)+y\sqrt{1-y^2} + y\sqrt{4-y^2}+4\arcsin\left(\frac{  y }{2}\right) + 2.5\pi + 2y + 2}{5\pi + 4},& (x,y) \in D_{8};\\
+	 \frac{\left(x-1\right)\sqrt{-x^2+2x+3}+4\arcsin\left(\frac{x-1}{2}\right)+4 +2y(x-1) +\pi}{5\pi + 4},& (x,y) \in D_{9};\\
+	 \frac{\left(x-1\right)\sqrt{-x^2+2x+3}+4\arcsin\left(\frac{x-1}{2}\right) + \frac{\pi}{2} + 2 }{2.5\pi + 2},& (x,y) \in D_{10};\\
+	 \frac{\arcsin\left(y\right)+y\sqrt{1-y^2}+  y  \sqrt{4-y^2}+4\arcsin\left(\frac{y}{2}\right)-  1.5\pi + 2y + 2 }{5\pi + 4}+ \\
+	 	 +\frac{2\left(1-x\right)\sqrt{-x^2+2x+3}+8\arcsin\left(\frac{x-1}{2}\right) }{5\pi + 4},& (x,y) \in D_{11};\\
+		 \frac{ 4-\pi + y\sqrt{4-y^2}+4\arcsin\left(\frac{y}{2} \right) +2\left(1-x\right)\sqrt{-x^2+2x+3}+8\arcsin\left(\frac{x-1}{2}\right) }{5\pi + 4},& (x,y) \in D_{12};\\
+		 \frac{3\pi + 4 + y\sqrt{4-y^2}+4\arcsin\left(\frac{y}{2} \right)}{5\pi + 4},& (x,y) \in D_{13};\\
+		 1, & (x,y) \in D_{14};\\
+\end{cases}
+$$
+
+Нагадаємо маргінальні функції розподілу:
+
+$$
+F_{\xi_1} (x) = \begin{dcases}
+0, \quad x \leq -1 ;\\
+	  \dfrac{\arcsin\left(x\right)+x\sqrt{1-x^2}+\frac{{\pi}}{2} }{2.5\pi + 2} , \quad -1 < x \leq 0; \\
+	\dfrac{\frac{{\pi}}{2} +  2x }{2.5\pi + 2} , \quad 0 < x \leq 1; \\
+	\dfrac{\left(x-1\right)\sqrt{-x^2+2x+3}+4\arcsin\left(\frac{x-1}{2}\right) + \frac{\pi}{2}+2 }{2.5\pi + 2} , \quad 1 < x \leq 3; \\
+	1, \quad x > 3 ;\\
+\end{dcases}
+$$
+
+$$
+F_{\xi_2} (y) = \begin{dcases}
+	0, \quad y \leq  -2;\\
+ \dfrac{y\sqrt{4-y^2}+4\arcsin\left(\frac{y}{2}\right) + 2{\pi}}{10\pi + 4} , \quad -2 < y \leq -1;\\
+ \dfrac{\arcsin\left(y\right)+y\sqrt{1-y^2}+ y\sqrt{4-y^2}+4\arcsin\left(\frac{y}{2}\right) + 2.5\pi + 2y + 2}{5\pi + 4}   ,\\  -1 < y \leq 1; \\
+		 	 \dfrac{3\pi + 4 +y\sqrt{4-y^2}+4\arcsin\left(\frac{y}{2}\right)}{5\pi + 4} , \quad 1 < y \leq 2;\\
+		1, \quad y >  2;\\
+\end{dcases}
+$$
+Таким чином, за функціє розподілу $\Fx (x,y)$ бачимо, що виконується властивість:
+$$
+ \lim\limits_{x\to  +\infty}{\Fx (x,y)} = F_{\xi_2}(y) \qquad  \lim\limits_{y\to  \infty}{ \Fx (x,y)} = F_{\xi_1} (x)
+$$
+$$
+\begin{cases}
+F_{\xi_1}(x) = 0 = \Fx(x,y)^{D_0}, & x \leq -1 ;\\
+F_{\xi_1}(x) = \Fx(x,y)^{D_2}, & -1 < x \leq 0; \\
+F_{\xi_1}(x) = \Fx(x,y)^{D_4}, & 0 < x \leq 1; \\
+F_{\xi_1}(x) = \Fx(x,y)^{D_{10}}, & 1 < x \leq 3; \\
+F_{\xi_1}(x) = \Fx(x,y)^{D_{14}}, & 3 < x; \\
+\end{cases}
+\quad
+\begin{cases}
+F_{\xi_2}(y) = 0 = \Fx(x,y)^{D_0}, &y \leq  -2;\\
+F_{\xi_2}(y) = \Fx(x,y)^{D_6}, & -2 < y \leq -1;\\
+F_{\xi_2}(y) = \Fx(x,y)^{D_8}, & -1 < y \leq 1; \\
+F_{\xi_2}(y) = \Fx(x,y)^{D_{13}}, & 1 < y \leq 2;\\
+F_{\xi_2}(y) = \Fx(x,y)^{D_{14}}, & y >  2;\\
+\end{cases}
+$$
+
+\subsection{Математичні
+сподівання
+координат.
+Кореляційна матриця.}
+
+а) Обчислимо математичні сподівання координат.\\
+$ \mathbb{E}\xi_1 =  \int\limits_{-\i}^{ +\infty}{ x \cdot f_{\xi_1}(x)dx} = \frac{2}{2.5\pi + 2}\cdot \left( \int\limits_{-1}^{0}{ x\sqrt{(1-x^2)}dx} +  \int\limits_{0}^{ 1}{xdx} +  \int\limits_{1}^{ 3}{x\sqrt{4 - (x-1)^2}dx} \right) =
+\\ =
+\frac{2}{2.5\pi + 2}\cdot\left( -\frac{\left(1-x^2\right)^\frac{3}{2}}{3} \bigg|_{0}^1  +  \frac{1}{2}  + \frac{8}{3} + \pi  \right) = -\frac{1}{3} +  \frac{1}{2} +  \frac{8}{3} + \pi = \frac{17 + 6 \pi}{3(2.5\pi + 2)} \approx 1.213
+$\\
+$
+\mathbb{E} \xi_2  =  \int\limits_{- \i}^{ +\infty}{ y f_{\xi_2} (y) dy} =\frac{1}{2.5\pi + 2} \cdot \left(  \int\limits_{-2}^{ -1}{  y\sqrt{4 - y^2}dy}  +  \int\limits_{-1}^{ 1}{ y \sqrt{4 - y^2} + y\sqrt{1-y^2}+ y dy}  +\right. $\\$ \left. +   \int\limits_{1}^{ 2}{y \sqrt{4 - y^2}}\right)  =  \int\limits_{-2}^{ 2}{ y\sqrt{4 - y^2}dy} +  \int\limits_{-1}^{ 1}{y\sqrt{1-y^2}+ y dy} = -\frac{\left(4-y^2\right)^\frac{3}{2}}{3}\bigg |_{-2}^{2}+ $\\$+ \left( 	\frac{y^2}{2}-\frac{\left(1-y^2\right)^\frac{3}{2}}{3} \right) \bigg |_{-1}^{1} = 0 + 0 = 0
+$ - фігура симетрична відносно $OY$.\\
+
+
+Окремо розглянемо інтеграли в такому вигляді:
+$$
+ \int\limits_{}^{ }{t^2 \sqrt{a^2 - (t-b)^2}dt} = \left| \begin{gathered}
+s = t-b\\
+dt = ds
+ \end{gathered} \right|=
+$$
+$$
+=\int\limits_{}^{}{s^2 \sqrt{a^2 - s^2}ds} - 2b  \int\limits_{}^{}{ s \sqrt{a^2 - s^2}ds} + b^2  \int\limits_{}^{}{ \sqrt{a^2 - s^2}ds}
+$$
+Вже розглядали в загальному вигляді:
+$$1. \int\limits_{}^{}{ \sqrt{a^2 - s^2}ds} =  \frac{(t-b) \sqrt{a^2 - (t-b)^2} + a^2 \arcsin{ \frac{(t-b)^2}{a} } }{2} $$
+$$
+ 2.\int\limits_{}^{}{s \sqrt{a^2 - s^2}} = 	\frac{(a^2 - (t-b)^2)^{ \frac{3}{2} 	}} {3}
+$$
+Знайдемо підстановкою Чєбишева(III):
+$$
+ \int\limits_{}^{}{ s^2 \sqrt{a^2 -s^2}ds} = \left| \begin{gathered}
+  p^2 =  \frac{a^2 - s^2 }{s^2} \\
+	\frac{-2a^2}{s^3}ds = 2pdp \\
+	sds = \frac{a^2 pdp }{ (p^2 +1)^2}
+ \end{gathered} \right|  =  \int\limits_{}^{}{ \frac{a^2p^2}{(p^2 + 1)^2}dp } =
+$$
+$$
+=\frac{\arctan{\left( \sqrt{\frac{a^2 - (t-b)^2}{(t-1)^2}}  \right) }}{2} - \frac{\sqrt{\frac{a^2 - (t-b)^2}{(t-1)^2}}  }{\frac{a^2 - (t-b)^2}{(t-b)^2}+ 2  }
+$$
+Збираємо разом: \qquad
+$
+\int\limits_{}^{ }{t^2 \sqrt{a^2 - (t-b)^2}dt} =$\\ \fbox{$=\frac{\arctan{\left( \sqrt{\frac{a^2 - (t-b)^2}{(t-1)^2}}  \right) }}{2} - \frac{\sqrt{\frac{a^2 - (t-b)^2}{(t-1)^2}}  }{\frac{a^2 - (t-b)^2}{(t-b)^2}+ 2  } - 	\frac{(a^2 - (t-b)^2)^{ \frac{3}{2} 	}} {3} + b^2   \frac{(t-b) \sqrt{a^2 - (t-b)^2} + a^2 \arcsin{ \frac{(t-b)^2}{a} } }{2} $}
+
+
+$\mathbb{E} \xi_1^2  =  \int\limits_{-\i}^{ +\infty}{ x^2  f_{\xi_1} (x)dx} = \frac{2}{2.5\pi + 2}\cdot \left( \int\limits_{-1}^{0}{ x^2\sqrt{(1-x^2)}dx} +  \int\limits_{0}^{ 1}{x^2dx} +  \int\limits_{1}^{ 3}{x^2\sqrt{4 - (x-1)^2}dx} \right) =$\\
+$= (*) = \frac{2}{2.5\pi + 2}\cdot \left(\frac{\pi}{16} +  1 + 2 \pi + \frac{16}{3} \right) = \frac{2}{2.5\pi + 2}\cdot \left(2\frac{1}{16}\pi + \frac{19}{3}\right)  \approx  2,1946 $\\
+(*) - підстановка чисельних значень в знайдений інтеграл занадто громіздка.\\
+$\mathbb{E}\xi_2^2 =   \int\limits_{- \i}^{ +\infty}{ y^2 f_{\xi_2} (y) dy} =\frac{1}{2.5\pi + 2} \cdot \left(  \int\limits_{-2}^{ -1}{  y^2\sqrt{4 - y^2}dy}  +  \int\limits_{-1}^{ 1}{ y^2 \sqrt{4 - y^2} + y^2\sqrt{1-y^2}+ y^2 dy}  +\right. $\\$ \left. +   \int\limits_{1}^{ 2}{y^2 \sqrt{4 - y^2}}\right)  = \frac{1}{2.5\pi + 2} \cdot \left(\frac{8{\pi}+3^\frac{3}{2}}{12} + \frac{19{\pi}-4{\cdot}3^\frac{3}{2}+16}{24} + \frac{8{\pi}+3^\frac{3}{2}}{12} \right) = \frac{51\pi + 16}{12(5\pi +4)} \approx 0,7450 $
+
+
+
+Знайдемо дисперсію:\\
+$
+\mathbb{D}\xi_1 = \mathbb{E}\xi_1^2 - \left( \mathbb{E}\xi_1 \right)^2 = 2.1946 - 1.4713 = 0.7233
+$\\
+$
+\mathbb{D}\xi_2 = \mathbb{E}\xi_2^2 - \left( \mathbb{E}\xi_2 \right)^2 = 0,7450 - 0 = 0,7450
+$
+$$
+\mathbb{E} \xi_1 \xi_2 =  \int\limits_{-\i}^{+\i}\int\limits_{-\i}^{+\i}{ xy \fx dxdy} = \frac{2}{2.5\pi + 2}\cdot \int\limits_{-1}^{0}{xdx}
+$$
+$$
+f_{\xi_2} (y) = \begin{cases}
+	0, \quad y \leq  -2;\\
+	\dfrac{1}{2.5\pi + 2}  \int\limits_{1}^{ 1+ \sqrt{4 - y^2}}{dx} = \dfrac{1}{2.5\pi + 2} \cdot \sqrt{4 - y^2}, \quad -2 < y \leq -1;\\
+	\dfrac{1}{2.5\pi + 2}   \int\limits_{- \sqrt{1-y^2}}^{1+ \sqrt{4 - y^2}}{dx}
+	=  \dfrac{1}{2.5\pi + 2} \cdot \left( \sqrt{4 - y^2} + \sqrt{1-y^2}+ 1  \right),  -1 < y \leq 1; \\
+		\dfrac{1}{2.5\pi + 2}  \int\limits_{1}^{ 1+ \sqrt{4 - y^2}}{dx} = \dfrac{1}{2.5\pi + 2} \cdot \sqrt{4 - y^2}, \quad 1 < y \leq 2;\\
+			0, \quad y >  2;\\
+\end{cases}
+$$
+
+
+
+
+
+
+
+
+
 \end{document}

@@ -1,12 +1,14 @@
 \documentclass[14pt,a4paper]{scrartcl}
 \usepackage[utf8]{inputenc}
 \usepackage{ragged2e}
-\usepackage[english,russian]{babel}
+\usepackage{mathtools}
+% \usepackage{esint}
+\usepackage[english,russian, ukrainian]{babel}
 \usepackage{misccorr,color,ragged2e,amsfonts,amsthm,graphicx,systeme,amsmath,mdframed,lipsum}
 \renewcommand\qedsymbol{$\blacksquare$}
 \renewcommand*{\proofname}{\text{Доведення}}
 \theoremstyle{definition}
-\newtheorem{defo}{Означення}[section]
+\newtheorem*{defo}{Означення}
 \newtheorem*{teo}{Теорема}
 \newtheorem*{example}{Приклад}
 \theoremstyle{remark}
@@ -19,7 +21,8 @@
 \setlength\parindent{0pt}
 \DeclareMathOperator*\lowlim{\underline{lim}}
 \DeclareMathOperator*\uplim{\overline{lim}}
-
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
 
 % Default fixed font does not support bold face
 \DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
@@ -74,6 +77,11 @@ showstringspaces=false}
 }
 {}
 
+% \begin{python}
+%  c  o  d  e
+%    .  .  .
+% \end{python}
+
 % Python for external files
 \newcommand\pythonexternal[2][]{{
 \pythonstyle
@@ -95,9 +103,27 @@ showstringspaces=false}
 
 \def\be{\begin{equation}}
 \def\ee{\end{equation}}
+% Definition
 \def\bd{\begin{defo}}
 \def\ed{\end{defo}}
+
+% Box Theorem
 \def\bbt{\begin{boxteo}}
 \def\ebt{\end{boxteo}}
-HERE'S YOUR BODY
+
+\def\i{\infty}
+
+\def\d{\partial}
+
+
+
+
+% MAIN CONTENT HERE
+
+
+
+
+
+
+
 \end{document}

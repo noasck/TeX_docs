@@ -1,6 +1,8 @@
 \documentclass[14pt,a4paper]{scrartcl}
 \usepackage[utf8]{inputenc}
 \usepackage{ragged2e}
+\usepackage{epigraph}
+\usepackage{graphicx}
 % \usepackage{esint}
 \usepackage[english,russian, ukrainian]{babel}
 \usepackage{misccorr,color,ragged2e,amsfonts,amsthm,graphicx,systeme,amsmath,mdframed,lipsum}
@@ -39,6 +41,9 @@
 % Default fixed font does not support bold face
 \DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
 \DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
+% !!!!!!!!!!!!!!! HEART
+
 
 % Custom colors
 \usepackage{color}
@@ -1023,6 +1028,7 @@ $$
 Перевірка:
 $\dfrac{\d^2 \Fx}{\d x \d y}(x,y) = 0  = \fx (x,y)$
 \newpage
+
 2. $(x,y) \in D_1$
 \begin{center} \includegraphics[scale=0.4]{assets/zone21.png} \end{center}
 $$
@@ -1336,6 +1342,8 @@ $D_{14} - D_{12}: x = 3, y =2$\\
 $ \Fx (3,2)^{D_{12}} = \frac{4 - \pi + 2\pi + 4\pi} { 5\pi + 4} = 1 =  \Fx (3,y)^{D_{14}} $\\
 
 \newpage
+
+\epigraph{ Результат выходит далеко за пределы экрана и моего сознания}{Ф. Ницше, 1875 г.}
 \textbf{Остаточно отримали відповідь у вигляді системи:}
 $$
 \Fx(x,y) = \begin{cases}
@@ -1527,7 +1535,7 @@ f_{\xi_2} (y) = \begin{dcases}
 			0, \quad y >  2;\\
 \end{dcases}
 $$
-\def\undef{\text{ Невизначено }}
+\def\undef{\text{ Не визначено }}
 Скористаємося формулами:
 $$
 f_{\xi_{1}} (x | y) = \frac{\fx (x,y)}{f_{\xi_2} (y)} \qquad \quad f_{\xi_{2}} (y | x) = \frac{\fx (x,y)}{f_{\xi_1} (x)}
@@ -1551,7 +1559,7 @@ f_{\xi_1 | \xi_2} (x|y) = \begin{dcases}
 \end{dcases}
 $$
 $$
-f_{\xi_1}(x) = \begin{dcases}
+f_{\xi_{2}} (y | x) = \begin{dcases}
 \undef, \quad x \leq -1 ;\\
 \begin{dcases}
 \dfrac{1}{2\sqrt{(1-x^2)}} ,&  -1 < x \leq 0, y \in [-\sqrt{1 - x^2}, \sqrt{1 - x^2}]; \\
@@ -1582,6 +1590,8 @@ $ \int\limits_{-\sqrt{4 - (x-1)^2}}^{  \sqrt{4 - (x-1)^2}}{\dfrac{1}{2\sqrt{4 - 
 перевіркою.}
 
 $$\mathbb{E}(\xi_1 | \xi_2) =  \int\limits_{-\i}^{ +\infty}{ x\cdot f_{\xi_1 | \xi_2} (x|y) dx}=$$
+\vfill
+
 $$
 = \begin{dcases}
 \undef, y \leq  -2;\\
@@ -1601,7 +1611,127 @@ $$
 0 , & 1 < y \leq 2, x \notin [1, 1 +\sqrt{4 - y^2}];\\
 \end{dcases}\\
 			\undef, y >  2;\\
-\end{dcases}
+\end{dcases} =
+$$
+\vfill
+
+$$
+= \begin{dcases}
+\undef, y \leq  -2;\\
+\int\limits_{1}^{ 1 +\sqrt{4 - y^2}} x\cdot
+		 \dfrac{1}{\sqrt{4 - y^2}}dx, \quad -2 < y \leq -1;\\
+\int\limits_{-\sqrt{1-y^2}}^{ 1 +\sqrt{4 - y^2}} x\cdot
+\dfrac{1}{\sqrt{4 - y^2} + \sqrt{1-y^2}+ 1}dx, \quad  -1 < y \leq 1; \\
+\int\limits_{1}^{ 1 +\sqrt{4 - y^2}} x\cdot
+\dfrac{1}{\sqrt{4 - y^2}} ,1 < y \leq 2;\\
+			\undef, y >  2;\\
+\end{dcases} =
+$$
+\vfill
+\newpage
+$$
+= \begin{dcases}
+\undef, y \leq  -2;\\
+\dfrac{x^2}{2\sqrt{4-y^2}} \Bigg|_{1}^{ 1 +\sqrt{4 - y^2}},              \quad -2 < y \leq -1;\\
+\dfrac{x^2}{2\left(\sqrt{4-y^2}+\sqrt{1-y^2}+1\right)}\Bigg|_{-\sqrt{1-y^2}}^{ 1 +\sqrt{4 - y^2}} ,             \quad  -1 < y \leq 1; \\
+\dfrac{x^2}{2\sqrt{4-y^2}} \Bigg|_{1}^{ 1 +\sqrt{4 - y^2}},               \quad 1 < y \leq 2;\\
+			\undef, y >  2;\\
+\end{dcases} =
 $$
 
+$$
+= \begin{dcases}
+\undef, y \leq  -2;\\
+\dfrac{\sqrt{4-y^2}+2}{2},              \quad -2 < y \leq -1;\\
+\dfrac{\sqrt{4-y^2}-\sqrt{1-y^2}+1}{2},             \quad  -1 < y \leq 1; \\
+\dfrac{\sqrt{4-y^2}+2}{2},               \quad 1 < y \leq 2;\\
+			\undef, y >  2;\\
+\end{dcases}
+$$
+Перевірка:
+$$
+\mathbb{E} \left( \mathbb{E}(\xi_1 | \xi_2) \right)  =  \int\limits_{-\i}^{ +\infty}{\mathbb{E}(\xi_1 | \xi_2)} f_{\xi_2}dy =  \int\limits_{-2}^{ -1}{
+ \dfrac{1}{2.5\pi + 2} \cdot \sqrt{4 - y^2}\dfrac{\sqrt{4-y^2}+2}{2}dy} +
+$$
+$$
++  \int\limits_{-1}^{ 1}{\dfrac{1}{2.5\pi + 2} \cdot \left( \sqrt{4 - y^2} + \sqrt{1-y^2}+ 1  \right) \dfrac{\sqrt{4-y^2}-\sqrt{1-y^2}+1}{2} dy}+
+$$
+$$
++\int\limits_{1}^{ 2}{
+ \dfrac{1}{2.5\pi + 2} \cdot \sqrt{4 - y^2}\dfrac{\sqrt{4-y^2}+2}{2}dy}=
+$$
+$$
+= \int\limits_{-2}^{ -1}{
+\dfrac{2\sqrt{4-y^2}+4 - y^2}{5\pi + 4}dy} + \int\limits_{-1}^{ 1}{
+\dfrac{2\sqrt{4-y^2}+4 }{5\pi + 4}dy} +  \int\limits_{1}^{ 2}{
+\dfrac{2\sqrt{4-y^2}+4 - y^2}{5\pi + 4}dy} =
+$$
+$$
+= 2 \cdot \dfrac{4{\pi}-3^\frac{3}{2}+5}{15{\pi}+12}+
+\dfrac{4{\pi}+2{\cdot}3^\frac{3}{2}+24}{3\left(5{\pi}+4\right)} = \frac{12\pi + 34 }{3\left(5{\pi}+4\right)}  = \frac{3\pi + 17}{3\left(2.5{\pi}+2\right)}  = \mathbb{E} \xi_1
+$$
+\newpage
+\vfill
+
+$$\mathbb{E}(\xi_2 | \xi_1) =  \int\limits_{-\i}^{ +\infty}{ y\cdot f_{\xi_2 | \xi_1} (y|x) dy}=$$
+\vfill
+
+$$
+= \begin{dcases}
+\undef, \quad x \leq -1 ;\\
+\int\limits_{-\i}^{ +\i} y \cdot
+\begin{dcases}
+ \dfrac{1}{2\sqrt{(1-x^2)}} ,  -1 < x \leq 0, y \in [-\sqrt{1 - x^2}, \sqrt{1 - x^2}]; \\
+ 0,  -1 < x \leq 0, y \notin [-\sqrt{1 - x^2}, \sqrt{1 - x^2}]; \\
+\end{dcases}\\
+ \int\limits_{-\i}^{ +\i} y \cdot \begin{dcases}
+\dfrac{1}{2},  0 < x \leq 1, y \in [-1, 1]; \\
+0,   < x \leq 1, y \notin [-1, 1]; \\
+\end{dcases}\\
+ \int\limits_{-\i}^{ +\i} y \cdot \begin{dcases}
+\dfrac{1}{2\sqrt{4 - (x-1)^2}},  0 < x \leq 1, y \in [-\sqrt{4 - (x-1)^2}, \sqrt{4 - (x-1)^2}]; \\
+0,  0 < x \leq 1, y \notin [-\sqrt{4 - (x-1)^2}, \sqrt{4 - (x-1)^2}]; \\
+\end{dcases}\\
+	\undef, \quad x > 3 ;\\
+\end{dcases} =
+$$
+\vfill
+
+$$
+=\begin{dcases}
+\undef, \quad x \leq -1 ;\\
+\int\limits_{-\sqrt{1 - x^2}}^{ \sqrt{1 - x^2}} y \cdot
+ \dfrac{1}{2\sqrt{(1-x^2)}} , \quad -1 < x \leq 0; \\
+ \int\limits_{-1}^{ +1} y \cdot
+\dfrac{1}{2}, \quad 0 < x \leq 1; \\
+ \int\limits_{-\sqrt{4 - (x-1)^2}}^{\sqrt{4 - (x-1)^2}} y \cdot
+\dfrac{1}{2\sqrt{4 - (x-1)^2}},\quad  1 < x \leq 3; \\
+	\undef, \quad x > 3 ;\\
+\end{dcases} =
+$$
+\vfill
+$$
+=\begin{dcases}
+\undef, \quad x \leq -1 ;\\
+\dfrac{y^2}{4\sqrt{1-x^2}}\Bigg|_{-\sqrt{1 - x^2}}^{ \sqrt{1 - x^2}} , \quad -1 < x \leq 0; \\
+ \dfrac{y^2}{4}\Bigg|_{-1}^{ +1}
+, \quad 0 < x \leq 1; \\
+\dfrac{y^2}{4\sqrt{4 - (x-1)^2}} \Bigg|_{-\sqrt{4 - (x-1)^2}}^{\sqrt{4 - (x-1)^2}}
+,\quad 1 < x \leq 3; \\
+	\undef, \quad x > 3 ;\\
+\end{dcases} =
+\fbox{$\begin{dcases}
+\undef, \quad x \leq -1 ;\\
+0,\quad -1 < x \leq 3; \\
+	\undef, \quad x > 3 ;\\
+\end{dcases}$}
+$$
+Перевірка:
+$$
+\mathbb{E} \left( \mathbb{E}(\xi_2 | \xi_1) \right)  =  \int\limits_{-\i}^{ +\infty}{\mathbb{E}(\xi_2| \xi_1)} f_{\xi_1}dy =  \int\limits_{-\i}^{ +\infty}{0 \cdot f_{\xi_1}dy} =  0 = \mathbb{E}\xi_2
+$$
+\newcommand{\heart}{\ensuremath\heartsuit}
+\begin{center}
+	\Large \heart
+\end{center}
 \end{document}

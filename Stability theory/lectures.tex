@@ -20,7 +20,7 @@
 \newmdtheoremenv{boxteo}{Теорема}[section]
 \setlength\parindent{0pt}
 \DeclareMathOperator*\lowlim{\underline{lim}}
-\DeclareMathOperator*\uplim{\overline{lim}}
+\DeclareMathOperator*\uplim{\vec{lim}}
 \newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
 \def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
 
@@ -97,6 +97,8 @@ showstringspaces=false}
 %         print bla
 % \end{python}
 
+\onehalfspacing
+
 \begin{document}
 
 
@@ -155,15 +157,15 @@ x'_2 (t) = f_2(t, x_1 (t), ... , x_n(t)) \\
 \ee
 
 \bd
- Системою диф. рівнянь n-го порядку в нормальній формі називається система вигляду(1), де $ f_i : D \to \mathbb{R}, D \subset \mathbb{R}^{n+1 }; i = \overline{1, n}$.\\
+ Системою диф. рівнянь n-го порядку в нормальній формі називається система вигляду(1), де $ f_i : D \to \mathbb{R}, D \subset \mathbb{R}^{n+1 }; i = \vec{1, n}$.\\
  Позначення:
-$$ \overline{x} (t) = \begin{bmatrix}
+$$ \vec{x} (t) = \begin{bmatrix}
  x_1(t) \\
  \vdots\\
  x_n(t)
 \end{bmatrix} - \text{невідома вектор-функція}$$
 $$
-\overline{f} (t, \overline{x} (t)) = \begin{bmatrix}
+\vec{f} (t, \vec{x} (t)) = \begin{bmatrix}
  f_1 \\
  \vdots
  \\
@@ -171,67 +173,67 @@ $$
 \end{bmatrix} \qquad \qquad D \to \mathbb{R}^{n}, D \subset \mathbb{R}^{n+1}
 $$
 
-Тоді (1): \fbox{ $  \overline{x}' (t) = \overline{f} (t, \overline{x} (t))$}
+Тоді (1): \fbox{ $  \vec{x}' (t) = \vec{f} (t, \vec{x} (t))$}
 \ed
 
 \def\rect{\textbf{П}}
 \bd
-\textbf{Розв'язком системи } (1) на $(\alpha , \beta)$ називається така вектор функція $\overline{x} (t) \in C(\alpha , \beta)$, що:\\
+\textbf{Розв'язком системи } (1) на $(\alpha , \beta)$ називається така вектор функція $\vec{x} (t) \in C(\alpha , \beta)$, що:\\
 1. $(t, x_1 (t), ..., x_n(t))  \in D \quad \forall t \in (\alpha , \beta)$. \\
-2. $ \overline{x} (t)$ перетворює (1) на тотожність на $(\alpha , \beta)$. \\
+2. $ \vec{x} (t)$ перетворює (1) на тотожність на $(\alpha , \beta)$. \\
 \textbf{Загальним розв'язком системи}  (1) називається n-параметрична сім'я розв'язків (1), що охоплює всі розв'язки системи.
 \ed
 
-Задача Коші. Для заданих $t_0, \overline{x}^{0} \in D$ знайти такий розв'язок (1), що $\overline{x} (t_0) = \overline{x}^{0}$.
+Задача Коші. Для заданих $t_0, \vec{x}^{0} \in D$ знайти такий розв'язок (1), що $\vec{x} (t_0) = \vec{x}^{0}$.
 
-Нехай $(t_0 , \overline{x}^0) \in D :  \textbf{П} = \left\lbrace (t, \overline{x}) \bigg |
+Нехай $(t_0 , \vec{x}^0) \in D :  \textbf{П} = \left\lbrace (t, \vec{x}) \bigg |
  \left| t - t_0 \right| \leq a, \quad
- \left| \left| \overline{x} - \overline{x^{0}} \right|  \right| \leq  b;
+ \left| \left| \vec{x} - \vec{x^{0}} \right|  \right| \leq  b;
  \right\rbrace $ .\\
  Розглядається задача Коші: $\begin{cases}
-      \overline{x} ' (t)  =  \overline{f} (t, \overline{x}) \\
-      \overline{x} (t_0) = \overline{x}^0
+      \vec{x} ' (t)  =  \vec{f} (t, \vec{x}) \\
+      \vec{x} (t_0) = \vec{x}^0
  \end{cases}$
 \begin{boxteo}[Теорема Пеано]
-$\overline{f} \in \mathbb{C} (\rect) \Longrightarrow $\\$  \Longrightarrow $існують розв'язки задачі Коші, принаймі на інтервалі: $$ I = (t_0 - h, t_0 + h); \quad h = \min{\left\lbrace a , \frac{b}{M}  \right\rbrace }, \quad M = \max_{\rect} \left| \left| \overline{f} (\overline{x}) \right|  \right| $$
+$\vec{f} \in \mathbb{C} (\rect) \Longrightarrow $\\$  \Longrightarrow $існують розв'язки задачі Коші, принаймі на інтервалі: $$ I = (t_0 - h, t_0 + h); \quad h = \min{\left\lbrace a , \frac{b}{M}  \right\rbrace }, \quad M = \max_{\rect} \left| \left| \vec{f} (\vec{x}) \right|  \right| $$
 \end{boxteo}
 \begin{boxteo}[Теорема Пікара] Якщо виконуються умови:\\
     1) $f \in C (\rect)$ \\
-    2) $ \exists L > 0 \quad \forall (t, \overline{x}^1 ), (t, \overline{x} ^2) \in \rect  :
-    \left| \left| \overline{f} (t, \overline{x}^1) - \overline{f} (t, \overline{x}^2)  \right|   \right|  \leq  L \left|  \left| \overline{x_1} - \overline{x_2} \right|  \right| $
-    Тоді, існує та єдиний розвязок задачі Коші, принаймі на інтервалі: $$ I = (t_0 - h, t_0 + h); \quad h = \min{\left\lbrace a , \frac{b}{M}  \right\rbrace }, \quad M = \max_{\rect} \left| \left| \overline{f} (\overline{x}) \right|  \right| $$
+    2) $ \exists L > 0 \quad \forall (t, \vec{x}^1 ), (t, \vec{x} ^2) \in \rect  :
+    \left| \left| \vec{f} (t, \vec{x}^1) - \vec{f} (t, \vec{x}^2)  \right|   \right|  \leq  L \left|  \left| \vec{x_1} - \vec{x_2} \right|  \right| $
+    Тоді, існує та єдиний розвязок задачі Коші, принаймі на інтервалі: $$ I = (t_0 - h, t_0 + h); \quad h = \min{\left\lbrace a , \frac{b}{M}  \right\rbrace }, \quad M = \max_{\rect} \left| \left| \vec{f} (\vec{x}) \right|  \right| $$
 \end{boxteo}
 
 \begin{boxteo}[про продовження]
-    Нехай $\overline{f} \in \mathbb{C}(D), D \subset \mathbb{R}^{n+1}$ - деяка обмежена область. Нехай $(t_0, \overline{x}^0) \in D$ - задана точка.
+    Нехай $\vec{f} \in \mathbb{C}(D), D \subset \mathbb{R}^{n+1}$ - деяка обмежена область. Нехай $(t_0, \vec{x}^0) \in D$ - задана точка.
 
     \begin{center} \includegraphics[scale=0.3]{assets/lectures-d0fd0868.png} \end{center}
-    Тоді $\exists t^{-} $та  $t^{+} :  t^{-} < t < t^{+}$ такі, що розв'язок задачі Коші з початковою умовою існує на проміжку $ (t^{-}, t^{+})$, причому точки $ (t^-, \overline{x} (t^-)), (t^+, \overline{x} (t^+))$ належать межі області $D$.
+    Тоді $\exists t^{-} $та  $t^{+} :  t^{-} < t < t^{+}$ такі, що розв'язок задачі Коші з початковою умовою існує на проміжку $ (t^{-}, t^{+})$, причому точки $ (t^-, \vec{x} (t^-)), (t^+, \vec{x} (t^+))$ належать межі області $D$.
 \end{boxteo}
 \subsection{Основні поняття теорії стійкості.}
-Розглянемо систему диф. рівнянь $\overline{x}'(t) = \overline{f} (t, \overline{x})$:
-$$f \in   \mathbb{C}(D)\qquad D = [a, +\infty ]  \times G\qquad G \in \mathbb{R}^{n} \qquad  \forall (t_0, \overline{x}^0) \in D  \exists! \text{ розв. З.К. } $$
+Розглянемо систему диф. рівнянь $\vec{x}'(t) = \vec{f} (t, \vec{x})$:
+$$f \in   \mathbb{C}(D)\qquad D = [a, +\infty ]  \times G\qquad G \in \mathbb{R}^{n} \qquad  \forall (t_0, \vec{x}^0) \in D  \exists! \text{ розв. З.К. } $$
 
 \bd Розв'язок системи (1) називається стійким за Ляпуновим, якщо:\\
-1) $\overline{x} = \overline{\varphi } (t)  \quad \exists$ на $[a, +\infty]$.\\
-2) $\forall \varepsilon > 0 \quad \forall t_0 \geq a \quad \exists \delta > 0$, таке, що $ \left|\left| \overline{x}(t_0) - \overline{\varphi}(t_0) \right|\right| < \delta $ справедливо, що $ \left| \left|
-\overline{x} (t) - \overline{\varphi} (t)
+1) $\vec{x} = \vec{\varphi } (t)  \quad \exists$ на $[a, +\infty]$.\\
+2) $\forall \varepsilon > 0 \quad \forall t_0 \geq a \quad \exists \delta > 0$, таке, що $ \left|\left| \vec{x}(t_0) - \vec{\varphi}(t_0) \right|\right| < \delta $ справедливо, що $ \left| \left|
+\vec{x} (t) - \vec{\varphi} (t)
   \right|  \right|  < \delta  \quad \forall t \geq t_0$.
 \ed
 
 \bd
-Розв'язок $ \overline{x} = \varphi(t) $ називається асимптотично стійким за лякуновим, якщо:
-1. $ \overline{x} = \overline{\varphi} (t)$ - стійкий.\\
-2. $\forall t_0 \geq a \quad \exists \delta > 0 \quad \forall \overline{x} (t) $ такого, що $ \left|
-\left|  \overline{x} (t_0) - \overline{\varphi} (t_0) \right|
+Розв'язок $ \vec{x} = \varphi(t) $ називається асимптотично стійким за Ляпуновим, якщо:
+1. $ \vec{x} = \vec{\varphi} (t)$ - стійкий.\\
+2. $\forall t_0 \geq a \quad \exists \delta > 0 \quad \forall \vec{x} (t) $ такого, що $ \left|
+\left|  \vec{x} (t_0) - \vec{\varphi} (t_0) \right|
  \right| $ справедливо, що: \\ $  \left|
- \left|  \overline{x} (t) - \overline{\varphi} (t) \right|
+ \left|  \vec{x} (t) - \vec{\varphi} (t) \right|
   \right| \to 0   $ при $ t \to + \infty$
 \ed
 
-\def\vx{\overline{x}}
-\def\vphi{\overline{\varphi}}
-\def\vf{\overline{f}}
+\def\vx{\vec{x}}
+\def\vphi{\vec{\varphi}}
+\def\vf{\vec{f}}
 
 \bd
 Роз'язок називається \textbf{нестійким}, якщо він не є стійким.
@@ -290,10 +292,10 @@ $$
 \end{example}
 Перейдемо знов до систем диф. рівнянь: $ \vx' = \vf (t, \vx)  \quad (1)$.\\
 $\vx = \vphi (t)$ - розв'язок, який ми маємо дослідити на стійкість.\\
-Заміна $ \overline{z} (t) = \vx (t)  - \vphi (y) $. Отримаємо систему:
-$$ \overline{z}' + \overline{\varphi}'  = \overline{f} (t, \overline{z}+ \overline{\varphi})(t)$$
+Заміна $ \vec{z} (t) = \vx (t)  - \vphi (y) $. Отримаємо систему:
+$$ \vec{z}' + \vec{\varphi}'  = \vec{f} (t, \vec{z}+ \vec{\varphi})(t)$$
 $$
-\overline{f}' (t) = \overline{f} (t, \overline{\varphi})  \Longrightarrow \fbox{ $ \overline{z} ' = \overline{\varphi} (t, \overline{z} + \overline{\varphi} (t)) - \overline{f} ( t, \varphi(t)) $}
+\vec{f}' (t) = \vec{f} (t, \vec{\varphi})  \Longrightarrow \fbox{ $ \vec{z} ' = \vec{\varphi} (t, \vec{z} + \vec{\varphi} (t)) - \vec{f} ( t, \varphi(t)) $}
 $$
 
 \input{lecture_1_part_4}

@@ -17,10 +17,15 @@
 \theoremstyle{definition}
 \newtheorem{statement}{Утверждение}[section]
 \newmdtheoremenv{boxteo}{Теорема}[section]
+\newtheorem{look}{Позначення}[section]
+
 \setlength\parindent{0pt}
+
 \DeclareMathOperator*\lowlim{\underline{lim}}
 \DeclareMathOperator*\uplim{\overline{lim}}
+
 \newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+
 \def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
 
 % Default fixed font does not support bold face
@@ -37,20 +42,17 @@
 
 \def\be{\begin{equation}}
 \def\ee{\end{equation}}
-% Definition
+
 \def\bd{\begin{defo}}
 \def\ed{\end{defo}}
 
-% Box Theorem
 \def\bbt{\begin{boxteo}}
 \def\ebt{\end{boxteo}}
 
 \def\i{\infty}
-
 \def\d{\partial}
 
 \begin{titlepage}
-
 \begin{center}
 
 \vspace*{0.1cm}
@@ -71,12 +73,11 @@
 
 
 \tableofcontents
-
 \newpage
 
 \section{Лекція 1}
+\subsection{Нормальні системи диференційних рівнянь}
 
-Нормальні системи діф. рівнянь.
 
 \be
 \left\lbrace
@@ -88,25 +89,23 @@ x'_2 (t) = f_2(t, x_1 (t), ... , x_n(t)) \\
 \end{gathered}\right.
 \ee
 
-\bd
- Системою диф. рівнянь n-го порядку в нормальній формі називається система вигляду(1), де $ f_i : D \to \mathbb{R}, D \subset \mathbb{R}^{n+1 }; i = \overline{1, n}$.\\
- Позначення:
-$$ \overline{x} (t) = \begin{bmatrix}
- x_1(t) \\
- \vdots\\
- x_n(t)
-\end{bmatrix} - \text{невідома вектор-функція}$$
-$$
-\overline{f} (t, \overline{x} (t)) = \begin{bmatrix}
- f_1 \\
- \vdots
- \\
- f_n
-\end{bmatrix} \qquad \qquad D \to \mathbb{R}^{n}, D \subset \mathbb{R}^{n+1}
-$$
 
-Тоді (1): \fbox{ $  \overline{x}' (t) = \overline{f} (t, \overline{x} (t))$}
-\ed
+ Системою диф. рівнянь n-го порядку в нормальній формі називається система вигляду (1), де $ f_i : D \to \mathbb{R}, \quad D \subset \mathbb{R}^{n+1 }, \quad i = \overline{1, n}$. 
+\look
+\[
+      \vec{x}(t) = \left(\begin{array}{l}
+      x_1(t)    \\
+      \dots     \\
+      x_n(t)
+      \end{array}\right) \text{-- невідома вектор-функція}, \quad
+      \vec{f}(t, \vec{x}(t)) = \left(\begin{array}{l}
+      f_1     \\
+      \dots  \\
+      f_n
+      \end{array}\right) \text{, що}
+\]
+$D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $(1): \vec{x}'(t) = \vec{f}(t, \vec{x}(t))$.
+
 
 \def\rect{\textbf{П}}
 \bd

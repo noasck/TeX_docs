@@ -176,8 +176,16 @@ $D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $(1): \ov
 \end{enumerate}
 
 \begin{center} \includegraphics[scale=0.35]{assets/lect2.jpg} \end{center}
-Роз'язок називається \textbf{нестійким}, якщо він не є стійким.
+
+Роз'язок $\vec{\varphi}(t)$ називається \textbf{нестійким за Ляпуновим}, якщо він не є стійким, тобто:
 \ed
+
+\begin{enumerate}
+  \item Або $\overline{x} = \overline{\varphi}(t) \quad \nexists$ на  $[a, +\infty]$ (вертикальні асимптоти);
+  \item Або $\exists \varepsilon > 0 : \exists t_0 \geq a :  \forall \delta > 0$ існує розв'язок $\vec{x}(t)$ системи (1) такий, що $||\vec{x}(t_0) - \vec{\varphi}(t_0)|| < \delta$, але $||\vec{x}(t_0) - \vec{\varphi}(t_0)|| > \varepsilon$
+\end{enumerate}
+
+\begin{center} \includegraphics[scale=1.25]{assets/lect3+4.jpg} \end{center}
 
 \subsection{Приклади дослідження на стійкість за означенням.}
 

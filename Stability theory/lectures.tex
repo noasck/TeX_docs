@@ -137,7 +137,7 @@ $D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $(1): \ov
 
 \begin{boxteo}[про продовження]
 Нехай для системи (1) виконується, що $\overline{f} \in C(D), \quad D \subset \mathbb{R}^{n + 1}$ -- обмежена область. Тоді $\forall t : (t_0, \overline{x}_0) \in D$ існують такі $t^{-}, t^{+} : t^{-} < t_0 < t^{+}$, що розв'язок системи (1) ??? $\overline{x}(t_0) = \overline{x}_0$ існує на інтервалі $(t^{-}, t^{+})$, причому $(t^{-}, x(t^{-})) \text{ та } (t^{+}, x(t^{+}))$ належать межі області $D$.
-    \begin{center} \includegraphics[scale=0.35]{assets/lectures-d0fd0868.png} \end{center}
+    \begin{center} \includegraphics[scale=0.35]{assets/lect0.png} \end{center}
 \end{boxteo}
 
 \begin{boxteo}[Теорема Пікара]
@@ -157,7 +157,7 @@ $D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $(1): \ov
 Розглянем систему диференційних рівнянь $\overline{x}' = \overline{f}(t, \overline{x})$ (1), де $f : D \rightarrow \mathbb{R}^n$ та $D = [a, +\infty] \times G, \quad G \subset \mathbb{R}^n$. Нехай при цьому $\overline{f}$ задавольняє умовам існування та єдиності розв'язку задачі Коші в будь-якій точці $(t_0, \overline{x}_0) \in D$
 
 \bd
-Розв'язок $\overline{x} = \overline{\varphi}(t)$ системи (1) називається стійким за Ляпуновим, якщо
+Розв'язок $\overline{x} = \overline{\varphi}(t)$ системи (1) називається \textbf{стійким} за Ляпуновим, якщо
 
 \begin{enumerate}
   \item $\overline{x} = \overline{\varphi}(t) \quad \exists  \text{ на } [a, +\infty]$ (відсутніть вертикальних асимптот)
@@ -168,6 +168,13 @@ $D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $(1): \ov
 \begin{center} \includegraphics[scale=0.35]{assets/lect1.jpg} \end{center}
 
 \bd
+Розв'язок $\overline{x} = \overline{\varphi}(t)$ системи (1) називається \textbf{асимптотично стійким} за Ляпуновим, якщо
+
+\begin{enumerate}
+  \item $\overline{x} = \overline{\varphi}(t)$ стійкий;
+  \item $\forall t_0 \geq a \quad \exists \delta > 0: \forall$ розв'язку $\vec{x}(t)$ с-ми (1) такого, що $||\vec{x}(t_0) - \vec{\varphi}(t_0)|| < \delta$ справедливо, що $||\vec{x}(t_0) - \vec{\varphi}(t_0)|| \rightarrow 0 \text{ при } t \rightarrow + \infty$.
+\end{enumerate}
+
 Роз'язок називається \textbf{нестійким}, якщо він не є стійким.
 \ed
 

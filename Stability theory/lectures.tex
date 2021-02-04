@@ -17,7 +17,7 @@
 \theoremstyle{definition}
 \newtheorem{statement}{Утверждение}[section]
 \newmdtheoremenv{boxteo}{Теорема}[section]
-\newtheorem{look}{Позначення}[section]
+\newtheorem*{look}{Позначення}
 
 \setlength\parindent{0pt}
 
@@ -131,13 +131,22 @@ $D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $(1): \ov
 \end{boxteo}
 
 \begin{boxteo}[про продовження]
-    Нехай $\overline{f} \in \mathbb{C}(D), D \subset \mathbb{R}^{n+1}$ - деяка обмежена область. Нехай $(t_0, \overline{x}^0) \in D$ - задана точка.
-
-    \begin{center} \includegraphics[scale=0.27]{assets/lectures-d0fd0868.png} \end{center}
-    Тоді $\exists t^{-} $та  $t^{+} :  t^{-} < t < t^{+}$ такі, що розв'язок задачі Коші з початковою умовою існує на проміжку $ (t^{-}, t^{+})$, причому точки $ (t^-, \overline{x} (t^-)), (t^+, \overline{x} (t^+))$ належать межі області $D$.
+Нехай для системи (1) виконується, що $\vec{f} \in C(D), \quad D \subset \mathbb{R}^{n + 1}$ -- обмежена область. Тоді $\forall t : (t_0, \vec{x}_0) \in D$ існують такі $t^{-}, t^{+} : t^{-} < t_0 < t^{+}$, що розв'язок системи (1) ??? $\vec{x}(t_0) = \vec{x}_0$ існує на інтервалі $(t^{-}, t^{+})$, причому $(t^{-}, x(t^{-})) \text{ та } (t^{+}, x(t^{+}))$ належать межі області $D$.
+    \begin{center} \includegraphics[scale=0.35]{assets/lectures-d0fd0868.png} \end{center}
 \end{boxteo}
+
+\begin{boxteo}[Теорема Пікара]
+  Нехай
+  \begin{enumerate}
+    \item $\vec{f} \in C(\Pi)$;
+    \item $\exists! L > 0 : \forall (t_1, \vec{x}_1), (t_2, \vec{x}_2) \in \Pi$ справедливо, що $|| f(t_1, \vec{x}_1) - f(t_2, \vec{x}_2)|| \leq \\ \leq L||\vec{x}_1 - \vec{x}_2||$ (умова Ліпшиця).
+  \end{enumerate}
+
+  Тоді $\exists!$ розв'язок задачі Коші ?з п. ри? $\vec{x}(t_0) = \vec{x}_0(t)$, визначений принаймні на $I_h = (t_0 - h, t_0 + h), \quad h = \min\{{a, \dfrac{b}{M}}\}, \quad M = \max\limits_{\Pi}||f(t, \vec{x})||$.
+\end{boxteo}
+
 \subsection{Основні поняття теорії стійкості.}
-Розглянемо систему диф. рівнянь $\overline{x}'(t) = \overline{f} (t, \overline{x})$:
+Розглянемо систему диференційних рівнянь $\overline{x}'(t) = \overline{f} (t, \overline{x})$:
 $$f \in   \mathbb{C}(D)\qquad D = [a, +\infty ]  \times G\qquad G \in \mathbb{R}^{n} \qquad  \forall (t_0, \overline{x}^0) \in D  \exists! \text{ розв. З.К. } $$
 
 \bd Розв'язок системи (1) називається стійким за Ляпуновим, якщо:\\

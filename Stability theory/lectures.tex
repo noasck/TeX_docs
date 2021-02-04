@@ -36,7 +36,7 @@
 \definecolor{deepred}{rgb}{0.6,0,0}
 \definecolor{deepgreen}{rgb}{0,0.5,0}
 
-\onehalfspacing
+\doublespacing
 
 \begin{document}
 
@@ -89,50 +89,45 @@ x'_2 (t) = f_2(t, x_1 (t), ... , x_n(t)) \\
 \end{gathered}\right.
 \ee
 
-
- Системою диф. рівнянь n-го порядку в нормальній формі називається система вигляду (1), де $ f_i : D \to \mathbb{R}, \quad D \subset \mathbb{R}^{n+1 }, \quad i = \overline{1, n}$. 
+ Системою диф. рівнянь n-го порядку в нормальній формі називається система вигляду (1), де $ f_i : D \to \mathbb{R}, \quad D \subset \mathbb{R}^{n+1 }, \quad i = \overline{1, n}$.
 \look
 \[
-      \vec{x}(t) = \left(\begin{array}{l}
+      \overline{x}(t) = \left(\begin{array}{l}
       x_1(t)    \\
       \dots     \\
       x_n(t)
       \end{array}\right) \text{-- невідома вектор-функція}, \quad
-      \vec{f}(t, \vec{x}(t)) = \left(\begin{array}{l}
+      \overline{f}(t, \overline{x}(t)) = \left(\begin{array}{l}
       f_1     \\
       \dots  \\
       f_n
       \end{array}\right) \text{, що}
 \]
-$D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $(1): \vec{x}'(t) = \vec{f}(t, \vec{x}(t))$.
+$D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $(1): \overline{x}'(t) = \overline{f}(t, \overline{x}(t))$.
 
 
 \def\rect{\textbf{П}}
 \bd
-\textbf{Розв'язком системи } (1) на $(\alpha , \beta)$ називається така вектор функція $\overline{x} (t) \in C(\alpha , \beta)$, що:\\
-1. $(t, x_1 (t), ..., x_n(t))  \in D \quad \forall t \in (\alpha , \beta)$. \\
-2. $ \overline{x} (t)$ перетворює (1) на тотожність на $(\alpha , \beta)$. \\
+\textbf{Розв'язком системи} (1) на $(\alpha , \beta)$ називається така вектор-функція $\overline{x} (t) \in C(\alpha , \beta)$, що:
+\begin{enumerate}
+  \item $(t, x_1(t), \dots, x_n(t)) \in D \quad \forall t \in (\alpha, \beta)$;
+  \item $\overline{x}(t)$  перетворює $(1)$ на тотожність на інтервалі $(\alpha, \beta)$.
+\end{enumerate}
+
 \textbf{Загальним розв'язком системи}  (1) називається n-параметрична сім'я розв'язків (1), що охоплює всі розв'язки системи.
 \ed
 
 Задача Коші. Для заданих $t_0, \overline{x}^{0} \in D$ знайти такий розв'язок (1), що $\overline{x} (t_0) = \overline{x}^{0}$.
 
-Нехай $(t_0 , \overline{x}^0) \in D :  \textbf{П} = \left\lbrace (t, \overline{x}) \bigg |
- \left| t - t_0 \right| \leq a, \quad
- \left| \left| \overline{x} - \overline{x^{0}} \right|  \right| \leq  b;
- \right\rbrace $ .\\
- Розглядається задача Коші: $\begin{cases}
-      \overline{x} ' (t)  =  \overline{f} (t, \overline{x}) \\
-      \overline{x} (t_0) = \overline{x}^0
- \end{cases}$
 \begin{boxteo}[Теорема Пеано]
-$\overline{f} \in \mathbb{C} (\rect) \Longrightarrow $\\$  \Longrightarrow $існують розв'язки задачі Коші, принаймі на інтервалі: $$ I = (t_0 - h, t_0 + h); \quad h = \min{\left\lbrace a , \frac{b}{M}  \right\rbrace }, \quad M = \max_{\rect} \left| \left| \overline{f} (\overline{x}) \right|  \right| $$
-\end{boxteo}
-\begin{boxteo}[Теорема Пікара] Якщо виконуються умови:\\
-    1) $f \in C (\rect)$ \\
-    2) $ \exists L > 0 \quad \forall (t, \overline{x}^1 ), (t, \overline{x} ^2) \in \rect  :
-    \left| \left| \overline{f} (t, \overline{x}^1) - \overline{f} (t, \overline{x}^2)  \right|   \right|  \leq  L \left|  \left| \overline{x_1} - \overline{x_2} \right|  \right| $
-    Тоді, існує та єдиний розвязок задачі Коші, принаймі на інтервалі: $$ I = (t_0 - h, t_0 + h); \quad h = \min{\left\lbrace a , \frac{b}{M}  \right\rbrace }, \quad M = \max_{\rect} \left| \left| \overline{f} (\overline{x}) \right|  \right| $$
+Нехай $\Pi = \{(t, \overline{x}) \in \mathbb{R} \quad \big| \quad |t-t_0| \leq a, \quad ||\overline{x} - \overline{x}_0|| \leq b \}$ та $\overline{f} \in C(\Pi)$. Тоді розв'язок задачі Коші:
+\begin{gather*}
+  \begin{cases}
+    \overline{x}' = \overline{f}(t, \overline{x}) \\
+    \overline{x}(t_0) = \overline{x}_0
+  \end{cases}
+\end{gather*}
+існує принаймні на проміжку $I_h = (t_0 - h, t_0 + h)$, де $h = \min\{{a, \dfrac{b}{M}}\}$, \\ $M = \max\limits_{(t, x) \in \Pi} {||\overline{f}(t, \overline{x})||}$.
 \end{boxteo}
 
 \begin{boxteo}[про продовження]

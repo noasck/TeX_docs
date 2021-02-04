@@ -86,9 +86,9 @@
 \be
 \left\lbrace
 \begin{gathered}
-x'_1 (t) = f_1(t, x_1 (t), ... , x_n(t)) \\
-x'_2 (t) = f_2(t, x_1 (t), ... , x_n(t)) \\
-\vdots \\
+    x'_1 (t) = f_1(t, x_1 (t), ... , x_n(t)) \\
+    x'_2 (t) = f_2(t, x_1 (t), ... , x_n(t)) \\
+    \vdots \\
     x'_n (t) = f_n(t, x_1 (t), ... , x_n(t)) \\
 \end{gathered}\right.
 \ee
@@ -112,7 +112,7 @@ $D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $(1): \ov
 
 \def\rect{\textbf{П}}
 \bd
-\textbf{Розв'язком системи} (1) на $(\alpha , \beta)$ називається така вектор-функція $\overline{x} (t) \in C(\alpha , \beta)$, що:
+\textbf{Розв'язком системи} (1) на $(\alpha , \beta)$ називається така вектор-функція $\overline{x} (t) \in C^1(\alpha , \beta)$, що:
 \begin{enumerate}
   \item $(t, x_1(t), \dots, x_n(t)) \in D \quad \forall t \in (\alpha, \beta)$;
   \item $\overline{x}(t)$  перетворює $(1)$ на тотожність на інтервалі $(\alpha, \beta)$.
@@ -122,9 +122,10 @@ $D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $(1): \ov
 \ed
 
 Задача Коші. Для заданих $t_0, \overline{x}^{0} \in D$ знайти такий розв'язок (1), що $\overline{x} (t_0) = \overline{x}^{0}$.
+Нехай $\Pi = \{(t, \overline{x}) \in \mathbb{R} \quad \big| \quad |t-t_0| \leq a, \quad ||\overline{x} - \overline{x}_0|| \leq b \}$ та $\overline{f} \in C(\Pi)$.
 
 \begin{boxteo}[Теорема Пеано]
-Нехай $\Pi = \{(t, \overline{x}) \in \mathbb{R} \quad \big| \quad |t-t_0| \leq a, \quad ||\overline{x} - \overline{x}_0|| \leq b \}$ та $\overline{f} \in C(\Pi)$. Тоді розв'язок задачі Коші:
+Нехай $\vec{f} \in C(\Pi)$. Тоді розв'язок задачі Коші:
 \begin{gather*}
   \begin{cases}
     \overline{x}' = \overline{f}(t, \overline{x}) \\
@@ -141,10 +142,13 @@ $D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $(1): \ov
 
 \begin{boxteo}[Теорема Пікара]
   Нехай
+  \begin{spacing}{1}
   \begin{enumerate}
     \item $\overline{f} \in C(\Pi)$;
     \item $\exists! L > 0 : \forall (t_1, \overline{x}_1), (t_2, \overline{x}_2) \in \Pi$ справедливо, що $|| f(t_1, \overline{x}_1) - f(t_2, \overline{x}_2)|| \leq \\ \leq L||\overline{x}_1 - \overline{x}_2||$ (умова Ліпшиця).
   \end{enumerate}
+  \end{spacing}
+
 
   Тоді $\exists!$ розв'язок задачі Коші ?з п. ри? $\overline{x}(t_0) = \overline{x}_0(t)$, визначений принаймні на $I_h = (t_0 - h, t_0 + h), \quad h = \min\{{a, \dfrac{b}{M}}\}, \quad M = \max\limits_{\Pi}||f(t, \overline{x})||$.
 \end{boxteo}
@@ -154,6 +158,7 @@ $D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $(1): \ov
 
 \bd
 Розв'язок $\overline{x} = \overline{\varphi}(t)$ системи (1) називається стійким за Ляпуновим, якщо
+
 \begin{enumerate}
   \item $\overline{x} = \overline{\varphi}(t) \quad \exists  \text{ на } [a, +\infty]$ (відсутніть вертикальних асимптот)
   \item $\forall \varepsilon > 0 \quad \forall t_0 \geq a \quad \exists \delta > 0 : \forall $ розв'язку $\overline{x}(t)$ системи (1) такого, що $||\overline{x}(t_0) - \overline{\varphi}(t_0)|| < \delta$ виконується наступне, що $\overline{x}(t)$ існує на $[t_0, +\infty]$ та $||\overline{x}(t) - \overline{\varphi}(t)|| < \varepsilon \quad \forall t \geq t_0$.

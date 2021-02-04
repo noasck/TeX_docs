@@ -1,1 +1,86 @@
-Sample
+\subsection{Стійкість розв'язків лінійних систем}
+
+Лінійна неоднорідна система рівнянь має вигляд (далі ЛНС):
+
+\be
+\overline{x}' = A(t) \overline{x} + \overline{f} (t), \text{ де }
+\ee
+
+$
+A(t) \in \mathbb{R}^{n \times n}, A(t) \in C [ a, + \infty], \overline{f} \in C[a, + \infty]
+$
+Застосуємо заміну: $ \overline{z} (t) = \overline{x} - \vphi (t)$, де
+
+$ \overline{z}(t)$ - нова невідома вектор-функція, а $\vphi (t)$ - розв'язок, який ми маємо дослідити на стійкість.
+
+Отримали лінійну однорідну систему першого порядку (далі ЛОС):
+
+$$ \overline{z} '   + \vphi = A(t)\overline{z} + A(t )\vphi + \overline{f}(t) $$
+\be
+\overline{z}' = A(t) \overline{z}
+\ee
+
+Заміною ми звели дослідження довільного розв'язку лінійної неоднорідної системи до дослідження нульового розв'язку відвовідної ЛОС. Таким чином, приходимо до висновку, що усі розв'язки є одночасно стійкими або не стійкими, або асимптотично стійкими. А отже, розглядаючи будь-яку лінійну систему, можемо говорити про стійкість не окремого розв'язку, а системи в цілому.\\
+
+Розв'яжемо ЛОС (3) (перейдемо для зручності до змінної $x$): $ \overline{x}'  =  A(t) \overline{x} $ - ЛОС (3).
+
+$X(t) $ - її фундаментальна матриця (далі ФМ). Тоді з.р: $ \overline{x} (t) = X(t) \cdot \overline{C}$, де $\overline{ C} \in \mathbb{R}^n$.
+Розв'язок з. К. з початковими умовами $ \overline{x} (t_0) = \overline{x_0}$:
+$$
+\overline{x}_0 = X(t_0) \cdot C \Rightarrow \overline{C} = X^{-1} (t_0) \cdot \overline{x_0} \Rightarrow \fbox{$x(t) = X(t) X^{-1}(t_0) \overline{x}_0$}
+$$
+
+
+\begin{boxteo}[Про стійкість ЛОС]\quad \\
+а) (3) - ст. $\Longleftrightarrow \exists K > 0: \sup\limits_{t\geq  a} ||X(t) || \leq K$.\\
+б) (3) - ас. ст. $\Longleftrightarrow  ||X(t)|| \to 0 $, при $ t \to +\infty$.\\
+в) (3) - нест. $ \Longleftrightarrow \exists \left\lbrace t_n \right\rbrace_{n=1}^{\infty} : ||X(t_n)|| \to +\infty $, при $n \to \infty$
+\end{boxteo}
+
+
+
+\begin{proof}
+ а) \fbox{$\Leftarrow$} Нехай $ \exists K > 0 : \sup\limits_{t\geq a} ||X(t)|| \leq K$.
+
+ Доведемо стійкість розв'язку $\overline{x} (t) = \vec{0}. $.
+
+За означенням, візьмемо розв'язок довільної задачі Коші з початковими умовами $\overline{x } (t_0) = \overline{x}_0$.\\
+Нехай $|| \overline{x}_0 || < \delta$ і розглянемо $ || \overline{x} (t)|| = || X(t) \cdot X^{-1} (t_0) \cdot \overline{x}_0 || \leq ||X(t)|| \cdot || X^{-1} (t_0)|| \cdot || \overline{x}_0|| \leq K \cdot || X^{-1} (t_0)|| \cdot || \overline{x}_0|| < K || X^{-1} (t_0)||\delta < \varepsilon $ при $ \delta = \dfrac{\varepsilon }{K || X^{-1} (t_0)|| + 1} $.\\
+Отже, $\forall t_0 \geq  a \quad \forall \varepsilon >0 \quad \exists \delta > 0 \quad \left(  \delta = \dfrac{\varepsilon }{K || X^{-1} (t_0)|| + 1}  \right)$  для довільного розв'язку з $ || \overline{x}_0|| < \delta$ справедливо $ ||\overline{x} (t)|| < \varepsilon  \Longrightarrow $ стійкість розв'язку (системи).\\
+\fbox{$\Rightarrow$} Нехай (3) - стійка. Припустимо від супротивного, що $\exists  \left\lbrace t_n \right\rbrace_{n\geq 1}^{\infty} : ||X(t_n)|| \to {+\infty} $ при $ n \to \infty$.\\
+Тоді $\exists j = \overline{1, n} : || \overline{x}^{j} (t_n)|| \to \infty$, де $\overline{x}^j$  - це $j$-тий стовпчик ФМ. \\ Покладемо $\forall \delta > 0:$
+$$
+\overline{x}^{\delta}_0 = \frac{\delta X(t_0) \overline{e}_j}{2 ||X(t_0)||} \text{ , де }\overline{e}_j = \begin{bmatrix}
+ 0\\
+ \vdots\\
+ 1\\
+ \vdots\\
+ 0
+\end{bmatrix} - j
+$$
+
+Тоді $|| \overline{x}_0^{\delta}|| = \dfrac{1}{ 2 ||X(t_0)||}  \cdot \delta ||X(t_0) \cdot \overline{e}_j|| < \delta $.\\
+Розглядаємо розв'язок з.К. з початковими умовами $ \overline{x} (t_0) = \overline{x} _0 ^ \delta$. Маємо:
+$$
+\overline{x} (t) = X(t) \cdot X^{-1}(t_0) \cdot \overline{x}_0 ^\delta = X(t) X^{-1} (t_0) \cdot \dfrac{ \delta X(t_0) \overline{e}_j}{ 2 ||X(t_0)||} = \frac{\delta}{2} \cdot \frac{X(t) \overline{e}_j}{ ||X(t_0)||} =   \frac{\delta}{2 ||X(t_0)|| } \cdot \overline{x}^j (t)
+$$
+$$
+\Longrightarrow \forall \varepsilon >0 \quad \exists n_0 \in \mathbb{N} \quad : \forall n \geq n_0
+$$
+$$
+||\overline{x} (t_n)|| = \frac{\delta}{ 2 ||X(t_0)|| } \cdot ||\overline{x}^j (t_n)|| \to \infty > \varepsilon  -
+$$
+З попереднього випливає нестійкість $ \Rightarrow  $ суперечність початковій побудові $ \Rightarrow$ a).\\
+Пункт б) доводиться аналогічно а).\\
+Пункт в) випливає із пукнта а).
+\end{proof}
+
+
+\subsection{Стійкість ЛОС зі сталою матрицею.}
+
+\begin{equation}
+\overline{x} ' (t) = A \overline{x} (t) \text{, де $A$ - стала матриця $n \times n$}
+\end{equation}
+\begin{boxteo}
+
+\end{boxteo}

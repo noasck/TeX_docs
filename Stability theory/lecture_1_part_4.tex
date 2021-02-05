@@ -81,6 +81,59 @@ $$
 \begin{equation}
 \overline{x} ' (t) = A \overline{x} (t) \text{, де $A$ - стала матриця $n \times n$}
 \end{equation}
-\begin{boxteo}
+\begin{boxteo} \quad \\
+a) (4) - стійка $ \Longleftrightarrow  \forall \lambda $ - власне число матриці $A$: \\
+$\Re \lambda \leq 0$, причому якщо $ \Re \lambda = 0$, то йому відповідають лише одновимірні клітини Жордана. \\
+б) (4) - асимптотично стійка $ \Longleftrightarrow \forall \lambda $ - власні числа матриці $A: \Re \lambda < 0 $.\\
+в) (4) - нестійка $ \Longleftrightarrow $ не є стійкою.
+\end{boxteo}
 
+\begin{proof}
+  Нехай $ \lambda = \alpha + i\beta$ - власне число матриці $A \Rightarrow $ у ФМ цьому власному числу відповідає розв'язок: \\
+  - якщо $ \lambda$ відповідають лише одновимірні клітини Жордана:
+  $$
+  \overline{x} (t) = e^{\alpha t} ( \overline{Q} _0 \cos{(\beta t)} + \overline{R}_0 \sin{(\beta t)} )
+ $$
+ - якщо клітина Жордана розміру $l$:
+ $$
+ \overline{x} (t) = e^{\alpha t} ( \overline{Q} _{l-1} \cos{(\beta t)} + \overline{R}_{l-1} \sin{(\beta t)} )
+ $$
+ Тоді:\\
+якщо $ \Re \lambda = \alpha < 0  \Rightarrow || \overline{x} (t)|| \to 0 $ за $t \to \infty$.\\
+якщо $ \Re \lambda = \alpha >0 \Rightarrow || \overline{x} (t)|| \to + \infty $ за $t \to \infty$.\\
+якщо $ \Re \lambda = 0 $, то:\\
+\hspace*{1cm} - якщо лише одновимірні клітини Жордана: $||\overline{x}(t) ||$ - обмежена.\\
+\hspace*{1cm} - якщо клітини Жордана розмірності $l \geq 2$ : $ || \overline{x} (t)|| \to + \infty $ за $t \to \infty$.
+\end{proof}
+\begin{example}
+    $$\begin{cases}
+        \dot{x} = 3x + y \\
+        \dot{y} = y-x
+    \end{cases} \qquad \qquad A = \begin{bmatrix}
+     3 & 2 \\ -1 & 1
+    \end{bmatrix}
+    $$
+    $$
+    \det \left( A - \lambda I  \right) = \begin{vmatrix}
+      3 - \lambda & 1 \\
+      -1 & 1- \lambda
+    \end{vmatrix}  = (3 - \lambda) (1- \lambda) + 1 = \lambda^2 - 4 \lambda + 3 = (\lambda-2 )^2
+    $$
+    Отримали дійсне $\lambda=2$, кратності 2. $ \Re \lambda = 2 > 0 \Rightarrow $ Система нестійка.
+\end{example}
+\textbf{Зауваження.} Перевірку умов теореми в частині, що стосується стійкості, можно здійснювати нне знаходячи власних чисел матриці $A$.
+
+\begin{boxteo}[Критерій Рауса-Гурвіца]
+$$
+\det \left( A - \lambda I \right) = a_0 \lambda^n + a_1 \lambda^{n-1} + ... + a_n ; \quad a_1 \in \mathbb{R}, a_0 > 0;
+$$
+$
+\Re \lambda < 0 \quad \forall \lambda \Leftrightarrow
+$ всі головні мінори матриці Гурвіца $H$ додатні, де $ H =  \left( h_{ij} \right)^n_{ij=1} $
+$$
+h_{ij} = \begin{cases}
+    a_{2i-j}, & 0 \leq 2i - j \leq  n;\\
+    0 , & \text{інкше.}
+\end{cases}
+$$
 \end{boxteo}

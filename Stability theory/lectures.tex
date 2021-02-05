@@ -126,7 +126,7 @@ $D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $(1): \ov
 Нехай $\Pi = \{(t, \overline{x}) \in \mathbb{R} \quad \big| \quad |t-t_0| \leq a, \quad ||\overline{x} - \overline{x}_0|| \leq b \}$.
 
 \begin{boxteo}[Теорема Пеано]
-Нехай $\vec{f} \in C(\Pi)$. Тоді розв'язок задачі Коші:
+Нехай $\overline{f} \in C(\Pi)$. Тоді розв'язок задачі Коші:
 \begin{gather*}
   \begin{cases}
     \overline{x}' = \overline{f}(t, \overline{x}) \\
@@ -173,21 +173,22 @@ $D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $(1): \ov
 
 \begin{enumerate}
   \item $\overline{x} = \overline{\varphi}(t)$ стійкий;
-  \item $\forall t_0 \geq a \quad \exists \delta > 0: \forall$ розв'язку $\vec{x}(t)$ с-ми (1) такого, що $||\vec{x}(t_0) - \vec{\varphi}(t_0)|| < \delta$ справедливо, що $||\vec{x}(t_0) - \vec{\varphi}(t_0)|| \rightarrow 0 \text{ при } t \rightarrow + \infty$.
+  \item $\forall t_0 \geq a \quad \exists \delta > 0: \forall$ розв'язку $\overline{x}(t)$ с-ми (1) такого, що $||\overline{x}(t_0) - \overline{\varphi}(t_0)|| < \delta$ справедливо, що $||\overline{x}(t_0) - \overline{\varphi}(t_0)|| \rightarrow 0 \text{ при } t \rightarrow + \infty$.
 \end{enumerate}
 
 \begin{center} \includegraphics[scale=0.35]{assets/lect2.jpg} \end{center}
 
-Роз'язок $\vec{\varphi}(t)$ називається \textbf{нестійким за Ляпуновим}, якщо він не є стійким, тобто:
+Роз'язок $\overline{\varphi}(t)$ називається \textbf{нестійким за Ляпуновим}, якщо він не є стійким, тобто:
 \ed
 
 \begin{enumerate}
   \item Або $\overline{x} = \overline{\varphi}(t) \quad \nexists$ на  $[a, +\infty]$ (вертикальні асимптоти);
-  \item Або $\exists \varepsilon > 0 : \exists t_0 \geq a :  \forall \delta > 0$ існує розв'язок $\vec{x}(t)$ системи (1) такий, що $||\vec{x}(t_0) - \vec{\varphi}(t_0)|| < \delta$, але $||\vec{x}(t_0) - \vec{\varphi}(t_0)|| > \varepsilon$
+  \item Або $\exists \varepsilon > 0 : \exists t_0 \geq a :  \forall \delta > 0$ існує розв'язок $\overline{x}(t)$ системи (1) такий, що $||\overline{x}(t_0) - \overline{\varphi}(t_0)|| < \delta$, але $||\overline{x}(t_0) - \overline{\varphi}(t_0)|| > \varepsilon$
 \end{enumerate}
 
-\begin{center} \includegraphics[scale=1.25]{assets/lect3+4.jpg} \end{center}
-
+\vfill
+\begin{center} \includegraphics[scale=1.15]{assets/lect3+4.jpg} \end{center}
+\vfill
 \subsection{Приклади дослідження на стійкість за означенням.}
 
 \begin{example}
@@ -243,7 +244,44 @@ $$
 \end{example}
 
 \remark
-Очевидно, що простіше досліджувати на стійкість розв'язок типу $\varphi(t) = 0$. Нехай (1) $\vec{x}'(t) = \vec{f}(t, \vec{x})$, а $\vec{x} = \vec{\varphi(t)}$ -- розв'язок, який потрібно дослідити на стійкість. Застосуємо заміну: $\vec{z} = \vec{x} - \vec{\varphi}(t), \text{ де } \vec{z}$ -- н. н. ф.
+Очевидно, що простіше досліджувати на стійкість розв'язок типу $\varphi(t) = 0$. Нехай (1) $\overline{x}'(t) = \overline{f}(t, \overline{x})$, а $\overline{x} = \overline{\varphi(t)}$ -- розв'язок, який потрібно дослідити на стійкість. Застосуємо заміну: $\overline{z} = \overline{x} - \overline{\varphi}(t), \text{ де } \overline{z}$ -- н. н. ф. Отримаємо систему.
+$$
+\overline{z}'(t) + \overline{\varphi}'(t) = \overline{f}(t, \overline{z} + \overline{\varphi}(t)) \quad \Rightarrow \quad \overline{z}'(t) = \overline{f}(t, \overline{z} + \overline{\varphi}(t)) - \overline{f}(t, \overline{\varphi}(t)) \quad (*)
+$$
+Можно довести, що розв'язок $\overline{x} = \overline{\varphi}(t)$ системи (1) -- стійкий (асимптотично стійкий або нестійкий) $\Longleftrightarrow$ розв'язок $\overline{z} = \overline{0}$  cистеми $(*)$ -- стійкий (асимптотично стійкий або нестійкий).
+
+\subsection{Стійкість розв'язків лінійних систем}
+Лінійна неоднорідна система рівнянь має вигляд (далі ЛНС):
+\be
+\overline{x}' = A(t) \overline{x} + \overline{f} (t)
+\ee
+
+$ \text{Де } A(t) \in \mathbb{R}^{n \times n}, \quad A(t) \in C [ a, + \infty], \quad \overline{f} \in C[a, + \infty] $ \\
+Застосуємо заміну: $ \overline{z} (t) = \overline{x} - \vphi (t)$, де $ \overline{z}(t)$ - нова невідома вектор-функція, а $\vphi (t)$ - розв'язок, який ми маємо дослідити на стійкість.
+
+Отримали лінійну однорідну систему першого порядку (далі ЛОС):
+
+$$ \overline{z} '   + \vphi = A(t)\overline{z} + A(t )\vphi + \overline{f}(t) $$
+\be
+\overline{z}' = A(t) \overline{z}
+\ee
+
+Заміною ми звели дослідження довільного розв'язку лінійної неоднорідної системи до дослідження нульового розв'язку відвовідної ЛОС. Таким чином, приходимо до висновку, що усі розв'язки є одночасно стійкими або не стійкими, або асимптотично стійкими. А отже, розглядаючи будь-яку лінійну систему, можемо говорити про стійкість не окремого розв'язку, а системи в цілому.\\
+
+Розв'яжемо ЛОС (3) (перейдемо для зручності до змінної $x$): $ \overline{x}'  =  A(t) \overline{x} $ - ЛОС (3).
+
+$X(t) $ - її фундаментальна матриця (далі ФМ). Тоді з.р: $ \overline{x} (t) = X(t) \cdot \overline{C}$, де $\overline{ C} \in \mathbb{R}^n$.
+Розв'язок з. К. з початковими умовами $ \overline{x} (t_0) = \overline{x_0}$:
+$$
+\overline{x}_0 = X(t_0) \cdot C \Rightarrow \overline{C} = X^{-1} (t_0) \cdot \overline{x_0} \Rightarrow \fbox{$x(t) = X(t) X^{-1}(t_0) \overline{x}_0$}
+$$
+
+
+\begin{boxteo}[Про стійкість ЛОС]\quad \\
+а) (3) - ст. $\Longleftrightarrow \exists K > 0: \sup\limits_{t\geq  a} ||X(t) || \leq K$.\\
+б) (3) - ас. ст. $\Longleftrightarrow  ||X(t)|| \to 0 $, при $ t \to +\infty$.\\
+в) (3) - нест. $ \Longleftrightarrow \exists \left\lbrace t_n \right\rbrace_{n=1}^{\infty} : ||X(t_n)|| \to +\infty $, при $n \to \infty$
+\end{boxteo}
 
 
 % \input{lectures_recent}

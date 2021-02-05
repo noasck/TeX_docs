@@ -201,7 +201,7 @@ $$
 $$
 
 \begin{enumerate}
-\item Знайдемо розв'язок заданої задачі Коші: $x = 1 \Rightarrow x = t + C$ - загальний розв'язок. \\ Підставимо: $ x(0) = 0 \quad \Rightarrow \quad 0 = 0 + C \quad \Rightarrow \quad C = 0 \quad \Rightarrow \quad $ \fbox{ $ \varphi(t) = t $} -- розв'язок, який будемо досліджувати.
+\item Знайдемо розв'язок заданої задачі Коші: $x = 1 \Rightarrow x = t + C$ - загальний розв'язок. Підставимо: $ x(0) = 0 \quad \Rightarrow \quad 0 = 0 + C \quad \Rightarrow \quad C = 0 \quad \Rightarrow \quad$ \fbox{ $ \varphi(t) = t $} -- розв'язок, який будемо досліджувати.
 Зазначений розв'язок не має вертикальних асимптот та $\exists$ на $\mathbb{R}$.
 
 \item Знайдемо розв'язок довільної задачі Коші $x(t_0) = x_0$.
@@ -216,32 +216,34 @@ $$
 \end{example}
 
 \begin{example}
-    Дослідити на стійкість розв'язок З.К.:
+    Дослідити на стійкість розв'язок  задачі Коші:
     $$
     \begin{cases}
-        \dot{x} = 1 + t - x \\
+        x' = 1 + t - x \text{  -- лінійне неоднорідне рівняння першого порядку}\\
         x(0) = 0
     \end{cases}
     $$
-    1. Знайдемо розв'язок даної задачі Коші:
-    $$
-    \dot{x} = - x + 1 + t = \left| \text{ методом Бернуллі } \right| = t + Ae^{-t}
-    $$
-    Знайшли загальний розв'язок. Підставимо умову із з. К.: $ A = 0 \Rightarrow \fbox {$\varphi(t) = t$ }$\\
-    2. Знайдемо розв'язок довільної З.К.:
-    $$
-    x(t_0) = x_0 \qquad x_0 = t_0 + Ae^{-t_0} \qquad A = (x_0 - t_0) e^{t_0}
-    $$
-    $$
-    x(t) = t + (x_0 - t_0) e^{t_0 - t} - \text{ загальний розв'язок з. К.}
-    $$
+    \begin{enumerate}
 
-    3. Нехай $ \left|  x(t_0) - \varphi(t_0)  \right| = \left| x_0 - t_0 \right|  < \delta $. Розглядаємо: $ \forall t \geq t_0 :$
+    \item Знайдемо розв'язок даної задачі Коші:
+    $$
+    x' = - x + 1 + t = \left| \text{ метод Бернуллі, } x = uv \right| = t + Ae^{-t}
+    $$
+    Знайшли загальний розв'язок. Із умови задачі Коші: $ A = 0 \Rightarrow \fbox {$\varphi(t) = t$ }$
+    \item Знайдемо розв'язок довільної задачі Коші:
+    $$
+    x(t_0) = x_0, \quad x_0 = t_0 + Ae^{-t_0} \quad \Rightarrow \quad A = (x_0 - t_0) e^{t_0}
+    $$
+    Отримали: $x(t) = t + (x_0 - t_0) e^{t_0 - t} - \text{ загальний розв'язок задачі Коші}$
+
+    \item Нехай $ \left|  x(t_0) - \varphi(t_0)  \right| = \left| x_0 - t_0 \right|  < \delta $. Розглядаємо: $ \forall t \geq t_0 :$
     $$
     \left| x(t) - \varphi(t) \right| = \left| t + (x_0 - t_0) \cdot e^{ t_0 - t} - t \right| =
      \left| x_0 - t_0 \right|< \delta  \to 0  \quad (t \to + \infty)
     $$
     Отримали, що знайдений розв'язок є асимптотично стійким.
+    \end{enumerate}
+
 \end{example}
 Перейдемо знов до систем диф. рівнянь: $ \vx' = \vf (t, \vx)  \quad (1)$.\\
 $\vx = \vphi (t)$ - розв'язок, який ми маємо дослідити на стійкість.\\

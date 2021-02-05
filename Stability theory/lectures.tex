@@ -293,11 +293,13 @@ $$
 
  Доведемо стійкість розв'язку $\overline{x} (t) = \overline{0}.$ За означенням, візьмемо розв'язок довільної задачі Коші з початковими умовами $\overline{x } (t_0) = \overline{x}_0$.
 Нехай $|| \overline{x}_0 || < \delta$ і розглянемо $ || \overline{x} (t)|| = || X(t) \cdot X^{-1} (t_0) \cdot \overline{x}_0 || \leq ||X(t)|| \cdot || X^{-1} (t_0)|| \cdot || \overline{x}_0|| \leq K \cdot || X^{-1} (t_0)|| \cdot || \overline{x}_0|| < K || X^{-1} (t_0)||\delta < \varepsilon $ при $ \delta = \dfrac{\varepsilon }{K || X^{-1} (t_0)|| + 1} $.
-Отже, $\forall t_0 \geq  a \quad \forall \varepsilon >0 \quad \exists \delta > 0 \quad \left(  \delta = \dfrac{\varepsilon }{K || X^{-1} (t_0)|| + 1}  \right)$  для довільного розв'язку з $ || \overline{x}_0|| < \delta$ справедливо $ ||\overline{x} (t)|| < \varepsilon  \quad \Longrightarrow \quad $ стійкість розв'язку.\\
-
-\textbf{Доведення.} a) \fbox{$\Longrightarrow$} \\ Нехай (3) - стійка. Припустимо від супротивного, що $\exists  \left\lbrace t_n \right\rbrace_{n\geq 1}^{\infty} : ||X(t_n)|| \to {+\infty} $ при $ n \to \infty$.\\
-Тоді $\exists j = \overline{1, n} : || \overline{x}^{j} (t_n)|| \to \infty$, де $\overline{x}^j$  - це $j$-тий стовпчик ФМ. \\ Покладемо $\forall \delta > 0:$
+Отже, $\forall t_0 \geq  a \quad \forall \varepsilon >0 \quad \exists \delta > 0 \quad \left(  \delta = \dfrac{\varepsilon }{K || X^{-1} (t_0)|| + 1}  \right)$  для довільного розв'язку з $ || \overline{x}_0|| < \delta$ справедливо $ ||\overline{x} (t)|| < \varepsilon  \quad \Longrightarrow \quad $ стійкість розв'язку. $\blacksquare$  \\
 \end{spacing}
+\textbf{Доведення.} a) \fbox{$\Longrightarrow$} \\ Нехай (3) -- стійка. Припустимо від супротивного, що
+
+$$\exists  \left\lbrace t_n \right\rbrace_{n\geq 1}^{\infty} : t_n \rightarrow +\infty : ||X(t_n)|| \to {+\infty} \text{ при } n \to \infty$$\\
+Тоді $\exists j = \overline{1, n} : || \overline{x}^{j} (t_n)|| \to \infty$, де $\overline{x}^j$  - це $j$-тий стовпчик ФМ. \\ Покладемо $\forall \delta > 0:$
+
 
 $$
 \overline{x}^{\delta}_0 = \frac{\delta X(t_0) \overline{e}_j}{2 ||X(t_0)||} \text{ , де }\overline{e}_j = \begin{bmatrix}
@@ -321,8 +323,7 @@ $$
 ||\overline{x} (t_n)|| = \frac{\delta}{ 2 ||X(t_0)|| } \cdot ||\overline{x}^j (t_n)|| \to \infty > \varepsilon  -
 $$
 З попереднього випливає нестійкість $ \Rightarrow  $ суперечність початковій побудові $ \Rightarrow$ a).\\
-Пункт б) доводиться аналогічно а).\\
-Пункт в) випливає із пукнта а).
+Пункт б) доводиться аналогічно а). $\quad$ Пункт в) випливає із пукнта а). $\quad \blacksquare$
 
 \subsection{Стійкість ЛОС зі сталою матрицею.}
 
@@ -336,8 +337,7 @@ $\Re \lambda \leq 0$, причому якщо $ \Re \lambda = 0$, то йому 
 в) (4) - нестійка $ \Longleftrightarrow $ не є стійкою.
 \end{boxteo}
 
-\begin{proof}
-  Нехай $ \lambda = \alpha + i\beta$ - власне число матриці $A \Rightarrow $ у ФМ цьому власному числу відповідає розв'язок: \\
+\textbf{Доведення.} Нехай $ \lambda = \alpha + i\beta$ - власне число матриці $A \Rightarrow $ у ФМ цьому власному числу відповідає розв'язок: \\
   - якщо $ \lambda$ відповідають лише одновимірні клітини Жордана:
   $$
   \overline{x} (t) = e^{\alpha t} ( \overline{Q} _0 \cos{(\beta t)} + \overline{R}_0 \sin{(\beta t)} )
@@ -351,8 +351,7 @@ $\Re \lambda \leq 0$, причому якщо $ \Re \lambda = 0$, то йому 
 якщо $ \Re \lambda = \alpha >0 \Rightarrow || \overline{x} (t)|| \to + \infty $ за $t \to \infty$.\\
 якщо $ \Re \lambda = 0 $, то:\\
 \hspace*{1cm} - якщо лише одновимірні клітини Жордана: $||\overline{x}(t) ||$ - обмежена.\\
-\hspace*{1cm} - якщо клітини Жордана розмірності $l \geq 2$ : $ || \overline{x} (t)|| \to + \infty $ за $t \to \infty$.
-\end{proof}
+\hspace*{1cm} - якщо клітини Жордана розмірності $l \geq 2$ : $ || \overline{x} (t)|| \to + \infty $ за $t \to \infty. \quad \blacksquare$
 \begin{example}
     $$\begin{cases}
         x' = 3x + y \\

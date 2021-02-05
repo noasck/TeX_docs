@@ -10,7 +10,6 @@
 \newtheorem*{defo}{Означення}
 \newtheorem*{teo}{Теорема}
 \newtheorem*{example}{Приклад}
-\theoremstyle{remark}
 \newtheorem*{remark}{Зауваження}
 \theoremstyle{definition}
 \newtheorem*{consequence}{Наслідок}
@@ -230,21 +229,25 @@ $$
     x' = - x + 1 + t = \left| \text{ метод Бернуллі, } x = uv \right| = t + Ae^{-t}
     $$
     Знайшли загальний розв'язок. Із умови задачі Коші: $ A = 0 \Rightarrow \fbox {$\varphi(t) = t$ }$
+
     \item Знайдемо розв'язок довільної задачі Коші:
     $$
     x(t_0) = x_0, \quad x_0 = t_0 + Ae^{-t_0} \quad \Rightarrow \quad A = (x_0 - t_0) e^{t_0}
     $$
     Отримали: $x(t) = t + (x_0 - t_0) e^{t_0 - t} - \text{ загальний розв'язок задачі Коші}$
 
-    \item Нехай $ \left|  x(t_0) - \varphi(t_0)  \right| = \left| x_0 - t_0 \right|  < \delta $. Розглядаємо: $ \forall t \geq t_0 :$
-    $$
-    \left| x(t) - \varphi(t) \right| = \left| t + (x_0 - t_0) \cdot e^{ t_0 - t} - t \right| =
-     \left| x_0 - t_0 \right|< \delta  \to 0  \quad (t \to + \infty)
-    $$
-    Отримали, що знайдений розв'язок є асимптотично стійким.
+    \item Беремо $\left| x(t_0) - \varphi(t_0) \right| = |t_0 - x_0| < \delta$ і розглянемо:
+    $$\left| x(t) - \varphi(t) \right| = |t - t - (x_0 - t_0)e^{t_0 - t}| < \delta e^{t_0 - t} \rightarrow 0, \text{ при } t \rightarrow + \infty$$
+    Отже, $\forall t_0 \quad \exists \delta > 0 :$ для будь-якого розв'язку $x(t): |x(t_0) - \varphi(t_0)| = |x_0 - t_0| < \delta$ справедливо, що $|x(t) - \varphi(t)| \rightarrow 0 \text{ при } t \rightarrow + \infty$. Отримали, що розв'язок даної задачі Коші $\varphi(t) = t$ є асимптотично стійким.
     \end{enumerate}
-
 \end{example}
+
+\remark
+Очевидно, що простіше досліджувати на стійкість розв'язок типу $\varphi(t) = 0$. Нехай (1) $\vec{x}'(t) = \vec{f}(t, \vec{x})$, а $\vec{x} = \vec{\varphi(t)}$ -- розв'язок, який потрібно дослідити на стійкість. Застосуємо заміну: $\vec{z} = \vec{x} - \vec{\varphi}(t), \text{ де } \vec{z}$ -- н. н. ф.
+
+
+% \input{lectures_recent}
+\end{document}
 Перейдемо знов до систем диф. рівнянь: $ \vx' = \vf (t, \vx)  \quad (1)$.\\
 $\vx = \vphi (t)$ - розв'язок, який ми маємо дослідити на стійкість.\\
 Заміна $ \overline{z} (t) = \vx (t)  - \vphi (y) $. Отримаємо систему:
@@ -252,8 +255,9 @@ $$ \overline{z}' + \overline{\varphi}'  = \overline{f} (t, \overline{z}+ \overli
 $$
 \overline{f}' (t) = \overline{f} (t, \overline{\varphi})  \Longrightarrow \fbox{ $ \overline{z} ' = \overline{\varphi} (t, \overline{z} + \overline{\varphi} (t)) - \overline{f} ( t, \varphi(t)) $}
 $$
-
-
-
-% \input{lectures_recent}
-\end{document}
+$ \left|  x(t_0) - \varphi(t_0)  \right| = \left| x_0 - t_0 \right|  < \delta  $. Розглянемо: $ \forall t \geq t_0 :$
+$$
+\left| x(t) - \varphi(t) \right| = \left| t + (x_0 - t_0) \cdot e^{ t_0 - t} - t \right| =
+ \left| x_0 - t_0 \right|< \delta  \to 0  \quad (t \to + \infty)
+$$
+Отримали, що знайдений розв'язок є асимптотично стійким.

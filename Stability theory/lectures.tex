@@ -244,58 +244,150 @@ $$
 \end{example}
 
 \remark
-Очевидно, що простіше досліджувати на стійкість розв'язок типу $\varphi(t) = 0$. Нехай (1) $\overline{x}'(t) = \overline{f}(t, \overline{x})$, а $\overline{x} = \overline{\varphi(t)}$ -- розв'язок, який потрібно дослідити на стійкість. Застосуємо заміну: $\overline{z} = \overline{x} - \overline{\varphi}(t), \text{ де } \overline{z}$ -- н. н. ф. Отримаємо систему.
+Очевидно, що простіше досліджувати на стійкість розв'язок типу $\varphi(t) = 0$. Нехай (1) $\overline{x}'(t) = \overline{f}(t, \overline{x})$, а $\overline{x} = \overline{\varphi(t)}$ -- розв'язок, який потрібно дослідити на стійкість. Застосуємо заміну: $\overline{z} = \overline{x} - \overline{\varphi}(t), \text{ де } \overline{z}$ -- нова невідома вектор-функція. Отримаємо систему:
 $$
 \overline{z}'(t) + \overline{\varphi}'(t) = \overline{f}(t, \overline{z} + \overline{\varphi}(t)) \quad \Rightarrow \quad \overline{z}'(t) = \overline{f}(t, \overline{z} + \overline{\varphi}(t)) - \overline{f}(t, \overline{\varphi}(t)) \quad (*)
 $$
 Можно довести, що розв'язок $\overline{x} = \overline{\varphi}(t)$ системи (1) -- стійкий (асимптотично стійкий або нестійкий) $\Longleftrightarrow$ розв'язок $\overline{z} = \overline{0}$  cистеми $(*)$ -- стійкий (асимптотично стійкий або нестійкий).
 
 \subsection{Стійкість розв'язків лінійних систем}
-Лінійна неоднорідна система рівнянь має вигляд (далі ЛНС):
+Лінійна неоднорідна система рівнянь n-ого порядку має вигляд (далі ЛНС):
 \be
-\overline{x}' = A(t) \overline{x} + \overline{f} (t)
+\overline{x}' = A(t) \overline{x} + \overline{f} (t).
 \ee
 
 $ \text{Де } A(t) \in \mathbb{R}^{n \times n}, \quad A(t) \in C [ a, + \infty], \quad \overline{f} \in C[a, + \infty] $ \\
+
+Тоді $\forall t_0 \geq a, \quad \forall \overline{x}_0 \in \mathbb{R}^n \quad$ існує єдиний розв'язок ЛНС (2) з початковими умовми $\overline{x}(t_0) = \overline{x}_0$, визначений на $[a, +\infty]$.
+
+Нехай $\overline{\varphi}(t)$ -- розв'язок (2), який потрібно дослідити на стійкість.
 Застосуємо заміну: $ \overline{z} (t) = \overline{x} - \vphi (t)$, де $ \overline{z}(t)$ - нова невідома вектор-функція, а $\vphi (t)$ - розв'язок, який ми маємо дослідити на стійкість.
 
 Отримали лінійну однорідну систему першого порядку (далі ЛОС):
 
-$$ \overline{z} '   + \vphi = A(t)\overline{z} + A(t )\vphi + \overline{f}(t) $$
+$$ \overline{z}'(t)   + \vphi'(t) = A(t)\overline{z}(t) + A(t)\vphi(t) + \overline{f}(t) $$
 \be
-\overline{z}' = A(t) \overline{z}
+\overline{z}' = A(t) \overline{z} \text{ -- ЛОС n-ого порядку}
 \ee
 
-Заміною ми звели дослідження довільного розв'язку лінійної неоднорідної системи до дослідження нульового розв'язку відвовідної ЛОС. Таким чином, приходимо до висновку, що усі розв'язки є одночасно стійкими або не стійкими, або асимптотично стійкими. А отже, розглядаючи будь-яку лінійну систему, можемо говорити про стійкість не окремого розв'язку, а системи в цілому.\\
+Заміною ми звели дослідження довільного розв'язку лінійної неоднорідної системи до дослідження нульового розв'язку відповідної ЛОС. Таким чином, приходимо до висновку, що усі розв'язки є одночасно стійкими, асимптотично стійкимиабо не стійкими. А отже, розглядаючи будь-яку лінійну систему, можемо говорити про стійкість не окремого розв'язку, а системи в цілому. Досліджуючи при цьому розв'язок $\overline{x}(t) = \overline{0}$\\
 
-Розв'яжемо ЛОС (3) (перейдемо для зручності до змінної $x$): $ \overline{x}'  =  A(t) \overline{x} $ - ЛОС (3).
+Розв'яжемо ЛОС (3) (перейдемо до змінної $x$): $\quad \overline{x}'  =  A(t) \overline{x} $ -- ЛОС (3).
 
-$X(t) $ - її фундаментальна матриця (далі ФМ). Тоді з.р: $ \overline{x} (t) = X(t) \cdot \overline{C}$, де $\overline{ C} \in \mathbb{R}^n$.
-Розв'язок з. К. з початковими умовами $ \overline{x} (t_0) = \overline{x_0}$:
+$X(t) $ -- її фундаментальна матриця (далі позначаємо ФМ). Тоді загальний розв'язок: $ \overline{x} (t) = X(t) \cdot \overline{C}$, де $\overline{ C} \in \mathbb{R}^n$.
+Розв'язок задачі Коші з початковими умовами $ \overline{x} (t_0) = \overline{x_0}$:
 $$
-\overline{x}_0 = X(t_0) \cdot C \Rightarrow \overline{C} = X^{-1} (t_0) \cdot \overline{x_0} \Rightarrow \fbox{$x(t) = X(t) X^{-1}(t_0) \overline{x}_0$}
+\overline{x}_0 = X(t_0) \cdot \overline{C} \Rightarrow \overline{C} = X^{-1} (t_0) \cdot \overline{x_0} \Rightarrow \fbox{$x(t) = X(t) X^{-1}(t_0) \overline{x}_0$}
 $$
 
+\begin{spacing}{2.5}
+  \begin{boxteo}[Про стійкість ЛОС]\quad \\
+  а) (3) - стійка $\Longleftrightarrow \exists K > 0: \sup\limits_{t\geq  a} ||X(t) || \leq K$.\\
+  б) (3) - асимптотично стійка $\Longleftrightarrow  ||X(t)|| \to 0 $, при $ t \to +\infty$.\\
+  в) (3) - нестійка. $ \Longleftrightarrow \exists \left\lbrace t_n \right\rbrace_{n=1}^{\infty} : ||X(t_n)|| \to +\infty $, при $n \to \infty$
+  \end{boxteo}
+\end{spacing}
 
-\begin{boxteo}[Про стійкість ЛОС]\quad \\
-а) (3) - ст. $\Longleftrightarrow \exists K > 0: \sup\limits_{t\geq  a} ||X(t) || \leq K$.\\
-б) (3) - ас. ст. $\Longleftrightarrow  ||X(t)|| \to 0 $, при $ t \to +\infty$.\\
-в) (3) - нест. $ \Longleftrightarrow \exists \left\lbrace t_n \right\rbrace_{n=1}^{\infty} : ||X(t_n)|| \to +\infty $, при $n \to \infty$
+\begin{spacing}{2.25}
+\textbf{Доведення.} а) \fbox{$\Longleftarrow$} \\ Нехай $ \exists K > 0 : \sup\limits_{t\geq a} ||X(t)|| \leq K$.
+
+ Доведемо стійкість розв'язку $\overline{x} (t) = \overline{0}.$ За означенням, візьмемо розв'язок довільної задачі Коші з початковими умовами $\overline{x } (t_0) = \overline{x}_0$.
+Нехай $|| \overline{x}_0 || < \delta$ і розглянемо $ || \overline{x} (t)|| = || X(t) \cdot X^{-1} (t_0) \cdot \overline{x}_0 || \leq ||X(t)|| \cdot || X^{-1} (t_0)|| \cdot || \overline{x}_0|| \leq K \cdot || X^{-1} (t_0)|| \cdot || \overline{x}_0|| < K || X^{-1} (t_0)||\delta < \varepsilon $ при $ \delta = \dfrac{\varepsilon }{K || X^{-1} (t_0)|| + 1} $.
+Отже, $\forall t_0 \geq  a \quad \forall \varepsilon >0 \quad \exists \delta > 0 \quad \left(  \delta = \dfrac{\varepsilon }{K || X^{-1} (t_0)|| + 1}  \right)$  для довільного розв'язку з $ || \overline{x}_0|| < \delta$ справедливо $ ||\overline{x} (t)|| < \varepsilon  \quad \Longrightarrow \quad $ стійкість розв'язку.\\
+
+\textbf{Доведення.} a) \fbox{$\Longrightarrow$} \\ Нехай (3) - стійка. Припустимо від супротивного, що $\exists  \left\lbrace t_n \right\rbrace_{n\geq 1}^{\infty} : ||X(t_n)|| \to {+\infty} $ при $ n \to \infty$.\\
+Тоді $\exists j = \overline{1, n} : || \overline{x}^{j} (t_n)|| \to \infty$, де $\overline{x}^j$  - це $j$-тий стовпчик ФМ. \\ Покладемо $\forall \delta > 0:$
+\end{spacing}
+
+$$
+\overline{x}^{\delta}_0 = \frac{\delta X(t_0) \overline{e}_j}{2 ||X(t_0)||} \text{ , де }\overline{e}_j = \begin{bmatrix}
+ 0\\
+ \vdots\\
+ 1\\
+ \vdots\\
+ 0
+\end{bmatrix} - j
+$$
+
+Тоді $|| \overline{x}_0^{\delta}|| = \dfrac{1}{ 2 ||X(t_0)||}  \cdot \delta ||X(t_0) \cdot \overline{e}_j|| < \delta $.\\
+Розглядаємо розв'язок з.К. з початковими умовами $ \overline{x} (t_0) = \overline{x} _0 ^ \delta$. Маємо:
+$$
+\overline{x} (t) = X(t) \cdot X^{-1}(t_0) \cdot \overline{x}_0 ^\delta = X(t) X^{-1} (t_0) \cdot \dfrac{ \delta X(t_0) \overline{e}_j}{ 2 ||X(t_0)||} = \frac{\delta}{2} \cdot \frac{X(t) \overline{e}_j}{ ||X(t_0)||} =   \frac{\delta}{2 ||X(t_0)|| } \cdot \overline{x}^j (t)
+$$
+$$
+\Longrightarrow \forall \varepsilon >0 \quad \exists n_0 \in \mathbb{N} \quad : \forall n \geq n_0
+$$
+$$
+||\overline{x} (t_n)|| = \frac{\delta}{ 2 ||X(t_0)|| } \cdot ||\overline{x}^j (t_n)|| \to \infty > \varepsilon  -
+$$
+З попереднього випливає нестійкість $ \Rightarrow  $ суперечність початковій побудові $ \Rightarrow$ a).\\
+Пункт б) доводиться аналогічно а).\\
+Пункт в) випливає із пукнта а).
+
+\subsection{Стійкість ЛОС зі сталою матрицею.}
+
+\begin{equation}
+\overline{x} ' (t) = A \overline{x} (t) \text{, де $A$ - стала матриця $n \times n$}
+\end{equation}
+\begin{boxteo} \quad \\
+a) (4) - стійка $ \Longleftrightarrow  \forall \lambda $ - власне число матриці $A$: \\
+$\Re \lambda \leq 0$, причому якщо $ \Re \lambda = 0$, то йому відповідають лише одновимірні клітини Жордана. \\
+б) (4) - асимптотично стійка $ \Longleftrightarrow \forall \lambda $ - власні числа матриці $A: \Re \lambda < 0 $.\\
+в) (4) - нестійка $ \Longleftrightarrow $ не є стійкою.
 \end{boxteo}
+
+\begin{proof}
+  Нехай $ \lambda = \alpha + i\beta$ - власне число матриці $A \Rightarrow $ у ФМ цьому власному числу відповідає розв'язок: \\
+  - якщо $ \lambda$ відповідають лише одновимірні клітини Жордана:
+  $$
+  \overline{x} (t) = e^{\alpha t} ( \overline{Q} _0 \cos{(\beta t)} + \overline{R}_0 \sin{(\beta t)} )
+ $$
+ - якщо клітина Жордана розміру $l$:
+ $$
+ \overline{x} (t) = e^{\alpha t} ( \overline{Q} _{l-1} \cos{(\beta t)} + \overline{R}_{l-1} \sin{(\beta t)} )
+ $$
+ Тоді:\\
+якщо $ \Re \lambda = \alpha < 0  \Rightarrow || \overline{x} (t)|| \to 0 $ за $t \to \infty$.\\
+якщо $ \Re \lambda = \alpha >0 \Rightarrow || \overline{x} (t)|| \to + \infty $ за $t \to \infty$.\\
+якщо $ \Re \lambda = 0 $, то:\\
+\hspace*{1cm} - якщо лише одновимірні клітини Жордана: $||\overline{x}(t) ||$ - обмежена.\\
+\hspace*{1cm} - якщо клітини Жордана розмірності $l \geq 2$ : $ || \overline{x} (t)|| \to + \infty $ за $t \to \infty$.
+\end{proof}
+\begin{example}
+    $$\begin{cases}
+        x' = 3x + y \\
+        y' = y-x
+    \end{cases} \qquad \qquad A = \begin{bmatrix}
+     3 & 1 \\ -1 & 1
+    \end{bmatrix}
+    $$
+    $$
+    \det \left( A - \lambda I  \right) = \begin{vmatrix}
+      3 - \lambda & 1 \\
+      -1 & 1- \lambda
+    \end{vmatrix}  = (3 - \lambda) (1- \lambda) + 1 = \lambda^2 - 4 \lambda + 3 = (\lambda-2 )^2
+    $$
+    Отримали дійсне власне число $\lambda=2$, кратності 2. $ \Re \lambda = 2 > 0 \Rightarrow $ Система нестійка.
+\end{example}
+\textbf{Зауваження.} Перевірку умов теореми в частині, що стосується стійкості, можно здійснювати нне знаходячи власних чисел матриці $A$.
+
+\begin{spacing}{1.25}
+  \begin{boxteo}[Критерій Рауса-Гурвіца]
+  $$
+  \det \left( A - \lambda I \right) = a_0 \lambda^n + a_1 \lambda^{n-1} + ... + a_n ; \quad a_1 \in \mathbb{R}, a_0 > 0;
+  $$
+  $
+  \Re \lambda < 0 \quad \forall \lambda \quad \Longleftrightarrow \quad
+  $ всі головні мінори матриці Гурвіца $H$ додатні, де $ H =  \left( h_{ij} \right)^n_{ij=1} $
+  $$
+  h_{ij} = \begin{cases}
+      a_{2i-j}, & 0 \leq 2i - j \leq  n;\\
+      0 , & \text{інкше.}
+  \end{cases}
+  $$
+  \end{boxteo}
+\end{spacing}
 
 
 % \input{lectures_recent}
 \end{document}
-Перейдемо знов до систем диф. рівнянь: $ \vx' = \vf (t, \vx)  \quad (1)$.\\
-$\vx = \vphi (t)$ - розв'язок, який ми маємо дослідити на стійкість.\\
-Заміна $ \overline{z} (t) = \vx (t)  - \vphi (y) $. Отримаємо систему:
-$$ \overline{z}' + \overline{\varphi}'  = \overline{f} (t, \overline{z}+ \overline{\varphi})(t)$$
-$$
-\overline{f}' (t) = \overline{f} (t, \overline{\varphi})  \Longrightarrow \fbox{ $ \overline{z} ' = \overline{\varphi} (t, \overline{z} + \overline{\varphi} (t)) - \overline{f} ( t, \varphi(t)) $}
-$$
-$ \left|  x(t_0) - \varphi(t_0)  \right| = \left| x_0 - t_0 \right|  < \delta  $. Розглянемо: $ \forall t \geq t_0 :$
-$$
-\left| x(t) - \varphi(t) \right| = \left| t + (x_0 - t_0) \cdot e^{ t_0 - t} - t \right| =
- \left| x_0 - t_0 \right|< \delta  \to 0  \quad (t \to + \infty)
-$$
-Отримали, що знайдений розв'язок є асимптотично стійким.

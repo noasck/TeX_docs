@@ -192,23 +192,26 @@ $D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $(1): \ov
 \subsection{Приклади дослідження на стійкість за означенням.}
 
 \begin{example}
-    Дослідити на стійкість розв'язок З.К.:
+    Дослідити на стійкість розв'язок задачі Коші:
 $$
 \begin{cases}
-    x = 1 \\
+    x' = 1 \\
     x(0) = 0
 \end{cases}
 $$
-1. Знайдемо розв'язок заданої З.К.: $x = 1 \Rightarrow x = t + C$ - заг. розв.\\
-Підставимо: $ 0 = 0 + C \Longrightarrow C = 0 \Longrightarrow $ \fbox{ $ \varphi(t) = t $} - будемо досліджувати.
-Зазначений розв'язок не має вертикальних асимптот та існує на всьому $\mathbb{R}$.
-2. Знайдемо розв'язок довільної З.К. $x(t_0) = x_0$.
+
+\begin{enumerate}
+\item Знайдемо розв'язок заданої задачі Коші: $x = 1 \Rightarrow x = t + C$ - загальний розв'язок. \\ Підставимо: $ x(0) = 0 \quad \Rightarrow \quad 0 = 0 + C \quad \Rightarrow \quad C = 0 \quad \Rightarrow \quad $ \fbox{ $ \varphi(t) = t $} -- розв'язок, який будемо досліджувати.
+Зазначений розв'язок не має вертикальних асимптот та $\exists$ на $\mathbb{R}$.
+
+\item Знайдемо розв'язок довільної задачі Коші $x(t_0) = x_0$.
 $$
-x_0 = t_0 + C \Rightarrow C = x_0 - t_0 \Rightarrow x(t) = t + x_0 - t_0
+x_0 = t_0 + C \quad \Rightarrow \quad C = x_0 - t_0 \quad \Rightarrow \quad x(t) = t + x_0 - t_0
 $$
-3. Нехай $  \left| x(t_0) - \varphi(t_0) \right|  =  \left| x_0 - t_0 \right| < \delta  $ ;\\
-Тоді $ \left| x (t) - \varphi (t) \right|  = \left|  x_0 - t_0 \right| < \varepsilon = \delta $.\\
+\item Нехай $  \left| x(t_0) - \varphi(t_0) \right|  =  \left| x_0 - t_0 \right| < \delta$, тоді $ \left| x (t) - \varphi (t) \right|  = \left|  x_0 - t_0 \right| < \varepsilon = \delta $.\\
 Таким чином, розв'язок є стійким, але не є асимптотично стійким.
+
+\end{enumerate}
 
 \end{example}
 
@@ -248,7 +251,7 @@ $$
 \overline{f}' (t) = \overline{f} (t, \overline{\varphi})  \Longrightarrow \fbox{ $ \overline{z} ' = \overline{\varphi} (t, \overline{z} + \overline{\varphi} (t)) - \overline{f} ( t, \varphi(t)) $}
 $$
 
-\input{lectures_recent}
 
 
+% \input{lectures_recent}
 \end{document}

@@ -1,6 +1,6 @@
 \documentclass[14pt,a4paper]{scrartcl}
 \usepackage[utf8]{inputenc}
-\usepackage[english,russian, ukrainian]{babel}
+\usepackage[english, russian, ukrainian]{babel}
 \usepackage{misccorr, color, ragged2e, amsfonts, amsthm, graphicx, systeme, amsmath, mdframed, lipsum, setspace, mathtools, esint, color, listings}
 
 \renewcommand\qedsymbol{$\blacksquare$}
@@ -155,14 +155,14 @@ $D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $(1): \ov
 \end{boxteo}
 
 \subsection{Основні поняття теорії стійкості.}
-Розглянем систему диференційних рівнянь $\overline{x}' = \overline{f}(t, \overline{x})$ (1), де $f : D \rightarrow \mathbb{R}^n$ та $D = [a, +\infty] \times G, \quad G \subset \mathbb{R}^n$. Нехай при цьому $\overline{f}$ задавольняє умовам існування та єдиності розв'язку задачі Коші в будь-якій точці $(t_0, \overline{x}_0) \in D$
+Розглянемо систему диференційних рівнянь $\overline{x}' = \overline{f}(t, \overline{x})$ (1), де $f : D \rightarrow \mathbb{R}^n$ та $D = [a, +\infty) \times G, \quad G \subset \mathbb{R}^n$. Нехай при цьому $\overline{f}$ задавольняє умовам існування та єдиності розв'язку задачі Коші в будь-якій точці $(t_0, \overline{x}_0) \in D$
 
 \bd
 Розв'язок $\overline{x} = \overline{\varphi}(t)$ системи (1) називається \textbf{стійким} за Ляпуновим, якщо
 
 \begin{enumerate}
-  \item $\overline{x} = \overline{\varphi}(t) \quad \exists  \text{ на } [a, +\infty]$ (відсутніть вертикальних асимптот)
-  \item $\forall \varepsilon > 0 \quad \forall t_0 \geq a \quad \exists \delta > 0 : \forall $ розв'язку $\overline{x}(t)$ системи (1) такого, що $||\overline{x}(t_0) - \overline{\varphi}(t_0)|| < \delta$ виконується наступне, що $\overline{x}(t)$ існує на $[t_0, +\infty]$ та $||\overline{x}(t) - \overline{\varphi}(t)|| < \varepsilon \quad \forall t \geq t_0$.
+  \item $\overline{x} = \overline{\varphi}(t) \quad \exists  \text{ на } [a, +\infty)$ (відсутніть вертикальних асимптот)
+  \item $\forall \varepsilon > 0 \quad \forall t_0 \geq a \quad \exists \delta > 0 : \forall $ розв'язку $\overline{x}(t)$ системи (1) такого, що $||\overline{x}(t_0) - \overline{\varphi}(t_0)|| < \delta$ виконується наступне, що $\overline{x}(t)$ існує на $[t_0, +\infty)$ та $||\overline{x}(t) - \overline{\varphi}(t)|| < \varepsilon \quad \forall t \geq t_0$.
 \end{enumerate}
 \ed
 
@@ -182,7 +182,7 @@ $D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $(1): \ov
 \ed
 
 \begin{enumerate}
-  \item Або $\overline{x} = \overline{\varphi}(t) \quad \nexists$ на  $[a, +\infty]$ (вертикальні асимптоти);
+  \item Або $\overline{x} = \overline{\varphi}(t) \quad \nexists$ на  $[a, +\infty)$ (вертикальні асимптоти);
   \item Або $\exists \varepsilon > 0 : \exists t_0 \geq a :  \forall \delta > 0$ існує розв'язок $\overline{x}(t)$ системи (1) такий, що $||\overline{x}(t_0) - \overline{\varphi}(t_0)|| < \delta$, але $||\overline{x}(t_0) - \overline{\varphi}(t_0)|| > \varepsilon$
 \end{enumerate}
 
@@ -256,9 +256,9 @@ $$
 \overline{x}' = A(t) \overline{x} + \overline{f} (t).
 \ee
 
-$ \text{Де } A(t) \in \mathbb{R}^{n \times n}, \quad A(t) \in C [ a, + \infty], \quad \overline{f} \in C[a, + \infty] $ \\
+$ \text{Де } A(t) \in \mathbb{R}^{n \times n}, \quad A(t) \in C [ a, + \infty), \quad \overline{f} \in C[a, + \infty)$ \\
 
-Тоді $\forall t_0 \geq a, \quad \forall \overline{x}_0 \in \mathbb{R}^n \quad$ існує єдиний розв'язок ЛНС (2) з початковими умовми $\overline{x}(t_0) = \overline{x}_0$, визначений на $[a, +\infty]$.
+Тоді $\forall t_0 \geq a, \quad \forall \overline{x}_0 \in \mathbb{R}^n \quad$ існує єдиний розв'язок ЛНС (2) з початковими умовми $\overline{x}(t_0) = \overline{x}_0$, визначений на $[a, +\infty)$.
 
 Нехай $\overline{\varphi}(t)$ -- розв'язок (2), який потрібно дослідити на стійкість.
 Застосуємо заміну: $ \overline{z} (t) = \overline{x} - \vphi (t)$, де $ \overline{z}(t)$ - нова невідома вектор-функція, а $\vphi (t)$ - розв'язок, який ми маємо дослідити на стійкість.
@@ -270,7 +270,7 @@ $$ \overline{z}'(t)   + \vphi'(t) = A(t)\overline{z}(t) + A(t)\vphi(t) + \overli
 \overline{z}' = A(t) \overline{z} \text{ -- ЛОС n-ого порядку}
 \ee
 
-Заміною ми звели дослідження довільного розв'язку лінійної неоднорідної системи до дослідження нульового розв'язку відповідної ЛОС. Таким чином, приходимо до висновку, що усі розв'язки є одночасно стійкими, асимптотично стійкимиабо не стійкими. А отже, розглядаючи будь-яку лінійну систему, можемо говорити про стійкість не окремого розв'язку, а системи в цілому. Досліджуючи при цьому розв'язок $\overline{x}(t) = \overline{0}$\\
+Заміною ми звели дослідження довільного розв'язку лінійної неоднорідної системи до дослідження нульового розв'язку відповідної ЛОС. Таким чином, приходимо до висновку, що усі розв'язки є одночасно стійкими, асимптотично стійкими або не стійкими. А отже, розглядаючи будь-яку лінійну систему, можемо говорити про стійкість не окремого розв'язку, а системи в цілому. Досліджуючи при цьому розв'язок $\overline{x}(t) = \overline{0}$\\
 
 Розв'яжемо ЛОС (3) (перейдемо до змінної $x$): $\quad \overline{x}'  =  A(t) \overline{x} $ -- ЛОС (3).
 
@@ -368,7 +368,7 @@ $\Re \lambda \leq 0$, причому якщо $ \Re \lambda = 0$, то йому 
     $$
     Отримали дійсне власне число $\lambda=2$, кратності 2. $ \Re \lambda = 2 > 0 \Rightarrow $ Система нестійка.
 \end{example}
-\textbf{Зауваження.} Перевірку умов теореми в частині, що стосується стійкості, можно здійснювати нне знаходячи власних чисел матриці $A$.
+\textbf{Зауваження.} Перевірку умов теореми в частині, що стосується стійкості, можна здійснювати нне знаходячи власних чисел матриці $A$.
 
 \begin{spacing}{1.25}
   \begin{boxteo}[Критерій Рауса-Гурвіца]
@@ -381,12 +381,11 @@ $\Re \lambda \leq 0$, причому якщо $ \Re \lambda = 0$, то йому 
   $$
   h_{ij} = \begin{cases}
       a_{2i-j}, & 0 \leq 2i - j \leq  n;\\
-      0 , & \text{інкше.}
+      0 , & \text{інакше.}
   \end{cases}
   $$
   \end{boxteo}
 \end{spacing}
-
 
 % \input{lectures_recent}
 \end{document}

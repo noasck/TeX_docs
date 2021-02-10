@@ -53,4 +53,80 @@ $$
   $$
   =  \sum\limits_{i = 1}^{n}{ \mathbb{P} \left\lbrace \xi \in \phi_i^{-1} (B) \right\rbrace  }  - \text{ надалі доведення зводиться до попередньої теореми.}
   $$
-\end{proof}
+  \end{proof}
+
+ \subsection{Функції від випадкових векторів.}
+ Розглядаємо $ \overline{\xi} = \begin{bmatrix}
+  \xi_1 \\
+  \xi_2
+ \end{bmatrix} \quad \eta = \varphi(\xi_1, \xi_2)$.\\
+ 1. Для дискретного випадку обчислення тривіальні.\\
+ 2. $ \overline{\xi} $ - абсолютно неперервний випадковий вектор.
+ $$ f_{\overline{\xi}} (\overline{x}) \Rightarrow \eta = \varphi( \overline{\xi}) \quad f_{\eta} (y)=? \quad \varphi: \mathbb{R}^n \to \mathbb{R}$$
+\begin{boxteo}
+    $ \varphi: \mathbb{R}^n \to \mathbb{R}^n. \varphi$ - взаємно-однозначна $ \Rightarrow \psi = \varphi^{-1}$.\\
+    $\varphi, \psi $ - дифеоморфізми $ \Rightarrow  \exists J_{\psi} ( \overline{y}) $ - якобіан. Тоді:
+    $$
+    f_{\overline{\eta}}  (\overline{y}) = f_{\overline{\xi}} (\psi(\overline{y})) \cdot \left| J_{\psi (\overline{y})} \right| \cdot   \mathbb{I}_{E_{\varphi}} (\overline{y})
+    $$
+\end{boxteo}
+\begin{boxteo}
+    $\varphi$ розпадаэться на суму ін'єктивних функцій  $\varphi_1, ..., \varphi_k$.\\
+    $ \varphi^{-1}_i = \psi_i. \quad E_i$ - область значень $ \varphi_i. \quad J_{\psi_i}$ - якобіан $ \psi_i$. Тоді:
+    $$
+    f_{\eta} (\overline{y}) =  \sum\limits_{i = 1}^{ k}{ f_{\overline{\xi}} ( \psi_i( \overline{y})) \cdot \left| J_{\varphi_i } (\overline{y}) \right|  \cdot \mathbb{I}_{E_{\varphi_i}} (\overline{y})}
+    $$
+\end{boxteo}
+Часто будемо використовувати: \fbox{$f_{\xi_1 + \xi_2} (y) =  \int\limits_{-\infty}^{ +\infty}{ f_{\overline{\xi} } (x, y-x) dx}$}.\\
+Якщо $ \xi_1 \independent \xi_2: $ \fbox{$ f_{\xi_1 + \xi_2} (y) =  \int\limits_{-\infty}^{ +\infty}{ f_{\xi_1} (x) \cdot f_{\xi_2} (y-x) dx}$}.\\ Також: $f_{\xi_1 + \xi_2} (y) = (f_{\xi_1} \circledast f_{\xi2} (y))$ - згортка.
+\subsection{Загальний алгоритм знаходження щільності функції від випадкових векторів.}
+Розглядаємо $ \eta = \varphi( \overline{\xi}) \quad f_{\eta} (z) = ?$.
+$$
+F_{\eta} = \mathbb{P} \left\lbrace  \eta < z \right\rbrace = \mathbb{P} \left\lbrace \varphi(\xi_1, \xi_2) < z \right\rbrace = \left| \left\lbrace (x,y) \in \mathbb{R} \bigg| \varphi(x,y) < z \right\rbrace = D_z \right|  =
+$$
+$$
+ =  \iint\limits_{D_z}^{}{f_{\overline{\xi} (x,y ) dxdy}} \Longrightarrow f_\eta (z)  = F_\eta' (z)
+$$
+Знайдемо щільності розподілу суми, добутку та частки випадкових величин.
+$$\xi_1, \xi_2, f_{\overline{\xi} }(x,y) \Longrightarrow f_{\xi_1 + \xi_2} (z), f_{\xi_1 \cdot \xi_2} (x,y), f_{\xi_1/ \xi_2} (x,y) - ?$$
+\textbf{Сума:} $ F_{\xi_1 + \xi_2} (z) = \mathbb{P} \left\lbrace \xi_1 + \xi_2 < z \right\rbrace = \mathbb{P} \left\lbrace \overline{\xi} \in D_z \right\rbrace =
+  \iint\limits_{D_z}^{ }{ f_{\overline{\xi}} ( x,y) dxdy} =
+$
+$$
+\begin{gathered}
+=  \int\limits_{-\infty}^{ +\infty}{ dx  \int\limits_{-\infty}^{ z-x}{f_{\overline{\xi}}(x,y)dy}}\\
+ f_{\xi_1 + \xi_2} (z) = \int\limits_{-\infty}^{ +\infty}{ f_{\overline{\xi}} (x, z-x) dx}
+\end{gathered}\qquad \quad
+\begin{gathered}
+\includegraphics[scale=0.45]{assets/lectures_part_3-43a27a3a.png}
+\end{gathered}
+$$
+$$
+f_{\xi_1 + \xi_2} (z) =  \int\limits_{-\infty}^{ +\infty}{ f_{\overline{\xi}}(x, z-x)dx = \left| \xi_1 \independent \xi_2 \right| =  \int\limits_{-\infty}^{ +\infty}{ f_{\xi_1} (x) \cdot f_{\xi_2} (z-x) dx }}
+$$
+\textbf{Добуток: } Шукаємо $ f_{\xi_1 \cdot \xi_2 } \quad F_{\xi_1 \cdot \xi_2}= \mathbb{P} \left\lbrace \xi_1 \cdot \xi_2 < z \right\rbrace$.\\
+$$
+\begin{gathered}
+x * y < z \Leftrightarrow \left[ \begin{gathered}
+\begin{cases}
+    y < \frac{z}{x}\\
+    x> 0
+\end{cases}\\
+\begin{cases}
+    y > \frac{z}{x}\\
+    x < 0
+\end{cases}
+\end{gathered}
+ \right.
+\end{gathered}
+ \qquad
+ \begin{gathered}
+\includegraphics[scale=0.4]{assets/lectures_part_3-5c275c57.png}
+ \end{gathered}
+$$
+$$
+F_{\xi_1 \cdot \xi_2} (z) =  \iint\limits_{D_z}^{ }{ f_{\overline{\xi}} (x,y) dxdy} =  \int\limits_{-\infty}^{0}{dx  \int\limits_{ \frac{z}{x}  }^{ +\infty}{ f_{\overline{\xi}} (x,y )dy}} +  \int\limits_{0}^{ +\infty}{ dx  \int\limits_{-\infty}^{ \frac{z}{x} }{f_{\overline{\xi}} (x,y )dy}}
+$$
+$$
+f_{\xi_1 \cdot \xi_2} (z) = -  \int\limits_{-\infty}^{ 0}{ f_{\overline{\xi}}(x, \frac{z}{x})\cdot \frac{1}{x} dx  } + \int\limits_{0}^{ + \infty}{ f_{\overline{\xi}}(x, \frac{z}{x})\cdot \frac{1}{x} dx  }
+$$

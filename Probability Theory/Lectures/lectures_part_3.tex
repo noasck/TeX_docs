@@ -67,7 +67,7 @@ $$
     $ \varphi: \mathbb{R}^n \to \mathbb{R}^n. \varphi$ - взаємно-однозначна $ \Rightarrow \psi = \varphi^{-1}$.\\
     $\varphi, \psi $ - дифеоморфізми $ \Rightarrow  \exists J_{\psi} ( \overline{y}) $ - якобіан. Тоді:
     $$
-    f_{\overline{\eta}}  (\overline{y}) = f_{\overline{\xi}} (\psi(\overline{y})) \cdot \left| J_{\psi (\overline{y})} \right| \cdot   \mathbb{I}_{E_{\varphi}} (\overline{y})
+    f_{\overline{\eta}}  (\overline{y}) = f_{\overline{\xi}} (\psi(\overline{y})) \cdot \left| J_{\psi }(\overline{y}) \right| \cdot   \mathbb{I}_{E_{\varphi}} (\overline{y})
     $$
 \end{boxteo}
 \begin{boxteo}
@@ -85,7 +85,7 @@ $$
 F_{\eta} = \mathbb{P} \left\lbrace  \eta < z \right\rbrace = \mathbb{P} \left\lbrace \varphi(\xi_1, \xi_2) < z \right\rbrace = \left| \left\lbrace (x,y) \in \mathbb{R} \bigg| \varphi(x,y) < z \right\rbrace = D_z \right|  =
 $$
 $$
- =  \iint\limits_{D_z}^{}{f_{\overline{\xi} (x,y ) dxdy}} \Longrightarrow f_\eta (z)  = F_\eta' (z)
+ =  \iint\limits_{D_z}^{}{f_{\overline{\xi} }(x,y ) dxdy} \Longrightarrow f_\eta (z)  = F_\eta' (z)
 $$
 Знайдемо щільності розподілу суми, добутку та частки випадкових величин.
 $$\xi_1, \xi_2, f_{\overline{\xi} }(x,y) \Longrightarrow f_{\xi_1 + \xi_2} (z), f_{\xi_1 \cdot \xi_2} (x,y), f_{\xi_1/ \xi_2} (x,y) - ?$$
@@ -129,4 +129,18 @@ F_{\xi_1 \cdot \xi_2} (z) =  \iint\limits_{D_z}^{ }{ f_{\overline{\xi}} (x,y) dx
 $$
 $$
 f_{\xi_1 \cdot \xi_2} (z) = -  \int\limits_{-\infty}^{ 0}{ f_{\overline{\xi}}(x, \frac{z}{x})\cdot \frac{1}{x} dx  } + \int\limits_{0}^{ + \infty}{ f_{\overline{\xi}}(x, \frac{z}{x})\cdot \frac{1}{x} dx  }
+$$
+
+\textbf{Відношення.} Розглядаємо: $\overline{\xi} = \begin{bmatrix}
+ \xi_1 \\
+ \xi_2
+\end{bmatrix} \quad f_{\overline{\xi}} (x,y) \quad \eta = \frac{\xi_2}{\xi1} $. За алгоритмом:
+$$
+F_{\eta} (z) = \mathbb{P} \left\lbrace \frac{\xi_2}{\xi_1} <z  \right\rbrace = \mathbb{P} \left\lbrace \overline{\xi} \in D_z \right\rbrace =  \iint\limits_{D_z}^{}{ f_{\overline{\xi}}(x,y)dxdy}
+$$
+Якщо $z < 0 :$
+$$
+\begin{gathered}
+ \frac{y}{x} < z
+\end{gathered}
 $$

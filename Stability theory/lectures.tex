@@ -5,7 +5,7 @@
 
 \renewcommand\qedsymbol{$\blacksquare$}
 \renewcommand*{\proofname}{\text{Доведення}}
-
+ \renewcommand{\labelitemi}{$\textemdash$}
 \theoremstyle{definition}
 \newtheorem*{defo}{Означення}
 \newtheorem*{teo}{Теорема}
@@ -452,7 +452,40 @@ $$
 
 \subsubsection{Модель Ферхюльста (логістична модель)}
 \begin{center}
-  \includegraphics[scale=0.55]{assets/verhulst.jpg}
+  \includegraphics[scale=0.6]{assets/verhulst.jpg}
 \end{center}
-\input{lectures_recent}
+
+Нехай між особинами є внутрішньовидова боротьба, що додає додаткове джерело загибелі. Отже смертність:
+\begin{enumerate}
+  \item природна:  $-\sigma x$;
+  \item внутрішньовидова боротьба: $- \mu x^2$.
+\end{enumerate}
+
+Швидкість народжуваності: $S = \gamma x$.  Швидкість смертності: $S = - \sigma x - \mu x^2$.\\
+$$
+\dfrac{\mathrm{d}x}{\mathrm{d}t}  = \gamma x -  \sigma x - \mu x^2 = \underbrace{(\gamma - \sigma)}_{=аеa}x - \mu x^2
+$$
+
+\begin{center}
+    \fbox{$ \dfrac{\mathrm{d}x}{\mathrm{d}t} = ax - \mu x^2 $} -- закон Ферхюльста.
+\end{center}
+Розглянемо $a > 0$, тобто народжуваність більше смертності.
+\begin{center}
+  Зауважимо, що $ax - \mu x^2 = x ( a - \mu x)$.
+\end{center}
+
+Проаналізувавши праву частину, бачимо, що:
+\begin{itemize}
+  \item $\dfrac{\mathrm{d}x}{\mathrm{d}t} > 0 (\uparrow) \text{ при } x \in (0, \dfrac{a}{\mu})$
+  \item $\dfrac{\mathrm{d}x}{\mathrm{d}t} < 0 (\downarrow) \text{ при } x \in (- \infty, 0) \cup ( \dfrac{a}{\mu}, +\infty)$
+  \item $\dfrac{\mathrm{d}x}{\mathrm{d}t} = 0 \text{ при } x = 0 \lor x = \dfrac{a}{\mu}$
+\end{itemize}
+
+\begin{center} \includegraphics[scale=0.28]{assets/lectures_recent-e4b7cd02.png} \end{center}
+
+Розв'яжемо рівняння: $\dfrac{\mathrm{d}x}{\mathrm{d}t} = ax - \mu x^2 $ -- рівняння Бернуллі.\\
+$x = u\cdot v $, $ \quad u'v + v'u - auv = - \mu u^2 v^2 $, $\quad u'v + u(v' - av) = - \mu u^2 v^2 $\\
+
+
+%\input{lectures_recent}
 \end{document}

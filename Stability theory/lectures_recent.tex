@@ -4,7 +4,7 @@
 Тоді швидкість народжуваності:$S = \gamma x$.\\
 Швидкість смертності:  $ S = - \sigma x - \mu x^2$.\\
 $$
-\frac{dx}{dt}  = \gamma -  \sigma x - \mu x^2 = \underbrace{(\gamma - \sigma)}{=a} - \mu x^2
+\frac{dx}{dt}  = \gamma -  \sigma x - \mu x^2 = \underbrace{(\gamma - \sigma)}[=a] - \mu x^2
 $$
 
 \begin{center}
@@ -270,11 +270,232 @@ $$
      0
     \end{bmatrix}
     \qquad \begin{gathered}
-     g_1 + g_2 = 0
+     g_1 + g_2 = 0\\
      g_1 = - g_2
     \end{gathered} \Rightarrow \overline{g} = \begin{bmatrix}
      1 \\
-     1 
+     -1
     \end{bmatrix}
     $$
+
+    \begin{center} \includegraphics[scale=0.4]{assets/lectures_recent-06adae22.png} \end{center}
+\end{example}
+
+2. Нехай $ \lambda_1 , \lambda_2 \in \mathbb{R}, \lambda_1 \neq \lambda_2, \lambda_1 \cdot \lambda_2 < 0$ (Власні числа різних знаків).
+Тоді, аналогічно, перейшовши до Жорданового базису, маємо:
+
+$$
+\begin{gathered}
+\begin{cases}
+    \dot{u} = \lambda_1 u\\
+    \dot{v} = \lambda_2 v
+\end{cases} \\ \begin{cases}
+    u = c_1 \cdot e^{\lambda_1 t}\\
+    v = c_2 \cdot e^{\lambda_2 t}
+\end{cases} \\
+ \left[ \begin{array}{l}
+v = C \cdot u^{ \frac{\lambda_2}{\lambda_1} }\\
+u =0 , v = 0
+\end{array} \right.
+\end{gathered}\quad
+\begin{gathered} \includegraphics[scale=0.3]{assets/lectures_recent-53a0acd8.png} \end{gathered}
+$$
+
+
+Якщо $ \lambda_1 < 0,
+  \lambda_2 > 0
+$, то $
+ \begin{gathered}
+ u(t) \xrightarrow[t \to \infty]{} 0\\
+ v(t) \xrightarrow[t \to \infty]{} \infty
+ \end{gathered}.$\\
+ Якщо $ \lambda_1 < 0,
+  \lambda_2 > 0$, то  $
+   \begin{gathered}
+   u(t) \xrightarrow[t \to \infty]{} \infty\\
+   v(t) \xrightarrow[t \to \infty]{} 0
+   \end{gathered}.$\\
+У другому випадку напрям руху траекторій відбуватиметься в інший бік.\\
+Отже, перейшовши до початкових змінних, отримаємо, що за умови $\lambda_1 \cdot \lambda_2 < 0$ фазовий портрет має вигляд:
+
+\begin{center} \includegraphics[scale=0.25]{assets/lectures_recent-0ebe704d.png} \end{center}
+
+\begin{remark}
+    Стрілки до нуля вздовж прямої, на якій лежить власний вектор, що відповідає $ \lambda_1 < 0$.\\
+    Стрілки від нуля вздовж прямої, на якій лежить власний вектор, що відповідає $ \lambda_2 > 0$.
+\end{remark}
+Такий фазовий портрет називається \textbf{сідло}. Це завжди нестійке положення рівноваги.
+
+\begin{example}
+    $$
+    \begin{cases}
+        \dot{x} = x + 3y\\
+        \dot{y} = 2x
+    \end{cases} \qquad A = \begin{bmatrix}
+     1 & 3 \\
+     2 & 0
+    \end{bmatrix}
+    $$
+    $$
+    \det (A - \lambda I) = \begin{vmatrix}
+      1-\lambda & 3 \\
+      2 & - \lambda
+    \end{vmatrix} = (1- \lambda)(-\lambda) - 6 = \lambda^2 - \lambda - 6 = 0
+    $$
+    $$
+    \lambda_1 = 3 \quad \lambda_2 = -2 \Longrightarrow \text{сідло (нестійке)}
+    $$
+    Знаходимо власні вектори:
+    $\lambda_1 = 3$
+    $$
+    \begin{bmatrix}
+     -2 & 3\\
+     2 & -3
+    \end{bmatrix} \begin{bmatrix}
+     h_1\\
+     h_2
+    \end{bmatrix} = \begin{bmatrix}
+      0\\
+      0
+    \end{bmatrix} \qquad 2h_1 = 3 h_2 \Rightarrow \overline{h} = \begin{bmatrix}
+     3 \\
+     2
+    \end{bmatrix}
+    $$
+
+    $\lambda_2 = -2$
+
+    $$
+    \begin{bmatrix}
+     3 &3 \\
+     2 & 2
+    \end{bmatrix} \begin{bmatrix}
+     g_1 \\
+     g_2
+    \end{bmatrix} = \begin{bmatrix}
+     0 \\
+     0
+    \end{bmatrix} \qquad 2 g_1 =-2 g_2 \Rightarrow \overline{g} = \begin{bmatrix}
+     1 \\
+     -1
+    \end{bmatrix}
+    $$
+    Отримали такий фазовий портрет:
+    \begin{center} \includegraphics[scale=0.3]{assets/lectures_recent-c4b9c37b.png} \end{center}
+    \end{example}
+
+
+    3. Нехай $ \lambda_1 = \lambda_2 = \lambda \in \mathbb{R}$.\\
+    a) Матриця $A$ - діагональна.
+    $$
+    A = \begin{bmatrix}
+     \lambda & 0 \\
+     0 & \lambda
+    \end{bmatrix} \Longrightarrow \begin{cases}
+        \dot{x} = \lambda x\\
+        \dot{y} = \lambda y
+    \end{cases}
+    $$
+    В такому випадку, фазовий портрет називають \textbf{диктричний вузол.}
+
+
+
+
+\begin{center} \includegraphics[scale=0.3]{assets/lectures_recent-ab36e3f3.png} \end{center}
+
+
+Якщо $ \lambda < 0 $ - ас. стійкий (стрілки до нуля).\\
+Якщо $ \lambda > 0 $ - нейстійкий (стрілки від нуля). \\
+б) Матриця $A$ - недіагональна. В такому разі, фазовий портрет називають \textbf{вироджений вузол.}\\
+- якщо $ \lambda < 0 $ - ас. стійкий ( стрілки до нуля ).\\
+- якщо $ \lambda > 0 $ - нестійкий (стрілки від нуля).\\
+Вироджений вузол може бути двох видів:
+\begin{center} \includegraphics[scale=0.25]{assets/lectures_recent-b526bf37.png} \end{center}
+
+Для визначення типу виродженого вузла потрібно визнгачити напрям вектора фазової швидкості $ \begin{bmatrix}
+ \vec{x} \\
+ \vec{y}
+\end{bmatrix}$ в довільній точці, що не дорівнює нулю системи координат. Цей напрям має співпадати із напрямами руху по фазовій траєкторії (до нуля або від нуля).
+
+\begin{example}
+    $$
+    \begin{cases}
+        \vec{x} = 2y - 3x\\
+        \vec{y} = y - 2x
+    \end{cases} \qquad A = \begin{bmatrix}
+     -3 & 2 \\
+     -2 & 1
+    \end{bmatrix}
+    $$
+
+    $$
+    \det{ \left( A - \lambda I  \right) } = \begin{vmatrix}
+      -3 - \lambda & 2 \\
+      -2 & 1 - \lambda
+    \end{vmatrix} = ( -3 - \lambda ) ( 1 -\lambda) + 4 =  \lambda^2 + 2 \lambda + 1 =
+    $$
+    $$
+    = ( \lambda+ 1) ^2 = 0 \Longrightarrow  \lambda = -1 - \text{кратності 2. }
+    $$
+З попереднього випливає, що фазовим портретом буде асимптотично стійкий вироджений вузол (стрілки до нуля).
+Знайдемо власний вектор:
+$$
+\begin{bmatrix}
+ -2 & 2 \\
+ 2 & 2
+\end{bmatrix} \begin{bmatrix}
+ h_1 \\
+ h_2
+\end{bmatrix} = \begin{bmatrix}
+ 0 \\
+ 0
+\end{bmatrix} \qquad h_1 = h_2 \Rightarrow \overline{h} = \begin{bmatrix}
+ 1 \\
+ 1
+\end{bmatrix}
+$$
+
+\begin{center} \includegraphics[scale=0.3]{assets/lectures_recent-f0de3cfc.png} \end{center}
+
+Візьмемо т. (1, 0):
+$$
+\begin{bmatrix}
+ \dot{x} \\
+ \dot{y}
+\end{bmatrix} \Bigg|_{(1,0)} = \begin{bmatrix}
+ -3 \\
+ -2
+\end{bmatrix} \Longrightarrow \begin{gathered}
+ x_k = -2 \\
+ y_k = -2
+\end{gathered}
+$$
+
+\end{example}
+
+4. $\lambda_{1, 2} - \alpha \pm i\beta, \alpha\neq 0$. В такому випадку, фазовий портрет назвається \textbf{фокус}. Якщо $ \alpha > 0$ - нестійкий. Якщо $ \alpha > 0$ - ас. стійкий.
+Фазовий портрет ''фокус'' може бути двох видів:
+\begin{center} \includegraphics[scale=0.3]{assets/lectures_recent-9fe11a21.png} \end{center}
+Для визначення типу фокуса визначаємо напрям вектора фазової швидкості в довільній точці, що не дорівнює нулю.
+
+\begin{example}
+    $$
+    \begin{cases}
+        \dot{x } = x - 2y\\
+        \dot{y} = 4x - 3y
+    \end{cases} \qquad A = \begin{bmatrix}
+     1 & -2 \\
+     4 & -3
+    \end{bmatrix}
+    $$
+    $$ \det{(A - \lambda I)} = \begin{vmatrix}
+      1- \lambda & -2 \\
+      4 & -3-\lambda
+    \end{vmatrix}  = ( 1- \lambda) (-3 - \lambda) + 8 = \lambda^2 + 2 \lambda + 5 = 0$$
+$$
+D = -16 \quad \lambda_{1,2} = \frac{-2 \pm 4i}{2} = -1 \pm 2i
+$$
+Асимптотично стійкий фокус (стрілки до нуля).
+
+
 \end{example}

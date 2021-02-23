@@ -499,6 +499,65 @@ $$
 D = -16 \quad \lambda_{1,2} = \frac{-2 \pm 4i}{2} = -1 \pm 2i
 $$
 Асимптотично стійкий фокус (стрілки до нуля).
+\begin{center} \includegraphics[scale=0.3]{assets/lectures_recent-b90426e3.png} \end{center}
+Візьмемо точку (1, 0) для перевірки:
+
+$$
+\begin{bmatrix}
+ \dot{x}\\
+ \dot{y}
+\end{bmatrix}\Bigg|_{(1,0)} - \begin{bmatrix}
+ 1 \\
+ 4
+\end{bmatrix} \qquad \begin{gathered}
+ x_k -1 = 1 \\
+ y_k - 0 = 4
+\end{gathered} \Rightarrow \begin{gathered}
+ x_k = 2 \\
+ y_k  = 4
+\end{gathered}
+$$
+Отримали: $(1,0) \to (2, 4)$. Перевіримо за виглядом фазового портрета вище.
+\end{example}
+
+5.$ \lambda_{1,2} = \pm i \beta$. За таких власних чисел, фазовий портрет називається \textbf{центр.} (стійкий, але не асимптотично стійкий)
+\begin{center} \includegraphics[scale=0.3]{assets/lectures_recent-2982f611.png} \end{center}
+
+\begin{example}
+    $$
+    \begin{cases}
+        \dot{x} = -2 x - 5y \\
+        \dot{y} = 2x + 2y
+    \end{cases} \qquad A = \begin{bmatrix}
+     -2 & -5\\
+     2 & 2
+    \end{bmatrix}
+    $$
+    $$
+    \det{(A - \lambda I)} = \begin{vmatrix}
+      -2-\lambda & -5 \\
+      2 & 2 -\lambda
+    \end{vmatrix}  = \lambda^2 + 6 = 0 \Rightarrow \lambda = \pm i \sqrt{6} \Rightarrow \text{центр}
+    $$
+    Візьмемо т. (1, 0):
+    $$
+\begin{gathered}
+\begin{bmatrix}
+ \dot{x}\\
+ \dot{y}
+\end{bmatrix}\Bigg|_{(1,0)} = \begin{bmatrix}
+ -2 \\
+ 2
+\end{bmatrix} \\ \begin{cases}
+  x_k -1 = -2\\
+  y_k  - 0 = 2
+\end{cases} \\
+\begin{cases}
+x_k = -1\\
+    y_k  =2
+\end{cases}
+\end{gathered}\qquad    \begin{gathered} \includegraphics[scale=0.3]{assets/lectures_recent-1467e19e.png} \end{gathered}
+    $$
 
 
 \end{example}

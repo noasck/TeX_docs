@@ -2,13 +2,13 @@
 TeX documents in different fields: Calculus, Physics, Numerical Math, etc.
 
 --------------------------------
-Fist of all, template I use in my documents: (Untitled template...)[https://github.com/noasck/TeX_docs/blob/main/Untitled.tex]
+Fist of all, template I use in my documents: [Untitled template...](https://github.com/noasck/TeX_docs/blob/main/Untitled.tex)
 ## Content you may like
-1. Stability theory lectures (TeX Source...)[https://github.com/noasck/TeX_docs/tree/main/Stability%20theory]
+1. Stability theory lectures [TeX Source...](https://github.com/noasck/TeX_docs/tree/main/Stability%20theory)
 
 Notice, that stabtheory included in release with appropriative tag.
 
-2. Probability theory lectures (TeX Source...)[https://github.com/noasck/TeX_docs/tree/main/Probability%20Theory/Lectures]
+2. Probability theory lectures [TeX Source...](https://github.com/noasck/TeX_docs/tree/main/Probability%20Theory/Lectures)
 
 Repository contains **vector graphics** source provided in a *svg* files. All pictures were created with ```Inkscape``` editor.
 -------------------------------

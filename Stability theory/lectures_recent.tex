@@ -333,7 +333,7 @@ $$
 D = -16 \quad \lambda_{1,2} = \frac{-2 \pm 4i}{2} = -1 \pm 2i
 $$
 Асимптотично стійкий фокус (стрілки до нуля).
-\begin{center} \includegraphics[scale=0.3]{assets/lectures_recent-b90426e3.png} \end{center}
+\begin{center} \includegraphics[scale=0.27]{assets/lectures_recent-b90426e3.png} \end{center}
 Візьмемо точку (1, 0) для перевірки:
 
 $$
@@ -395,3 +395,41 @@ x_k = -1\\
 
 
 \end{example}
+6. Нехай $ \det A = 0$ (вирджений випадок).\\
+$$
+\det A  =  \begin{vmatrix}
+  a & b\\
+  c & d
+\end{vmatrix} = ad - bc  = 0 \Rightarrow \frac{a}{c} = \frac{b}{d} = 0 \quad \begin{gathered}
+ a = kc\\
+ b = kd
+\end{gathered}
+$$
+$$
+\begin{cases}
+    \dot{x} = ax+ by\\
+    \dot{y} = k(ax + by)
+\end{cases} \Rightarrow ax + by  = 0 \text{ - пряма положень рівноваги.}
+$$
+
+$$
+\det ( A - \lambda I) = \begin{vmatrix}
+  a - \lambda & b\\
+  ka & kb - \lambda
+\end{vmatrix} = (a-\lambda)*(kb- \lambda) - kab =
+$$
+$$
+ = akb - a \lambda - kb \lambda +  \lambda^2 - kab = \lambda^2 - (a + kb) \lambda =0
+ $$
+ $$
+ \lambda = 0 \qquad \lambda = a + bk
+ $$
+
+ a) Прямі паралельні власному вектору, що відповідає власному числу $\lambda =  a + bk$\\
+ $\lambda > 0 $ - стрілки від нуля.\\
+ $\lambda < 0 $ - стрілки до нуля.\\
+
+ \begin{center} \includegraphics[scale=0.3]{assets/lectures_recent-058ceaff.png} \end{center}
+b) $ \lambda_1 =  \lambda_2 = 0 \quad (a = - bk)$
+
+\begin{center} \includegraphics[scale=0.3]{assets/lectures_recent-49093f01.png} \end{center}

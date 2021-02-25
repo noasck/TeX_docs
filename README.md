@@ -11,6 +11,7 @@ Notice, that stabtheory included in release with appropriative tag.
 2. Probability theory lectures [TeX Source...](https://github.com/noasck/TeX_docs/tree/main/Probability%20Theory/Lectures)
 
 Repository contains **vector graphics** source provided in a *svg* files. All pictures were created with ```Inkscape``` editor.
+
 -------------------------------
 
 ## Snippets

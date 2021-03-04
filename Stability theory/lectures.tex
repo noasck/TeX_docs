@@ -461,7 +461,7 @@ $$
   \item внутрішньовидова боротьба: $- \mu x^2$.
 \end{enumerate}
 
-Швидкість народжуваності: $S = \gamma x$.  Швидкість смертності: $S = - \sigma x - \mu x^2$.\\
+Швидкість народжуваності: $R = \gamma x$.  Швидкість смертності: $S = - \sigma x - \mu x^2$.\\
 $$
 \dfrac{\mathrm{d}x}{\mathrm{d}t}  = \gamma x -  \sigma x - \mu x^2 = \underbrace{(\gamma - \sigma)}_{=аеa}x - \mu x^2
 $$
@@ -858,15 +858,15 @@ $$
 \begin{center} \includegraphics[scale=0.25]{assets/lectures_recent-b526bf37.png} \end{center}
 
 Для визначення типу виродженого вузла потрібно визнгачити напрям вектора фазової швидкості $ \begin{bmatrix}
- \vec{x} \\
- \vec{y}
+ \overline{x} \\
+ \overline{y}
 \end{bmatrix}$ в довільній точці, що не дорівнює нулю системи координат. Цей напрям має співпадати із напрямами руху по фазовій траєкторії (до нуля або від нуля).
 
 \begin{example}
     $$
     \begin{cases}
-        \vec{x} = 2y - 3x\\
-        \vec{y} = y - 2x
+        \overline{x} = 2y - 3x\\
+        \overline{y} = y - 2x
     \end{cases} \qquad A = \begin{bmatrix}
      -3 & 2 \\
      -2 & 1
@@ -1042,6 +1042,38 @@ b) $ \lambda_1 =  \lambda_2 = 0 \quad (a = - bk)$
 
 \begin{center} \includegraphics[scale=0.3]{assets/lectures_recent-49093f01.png} \end{center}
 
+\section{Лекція 3}
+\subsection{Стійкість за першим наближенням}
 
+Розглянемо систему:
+\begin{equation}
+  \dot{\overline{x}} = \overline{f}(\overline{x}(t)), \quad \overline{f}: D \rightarrow \mathbb{R}^n, \quad D \subset \mathbb{R}^n
+\end{equation}
+Функція $f$ один раз неперервно диференційована ($f \in C^1(D)$), це гарантує існування та єдиність довільної задачі Коші $\quad \forall t_0 \in \mathbb{R} \quad \forall x_0 \in D$. \\
+Система (5) -- автономна система n-ого порядку, $\overline{f}$ не залежить явно від $t$.
+Нехай $\overline{f}(\overline{0}) = \overline{0}$, тобто $\overline{x} = \overline{0}$ -- положення рівноваги системи (5), якщо це не так і $\overline{x} = \overline{x}^*$ -- положення рівноваги, то заміна $\overline{z} = \overline{x} - \overline{x}^*$ зведе задачу до положення рівноваги $\overline{z} = \overline{0}$.
+
+\textbf{Завдання: } дослідити на стійкість розв'язок $\overline{x} = \overline{0}$ системи (5). Оскільки $\overline{f} \in C^1(D)$, то в деякому околі $Br(\overline{0})$ функцію $\overline{f}$ можно подати у вигляді:
+\begin{equation*}
+  \overline{f}(\overline{x}) = \dfrac{\partial \overline{f}}{\partial \overline{x}}(\overline{0}) \cdot \overline{x} + f_1(\overline{x}), \text{ де} f_1(\overline{x}) =\overline{\overline{o}}(||\overline{x}||), \quad \overline{x} \rightarrow \overline{0} \quad \text{ (формула Тейлора)}
+\end{equation*}
+Позначимо: $\dfrac{\partial \overline{f}}{\partial \overline{x}}(\overline{0}) = A$ -- стала $n \times n$ матриця Якобі. Тоді в околі точки $\overline{0}$ система (5) набуває вигляду:
+\begin{center}
+  \fbox{$\overline{x}'(t) = A\overline{x}(t) + \overline{\overline{o}}(\overline{x})$}
+\end{center}
+\defo ЛОС:
+\begin{equation*}
+  \overline{x}' = A\overline{x}, \text{ де } \quad A = \dfrac{\partial\overline{f}}{\partial\overline{x}}(\overline{0})
+\end{equation*}
+називається сис-мою 1-ого наближення (або лінеаризованою системою) для (5).
+
+\begin{boxteo}[про стійкість за першим наближенням]
+  Розглянемо два випадки:
+  \begin{enumerate}
+    \item Якщо $\forall \lambda$ -- власні матриці $A$ справедливо, що $\Re \lambda < 0$, то розв'язок $\overline{x} = \overline{0}$ системи (5) асимптотично стійкий.
+    \item Якщо існує таке власне число матриці А, що $\Re \lambda > 0$, то розв'язок $\overline{x} = \overline{0}$ системи (5) нестійкий.
+  \end{enumerate}
+
+\end{boxteo}
 %\input{lectures_recent}
 \end{document}

@@ -462,3 +462,32 @@ $, то $
     b) $ \lambda_1 =  \lambda_2 = 0 \quad (a = - bk)$
 
     \begin{center} \includegraphics[scale=0.3]{assets/lectures_recent-49093f01.png} \end{center}
+
+
+
+
+    textbf{Приклад 2.}
+    \begin{gather*}
+      \begin{cases}
+         \dot{x} = \tan(x+y) - y \quad  (=f_1(x, y))\\
+         \dot{y} = 3\sin{x} + 2e^y - 2 \quad (=f_2(x, y))
+      \end{cases}
+    \end{gather*}
+    \begin{spacing}{2.5}
+    \begin{gather*}
+      A = \begin{bmatrix}
+        \dfrac{\partial f_1}{\partial x}   &   \dfrac{\partial f_1}{\partial y} \\
+        \dfrac{\partial f_2}{\partial x}   &   \dfrac{\partial f_2}{\partial y}
+      \end{bmatrix} \Bigg|_{(0,0)} =
+      \begin{bmatrix}
+       \dfrac{1}{\cos^2(x+y)} & \dfrac{1}{\cos^2(x+y)}  \\
+       3\cos{x} & 2e^y
+     \end{bmatrix}\Bigg|_{(0,0)}  =
+     \begin{bmatrix}
+      1 & 0  \\
+      3 & 2
+      \end{bmatrix}
+    \end{gather*}
+    \end{spacing}
+
+    Тоді $\det(A - \lambda I) =  \begin{vmatrix} 1 - \lambda & 0 \\ 3 & 2 - \lambda \end{vmatrix} = (1 - \lambda)(2 - \lambda) = 0. \\ $ Отримуємо: $\lambda_1 = 1, \quad \lambda_2 = 2, \quad \Re \lambda > 0$, тоді розв'язок $(x, y)^T = (0, 0)^T $ нестійкий.\\

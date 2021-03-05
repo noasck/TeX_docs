@@ -1,7 +1,8 @@
 \documentclass[14pt,a4paper]{scrartcl}
 \usepackage[utf8]{inputenc}
 \usepackage[english, russian, ukrainian]{babel}
-\usepackage{misccorr, color, ragged2e, amsfonts, amsthm, graphicx, systeme, amsmath, mdframed, lipsum, setspace, mathtools, esint, color, listings}
+\usepackage{misccorr, color, ragged2e, amsfonts, amsthm, graphicx, systeme, amsmath, mdframed, lipsum, setspace, mathtools, esint, color, listings, array, amssymb, relsize}
+
 
 \renewcommand\qedsymbol{$\blacksquare$}
 \renewcommand*{\proofname}{\text{Доведення}}
@@ -17,6 +18,7 @@
 \theoremstyle{definition}
 \newtheorem{statement}{Утверждение}[section]
 \newmdtheoremenv{boxteo}{Теорема}[section]
+\newmdtheoremenv{boxlema}{Лема}[section]
 \newtheorem*{look}{Позначення}
 
 \setlength\parindent{0pt}
@@ -1107,9 +1109,41 @@ b) $ \lambda_1 =  \lambda_2 = 0 \quad (a = - bk)$
   \end{cases}
 \end{gather*}
 
+\begin{spacing}{2.5}
+\begin{gather*}
+  A = \begin{bmatrix}
+    \dfrac{\partial f_1}{\partial x}   &   \dfrac{\partial f_1}{\partial y} \\
+    \dfrac{\partial f_2}{\partial x}   &   \dfrac{\partial f_2}{\partial y}
+  \end{bmatrix} \Bigg|_{(0,0)} =
+  \begin{bmatrix}
+    \dfrac{1}{\cos^2(x+y)} & \dfrac{1}{\cos^2(x+y) - 1} \\
+    3 \cos x & 2e^y
+  \end{bmatrix} \Bigg|_{(0,0)} =
+  \begin{bmatrix}
+    1 & 0 \\
+    3 & 2
+  \end{bmatrix}
+\end{gather*}
+\end{spacing}
 
+Тоді $\det(A - \lambda I) =  \begin{vmatrix} 1 - \lambda & 0 \\ 3 & 2 - \lambda \end{vmatrix} = (1 - \lambda)(2 - \lambda) = 0. \\ $ Отримуємо: $\lambda_1 = 1,  \lambda_2 = 2,  \Re \lambda > 0$, тоді розв'язок $(x, y)^T = (0, 0)^T $ нестійкий.
 
+\textbf{Зауваження. } Випадок, коли $\forall \lambda : \Re \lambda \leq 0$ та $\exists \lambda : \Re \lambda = 0$ є критичним. \\ В цьому випадку за системою першого наближення нічого сказати не можна.
 
+\textbf{Доведення теореми 3.1. } Пункт 1. Нехай для будь-якого власного числа матриці $A$ справедливо, що $\Re < 0$. Доведемо, що розв'язок $\overline{x} = \overline{0}$ асимптотично стійкий. За означенням: $\forall \varepsilon > 0 \quad \forall t_0 \quad \exists \delta > 0 : \forall$ розв'язку $\overline{x}(t)$ з початковими умовами $\overline{x}(t_0) = \overline{x}_0$ такого, що $||\overline{x}_0|| < \delta$ справедливо, що:
+\begin{enumerate}
+  \item $||\overline{x}(t)|| < \varepsilon$ (стійкість).
+  \item $||\overline{x}(t)|| \xrightarrow[t \to \infty]{} 0$ (асимптотична стійкість).
+\end{enumerate}
+
+Таким чином, щоб довести твердження потрібно оцінити норму $||x(t)||$. Подальше доведення теореми потребує двох лем.
+
+\begin{boxlema}[Гронуолла-Беллмана]
+Нехай $a(t), u(t) \in C([t_0, t_1]), a(t) \geq 0 \\ \forall t \in [t_0, t_1]$ і числа $c \geq 0$ та $b \geq 0$ такі, що: $$\forall t \in [t_0, t_1] \quad u(t) \leq c + b(t - t_0) + \int\limits_{t_0}^{t}a(s)u(s)\mathrm{d}s$$
+Тоді $\forall t \in [t_0, t_1]:$ $$ u(t) \leq (c + b(t-t_0))e^{\mathop{\mathlarger{\int}}\limits_{t_0}^{t} a(s)\mathrm{d}s}$$
+\end{boxlema}
+
+\textbf{Доведення. } Розглянемо допоміжну функцію: $v(t) = c  +  b(t-t_0) + \mathop{\mathlarger{\int}}\limits_{t_0}^{t}a(s)u(s)\mathrm{d}s$ Тоді: $$ v(t_0) = c; \quad u(t) \leq v(t) \quad \forall t \in [t_0, t_1]; \quad v'(t) = b + a(t)u(t) \leq b + a(t)v(t)$$ Отже, $v'(t) \leq b + a(t)v(t)$, домножимо ліву і праву частину на $e^{-\mathop{\mathlarger{\int}}\limits_{t_0}^{t} a(s)\mathrm{d}s}$, тоді:
 
 %\input{lectures_recent}
 \end{document}

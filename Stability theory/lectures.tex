@@ -1056,7 +1056,7 @@ b) $ \lambda_1 =  \lambda_2 = 0 \quad (a = - bk)$
 Система (5) -- автономна система n-ого порядку, $\overline{f}$ не залежить явно від $t$.
 Нехай $\overline{f}(\overline{0}) = \overline{0}$, тобто $\overline{x} = \overline{0}$ -- положення рівноваги системи (5), якщо це не так і $\overline{x} = \overline{x}^*$ -- положення рівноваги, то заміна $\overline{z} = \overline{x} - \overline{x}^*$ зведе задачу до положення рівноваги $\overline{z} = \overline{0}$.
 
-\textbf{Завдання: } дослідити на стійкість розв'язок $\overline{x} = \overline{0}$ системи (5). Оскільки $\overline{f} \in C^1(D)$, то в деякому околі $Br(\overline{0})$ функцію $\overline{f}$ можно подати у вигляді:
+\textbf{Завдання: } дослідити на стійкість розв'язок $\overline{x} = \overline{0}$ системи (5). Оскільки $\overline{f} \in C^1(D)$, то в деякому околі $B_r(\overline{0})$ функцію $\overline{f}$ можно подати у вигляді:
 \begin{equation*}
   \overline{f}(\overline{x}) = \dfrac{\partial \overline{f}}{\partial \overline{x}}(\overline{0}) \cdot \overline{x} + f_1(\overline{x}), \text{ де} f_1(\overline{x}) =\overline{\overline{o}}(||\overline{x}||), \quad \overline{x} \rightarrow \overline{0} \quad \text{ (формула Тейлора)}
 \end{equation*}
@@ -1158,5 +1158,16 @@ $$ v(t) \cdot e^{-\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\
   Без доведення. $\quad \blacksquare$
 \end{boxlema}
 
+Повернемось до доведення теореми. Візьмемо $\forall \varepsilon > 0$ та $\forall \delta : 0 < \delta < \varepsilon$ (поки що довільне $\delta$). Також візьмемо довільну початкову умову $\overline{x}(t_0) = \overline{x}_0$, де $||\overline{x}_0|| < \delta$ (зауважимо, що $||\overline{x}_0|| < \delta < \varepsilon$) і розглянемо $\overline{x}(t)$ -- розв'язоу системи з початковими умовами $\overline{x}(t_0) = \overline{x}_0$. За теоремою про продовження розв'язок $\overline{x}(t)$ можна продовжити до межі області: $B_{\varepsilon}(\overline{0}) = \left\{ \overline{x} \quad | \quad ||\overline{x}|| < \varepsilon \right\}$. Тоді можливими є два варіанти:
+\begin{enumerate}
+  \item $\exists t* > t_0 : ||\overline{x}(t)|| < \varepsilon \quad \forall t \in [t_0, t*)$ та $\overline{x}(t*) = \varepsilon$ (межа області досягнута).
+  \item $\forall t \geq t_0 : ||\overline{x}|| < \varepsilon$ (межа області не досягається за скінченний час. Отже, розв'язок існує $\forall t \geq t_0$ та $||\overline{x}(t)|| < \varepsilon$, що автоматично означає стійкість).
+\end{enumerate}
+У першому випадку покладемо: $I = [t_0, t_1]$, а у другому: $I = [t_0, +\infty)$ та розглянемо на $I$ наступну задачу Коші: $$\begin{cases} u'(t) = A\overline{u}(t) + \overline{f}_1(\overline{x}(t)) \\ \overline{u}(t_0) = \overline{x}_0 \end{cases}$$ Це ЛНС, задача Коші має единий розв'язок. Підставивши $\overline{x}(t) = \overline{u}(t)$, переконуємось, що $\overline{u}(t) = \overline{x}(t)$ -- єдиний розв'язок задачі Коші. Можемо знайти його методом варіації довільної сталої. Загальний розв'язок ЛНС = загальний розв'язок ЛОС + частинний розв'язок ЛНС. Частинний розв'язок ЛНС будемо шукати у вигляді $e^{At} \cdot \overline{C}(t)$.
+$$e^{At} \cdot \overline{C}'(t) + Ae^{At} \cdot \overline{C}(t) = Ae^{At} \cdot \overline{C}(t) + \overline{f}_1(\overline{x}(t))$$
+Звідси отримуємо: $$\overline{C}'(t) = e^{-At} \cdot \overline{f}_1(\overline{x}(t)) \quad \Longrightarrow \quad \overline{u}_r(t) = e^{At} \cdot \int\limits_{t_0}^{t} e^{-As} \overline{f}_1(\overline{x}(s))\mathrm{d}s = \int\limits_{t_0}^{t} e^{A(t-s)}\overline{f}_1(\overline{x}(s))\mathrm{d}s$$
+Загальний розв'язок ЛНС: $\overline{u}(t) = e^{At} \cdot \overline{C} + \mathop{\mathlarger{\int}}\limits_{t_0}^{t} e^{A(t - s)} \overline{f}_1(\overline{x}(s))\mathrm{d}s$, звідси знаходимо розв'язок даної задачі Коші $\quad \overline{u}(t_0) = \overline{x}_0 : \overline{x}_0 = e^{At_0} \cdot \overline{C} \quad \Longrightarrow \quad \overline{C} = e^{-At_0} \cdot \overline{x}_0$
+Отже, $$\overline{u}(t) = \overline{x}(t) = e^{A(t - t_0)}\overline{x}_0 + \mathop{\mathlarger{\int}}\limits_{t_0}^{t} e^{A(t - s)} \overline{f}_1(\overline{x}(s))\mathrm{d}s$$
+Таким чином, знайшли розв'язок $\overline{x}(t)$, який маємо оцінити.$
 %\input{lectures_recent}
 \end{document}

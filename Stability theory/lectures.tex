@@ -1140,10 +1140,23 @@ b) $ \lambda_1 =  \lambda_2 = 0 \quad (a = - bk)$
 
 \begin{boxlema}[Гронуолла-Беллмана]
 Нехай $a(t), u(t) \in C([t_0, t_1]), a(t) \geq 0 \\ \forall t \in [t_0, t_1]$ і числа $c \geq 0$ та $b \geq 0$ такі, що: $$\forall t \in [t_0, t_1] \quad u(t) \leq c + b(t - t_0) + \int\limits_{t_0}^{t}a(s)u(s)\mathrm{d}s$$
-Тоді $\forall t \in [t_0, t_1]:$ $$ u(t) \leq (c + b(t-t_0))e^{\mathop{\mathlarger{\int}}\limits_{t_0}^{t} a(s)\mathrm{d}s}$$
+Тоді $\forall t \in [t_0, t_1]:$ $$ u(t) \leq (c + b(t-t_0))e^{\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s}$$
 \end{boxlema}
 
-\textbf{Доведення. } Розглянемо допоміжну функцію: $v(t) = c  +  b(t-t_0) + \mathop{\mathlarger{\int}}\limits_{t_0}^{t}a(s)u(s)\mathrm{d}s$ Тоді: $$ v(t_0) = c; \quad u(t) \leq v(t) \quad \forall t \in [t_0, t_1]; \quad v'(t) = b + a(t)u(t) \leq b + a(t)v(t)$$ Отже, $v'(t) \leq b + a(t)v(t)$, домножимо ліву і праву частину на $e^{-\mathop{\mathlarger{\int}}\limits_{t_0}^{t} a(s)\mathrm{d}s}$, тоді:
+\textbf{Доведення. } Розглянемо допоміжну функцію: $v(t) = c  +  b(t-t_0) + \mathop{\mathlarger{\int}}\limits_{t_0}^{t}a(s)u(s)\mathrm{d}s$ Тоді: $$ v(t_0) = c; \quad u(t) \leq v(t) \quad \forall t \in [t_0, t_1]; \quad v'(t) = b + a(t)u(t) \leq b + a(t)v(t)$$ Отже, $v'(t) \leq b + a(t)v(t)$, домножимо ліву і праву частину на $e^{-\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s}$, тоді: $$v'(t) \cdot e^{-\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s} \leq b \cdot e^{-\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s} + a(t) \cdot e^{-\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s} \cdot v(t) $$
+Перенесемо один з множників наліво: $$v'(t) \cdot e^{-\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s} - a(t) \cdot e^{-\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s} \cdot v(t)\leq b \cdot e^{-\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s}$$
+
+Використаємо властивість похідної: $$\mathlarger{\Bigg(}v(t) \cdot e^{-\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s}\mathlarger{\Bigg)}' \leq b \cdot e^{-\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s}$$
+
+Проінтегруємо ліву і праву частини від $t$ до $t_0$:
+$$ v(t) \cdot e^{-\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s} - \underbrace{v(t_0)}_{const} \leq \int\limits_{t_0}^{t}b \cdot \underbrace{e^{-\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s}}_{1}\mathrm{d}t$$
+Звідси отримуємо наступне: $$ v(t) \cdot e^{-\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s} \leq c + b(t - t_0) $$
+Остаточно: $$ u(t) \leq v(t) \leq (c + b(t - t_0)) \cdot e^{\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s} \qquad \blacksquare$$
+
+\begin{boxlema}
+  Нехай $\exists \gamma > 0 : \forall \lambda$ -- власного числа матриці $A: \Re \lambda < - \gamma$, тоді $$\exists K > 0 : ||e^{At}|| \quad \leq  \quad K \cdot e^{-\gamma t} \quad \forall t \geq 0$$
+  Без доведення. $\quad \blacksquare$
+\end{boxlema}
 
 %\input{lectures_recent}
 \end{document}

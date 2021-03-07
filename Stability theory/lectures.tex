@@ -1163,11 +1163,25 @@ $$ v(t) \cdot e^{-\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\
   \item $\exists t* > t_0 : ||\overline{x}(t)|| < \varepsilon \quad \forall t \in [t_0, t*)$ та $\overline{x}(t*) = \varepsilon$ (межа області досягнута).
   \item $\forall t \geq t_0 : ||\overline{x}|| < \varepsilon$ (межа області не досягається за скінченний час. Отже, розв'язок існує $\forall t \geq t_0$ та $||\overline{x}(t)|| < \varepsilon$, що автоматично означає стійкість).
 \end{enumerate}
+
 У першому випадку покладемо: $I = [t_0, t_1]$, а у другому: $I = [t_0, +\infty)$ та розглянемо на $I$ наступну задачу Коші: $$\begin{cases} u'(t) = A\overline{u}(t) + \overline{f}_1(\overline{x}(t)) \\ \overline{u}(t_0) = \overline{x}_0 \end{cases}$$ Це ЛНС, задача Коші має единий розв'язок. Підставивши $\overline{x}(t) = \overline{u}(t)$, переконуємось, що $\overline{u}(t) = \overline{x}(t)$ -- єдиний розв'язок задачі Коші. Можемо знайти його методом варіації довільної сталої. Загальний розв'язок ЛНС = загальний розв'язок ЛОС + частинний розв'язок ЛНС. Частинний розв'язок ЛНС будемо шукати у вигляді $e^{At} \cdot \overline{C}(t)$.
+
 $$e^{At} \cdot \overline{C}'(t) + Ae^{At} \cdot \overline{C}(t) = Ae^{At} \cdot \overline{C}(t) + \overline{f}_1(\overline{x}(t))$$
+
 Звідси отримуємо: $$\overline{C}'(t) = e^{-At} \cdot \overline{f}_1(\overline{x}(t)) \quad \Longrightarrow \quad \overline{u}_r(t) = e^{At} \cdot \int\limits_{t_0}^{t} e^{-As} \overline{f}_1(\overline{x}(s))\mathrm{d}s = \int\limits_{t_0}^{t} e^{A(t-s)}\overline{f}_1(\overline{x}(s))\mathrm{d}s$$
+
 Загальний розв'язок ЛНС: $\overline{u}(t) = e^{At} \cdot \overline{C} + \mathop{\mathlarger{\int}}\limits_{t_0}^{t} e^{A(t - s)} \overline{f}_1(\overline{x}(s))\mathrm{d}s$, звідси знаходимо розв'язок даної задачі Коші $\quad \overline{u}(t_0) = \overline{x}_0 : \overline{x}_0 = e^{At_0} \cdot \overline{C} \quad \Longrightarrow \quad \overline{C} = e^{-At_0} \cdot \overline{x}_0$
+
 Отже, $$\overline{u}(t) = \overline{x}(t) = e^{A(t - t_0)}\overline{x}_0 + \mathop{\mathlarger{\int}}\limits_{t_0}^{t} e^{A(t - s)} \overline{f}_1(\overline{x}(s))\mathrm{d}s$$
-Таким чином, знайшли розв'язок $\overline{x}(t)$, який маємо оцінити.$
+Таким чином, знайшли розв'язок $\overline{x}(t)$, який маємо оцінити.
+
+Використаємо лему 2. Оскільки $\forall \lambda : \Re \lambda < 0$, то $\exists \gamma > 0 : \Re \lambda < -\gamma$. Тоді: $$\exists K > 0 : ||e^{At}|| \leq K \cdot e^{-\gamma t}$$
+Маємо: $$ ||\overline{x}(t)|| \leq K \cdot e^{-\gamma(t - t_0)} \cdot || \overline{x}_0|| + \int\limits_{t_0}^{t} K \cdot e^{-\gamma(t - s)} ||\overline{f}_1(\overline{x}(s))||\mathrm{d}s$$
+Звідси отримуємо: $$||\overline{x}(t)|| \cdot e^{\gamma(t - t_0)} \leq K||\overline{x}_0|| + K \int\limits_{t_0}^{t} e^{\gamma(s - t_0)} ||\overline{f}_1(\overline{x}(s))||\mathrm{d}s$$
+Оцінимо $||\overline{f_1}(\overline{x}(s))||$. Зауважимо, що $\overline{f}_1(\overline{x}(s)) = \overline{\overline{0}}(||\overline{x}||)$ при $||\overline{x}|| \longrightarrow 0$. Отже,
+$\forall \delta_1 > 0 \quad \exists \delta_2 > 0 : \forall x : ||\overline{x}|| < \delta_2 \text{ справедливо, що } ||\overline{f}_1(\overline{x})|| < \delta_1 ||\overline{x}||$. З попередніх міркувань: $$||\overline{x}(t)|| \cdot e^{\gamma(t - t_0)} \leq K \cdot \delta + K \cdot \delta_1 \int\limits_{t_0}^{t} e^{\gamma(s - t_0)} \cdot ||\overline{x}(s)||\mathrm{d}s$$
+Застосуємо лему Гронуолла-Беллмана: $$u(t) = ||\overline{x}(t)|| \cdot e^{\gamma(t - t_0)}, \quad c = K \cdot \delta, \quad b = 0, \quad a = K \cdot \delta_1$$ Отримуємо: $$||\overline{x}(t)|| \cdot e^{\gamma(t - t_0)} \leq K \cdot \delta \cdot e^{\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} K \cdot \delta_1 \mathrm{d}s} = K \cdot \delta e^{K \cdot \delta (t - t_0)} \Longrightarrow ||\overline{x}(t)|| \leq K \cdot \delta \cdot e^{(-\gamma + K \cdot \delta_1)(t - t_0)}$$ Оберемо $\delta_1$ так, щоб $-\gamma + K \cdot \delta_1 < 0 \quad \Longrightarrow \quad \delta_1 < \dfrac{\gamma}{K}$, тоді $||\overline{x}(t)|| \leq K \cdot \delta < \varepsilon$ при $\delta < \dfrac{\varepsilon}{K}$ і, крім того, $||\overline{x}(t)|| \leq K \cdot \delta \cdot e^{(-\gamma + K \cdot \delta_1)(t - t_0)} \xrightarrow[t \to \infty]{} 0$, що означає стійкість та асимптотичну стійкість розв'язку $\overline{x} = \overline{0}$ за означенням (в означенні в якості $\delta$ можемо взяти найменше з $\delta, \quad \delta_1, \quad \delta_2$). Випадок 2. поки ще залишається без доведення. $\blacksquare$ \\
+\textbf{Зауваження.} (про фазові портрети автономної системи другого порядку). Тип фазового портрету в околі положень рівноваги автономної системи другого порядку у випадку $\Re \lambda \neq 0$ визначається типом фазового портрету лінеаризованої системи (вузол, сідло, фокус, вироджений вузол залишається вузлом, сідлом, фокусом, виродженим вузлом відповідно).
+
 %\input{lectures_recent}
 \end{document}

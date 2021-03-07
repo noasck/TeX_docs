@@ -1,10 +1,1 @@
-У першому випадку покладемо: $I = [t_0, t_1]$, а у другому: $I = [t_0, +\infty)$ та розглянемо на $I$ наступну задачу Коші: $$\begin{cases} u'(t) = A\overline{u}(t) + \overline{f}_1(\overline{x}(t)) \\ \overline{u}(t_0) = \overline{x}_0 \end{cases}$$ Це ЛНС, задача Коші має единий розв'язок. Підставивши $\overline{x}(t) = \overline{u}(t)$, переконуємось, що $\overline{u}(t) = \overline{x}(t)$ -- єдиний розв'язок задачі Коші. Можемо знайти його методом варіації довільної сталої. Загальний розв'язок ЛНС = загальний розв'язок ЛОС + частинний розв'язок ЛНС. Частинний розв'язок ЛНС будемо шукати у вигляді $e^{At} \cdot \overline{C}(t)$.
-$$e^{At} \cdot \overline{C}'(t) + Ae^{At} \cdot \overline{C}(t) = Ae^{At} \cdot \overline{C}(t) + \overline{f}_1(\overline{x}(t))$$
-Звідси отримуємо: $$\overline{C}'(t) = e^{-At} \cdot \overline{f}_1(\overline{x}(t)) \quad \Longrightarrow \quad \overline{u}_r(t) = e^{At} \cdot \int\limits_{t_0}^{t} e^{-As} \overline{f}_1(\overline{x}(s))\mathrm{d}s = \int\limits_{t_0}^{t} e^{A(t-s)}\overline{f}_1(\overline{x}(s))\mathrm{d}s$$
-Загальний розв'язок ЛНС: $\overline{u}(t) = e^{At} \cdot \overline{C} + \mathop{\mathlarger{\int}}\limits_{t_0}^{t} e^{A(t - s)} \overline{f}_1(\overline{x}(s))\mathrm{d}s$, звідси знаходимо розв'язок даної задачі Коші $\quad \overline{u}(t_0) = \overline{x}_0 : \overline{x}_0 = e^{At_0} \cdot \overline{C} \quad \Longrightarrow \quad \overline{C} = e^{-At_0} \cdot \overline{x}_0$
-Отже, $$\overline{u}(t) = \overline{x}(t) = e^{A(t - t_0)}\overline{x}_0 + \mathop{\mathlarger{\int}}\limits_{t_0}^{t} e^{A(t - s)} \overline{f}_1(\overline{x}(s))\mathrm{d}s$$
-Таким чином, знайшли розв'язок $\overline{x}(t)$, який маємо оцінити.$
 
-Використаємо лему 2. Оскільки $\forall \lambda : \Re \lambda < 0$, то $\exists \gamma > 0 : \Re \lambda < -\gamma$. Тоді: $$\exists K > 0 : ||e^{At}|| \leq K \cdot e^{-\gamma t}$$
-Маємо: $$ ||\overline{x}(t) \leq K \cdot e^{-\gamma(t - t_0)} \cdot || \overline{x}_0|| + \int\limits_{t_0}^{t} K \cdot e^{-\gamma(t - s)} ||\overline{f}_1(\overline{x}(s))||\mathrm{d}s$$
-З на

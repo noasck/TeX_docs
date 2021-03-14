@@ -1,4 +1,4 @@
-\documentclass[14pt,a4paper]{scrartcl}
+\documentclass[fontsize=14pt,a4paper]{scrartcl}
 \usepackage[utf8]{inputenc}
 \usepackage{ragged2e}
 \usepackage{mathtools}
@@ -23,6 +23,9 @@
 \DeclareMathOperator*\uplim{\overline{lim}}
 \newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
 \def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+  \node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
 %
 % \makeatletter
 % %% make esint definition in line with amsmath
@@ -108,14 +111,21 @@ showstringspaces=false}
 
 
 
-\def\be{\begin{equation}}
-\def\ee{\end{equation}}
-\def\bd{\begin{defo}}
-\def\ed{\end{defo}}
-\def\bbt{\begin{boxteo}}
-\def\ebt{\end{boxteo}}
-\def\i{\infty}
-\def\d{\partial}
+\def\be{\begin{equation}}      % equation
+\def\ee{\end{equation}}        % ...
+\def\bd{\begin{defo}}          % definition
+\def\ed{\end{defo}}            % ...
+\def\bbt{\begin{boxteo}}       % boxteo
+\def\ebt{\end{boxteo}}         % ...
+\def\i{\infty}                 % infty
+\def\d{\partial}               % dx dy - partial     = \d
+\def\ind{\mathbb{I}_}          % indicator           = \ind
+\def\xx{\chi_{\overline{\xi}}} % char of vec xi = \xx
+\def\Laplas{\text{Ф}}          % Laplas function     = \Laplas
+\def\veta{\overline{\eta}}     % vector eta          = \veta
+\def\vxi{\overline{\xi}}       % vector xi           = \vxi
+\def\vtheta{\overline{\theta}} % vector theta   = \vtheta
+\def\gammadistr{\Gamma}
 
 \begin{center}
 	\Huge \textbf{Собственно, теорвер...}
@@ -203,7 +213,7 @@ $$
 $$
 
 \begin{center}
-	Експоненціальна величина описує час безвідмовної роботи приладу до моменту першої відмови. Це твердження не є вірним. Чому?
+	Експоненціальна величина описує час безвідмовної роботи приладу до моменту першої відмови. Це твердження не є повністю вірним. Чому?
 \end{center}
 
 \textbf{Властивості експоненціального розподілу.}\\
@@ -333,7 +343,7 @@ $\mathbb{P} \left\lbrace  \xi \in [b,c] \right\rbrace = F_ \xi (c) - F_ \xi (b) 
 
 Знаючи $ F_ \xi (x) $  знайдемо вираз для щільності розподілу:
 $$
-f_ \xi (x ) = F` \xi (x) =  \frac{1}{\sqrt{\pi}} e^{ - (\frac{x-a}{\sigma})^2/2 } \cdot \frac{1}{\sigma}  =  \frac{1}{\sigma \sqrt{2\pi}} e^ { - \frac{(x-a)^2}{2 \sigma^2} }
+f_ \xi (x ) = F' \xi (x) =  \frac{1}{\sqrt{\pi}} e^{ - (\frac{x-a}{\sigma})^2/2 } \cdot \frac{1}{\sigma}  =  \frac{1}{\sigma \sqrt{2\pi}} e^ { - \frac{(x-a)^2}{2 \sigma^2} }
 $$
 $$
 E_{N(a, \sigma^2)} =  \frac{ \mathbb{E} \left( \xi - \mathbb{E} \xi \right)^4 }{ \left( \mathbb{D} \xi \right)^2 }  -3

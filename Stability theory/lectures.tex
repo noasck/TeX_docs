@@ -21,10 +21,17 @@
 \newmdtheoremenv{boxlema}{Лема}[section]
 \newtheorem*{look}{Позначення}
 
+
+%
+% \usepackage{harpoon}
+% \newcommand*{\vect}[1]{\overrightharp{\ensuremath{#1}}}
+\newcommand*{\vect}[1]{\overrightarrow{\ensuremath{#1}}}
+% \usepackage{kpfonts}
+
 \setlength\parindent{0pt}
 
 \DeclareMathOperator*\lowlim{\underline{lim}}
-\DeclareMathOperator*\uplim{\overline{lim}}
+\DeclareMathOperator*\uplim{\overrightarrow{lim}}
 
 \newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
 
@@ -54,9 +61,9 @@
 \def\i{\infty}
 \def\d{\partial}
 
-\def\vx{\overline{x}}
-\def\vphi{\overline{\varphi}}
-\def\vf{\overline{f}}
+\def\vx{\overrightarrow{x}}
+\def\vphi{\overrightarrow{\varphi}}
+\def\vf{\overrightarrow{f}}
 
 \begin{titlepage}
 \begin{center}
@@ -100,47 +107,47 @@
  Системою диф. рівнянь n-го порядку в нормальній формі називається система вигляду (1), де $ f_i : D \to \mathbb{R}, \quad D \subset \mathbb{R}^{n+1 }, \quad i = \overline{1, n}$.
 \look
 \[
-      \overline{x}(t) = \left[\begin{array}{l}
+      \overrightarrow{x}(t) = \left[\begin{array}{l}
       x_1(t)    \\
       \dots     \\
       x_n(t)
       \end{array}\right] \text{-- невідома вектор-функція}, \quad
-      \overline{f}(t, \overline{x}(t)) = \left[\begin{array}{l}
+      \overrightarrow{f}(t, \overrightarrow{x}(t)) = \left[\begin{array}{l}
       f_1     \\
       \dots  \\
       f_n
       \end{array}\right] \text{, що}
 \]
-$D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $(1): \overline{x}'(t) = \overline{f}(t, \overline{x}(t))$.
+$D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $(1): \overrightarrow{x}'(t) = \overrightarrow{f}(t, \overrightarrow{x}(t))$.
 
 
 \def\rect{\textbf{П}}
 \bd
-\textbf{Розв'язком системи} (1) на $(\alpha , \beta)$ називається така вектор-функція $\overline{x} (t) \in C^1(\alpha , \beta)$, що:
+\textbf{Розв'язком системи} (1) на $(\alpha , \beta)$ називається така вектор-функція $\overrightarrow{x} (t) \in C^1(\alpha , \beta)$, що:
 \begin{enumerate}
   \item $(t, x_1(t), \dots, x_n(t)) \in D \quad \forall t \in (\alpha, \beta)$;
-  \item $\overline{x}(t)$  перетворює $(1)$ на тотожність на інтервалі $(\alpha, \beta)$.
+  \item $\overrightarrow{x}(t)$  перетворює $(1)$ на тотожність на інтервалі $(\alpha, \beta)$.
 \end{enumerate}
 
 \textbf{Загальним розв'язком системи}  (1) називається n-параметрична сім'я розв'язків (1), що охоплює всі розв'язки системи.
 \ed
 
-Задача Коші. Для заданих $t_0, \overline{x}^{0} \in D$ знайти такий розв'язок (1), що $\overline{x} (t_0) = \overline{x}^{0}$.
-Нехай $\Pi = \{(t, \overline{x}) \in \mathbb{R} \quad \big| \quad |t-t_0| \leq a, \quad ||\overline{x} - \overline{x}_0|| \leq b \}$.
+Задача Коші. Для заданих $t_0, \overrightarrow{x}^{0} \in D$ знайти такий розв'язок (1), що $\overrightarrow{x} (t_0) = \overrightarrow{x}^{0}$.
+Нехай $\Pi = \{(t, \overrightarrow{x}) \in \mathbb{R} \quad \big| \quad |t-t_0| \leq a, \quad ||\overrightarrow{x} - \overrightarrow{x}_0|| \leq b \}$.
 
 \begin{boxteo}[Теорема Пеано]
-Нехай $\overline{f} \in C(\Pi)$. Тоді розв'язок задачі Коші:
+Нехай $\overrightarrow{f} \in C(\Pi)$. Тоді розв'язок задачі Коші:
 \begin{gather*}
   \begin{cases}
-    \overline{x}' = \overline{f}(t, \overline{x}) \\
-    \overline{x}(t_0) = \overline{x}_0
+    \overrightarrow{x}' = \overrightarrow{f}(t, \overrightarrow{x}) \\
+    \overrightarrow{x}(t_0) = \overrightarrow{x}_0
   \end{cases}
 \end{gather*}
-існує принаймні на проміжку $I_h = (t_0 - h, t_0 + h)$, де $h = \min\{{a, \dfrac{b}{M}}\}$, \\ $M = \max\limits_{(t, x) \in \Pi} {||\overline{f}(t, \overline{x})||}$.
+існує принаймні на проміжку $I_h = (t_0 - h, t_0 + h)$, де $h = \min\{{a, \dfrac{b}{M}}\}$, \\ $M = \max\limits_{(t, x) \in \Pi} {||\overrightarrow{f}(t, \overrightarrow{x})||}$.
 \end{boxteo}
 
 \begin{boxteo}[про продовження]
-Нехай для системи (1) виконується, що $\overline{f} \in C(D), \quad D \subset \mathbb{R}^{n + 1}$ -- обмежена область. Тоді $\forall t : (t_0, \overline{x}_0) \in D$ існують такі $t^{-}, t^{+} : t^{-} < t_0 < t^{+}$, що розв'язок системи (1) з початкової умови $\overline{x}(t_0) = \overline{x}_0$ існує на інтервалі $(t^{-}, t^{+})$, причому $(t^{-}, \overline{x}(t^{-})) \text{ та } (t^{+}, \overline{x}(t^{+}))$ належать межі області $D$.
+Нехай для системи (1) виконується, що $\overrightarrow{f} \in C(D), \quad D \subset \mathbb{R}^{n + 1}$ -- обмежена область. Тоді $\forall t : (t_0, \overrightarrow{x}_0) \in D$ існують такі $t^{-}, t^{+} : t^{-} < t_0 < t^{+}$, що розв'язок системи (1) з початкової умови $\overrightarrow{x}(t_0) = \overrightarrow{x}_0$ існує на інтервалі $(t^{-}, t^{+})$, причому $(t^{-}, \overrightarrow{x}(t^{-})) \text{ та } (t^{+}, \overrightarrow{x}(t^{+}))$ належать межі області $D$.
     \begin{center} \includegraphics[scale=0.35]{assets/lect0.png} \end{center}
 \end{boxteo}
 
@@ -148,45 +155,45 @@ $D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $(1): \ov
   Нехай
   \begin{spacing}{1}
   \begin{enumerate}
-    \item $\overline{f} \in C(\Pi)$;
-    \item $\exists! L > 0 : \forall (t_1, \overline{x}_1), (t_2, \overline{x}_2) \in \Pi$ справедливо, що $|| f(t_1, \overline{x}_1) - f(t_2, \overline{x}_2)|| \leq \\ \leq L||\overline{x}_1 - \overline{x}_2||$ (умова Ліпшиця).
+    \item $\overrightarrow{f} \in C(\Pi)$;
+    \item $\exists! L > 0 : \forall (t_1, \overrightarrow{x}_1), (t_2, \overrightarrow{x}_2) \in \Pi$ справедливо, що $|| f(t_1, \overrightarrow{x}_1) - f(t_2, \overrightarrow{x}_2)|| \leq \\ \leq L||\overrightarrow{x}_1 - \overrightarrow{x}_2||$ (умова Ліпшиця).
   \end{enumerate}
   \end{spacing}
 
 
-  Тоді $\exists!$ розв'язок задачі Коші з початкової умови $\overline{x}(t_0) = \overline{x}_0(t)$, визначений принаймні на $I_h = (t_0 - h, t_0 + h), \quad h = \min\{{a, \dfrac{b}{M}}\}, \quad M = \max\limits_{\Pi}||f(t, \overline{x})||$.
+  Тоді $\exists!$ розв'язок задачі Коші з початкової умови $\overrightarrow{x}(t_0) = \overrightarrow{x}_0(t)$, визначений принаймні на $I_h = (t_0 - h, t_0 + h), \quad h = \min\{{a, \dfrac{b}{M}}\}, \quad M = \max\limits_{\Pi}||f(t, \overrightarrow{x})||$.
 \end{boxteo}
 
 \subsection{Основні поняття теорії стійкості.}
-Розглянемо систему диференційних рівнянь $\overline{x}' = \overline{f}(t, \overline{x})$ (1), де $f : D \rightarrow \mathbb{R}^n$ та $D = [a, +\infty) \times G, \quad G \subset \mathbb{R}^n$. Нехай при цьому $\overline{f}$ задавольняє умовам існування та єдиності розв'язку задачі Коші в будь-якій точці $(t_0, \overline{x}_0) \in D$
+Розглянемо систему диференційних рівнянь $\overrightarrow{x}' = \overrightarrow{f}(t, \overrightarrow{x})$ (1), де $f : D \rightarrow \mathbb{R}^n$ та $D = [a, +\infty) \times G, \quad G \subset \mathbb{R}^n$. Нехай при цьому $\overrightarrow{f}$ задавольняє умовам існування та єдиності розв'язку задачі Коші в будь-якій точці $(t_0, \overrightarrow{x}_0) \in D$
 
 \bd
-Розв'язок $\overline{x} = \overline{\varphi}(t)$ системи (1) називається \textbf{стійким} за Ляпуновим, якщо
+Розв'язок $\overrightarrow{x} = \overrightarrow{\varphi}(t)$ системи (1) називається \textbf{стійким} за Ляпуновим, якщо
 
 \begin{enumerate}
-  \item $\overline{x} = \overline{\varphi}(t) \quad \exists  \text{ на } [a, +\infty)$ (відсутніть вертикальних асимптот)
-  \item $\forall \varepsilon > 0 \quad \forall t_0 \geq a \quad \exists \delta > 0 : \forall $ розв'язку $\overline{x}(t)$ системи (1) такого, що $||\overline{x}(t_0) - \overline{\varphi}(t_0)|| < \delta$ виконується наступне, що $\overline{x}(t)$ існує на $[t_0, +\infty)$ та $||\overline{x}(t) - \overline{\varphi}(t)|| < \varepsilon \quad \forall t \geq t_0$.
+  \item $\overrightarrow{x} = \overrightarrow{\varphi}(t) \quad \exists  \text{ на } [a, +\infty)$ (відсутніть вертикальних асимптот)
+  \item $\forall \varepsilon > 0 \quad \forall t_0 \geq a \quad \exists \delta > 0 : \forall $ розв'язку $\overrightarrow{x}(t)$ системи (1) такого, що $||\overrightarrow{x}(t_0) - \overrightarrow{\varphi}(t_0)|| < \delta$ виконується наступне, що $\overrightarrow{x}(t)$ існує на $[t_0, +\infty)$ та $||\overrightarrow{x}(t) - \overrightarrow{\varphi}(t)|| < \varepsilon \quad \forall t \geq t_0$.
 \end{enumerate}
 \ed
 
 \begin{center} \includegraphics[scale=0.35]{assets/lect1.jpg} \end{center}
 
 \bd
-Розв'язок $\overline{x} = \overline{\varphi}(t)$ системи (1) називається \textbf{асимптотично стійким} за Ляпуновим, якщо
+Розв'язок $\overrightarrow{x} = \overrightarrow{\varphi}(t)$ системи (1) називається \textbf{асимптотично стійким} за Ляпуновим, якщо
 
 \begin{enumerate}
-  \item $\overline{x} = \overline{\varphi}(t)$ стійкий;
-  \item $\forall t_0 \geq a \quad \exists \delta > 0: \forall$ розв'язку $\overline{x}(t)$ с-ми (1) такого, що $||\overline{x}(t_0) - \overline{\varphi}(t_0)|| < \delta$ справедливо, що $||\overline{x}(t_0) - \overline{\varphi}(t_0)|| \rightarrow 0 \text{ при } t \rightarrow + \infty$.
+  \item $\overrightarrow{x} = \overrightarrow{\varphi}(t)$ стійкий;
+  \item $\forall t_0 \geq a \quad \exists \delta > 0: \forall$ розв'язку $\overrightarrow{x}(t)$ с-ми (1) такого, що $||\overrightarrow{x}(t_0) - \overrightarrow{\varphi}(t_0)|| < \delta$ справедливо, що $||\overrightarrow{x}(t_0) - \overrightarrow{\varphi}(t_0)|| \rightarrow 0 \text{ при } t \rightarrow + \infty$.
 \end{enumerate}
 
 \begin{center} \includegraphics[scale=0.35]{assets/lect2.jpg} \end{center}
 
-Роз'язок $\overline{\varphi}(t)$ називається \textbf{нестійким за Ляпуновим}, якщо він не є стійким, тобто:
+Роз'язок $\overrightarrow{\varphi}(t)$ називається \textbf{нестійким за Ляпуновим}, якщо він не є стійким, тобто:
 \ed
 
 \begin{enumerate}
-  \item Або $\overline{x} = \overline{\varphi}(t) \quad \nexists$ на  $[a, +\infty)$ (вертикальні асимптоти);
-  \item Або $\exists \varepsilon > 0 : \exists t_0 \geq a :  \forall \delta > 0$ існує розв'язок $\overline{x}(t)$ системи (1) такий, що $||\overline{x}(t_0) - \overline{\varphi}(t_0)|| < \delta$, але $||\overline{x}(t_0) - \overline{\varphi}(t_0)|| > \varepsilon$
+  \item Або $\overrightarrow{x} = \overrightarrow{\varphi}(t) \quad \nexists$ на  $[a, +\infty)$ (вертикальні асимптоти);
+  \item Або $\exists \varepsilon > 0 : \exists t_0 \geq a :  \forall \delta > 0$ існує розв'язок $\overrightarrow{x}(t)$ системи (1) такий, що $||\overrightarrow{x}(t_0) - \overrightarrow{\varphi}(t_0)|| < \delta$, але $||\overrightarrow{x}(t_0) - \overrightarrow{\varphi}(t_0)|| > \varepsilon$
 \end{enumerate}
 
 \vfill
@@ -230,7 +237,9 @@ $$
 
     \item Знайдемо розв'язок даної задачі Коші:
     $$
-    x' = - x + 1 + t = \left| \text{ метод Бернуллі, } x = uv \right| = t + Ae^{-t}
+    x' = - x + 1 + t = \left| \begin{gathered}
+     \text{ метод Бернуллі: } \\ x = uv
+    \end{gathered}\right| = t + Ae^{-t}
     $$
     Знайшли загальний розв'язок. Із умови задачі Коші: $ A = 0 \Rightarrow \fbox {$\varphi(t) = t$ }$
 
@@ -247,40 +256,40 @@ $$
 \end{example}
 
 \remark
-Очевидно, що простіше досліджувати на стійкість розв'язок типу $\varphi(t) = 0$. Нехай (1) $\overline{x}'(t) = \overline{f}(t, \overline{x})$, а $\overline{x} = \overline{\varphi(t)}$ -- розв'язок, який потрібно дослідити на стійкість. Застосуємо заміну: $\overline{z} = \overline{x} - \overline{\varphi}(t), \text{ де } \overline{z}$ -- нова невідома вектор-функція. Отримаємо систему:
+Очевидно, що простіше досліджувати на стійкість розв'язок типу $\varphi(t) = 0$. Нехай (1) $\overrightarrow{x}'(t) = \overrightarrow{f}(t, \overrightarrow{x})$, а $\overrightarrow{x} = \overrightarrow{\varphi(t)}$ -- розв'язок, який потрібно дослідити на стійкість. Застосуємо заміну: $\overrightarrow{z} = \overrightarrow{x} - \overrightarrow{\varphi}(t), \text{ де } \overrightarrow{z}$ -- нова невідома вектор-функція. Отримаємо систему:
 $$
-\overline{z}'(t) + \overline{\varphi}'(t) = \overline{f}(t, \overline{z} + \overline{\varphi}(t)) \quad \Rightarrow \quad \overline{z}'(t) = \overline{f}(t, \overline{z} + \overline{\varphi}(t)) - \overline{f}(t, \overline{\varphi}(t)) \quad (*)
+\overrightarrow{z}'(t) + \overrightarrow{\varphi}'(t) = \overrightarrow{f}(t, \overrightarrow{z} + \overrightarrow{\varphi}(t)) \quad \Rightarrow \quad \overrightarrow{z}'(t) = \overrightarrow{f}(t, \overrightarrow{z} + \overrightarrow{\varphi}(t)) - \overrightarrow{f}(t, \overrightarrow{\varphi})(t) \quad (*)
 $$
-Можно довести, що розв'язок $\overline{x} = \overline{\varphi}(t)$ системи (1) -- стійкий (асимптотично стійкий або нестійкий) $\Longleftrightarrow$ розв'язок $\overline{z} = \overline{0}$  cистеми $(*)$ -- стійкий (асимптотично стійкий або нестійкий).
+Можно довести, що розв'язок $\overrightarrow{x} = \overrightarrow{\varphi}(t)$ системи (1) -- стійкий (асимптотично стійкий або нестійкий) $\Longleftrightarrow$ розв'язок $\overrightarrow{z} = \overrightarrow{0}$  cистеми $(*)$ -- стійкий (асимптотично стійкий або нестійкий).
 
 \subsection{Стійкість розв'язків лінійних систем}
 Лінійна неоднорідна система рівнянь n-ого порядку має вигляд (далі ЛНС):
 \be
-\overline{x}' = A(t) \overline{x} + \overline{f} (t).
+\overrightarrow{x}' = A(t) \overrightarrow{x} + \overrightarrow{f} (t).
 \ee
 
-$ \text{Де } A(t) \in \mathbb{R}^{n \times n}, \quad A(t) \in C [ a, + \infty), \quad \overline{f} \in C[a, + \infty)$ \\
+$ \text{Де } A(t) \in \mathbb{R}^{n \times n}, \quad A(t) \in C [ a, + \infty), \quad \overrightarrow{f} \in C[a, + \infty)$ \\
 
-Тоді $\forall t_0 \geq a, \quad \forall \overline{x}_0 \in \mathbb{R}^n \quad$ існує єдиний розв'язок ЛНС (2) з початковими умовми $\overline{x}(t_0) = \overline{x}_0$, визначений на $[a, +\infty)$.
+Тоді $\forall t_0 \geq a, \quad \forall \overrightarrow{x}_0 \in \mathbb{R}^n \quad$ існує єдиний розв'язок ЛНС (2) з початковими умовми $\overrightarrow{x}(t_0) = \overrightarrow{x}_0$, визначений на $[a, +\infty)$.
 
-Нехай $\overline{\varphi}(t)$ -- розв'язок (2), який потрібно дослідити на стійкість.
-Застосуємо заміну: $ \overline{z} (t) = \overline{x} - \vphi (t)$, де $ \overline{z}(t)$ - нова невідома вектор-функція, а $\vphi (t)$ - розв'язок, який ми маємо дослідити на стійкість.
+Нехай $\overrightarrow{\varphi}(t)$ -- розв'язок (2), який потрібно дослідити на стійкість.
+Застосуємо заміну: $ \overrightarrow{z} (t) = \overrightarrow{x} - \vphi (t)$, де $ \overrightarrow{z}(t)$ - нова невідома вектор-функція, а $\vphi (t)$ - розв'язок, який ми маємо дослідити на стійкість.
 
 Отримали лінійну однорідну систему першого порядку (далі ЛОС):
 
-$$ \overline{z}'(t)   + \vphi'(t) = A(t)\overline{z}(t) + A(t)\vphi(t) + \overline{f}(t) $$
+$$ \overrightarrow{z}'(t)   + \vphi'(t) = A(t)\overrightarrow{z}(t) + A(t)\vphi(t) + \overrightarrow{f}(t) $$
 \be
-\overline{z}' = A(t) \overline{z} \text{ -- ЛОС n-ого порядку}
+\overrightarrow{z}' = A(t) \overrightarrow{z} \text{ -- ЛОС n-ого порядку}
 \ee
 
-Заміною ми звели дослідження довільного розв'язку лінійної неоднорідної системи до дослідження нульового розв'язку відповідної ЛОС. Таким чином, приходимо до висновку, що усі розв'язки є одночасно стійкими, асимптотично стійкими або не стійкими. А отже, розглядаючи будь-яку лінійну систему, можемо говорити про стійкість не окремого розв'язку, а системи в цілому. Досліджуючи при цьому розв'язок $\overline{x}(t) = \overline{0}$\\
+Заміною ми звели дослідження довільного розв'язку лінійної неоднорідної системи до дослідження нульового розв'язку відповідної ЛОС. Таким чином, приходимо до висновку, що усі розв'язки є одночасно стійкими, асимптотично стійкими або не стійкими. А отже, розглядаючи будь-яку лінійну систему, можемо говорити про стійкість не окремого розв'язку, а системи в цілому. Досліджуючи при цьому розв'язок $\overrightarrow{x}(t) = \overrightarrow{0}$\\
 
-Розв'яжемо ЛОС (3) (перейдемо до змінної $x$): $\quad \overline{x}'  =  A(t) \overline{x} $ -- ЛОС (3).
+Розв'яжемо ЛОС (3) (перейдемо до змінної $x$): $\quad \overrightarrow{x}'  =  A(t) \overrightarrow{x} $ -- ЛОС (3).
 
-$X(t) $ -- її фундаментальна матриця (далі позначаємо ФМ). Тоді загальний розв'язок: $ \overline{x} (t) = X(t) \cdot \overline{C}$, де $\overline{ C} \in \mathbb{R}^n$.
-Розв'язок задачі Коші з початковими умовами $ \overline{x} (t_0) = \overline{x_0}$:
+$X(t) $ -- її фундаментальна матриця (далі позначаємо ФМ). Тоді загальний розв'язок: $ \overrightarrow{x} (t) = X(t) \cdot \overrightarrow{C}$, де $\overrightarrow{ C} \in \mathbb{R}^n$.
+Розв'язок задачі Коші з початковими умовами $ \overrightarrow{x} (t_0) = \overrightarrow{x_0}$:
 $$
-\overline{x}_0 = X(t_0) \cdot \overline{C} \Rightarrow \overline{C} = X^{-1} (t_0) \cdot \overline{x_0} \Rightarrow \fbox{$x(t) = X(t) X^{-1}(t_0) \overline{x}_0$}
+\overrightarrow{x}_0 = X(t_0) \cdot \overrightarrow{C} \Rightarrow \overrightarrow{C} = X^{-1} (t_0) \cdot \overrightarrow{x_0} \Rightarrow \fbox{$x(t) = X(t) X^{-1}(t_0) \overrightarrow{x}_0$}
 $$
 
 \begin{spacing}{2.5}
@@ -292,46 +301,50 @@ $$
 \end{spacing}
 
 \begin{spacing}{2.25}
-\textbf{Доведення.} а) \fbox{$\Longleftarrow$} \\ Нехай $ \exists K > 0 : \sup\limits_{t\geq a} ||X(t)|| \leq K$.
+\begin{proof}
+а) \fbox{$\Longleftarrow$} \\ Нехай $ \exists K > 0 : \sup\limits_{t\geq a} ||X(t)|| \leq K$.
 
- Доведемо стійкість розв'язку $\overline{x} (t) = \overline{0}.$ За означенням, візьмемо розв'язок довільної задачі Коші з початковими умовами $\overline{x } (t_0) = \overline{x}_0$.
-Нехай $|| \overline{x}_0 || < \delta$ і розглянемо $ || \overline{x} (t)|| = || X(t) \cdot X^{-1} (t_0) \cdot \overline{x}_0 || \leq ||X(t)|| \cdot || X^{-1} (t_0)|| \cdot || \overline{x}_0|| \leq K \cdot || X^{-1} (t_0)|| \cdot || \overline{x}_0|| < K || X^{-1} (t_0)||\delta < \varepsilon $ при $ \delta = \dfrac{\varepsilon }{K || X^{-1} (t_0)|| + 1} $.
-Отже, $\forall t_0 \geq  a \quad \forall \varepsilon >0 \quad \exists \delta > 0 \quad \left(  \delta = \dfrac{\varepsilon }{K || X^{-1} (t_0)|| + 1}  \right)$  для довільного розв'язку з $ || \overline{x}_0|| < \delta$ справедливо $ ||\overline{x} (t)|| < \varepsilon  \quad \Longrightarrow \quad $ стійкість розв'язку. $\blacksquare$  \\
+Доведемо стійкість розв'язку $\overrightarrow{x} (t) = \overrightarrow{0}.$ За означенням, візьмемо розв'язок довільної задачі Коші з початковими умовами $\overrightarrow{x } (t_0) = \overrightarrow{x}_0$.
+Нехай $|| \overrightarrow{x}_0 || < \delta$ і розглянемо $ || \overrightarrow{x} (t)|| = || X(t) \cdot X^{-1} (t_0) \cdot \overrightarrow{x}_0 || \leq ||X(t)|| \cdot || X^{-1} (t_0)|| \cdot || \overrightarrow{x}_0|| \leq K \cdot || X^{-1} (t_0)|| \cdot || \overrightarrow{x}_0|| < K || X^{-1} (t_0)||\delta < \varepsilon $ при $ \delta = \dfrac{\varepsilon }{K || X^{-1} (t_0)|| + 1} $.
+Отже, $\forall t_0 \geq  a \quad \forall \varepsilon >0 \quad \exists \delta > 0 \quad \left(  \delta = \dfrac{\varepsilon }{K || X^{-1} (t_0)|| + 1}  \right)$  для довільного розв'язку з $ || \overrightarrow{x}_0|| < \delta$ справедливо $ ||\overrightarrow{x} (t)|| < \varepsilon  \quad \Longrightarrow \quad $ стійкість розв'язку.
+\end{proof}
 \end{spacing}
-\textbf{Доведення.} a) \fbox{$\Longrightarrow$} \\ Нехай (3) -- стійка. Припустимо від супротивного, що
+\begin{proof}
+a) \fbox{$\Longrightarrow$} \\ Нехай (3) -- стійка. Припустимо від супротивного, що
 
 $$\exists  \left\lbrace t_n \right\rbrace_{n\geq 1}^{\infty} : t_n \rightarrow +\infty : ||X(t_n)|| \to {+\infty} \text{ при } n \to \infty$$\\
-Тоді $\exists j = \overline{1, n} : || \overline{x}^{j} (t_n)|| \to \infty$, де $\overline{x}^j$  - це $j$-тий стовпчик ФМ. \\ Покладемо $\forall \delta > 0:$
+Тоді $\exists j = \overrightarrow{1, n} : || \overrightarrow{x}^{j} (t_n)|| \to \infty$, де $\overrightarrow{x}^j$  - це $j$-тий стовпчик ФМ. \\ Покладемо $\forall \delta > 0:$
 
 
 $$
-\overline{x}^{\delta}_0 = \frac{\delta X(t_0) \overline{e}_j}{2 ||X(t_0)||} \text{ , де }\overline{e}_j = \begin{bmatrix}
- 0\\
- \vdots\\
- 1\\
- \vdots\\
- 0
+\overrightarrow{x}^{\delta}_0 = \frac{\delta X(t_0) \overrightarrow{e}_j}{2 ||X(t_0)||} \text{ , де }\overrightarrow{e}_j = \begin{bmatrix}
+0\\
+\vdots\\
+1\\
+\vdots\\
+0
 \end{bmatrix} - j
 $$
 
-Тоді $|| \overline{x}_0^{\delta}|| = \dfrac{1}{ 2 ||X(t_0)||}  \cdot \delta ||X(t_0) \cdot \overline{e}_j|| < \delta $.\\
-Розглядаємо розв'язок задачі Коші з початковими умовами $ \overline{x} (t_0) = \overline{x} _0 ^ \delta$. Маємо:
+Тоді $|| \overrightarrow{x}_0^{\delta}|| = \dfrac{1}{ 2 ||X(t_0)||}  \cdot \delta ||X(t_0) \cdot \overrightarrow{e}_j|| < \delta $.\\
+Розглядаємо розв'язок задачі Коші з початковими умовами $ \overrightarrow{x} (t_0) = \overrightarrow{x} _0 ^ \delta$. Маємо:
 $$
-\overline{x} (t) = X(t) \cdot X^{-1}(t_0) \cdot \overline{x}_0 ^\delta = X(t) X^{-1} (t_0) \cdot \dfrac{ \delta X(t_0) \overline{e}_j}{ 2 ||X(t_0)||} = \frac{\delta}{2} \cdot \frac{X(t) \overline{e}_j}{ ||X(t_0)||} = \frac{\delta}{2 ||X(t_0)|| } \cdot \overline{x}^j (t)
+\overrightarrow{x} (t) = X(t) \cdot X^{-1}(t_0) \cdot \overrightarrow{x}_0 ^\delta = X(t) X^{-1} (t_0) \cdot \dfrac{ \delta X(t_0) \overrightarrow{e}_j}{ 2 ||X(t_0)||} = \frac{\delta}{2} \cdot \frac{X(t) \overrightarrow{e}_j}{ ||X(t_0)||} = \frac{\delta}{2 ||X(t_0)|| } \cdot \overrightarrow{x}^j (t)
 $$
 $$
 \Longrightarrow \forall \varepsilon >0 \quad \exists n_0 \in \mathbb{N} \quad : \forall n \geq n_0
 $$
 $$
-||\overline{x} (t_n)|| = \frac{\delta}{ 2 ||X(t_0)|| } \cdot ||\overline{x}^j (t_n)|| \to \infty > \varepsilon
+||\overrightarrow{x} (t_n)|| = \frac{\delta}{ 2 ||X(t_0)|| } \cdot ||\overrightarrow{x}^j (t_n)|| \to \infty > \varepsilon
 $$
 Отримали нестійкість системи $ \Rightarrow  $ суперечність початковій побудові $ \Rightarrow$ a).\\
-Пункт б) доводиться аналогічно а). $\quad$ Пункт в) випливає із пукнта а). $\quad \blacksquare$
+Пункт б) доводиться аналогічно а). $\quad$ Пункт в) випливає із пукнта а).
+\end{proof}
 
 \subsection{Стійкість ЛОС зі сталою матрицею.}
 
 \begin{equation}
-\overline{x} ' (t) = A \overline{x} (t) \text{, де $A$ - стала матриця $n \times n$}
+\overrightarrow{x} ' (t) = A \overrightarrow{x} (t) \text{, де $A$ - стала матриця $n \times n$}
 \end{equation}
 \begin{boxteo} \quad \\
 a) (4) - стійка $ \Longleftrightarrow  \forall \lambda $ - власне число матриці $A$: \\
@@ -340,21 +353,23 @@ $\Re \lambda \leq 0$, причому якщо $ \Re \lambda = 0$, то йому 
 в) (4) - нестійка $ \Longleftrightarrow $ не є стійкою.
 \end{boxteo}
 
-\textbf{Доведення.} Нехай $ \lambda = \alpha + i\beta$ - власне число матриці $A \Rightarrow $ у ФМ цьому власному числу відповідає розв'язок: \\
-  - якщо $ \lambda$ відповідають лише одновимірні клітини Жордана:
-  $$
-  \overline{x} (t) = e^{\alpha t} ( \overline{Q} _0 \cos{(\beta t)} + \overline{R}_0 \sin{(\beta t)} )
+\begin{proof}
+Нехай $ \lambda = \alpha + i\beta$ - власне число матриці $A \Rightarrow $ у ФМ цьому власному числу відповідає розв'язок: \\
+ - якщо $ \lambda$ відповідають лише одновимірні клітини Жордана:
  $$
- - якщо клітина Жордана розміру $l$:
- $$
- \overline{x} (t) = e^{\alpha t} ( \overline{Q} _{l-1} \cos{(\beta t)} + \overline{R}_{l-1} \sin{(\beta t)} )
- $$
- Тоді:\\
-якщо $ \Re \lambda = \alpha < 0  \Rightarrow || \overline{x} (t)|| \to 0 $ за $t \to \infty$.\\
-якщо $ \Re \lambda = \alpha >0 \Rightarrow || \overline{x} (t)|| \to + \infty $ за $t \to \infty$.\\
+ \overrightarrow{x} (t) = e^{\alpha t} ( \overrightarrow{Q} _0 \cos{(\beta t)} + \overrightarrow{R}_0 \sin{(\beta t)} )
+$$
+- якщо клітина Жордана розміру $l$:
+$$
+\overrightarrow{x} (t) = e^{\alpha t} ( \overrightarrow{Q} _{l-1} \cos{(\beta t)} + \overrightarrow{R}_{l-1} \sin{(\beta t)} )
+$$
+Тоді:\\
+якщо $ \Re \lambda = \alpha < 0  \Rightarrow || \overrightarrow{x} (t)|| \to 0 $ за $t \to \infty$.\\
+якщо $ \Re \lambda = \alpha >0 \Rightarrow || \overrightarrow{x} (t)|| \to + \infty $ за $t \to \infty$.\\
 якщо $ \Re \lambda = 0 $, то:\\
-\hspace*{1cm} - якщо лише одновимірні клітини Жордана: $||\overline{x}(t) ||$ - обмежена.\\
-\hspace*{1cm} - якщо клітини Жордана розмірності $l \geq 2$ : $ || \overline{x} (t)|| \to + \infty $ за $t \to \infty. \quad \blacksquare$
+\hspace*{1cm} - якщо лише одновимірні клітини Жордана: $||\overrightarrow{x}(t) ||$ - обмежена.\\
+\hspace*{1cm} - якщо клітини Жордана розмірності $l \geq 2$ : $ || \overrightarrow{x} (t)|| \to + \infty $ за $t \to \infty. $
+\end{proof}
 \begin{example}
     $$\begin{cases}
         x' = 3x + y \\
@@ -534,9 +549,9 @@ $$
         \dot{x_n} = f_n(x_1, ..., x_n)
     \end{dcases}
     $$
-    називається т. $\overline{x} = (x_1, ... , x_n)$ така, що:
+    називається т. $\overrightarrow{x} = (x_1, ... , x_n)$ така, що:
     $$
-    f_1 (\overline{x}) = f_2(\overline{x}) = \cdots = f_n(\overline{x}) =0
+    f_1 (\overrightarrow{x}) = f_2(\overrightarrow{x}) = \cdots = f_n(\overrightarrow{x}) =0
     $$
 \end{defo}
 Розглянемо ЛОС (1):$ \begin{cases}
@@ -703,7 +718,7 @@ $$
     \end{bmatrix} \qquad \begin{gathered}
      -h_1 + 2h_2 = 0\\
      h_1 = 2 h_2
-    \end{gathered} \Rightarrow \overline{h} = \begin{bmatrix}
+    \end{gathered} \Rightarrow \overrightarrow{h} = \begin{bmatrix}
      2 \\
      1
     \end{bmatrix}
@@ -723,7 +738,7 @@ $$
     \qquad \begin{gathered}
      g_1 + g_2 = 0\\
      g_1 = - g_2
-    \end{gathered} \Rightarrow \overline{g} = \begin{bmatrix}
+    \end{gathered} \Rightarrow \overrightarrow{g} = \begin{bmatrix}
      1 \\
      -1
     \end{bmatrix}
@@ -808,7 +823,7 @@ $, то $
     \end{bmatrix} = \begin{bmatrix}
       0\\
       0
-    \end{bmatrix} \qquad 2h_1 = 3 h_2 \Rightarrow \overline{h} = \begin{bmatrix}
+    \end{bmatrix} \qquad 2h_1 = 3 h_2 \Rightarrow \overrightarrow{h} = \begin{bmatrix}
      3 \\
      2
     \end{bmatrix}
@@ -826,7 +841,7 @@ $, то $
     \end{bmatrix} = \begin{bmatrix}
      0 \\
      0
-    \end{bmatrix} \qquad 2 g_1 =-2 g_2 \Rightarrow \overline{g} = \begin{bmatrix}
+    \end{bmatrix} \qquad 2 g_1 =-2 g_2 \Rightarrow \overrightarrow{g} = \begin{bmatrix}
      1 \\
      -1
     \end{bmatrix}
@@ -861,15 +876,15 @@ $$
 \begin{center} \includegraphics[scale=0.25]{assets/lectures_recent-b526bf37.png} \end{center}
 
 Для визначення типу виродженого вузла потрібно визнгачити напрям вектора фазової швидкості $ \begin{bmatrix}
- \overline{x} \\
- \overline{y}
+ \overrightarrow{x} \\
+ \overrightarrow{y}
 \end{bmatrix}$ в довільній точці, що не дорівнює нулю системи координат. Цей напрям має співпадати із напрямами руху по фазовій траєкторії (до нуля або від нуля).
 
 \begin{example}
     $$
     \begin{cases}
-        \overline{x} = 2y - 3x\\
-        \overline{y} = y - 2x
+        \overrightarrow{x} = 2y - 3x\\
+        \overrightarrow{y} = y - 2x
     \end{cases} \qquad A = \begin{bmatrix}
      -3 & 2 \\
      -2 & 1
@@ -897,7 +912,7 @@ $$
 \end{bmatrix} = \begin{bmatrix}
  0 \\
  0
-\end{bmatrix} \qquad h_1 = h_2 \Rightarrow \overline{h} = \begin{bmatrix}
+\end{bmatrix} \qquad h_1 = h_2 \Rightarrow \overrightarrow{h} = \begin{bmatrix}
  1 \\
  1
 \end{bmatrix}
@@ -1050,31 +1065,31 @@ b) $ \lambda_1 =  \lambda_2 = 0 \quad (a = - bk)$
 
 Розглянемо систему:
 \begin{equation}
-  \dot{\overline{x}} = \overline{f}(\overline{x}(t)), \quad \overline{f}: D \rightarrow \mathbb{R}^n, \quad D \subset \mathbb{R}^n
+  \dot{\vect{x}} = \overrightarrow{f}(\overrightarrow{x}(t)), \quad \overrightarrow{f}: D \rightarrow \mathbb{R}^n, \quad D \subset \mathbb{R}^n
 \end{equation}
-Функція $f$ один раз неперервно диференційована ($f \in C^1(D)$), це гарантує існування та єдиність довільної задачі Коші $\quad \forall t_0 \in \mathbb{R} \quad \forall x_0 \in D$. \\
-Система (5) -- автономна система n-ого порядку, $\overline{f}$ не залежить явно від $t$.
-Нехай $\overline{f}(\overline{0}) = \overline{0}$, тобто $\overline{x} = \overline{0}$ -- положення рівноваги системи (5), якщо це не так і $\overline{x} = \overline{x}^*$ -- положення рівноваги, то заміна $\overline{z} = \overline{x} - \overline{x}^*$ зведе задачу до положення рівноваги $\overline{z} = \overline{0}$.
+Функція $f$ один раз неперервно диференційована ($f \in C^1(D)$), це гарантує існування та єдиність довільної задачі Коші: $\quad \forall t_0 \in \mathbb{R} \quad \forall x_0 \in D$. \\
+Система (5) -- автономна система n-ого порядку, $\overrightarrow{f}$ не залежить явно від $t$.
+Нехай $\overrightarrow{f}(\overrightarrow{0}) = \overrightarrow{0}$, тобто $\overrightarrow{x} = \overrightarrow{0}$ -- положення рівноваги системи (5), якщо це не так і $\overrightarrow{x} = \overrightarrow{x}^*$ -- положення рівноваги, то заміна $\overrightarrow{z} = \overrightarrow{x} - \overrightarrow{x}^*$ зведе задачу до положення рівноваги $\overrightarrow{z} = \overrightarrow{0}$.
 
-\textbf{Завдання: } дослідити на стійкість розв'язок $\overline{x} = \overline{0}$ системи (5). Оскільки $\overline{f} \in C^1(D)$, то в деякому околі $B_r(\overline{0})$ функцію $\overline{f}$ можно подати у вигляді:
+\textbf{Завдання: } дослідити на стійкість розв'язок $\overrightarrow{x} = \overrightarrow{0}$ системи (5). Оскільки $\overrightarrow{f} \in C^1(D)$, то в деякому околі $B_r(\overrightarrow{0})$ функцію $\overrightarrow{f}$ можно подати у вигляді:
 \begin{equation*}
-  \overline{f}(\overline{x}) = \dfrac{\partial \overline{f}}{\partial \overline{x}}(\overline{0}) \cdot \overline{x} + f_1(\overline{x}), \text{ де} f_1(\overline{x}) =\overline{\overline{o}}(||\overline{x}||), \quad \overline{x} \rightarrow \overline{0} \quad \text{ (формула Тейлора)}
+  \overrightarrow{f}(\overrightarrow{x}) = \dfrac{\partial \overrightarrow{f}}{\partial \overrightarrow{x}}(\overrightarrow{0}) \cdot \overrightarrow{x} + f_1(\overrightarrow{x}), \text{ де } f_1(\overrightarrow{x}) = o(||\overrightarrow{x}||), \quad \overrightarrow{x} \rightarrow \overrightarrow{0} \quad \text{ (формула Тейлора)}
 \end{equation*}
-Позначимо: $\dfrac{\partial \overline{f}}{\partial \overline{x}}(\overline{0}) = A$ -- стала $n \times n$ матриця Якобі. Тоді в околі точки $\overline{0}$ система (5) набуває вигляду:
+Позначимо: $\dfrac{\partial \overrightarrow{f}}{\partial \overrightarrow{x}}(\overrightarrow{0}) = A$ -- стала $n \times n$ матриця Якобі. Тоді в околі точки $\overrightarrow{0}$ система (5) набуває вигляду:
 \begin{center}
-  \fbox{$\overline{x}'(t) = A\overline{x}(t) + \overline{\overline{o}}(\overline{x})$}
+  \fbox{$\overrightarrow{x}'(t) = A\overrightarrow{x}(t) + o(||\overrightarrow{x}||)$}
 \end{center}
 \defo ЛОС:
 \begin{equation*}
-  \overline{x}' = A\overline{x}, \text{ де } \quad A = \dfrac{\partial\overline{f}}{\partial\overline{x}}(\overline{0})
+  \overrightarrow{x}' = A\overrightarrow{x}, \text{ де } \quad A = \dfrac{\partial\overrightarrow{f}}{\partial\overrightarrow{x}}(\overrightarrow{0})
 \end{equation*}
-називається сис-мою 1-ого наближення (або лінеаризованою системою) для (5).
+називається с-мою 1-ого наближення (або лінеаризованою с-мою) для (5).
 
 \begin{boxteo}[про стійкість за першим наближенням]
   Розглянемо два випадки:
   \begin{enumerate}
-    \item Якщо $\forall \lambda$ -- власні матриці $A$ справедливо, що $\Re \lambda < 0$, то розв'язок $\overline{x} = \overline{0}$ системи (5) асимптотично стійкий.
-    \item Якщо існує таке власне число матриці А, що $\Re \lambda > 0$, то розв'язок $\overline{x} = \overline{0}$ системи (5) нестійкий.
+    \item Якщо $\forall \lambda$ -- власні матриці $A$ справедливо, що $\Re \lambda < 0$, то розв'язок $\overrightarrow{x} = \overrightarrow{0}$ системи (5) асимптотично стійкий.
+    \item Якщо існує таке власне число матриці $А$, що $\Re \lambda > 0$, то розв'язок $\overrightarrow{x} = \overrightarrow{0}$ системи (5) нестійкий.
   \end{enumerate}
 \end{boxteo}
 
@@ -1088,14 +1103,14 @@ b) $ \lambda_1 =  \lambda_2 = 0 \quad (a = - bk)$
 Завдання: дослідити на стійкість розв'язок: $\begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}$ системи.
 \begin{spacing}{2.5}
 \begin{gather*}
-  A = \begin{bmatrix}
+  A = \left. \begin{bmatrix}
     \dfrac{\partial f_1}{\partial x}   &   \dfrac{\partial f_1}{\partial y} \\
     \dfrac{\partial f_2}{\partial x}   &   \dfrac{\partial f_2}{\partial y}
-  \end{bmatrix} \Bigg|_{(0,0)} =
-  \begin{bmatrix}
+  \end{bmatrix} \right|_{(0,0)} =
+  \left. \begin{bmatrix}
    2 + \cos x &  -\dfrac{1}{1+y} \\
    e^x + \cos(x+y)  &  \cos(x+y) + 2\cos{y}\sin{y}
- \end{bmatrix}\Bigg|_{(0,0)}
+ \end{bmatrix} \right|_{(0,0)}
 \end{gather*}
 \end{spacing}
 Отримуємо, що $A = \begin{bmatrix} 3 & -1 \\ 2 & 1\end{bmatrix}$, тоді $\det(A - \lambda I) =  \begin{vmatrix} 3 - \lambda & -1 \\ 2 & 1 - \lambda \end{vmatrix}$. \\
@@ -1111,14 +1126,14 @@ b) $ \lambda_1 =  \lambda_2 = 0 \quad (a = - bk)$
 
 \begin{spacing}{2.5}
 \begin{gather*}
-  A = \begin{bmatrix}
+  A = \left. \begin{bmatrix}
     \dfrac{\partial f_1}{\partial x}   &   \dfrac{\partial f_1}{\partial y} \\
     \dfrac{\partial f_2}{\partial x}   &   \dfrac{\partial f_2}{\partial y}
-  \end{bmatrix} \Bigg|_{(0,0)} =
-  \begin{bmatrix}
-    \dfrac{1}{\cos^2(x+y)} & \dfrac{1}{\cos^2(x+y) - 1} \\
+  \end{bmatrix} \right|_{(0,0)}  =
+  \left.\begin{bmatrix}
+     \dfrac{1}{\cos^2(x+y)} & \dfrac{1}{\cos^2(x+y) - 1} \\
     3 \cos x & 2e^y
-  \end{bmatrix} \Bigg|_{(0,0)} =
+  \end{bmatrix} \right|_{(0,0)}  =
   \begin{bmatrix}
     1 & 0 \\
     3 & 2
@@ -1130,57 +1145,66 @@ b) $ \lambda_1 =  \lambda_2 = 0 \quad (a = - bk)$
 
 \textbf{Зауваження. } Випадок, коли $\forall \lambda : \Re \lambda \leq 0$ та $\exists \lambda : \Re \lambda = 0$ є критичним. \\ В цьому випадку за системою першого наближення нічого сказати не можна.
 
-\textbf{Доведення теореми 3.1. } Пункт 1. Нехай для будь-якого власного числа матриці $A$ справедливо, що $\Re < 0$. Доведемо, що розв'язок $\overline{x} = \overline{0}$ асимптотично стійкий. За означенням: $\forall \varepsilon > 0 \quad \forall t_0 \quad \exists \delta > 0 : \forall$ розв'язку $\overline{x}(t)$ з початковими умовами $\overline{x}(t_0) = \overline{x}_0$ такого, що $||\overline{x}_0|| < \delta$ справедливо, що:
+\textbf{Доведення теореми 3.1. } Пункт 1. Нехай для будь-якого власного числа матриці $A$ справедливо, що $\Re < 0$. Доведемо, що розв'язок $\overrightarrow{x} = \overrightarrow{0}$ асимптотично стійкий. За означенням: $\forall \varepsilon > 0 \quad \forall t_0 \quad \exists \delta > 0 : \forall$ розв'язку $\overrightarrow{x}(t)$ з початковими умовами $\overrightarrow{x}(t_0) = \overrightarrow{x}_0$ такого, що $||\overrightarrow{x}_0|| < \delta$ справедливо, що:
 \begin{enumerate}
-  \item $||\overline{x}(t)|| < \varepsilon$ (стійкість).
-  \item $||\overline{x}(t)|| \xrightarrow[t \to \infty]{} 0$ (асимптотична стійкість).
+  \item $||\overrightarrow{x}(t)|| < \varepsilon$ (стійкість).
+  \item $||\overrightarrow{x}(t)|| \xrightarrow[t \to \infty]{} 0$ (асимптотична стійкість).
 \end{enumerate}
 
 Таким чином, щоб довести твердження потрібно оцінити норму $||x(t)||$. Подальше доведення теореми потребує двох лем.
 
 \begin{boxlema}[Гронуолла-Беллмана]
 Нехай $a(t), u(t) \in C([t_0, t_1]), a(t) \geq 0 \\ \forall t \in [t_0, t_1]$ і числа $c \geq 0$ та $b \geq 0$ такі, що: $$\forall t \in [t_0, t_1] \quad u(t) \leq c + b(t - t_0) + \int\limits_{t_0}^{t}a(s)u(s)\mathrm{d}s$$
-Тоді $\forall t \in [t_0, t_1]:$ $$ u(t) \leq (c + b(t-t_0))e^{\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s}$$
+Тоді $\forall t \in [t_0, t_1]:$ $$ u(t) \leq (c + b(t-t_0))\exp \left\lbrace {\int\limits_{t_0}^{t} a(s)\mathrm{d}s} \right\rbrace$$
 \end{boxlema}
 
-\textbf{Доведення. } Розглянемо допоміжну функцію: $v(t) = c  +  b(t-t_0) + \mathop{\mathlarger{\int}}\limits_{t_0}^{t}a(s)u(s)\mathrm{d}s$ Тоді: $$ v(t_0) = c; \quad u(t) \leq v(t) \quad \forall t \in [t_0, t_1]; \quad v'(t) = b + a(t)u(t) \leq b + a(t)v(t)$$ Отже, $v'(t) \leq b + a(t)v(t)$, домножимо ліву і праву частину на $e^{-\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s}$, тоді: $$v'(t) \cdot e^{-\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s} \leq b \cdot e^{-\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s} + a(t) \cdot e^{-\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s} \cdot v(t) $$
-Перенесемо один з множників наліво: $$v'(t) \cdot e^{-\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s} - a(t) \cdot e^{-\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s} \cdot v(t)\leq b \cdot e^{-\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s}$$
+\begin{proof}
+Розглянемо допоміжну функцію: $v(t) = c  +  b(t-t_0) + \mathop{\mathlarger{\int}}\limits_{t_0}^{t}a(s)u(s)\mathrm{d}s$ Тоді: $$ v(t_0) = c; \quad u(t) \leq v(t) \quad \forall t \in [t_0, t_1]; \quad v'(t) = b + a(t)u(t) \leq b + a(t)v(t)$$ Отже, $v'(t) \leq b + a(t)v(t)$, домножимо ліву і праву частину на $\exp \left\lbrace {-\int\limits_{t_0}^{t} a(s)\mathrm{d}s} \right\rbrace$: $$v'(t) \cdot
+\exp \left\lbrace {-\int\limits_{t_0}^{t} a(s)\mathrm{d}s} \right\rbrace \leq b \cdot \exp \left\lbrace {-\int\limits_{t_0}^{t} a(s)\mathrm{d}s} \right\rbrace + a(t) \cdot \exp \left\lbrace {-\int\limits_{t_0}^{t} a(s)\mathrm{d}s} \right\rbrace \cdot v(t) $$
+Перенесемо один з множників наліво: $$v'(t) \cdot \exp \left\lbrace {-\int\limits_{t_0}^{t} a(s)\mathrm{d}s} \right\rbrace - a(t) \cdot \exp \left\lbrace {-\int\limits_{t_0}^{t} a(s)\mathrm{d}s} \right\rbrace \cdot v(t)\leq b \cdot \exp \left\lbrace {-\int\limits_{t_0}^{t} a(s)\mathrm{d}s} \right\rbrace $$
 
-Використаємо властивість похідної: $$\mathlarger{\Bigg(}v(t) \cdot e^{-\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s}\mathlarger{\Bigg)}' \leq b \cdot e^{-\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s}$$
+Використаємо властивість похідної: $$\mathlarger{\Bigg(}v(t) \cdot \exp \left\lbrace {-\int\limits_{t_0}^{t} a(s)\mathrm{d}s} \right\rbrace \mathlarger{\Bigg)}' \leq b \cdot \exp \left\lbrace {-\int\limits_{t_0}^{t} a(s)\mathrm{d}s} \right\rbrace $$
 
 Проінтегруємо ліву і праву частини від $t$ до $t_0$:
-$$ v(t) \cdot e^{-\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s} - \underbrace{v(t_0)}_{const} \leq \int\limits_{t_0}^{t}b \cdot \underbrace{e^{-\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s}}_{1}\mathrm{d}t$$
-Звідси отримуємо наступне: $$ v(t) \cdot e^{-\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s} \leq c + b(t - t_0) $$
-Остаточно: $$ u(t) \leq v(t) \leq (c + b(t - t_0)) \cdot e^{\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} a(s)\mathrm{d}s} \qquad \blacksquare$$
+$$ v(t) \cdot \exp \left\lbrace {-\int\limits_{t_0}^{t} a(s)\mathrm{d}s} \right\rbrace - \underbrace{v(t_0)}_{const} \leq \int\limits_{t_0}^{t}b \cdot \underbrace{\exp \left\lbrace {-\int\limits_{t_0}^{t} a(s)\mathrm{d}s} \right\rbrace }_{1}\mathrm{d}t$$
+Звідси отримуємо наступне: $$ v(t) \cdot \exp \left\lbrace {-\int\limits_{t_0}^{t} a(s)\mathrm{d}s} \right\rbrace  \leq c + b(t - t_0) $$
+Остаточно: $$ u(t) \leq v(t) \leq (c + b(t - t_0)) \cdot \exp \left\lbrace {\int\limits_{t_0}^{t} a(s)\mathrm{d}s}  \right\rbrace $$
+\end{proof}
 
 \begin{boxlema}
   Нехай $\exists \gamma > 0 : \forall \lambda$ -- власного числа матриці $A: \Re \lambda < - \gamma$, тоді $$\exists K > 0 : ||e^{At}|| \quad \leq  \quad K \cdot e^{-\gamma t} \quad \forall t \geq 0$$
   Без доведення. $\quad \blacksquare$
 \end{boxlema}
 
-Повернемось до доведення теореми. Візьмемо $\forall \varepsilon > 0$ та $\forall \delta : 0 < \delta < \varepsilon$ (поки що довільне $\delta$). Також візьмемо довільну початкову умову $\overline{x}(t_0) = \overline{x}_0$, де $||\overline{x}_0|| < \delta$ (зауважимо, що $||\overline{x}_0|| < \delta < \varepsilon$) і розглянемо $\overline{x}(t)$ -- розв'язоу системи з початковими умовами $\overline{x}(t_0) = \overline{x}_0$. За теоремою про продовження розв'язок $\overline{x}(t)$ можна продовжити до межі області: $B_{\varepsilon}(\overline{0}) = \left\{ \overline{x} \quad | \quad ||\overline{x}|| < \varepsilon \right\}$. Тоді можливими є два варіанти:
+Повернемось до доведення теореми. \\ Візьмемо $\forall \varepsilon > 0$ та $\forall \delta : 0 < \delta < \varepsilon$ (поки що довільне $\delta$). Також візьмемо довільну початкову умову $\overrightarrow{x}(t_0) = \overrightarrow{x}_0$, де $||\overrightarrow{x}_0|| < \delta$ (зауважимо, що $||\overrightarrow{x}_0|| < \delta < \varepsilon$) і розглянемо $\overrightarrow{x}(t)$ -- розв'язоу системи з початковими умовами $\overrightarrow{x}(t_0) = \overrightarrow{x}_0$. За теоремою про продовження розв'язок $\overrightarrow{x}(t)$ можна продовжити до межі області: $B_{\varepsilon}(\overrightarrow{0}) = \left\{ \overrightarrow{x} \quad | \quad ||\overrightarrow{x}|| < \varepsilon \right\}$. Тоді можливими є два варіанти:
 \begin{enumerate}
-  \item $\exists t* > t_0 : ||\overline{x}(t)|| < \varepsilon \quad \forall t \in [t_0, t*)$ та $\overline{x}(t*) = \varepsilon$ (межа області досягнута).
-  \item $\forall t \geq t_0 : ||\overline{x}|| < \varepsilon$ (межа області не досягається за скінченний час. Отже, розв'язок існує $\forall t \geq t_0$ та $||\overline{x}(t)|| < \varepsilon$, що автоматично означає стійкість).
+  \item $\exists t* > t_0 : ||\overrightarrow{x}(t)|| < \varepsilon \quad \forall t \in [t_0, t*)$ та $\overrightarrow{x}(t*) = \varepsilon$ (межа області досягнута).
+  \item $\forall t \geq t_0 : ||\overrightarrow{x}|| < \varepsilon$ (межа області не досягається за скінченний час. Отже, розв'язок існує $\forall t \geq t_0$ та $||\overrightarrow{x}(t)|| < \varepsilon$, що автоматично означає стійкість).
 \end{enumerate}
 
-У першому випадку покладемо: $I = [t_0, t_1]$, а у другому: $I = [t_0, +\infty)$ та розглянемо на $I$ наступну задачу Коші: $$\begin{cases} u'(t) = A\overline{u}(t) + \overline{f}_1(\overline{x}(t)) \\ \overline{u}(t_0) = \overline{x}_0 \end{cases}$$ Це ЛНС, задача Коші має единий розв'язок. Підставивши $\overline{x}(t) = \overline{u}(t)$, переконуємось, що $\overline{u}(t) = \overline{x}(t)$ -- єдиний розв'язок задачі Коші. Можемо знайти його методом варіації довільної сталої. Загальний розв'язок ЛНС = загальний розв'язок ЛОС + частинний розв'язок ЛНС. Частинний розв'язок ЛНС будемо шукати у вигляді $e^{At} \cdot \overline{C}(t)$.
+У першому випадку покладемо: $I = [t_0, t_1]$, а у другому: $I = [t_0, +\infty)$ та розглянемо на $I$ наступну задачу Коші: $$\begin{cases} u'(t) = A\overrightarrow{u}(t) + \overrightarrow{f}_1(\overrightarrow{x}(t)) \\ \overrightarrow{u}(t_0) = \overrightarrow{x}_0 \end{cases}$$ Це ЛНС, задача Коші має единий розв'язок. Підставивши $\overrightarrow{x}(t) = \overrightarrow{u}(t)$, переконуємось, що $\overrightarrow{u}(t) = \overrightarrow{x}(t)$ -- єдиний розв'язок задачі Коші. Можемо знайти його методом варіації довільної сталої. Загальний розв'язок ЛНС = загальний розв'язок ЛОС + частинний розв'язок ЛНС. Частинний розв'язок ЛНС будемо шукати у вигляді $e^{At} \cdot \overrightarrow{C}(t)$.
 
-$$e^{At} \cdot \overline{C}'(t) + Ae^{At} \cdot \overline{C}(t) = Ae^{At} \cdot \overline{C}(t) + \overline{f}_1(\overline{x}(t))$$
+$$e^{At} \cdot \overrightarrow{C}'(t) + Ae^{At} \cdot \overrightarrow{C}(t) = Ae^{At} \cdot \overrightarrow{C}(t) + \overrightarrow{f}_1(\overrightarrow{x}(t))$$
 
-Звідси отримуємо: $$\overline{C}'(t) = e^{-At} \cdot \overline{f}_1(\overline{x}(t)) \quad \Longrightarrow \quad \overline{u}_r(t) = e^{At} \cdot \int\limits_{t_0}^{t} e^{-As} \overline{f}_1(\overline{x}(s))\mathrm{d}s = \int\limits_{t_0}^{t} e^{A(t-s)}\overline{f}_1(\overline{x}(s))\mathrm{d}s$$
+Звідси отримуємо: $$\overrightarrow{C}'(t) \!=\! e^{-At} \overrightarrow{f}_1(\overrightarrow{x}(t)) \Longrightarrow \overrightarrow{u}_r(t) \!=\!
+e^{At}  \int\limits_{t_0}^{t} e^{-As} \overrightarrow{f}_1(\overrightarrow{x}(s))\mathrm{d}s \!=\!\!\! \int\limits_{t_0}^{t} e^{A(t-s)}\overrightarrow{f}_1(\overrightarrow{x}(s))\mathrm{d}s
+$$
 
-Загальний розв'язок ЛНС: $\overline{u}(t) = e^{At} \cdot \overline{C} + \mathop{\mathlarger{\int}}\limits_{t_0}^{t} e^{A(t - s)} \overline{f}_1(\overline{x}(s))\mathrm{d}s$, звідси знаходимо розв'язок даної задачі Коші $\quad \overline{u}(t_0) = \overline{x}_0 : \overline{x}_0 = e^{At_0} \cdot \overline{C} \quad \Longrightarrow \quad \overline{C} = e^{-At_0} \cdot \overline{x}_0$
+Загальний розв'язок ЛНС: $\overrightarrow{u}(t) = e^{At}  \overrightarrow{C} + \mathop{\mathlarger{\int}}\limits_{t_0}^{t} e^{A(t - s)} \overrightarrow{f}_1(\overrightarrow{x}(s))\mathrm{d}s$, звідси знаходимо розв'язок даної задачі Коші $\quad \overrightarrow{u}(t_0) = \overrightarrow{x}_0 : \overrightarrow{x}_0 = e^{At_0} \cdot \overrightarrow{C} \quad \Longrightarrow \quad \overrightarrow{C} = e^{-At_0} \cdot \overrightarrow{x}_0$
 
-Отже, $$\overline{u}(t) = \overline{x}(t) = e^{A(t - t_0)}\overline{x}_0 + \mathop{\mathlarger{\int}}\limits_{t_0}^{t} e^{A(t - s)} \overline{f}_1(\overline{x}(s))\mathrm{d}s$$
-Таким чином, знайшли розв'язок $\overline{x}(t)$, який маємо оцінити.
+Отже, $$\overrightarrow{u}(t) = \overrightarrow{x}(t) = e^{A(t - t_0)}\overrightarrow{x}_0 + \mathop{\mathlarger{\int}}\limits_{t_0}^{t} e^{A(t - s)} \overrightarrow{f}_1(\overrightarrow{x}(s))\mathrm{d}s$$
+Таким чином, знайшли розв'язок $\overrightarrow{x}(t)$, який маємо оцінити.
 
 Використаємо лему 2. Оскільки $\forall \lambda : \Re \lambda < 0$, то $\exists \gamma > 0 : \Re \lambda < -\gamma$. Тоді: $$\exists K > 0 : ||e^{At}|| \leq K \cdot e^{-\gamma t}$$
-Маємо: $$ ||\overline{x}(t)|| \leq K \cdot e^{-\gamma(t - t_0)} \cdot || \overline{x}_0|| + \int\limits_{t_0}^{t} K \cdot e^{-\gamma(t - s)} ||\overline{f}_1(\overline{x}(s))||\mathrm{d}s$$
-Звідси отримуємо: $$||\overline{x}(t)|| \cdot e^{\gamma(t - t_0)} \leq K||\overline{x}_0|| + K \int\limits_{t_0}^{t} e^{\gamma(s - t_0)} ||\overline{f}_1(\overline{x}(s))||\mathrm{d}s$$
-Оцінимо $||\overline{f_1}(\overline{x}(s))||$. Зауважимо, що $\overline{f}_1(\overline{x}(s)) = \overline{\overline{0}}(||\overline{x}||)$ при $||\overline{x}|| \longrightarrow 0$. Отже,
-$\forall \delta_1 > 0 \quad \exists \delta_2 > 0 : \forall x : ||\overline{x}|| < \delta_2 \text{ справедливо, що } ||\overline{f}_1(\overline{x})|| < \delta_1 ||\overline{x}||$. З попередніх міркувань: $$||\overline{x}(t)|| \cdot e^{\gamma(t - t_0)} \leq K \cdot \delta + K \cdot \delta_1 \int\limits_{t_0}^{t} e^{\gamma(s - t_0)} \cdot ||\overline{x}(s)||\mathrm{d}s$$
-Застосуємо лему Гронуолла-Беллмана: $$u(t) = ||\overline{x}(t)|| \cdot e^{\gamma(t - t_0)}, \quad c = K \cdot \delta, \quad b = 0, \quad a = K \cdot \delta_1$$ Отримуємо: $$||\overline{x}(t)|| \cdot e^{\gamma(t - t_0)} \leq K \cdot \delta \cdot e^{\mathop{\mathlarger{\mathlarger{\int}}}\limits_{t_0}^{t} K \cdot \delta_1 \mathrm{d}s} = K \cdot \delta e^{K \cdot \delta (t - t_0)} \Longrightarrow ||\overline{x}(t)|| \leq K \cdot \delta \cdot e^{(-\gamma + K \cdot \delta_1)(t - t_0)}$$ Оберемо $\delta_1$ так, щоб $-\gamma + K \cdot \delta_1 < 0 \quad \Longrightarrow \quad \delta_1 < \dfrac{\gamma}{K}$, тоді $||\overline{x}(t)|| \leq K \cdot \delta < \varepsilon$ при $\delta < \dfrac{\varepsilon}{K}$ і, крім того, $||\overline{x}(t)|| \leq K \cdot \delta \cdot e^{(-\gamma + K \cdot \delta_1)(t - t_0)} \xrightarrow[t \to \infty]{} 0$, що означає стійкість та асимптотичну стійкість розв'язку $\overline{x} = \overline{0}$ за означенням (в означенні в якості $\delta$ можемо взяти найменше з $\delta, \quad \delta_1, \quad \delta_2$). Випадок 2. поки ще залишається без доведення. $\blacksquare$ \\
+Маємо: $$ ||\overrightarrow{x}(t)|| \leq K \cdot e^{-\gamma(t - t_0)} \cdot || \overrightarrow{x}_0|| + \int\limits_{t_0}^{t} K \cdot e^{-\gamma(t - s)} ||\overrightarrow{f}_1(\overrightarrow{x}(s))||\mathrm{d}s$$
+Звідси отримуємо: $$||\overrightarrow{x}(t)|| \cdot e^{\gamma(t - t_0)} \leq K||\overrightarrow{x}_0|| + K \int\limits_{t_0}^{t} e^{\gamma(s - t_0)} ||\overrightarrow{f}_1(\overrightarrow{x}(s))||\mathrm{d}s$$
+Оцінимо $||\overrightarrow{f_1}(\overrightarrow{x}(s))||$. Зауважимо, що $\overrightarrow{f}_1(\overrightarrow{x}(s)) = \overrightarrow{\overrightarrow{0}}(||\overrightarrow{x}||)$ при $||\overrightarrow{x}|| \longrightarrow 0$. Отже,
+$\forall \delta_1 > 0 \quad \exists \delta_2 > 0 : \forall x : ||\overrightarrow{x}|| < \delta_2 \text{ справедливо, що } ||\overrightarrow{f}_1(\overrightarrow{x})|| < \delta_1 ||\overrightarrow{x}||$. З попередніх міркувань: $$||\overrightarrow{x}(t)|| \cdot e^{\gamma(t - t_0)} \leq K \cdot \delta + K \cdot \delta_1 \int\limits_{t_0}^{t} e^{\gamma(s - t_0)} \cdot ||\overrightarrow{x}(s)||\mathrm{d}s$$
+Застосуємо лему Гронуолла-Беллмана:
+
+$$ u(t) = ||\overrightarrow{x}(t)|| \cdot e^{\gamma(t - t_0)}, \quad c = K \cdot \delta, \quad b = 0, \quad a = K \cdot \delta_1$$
+
+Отримуємо: $$||\overrightarrow{x}(t)|| \cdot e^{\gamma(t - t_0)} \leq K \cdot \delta \cdot \exp \left\lbrace {\int\limits_{t_0}^{t} K \cdot \delta_1 \mathrm{d}s} \right\rbrace = K \cdot \delta e^{K \cdot \delta (t - t_0)} \Longrightarrow ||\overrightarrow{x}(t)|| \leq K \cdot \delta \cdot e^{(-\gamma + K \cdot \delta_1)(t - t_0)}$$ Оберемо $\delta_1$ так, щоб $-\gamma + K \cdot \delta_1 < 0 \quad \Longrightarrow \quad \delta_1 < \dfrac{\gamma}{K}$, тоді $||\overrightarrow{x}(t)|| \leq K \cdot \delta < \varepsilon$ при $\delta < \dfrac{\varepsilon}{K}$ і, крім того, $||\overrightarrow{x}(t)|| \leq K \cdot \delta \cdot e^{(-\gamma + K \cdot \delta_1)(t - t_0)} \xrightarrow[t \to \infty]{} 0$, що означає стійкість та асимптотичну стійкість розв'язку $\overrightarrow{x} = \overrightarrow{0}$ за означенням (в означенні в якості $\delta$ можемо взяти найменше з $\delta, \quad \delta_1, \quad \delta_2$).\\ Випадок 2. поки ще залишається без доведення. $\blacksquare$ \\
 \textbf{Зауваження.} (про фазові портрети автономної системи другого порядку). Тип фазового портрету в околі положень рівноваги автономної системи другого порядку у випадку $\Re \lambda \neq 0$ визначається типом фазового портрету лінеаризованої системи (вузол, сідло, фокус, вироджений вузол залишається вузлом, сідлом, фокусом, виродженим вузлом відповідно).
 
 %\input{lectures_recent}

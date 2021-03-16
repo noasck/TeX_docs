@@ -296,13 +296,13 @@ $$
    \end{gathered}
    $$
    $$
-   \eta =  \int\limits_{0}^{\eta}{1 dx} =  \int\limits_{0}^{ +\infty}{ \ind{}\left\lbrace \eta \geq x \right\rbrace dx}
+   \eta =  \int\limits_{0}^{\eta}{1 dx} =  \int\limits_{0}^{ +\infty}{ \index{}\left\lbrace \eta \geq x \right\rbrace dx}
 \quad \Longrightarrow \quad
-\mathbb{E} \eta = \mathbb{E} \int\limits_{0}^{ +\infty}{ \ind{}\left\lbrace \eta \geq x \right\rbrace dx} =
+\mathbb{E} \eta = \mathbb{E} \int\limits_{0}^{ +\infty}{ \index{}\left\lbrace \eta \geq x \right\rbrace dx} =
    $$
    Можемо внести математичне сподівання під знак інтегралу.
    $$
-   =  \int\limits_{0}^{ +\infty}{\underbrace{ \mathbb{E}\ind{}\left\lbrace \eta \geq x \right\rbrace}_{ \mathbb{P} \left\lbrace \eta \geq x \right\rbrace} dx} =  \int\limits_{0}^{ +\infty}{ \mathbb{P} \left\lbrace \eta \geq x \right\rbrace} dx =  \int\limits_{0}^{ +\infty}{\overline{F_\eta} (x) dx}
+   =  \int\limits_{0}^{ +\infty}{\underbrace{ \mathbb{E}\index{}\left\lbrace \eta \geq x \right\rbrace}_{ \mathbb{P} \left\lbrace \eta \geq x \right\rbrace} dx} =  \int\limits_{0}^{ +\infty}{ \mathbb{P} \left\lbrace \eta \geq x \right\rbrace} dx =  \int\limits_{0}^{ +\infty}{\overline{F_\eta} (x) dx}
    $$
    \end{proof}
    Повернемося до доведення основної теореми. Нехай $ \varphi(x,y) \geq 0 \quad \forall (x,y) \in \mathbb{R}^2.$
@@ -362,7 +362,7 @@ f_{\xi}(x) = \begin{dcases}
     0, & x\leq  0;
 \end{dcases}
 \end{gathered} \qquad  \begin{gathered}
-\includegraphics[scale=0.2]{assets/lectures_part_3-f657bbe5.png}
+\includegraphics[scale=0.15]{assets/lectures_part_3-f657bbe5.png}
 \end{gathered}
 $$
 
@@ -378,7 +378,7 @@ $$
 \subsubsection{Числові характеристики.}
 Знайдемо одразу n-тий момент величини $ \xi \sim \Gamma(\alpha, \beta)$.
 $$
-\mathbb{E} \xi^n =  \int\limits_{0}^{ +\infty}{ x^n \cdot f_{\xi} (x) dx} =  \int\limits_{0}^{ +\infty}{x^n  \frac{\beta^{\alpha}}{\Gamma(\alpha)} x^{\alpha-1}e^{-\beta x}}dx = \frac{\beta^{\alpha}}{\Gamma(\alpha)} \cdot   \int\limits_{0}^{ +\infty}{ x^{\alpha+n-1}e^{-\beta x}}dx =
+\mathbb{E} \xi^n \!=\!  \!\int\limits_{0}^{ +\infty}{ x^n \cdot f_{\xi} (x) dx} \!=\! \int\limits_{0}^{ +\infty}{x^n  \frac{\beta^{\alpha}}{\Gamma(\alpha)} x^{\alpha-1}e^{-\beta x}}dx\!=\! \frac{\beta^{\alpha}}{\Gamma(\alpha)} \cdot   \int\limits_{0}^{ +\infty}{ x^{\alpha+n-1}e^{-\beta x}}dx \!=
 $$
 $$
 =  \frac{\beta^{\alpha}}{\Gamma(\alpha) \cdot \beta^{n + \alpha}} \cdot   \int\limits_{0}^{ +\infty}{ \left( \beta x \right) ^{\alpha+n-1}e^{-\beta x}} d \left( \beta x \right)  = \fbox{$ \dfrac{\Gamma(\alpha + n)}{ \beta^n \cdot \Gamma(\alpha)}$}
@@ -394,7 +394,7 @@ $
 $
 \subsubsection{Стійкість відносно додавання.}
 
-Як ми пам'ятаємо, експоненціальний розподіл не є стійким відносно додавання. Тобто, при додаванні двох експоненціальних випадкових величин між собою, результат не буде експоненціальною величиною. Але, як вже відомо, експоненціальний розподіл належить до більш широкого класу - гамма-розподілів. Таким чином, є сенс дослідити, чи будемо ми за афінних перетворень залишатися всередині класу гамма-розподілів.
+Експоненціальний розподіл не є стійким відносно додавання, але більш широкий класс - гамма розподілів буде мати таку властивість.
 \begin{boxteo}[Про напівстійкість Гамма-розподілу.]
 $$
  \independent \begin{cases}
@@ -470,14 +470,14 @@ $$
 \end{gathered} \quad E_{\varphi_1} = \mathbb{E}_{\varphi_2} = [0, + \infty]
 $$
 $$
-f_{\varphi(\xi)} (y) =  \sum\limits_{i = 1}^{2}{ f_{\xi}} \left( \psi_i (y) \right)  \cdot \left| \psi'_i(y) \right| \cdot \ind{}\left\lbrace y \in E_{\varphi_i} \right\rbrace
+f_{\varphi(\xi)} (y) =  \sum\limits_{i = 1}^{2}{ f_{\xi}} \left( \psi_i (y) \right)  \cdot \left| \psi'_i(y) \right| \cdot \index{}\left\lbrace y \in E_{\varphi_i} \right\rbrace
  =
  $$
  $$
- = \frac{1}{ \sqrt{2 \pi} } e^{- \frac{x^2}{2} } \bigg|_{x = -\sqrt{y}} \cdot \left| \left( - \sqrt{y} \right)'  \right| \cdot \ind{R_+} (y)  +  \frac{1}{ \sqrt{2 \pi} } e^{- \frac{x^2}{2} } \bigg|_{x = \sqrt{y}} \cdot \left| \left( \sqrt{y} \right)'  \right| \cdot \ind{R_+} (y) =
+ = \frac{1}{ \sqrt{2 \pi} } e^{- \frac{x^2}{2} } \bigg|_{x = -\sqrt{y}} \cdot \left| \left( - \sqrt{y} \right)'  \right| \cdot \index{R_+} (y)  +  \frac{1}{ \sqrt{2 \pi} } e^{- \frac{x^2}{2} } \bigg|_{x = \sqrt{y}} \cdot \left| \left( \sqrt{y} \right)'  \right| \cdot \index{R_+} (y) =
  $$
  $$
- = \frac{2}{ \sqrt{2 \pi} } e^{- \frac{y}{2} } \cdot \frac{1}{ 2 \sqrt{y}} \cdot \ind{R_+} (y) = \begin{cases}
+ = \frac{2}{ \sqrt{2 \pi} } e^{- \frac{y}{2} } \cdot \frac{1}{ 2 \sqrt{y}} \cdot \index{R_+} (y) = \begin{cases}
   \frac{1}{\sqrt{2\pi}} y^{- \frac{1}{2} } \cdot e^{ - \frac{1}{2}y}, & y > 0; \\
   0 , & y \leq  0
  \end{cases}   = f_{ \chi_1 ^2} (y)
@@ -512,8 +512,110 @@ f_{
 $$
 $n = 2.$ Зокрема, в такому випадку, отримаємо: $ \chi_2^2 = \Gamma \left( 1, \frac{1}{2}  \right) = Exp \left( \frac{1}{2} \right)  $.
 \begin{center}
-\includegraphics[scale=0.3]{assets/lectures_part_3-d1334d87.png} 
+\includegraphics[scale=0.3]{assets/lectures_part_3-d1334d87.png}
 \end{center}
 \subsubsection{Числові характеристики.}
 $\mathbb{E} \chi^2_n = \mathbb{E} \Gamma \left( \frac{1}{2} , \frac{1}{2}   \right) = n  \quad \left[ \mathbb{E} \left( \xi_1^2 + ... \xi_n^2 \right) = \mathbb{E} \xi_1^2 + ... + \mathbb{E}\xi_n^2 = n \right]$\\
 $\mathbb{D} \chi^2_n = \mathbb{D} \Gamma \left( \frac{1}{2} , \frac{1}{2}   \right) = 2n $
+
+\subsection{t-розподіл Стьюдента з n степенями вільності.}
+\begin{wrapfigure}{R}{0.48\textwidth}
+\centering
+\includegraphics[width=0.45\textwidth]{assets/lectures_part_3-91d0349d.png}
+The PDF of the Student distribution.
+\end{wrapfigure}
+Позначається $t_n $ або $ St_n$. Розглядаємо розподіл такої величини $\eta$:
+$$\eta = \frac{\xi_0}{\sqrt{ \frac{\xi_1^2 + ... + \xi_n^2}{n} }} = \xi_0 \frac{n}{ \sqrt{
+\chi^2_n
+}} ,$$
+де $\xi_0, \xi_1, ... , \xi_n - $ незалежні стандартні гаусівські величини.
+$$
+\begin{gathered}
+f_{St_n}(x) = \frac{\Gamma(\frac{n+1}{2})} {\sqrt{n\pi}\,\Gamma(\frac{n}{2})} \left(1+\frac{x^2}{n} \right)^{\!-\frac{n+1}{2}}
+\end{gathered}
+% \qquad
+% \begin{gathered}
+%   \includegraphics[scale=0.14]{assets/lectures_part_3-91d0349d.png}
+% \end{gathered}
+$$
+
+$а$\\
+\par
+$а$\\
+\par
+Слід зауважити, що у випадку $n = 1 : St_1$ отримаємо розподіл Коші:
+$$
+f_{St_1} (x) = \frac{1}{ \pi ( 1 + x^2)}
+$$
+Якщо спрямуємо $n \to \infty$, отримаємо стандартний гаусівський розподіл:
+$$
+f_{St_\i} = \frac{1}{\sqrt{2 \pi}} e^{- \frac{t^2}{2} }
+$$
+
+
+
+\subsection{Розподіл Фішера(-Снедекора)}
+\begin{wrapfigure}{R}{0.48\textwidth}
+\centering
+\includegraphics[width=0.45\textwidth]{assets/lectures_part_3-c1782fcb.png}
+The PDF of the F-distribution
+\end{wrapfigure}
+Позначається $F_{m,n}$. Розглядаємо розподіл такої величини $\omega:$
+$$
+\omega = \frac{\left( \xi_1^2 + ... + \xi_m^2 \right)/ m }{\left( \eta_1^2 + ... + \eta_n^2 \right)/n}
+$$
+де $\xi_0, \xi_1, ... , \xi_m, \eta_1, ... , \eta_n - $ незалежні стандартні гаусівські величини.
+$$
+f(x; d_1,d_2) = \frac{\sqrt{\frac{(d_1x)^{d_1}d_2^{d_2}} {(d_1x+d_2)^{d_1+d_2}}}} {x\beta\!\left(\frac{d_1}{2},\frac{d_2}{2}\right)}
+$$
+$ф$\\
+\par
+$ф$\\
+\par
+
+\newpage
+
+\section{Граничні теореми теорії ймовірностей}
+
+\subsection{Нерівність Чебишова.}
+$\xi$ - випадкова величина, для якої $\exists \mathbb{E}\xi \  \exists \mathbb{D} \xi$.\\
+\par
+Знаємо, що $
+\mathbb{D} \xi = \mathbb{E} (\xi - \mathbb{E} \xi)^2
+$. Але дисперсія є більше теоретичною величиною. Наприклад, розглянемо прилад, який перестає працювати якщо напруга в мережі $\xi = U_{\text{м}} $ відхиляється $\xi < 180 $ або $ \xi > 260$.\\
+Інакше кажучи, якщо $ \left| \xi - \mathbb{E}\xi \right| > 40$ - прилад не працює. Нас цікавить ймовірність $\mathbb{P} \left\lbrace \left| \xi - \mathbb{E} \xi \right| > a \right\rbrace \!\!= ?$. Але, знаючи дисперсію, не зрозуміло, як пов'язати цю характеристику з ймовірністю зазначеної критичної події. \\Саме таку оцінку дає нерівність Чебишова.
+\begin{boxteo}[нерівність Чебишова]
+Якщо $\exists \mathbb{D} \xi$, то:
+$$
+\forall a > 0 \quad \mathbb{P} \left\lbrace \left| \xi - \mathbb{E} \xi \right| \geq a \right\rbrace \leq \frac{\mathbb{D} \xi}{a^2}
+$$
+Перевага: Обчислюється лише через дисперсію. Не залежить від розподілу.\\
+Недолік: нерівнісь дає дуже грубу оцінку ймовірності.
+\end{boxteo}
+\begin{consequence}
+    $$\mathbb{P} \left\lbrace \left| \xi - \mathbb{E} \xi \right| < a \right\rbrace = \mathbb{P} \left\lbrace  \xi \in \left(  \mathbb{E}  \xi - a, \mathbb{E}\xi + a \right) \right\rbrace \geq  1 - \frac{ \mathbb{D} \xi}{a^2 } $$
+\end{consequence}
+\textbf{Лема. }(нерівність Маркова)
+$\eta$ - невід'ємна випадкова величина $\mathbb{P} \left\lbrace \eta \geq 0 \right\rbrace = 1$.
+\\Тоді:\ \fbox{$ \mathbb{P} \left\lbrace  \eta \geq a \right\rbrace \leq  \dfrac{\mathbb{E} \eta}{a} $}
+\begin{proof}
+$$
+\mathbb{E} \eta = \mathbb{E} \left( \eta \cdot \index{} \left\lbrace 0 \leq \eta < a \right\rbrace
++ \eta\cdot \index{} \left\lbrace  \eta \geq a\right\rbrace
+ \right) = \mathbb{E} \eta \cdot  \index \left\lbrace \eta < a \right\rbrace + \mathbb{E} \eta\cdot \index \left\lbrace   \eta \geq  a \right\rbrace \geq
+$$
+$$
+\geq  \mathbb{E} \eta \cdot \index \left\lbrace \eta \geq a  \right\rbrace \geq  \mathbb{E} a \cdot \index \left\lbrace  \eta \geq a \right\rbrace = a \cdot \mathbb{E} \index \left\lbrace \eta \geq a  \right\rbrace = a \cdot \mathbb{P} \left\lbrace \eta \geq a \right\rbrace
+$$
+
+\end{proof}
+
+\begin{proof}(До нерівності Чебишова.) Очевидно, що:
+$$
+\eta = \left( \xi - \mathbb{E} \xi \right)^2 \geq 0
+$$
+ За нерівністю Маркова:
+ $$
+  \mathbb{P} \left\lbrace \left| \xi - \mathbb{E} \xi \right| \geq a  \right\rbrace=\mathbb{P} \left\lbrace  (\xi - \mathbb{E} \xi)^2 \geq a^2 \right\rbrace \leq \frac{\mathbb{E} \left( \xi - \mathbb{E} \xi \right)^2}{a^2} = \frac{\mathbb{D}\xi}{a^2}
+ $$
+\end{proof}

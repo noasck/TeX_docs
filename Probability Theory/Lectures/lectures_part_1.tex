@@ -2,6 +2,17 @@
 \usepackage[utf8]{inputenc}
 \usepackage{ragged2e}
 \usepackage{mathtools}
+
+
+\usepackage{wrapfig}
+% Example:
+% \begin{wrapfigure}{R}{0.4\textwidth}
+% \centering
+% \includegraphics[width=0.35\textwidth]{assets/lectures_part_3-91d0349d.png}
+% The PDF of the Student distribution.
+% \end{wrapfigure}
+
+
 % \usepackage{esint}
 \usepackage[english,russian, ukrainian]{babel}
 \usepackage{misccorr,color,ragged2e,amsfonts,amsthm,graphicx,systeme,amsmath,mdframed,lipsum}
@@ -26,6 +37,8 @@
 \usepackage{tikz}
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
   \node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
+\def\index#1{\mathbb{I}_{#1}}
+\def\index{\mathbb{I}}
 %
 % \makeatletter
 % %% make esint definition in line with amsmath
@@ -119,7 +132,7 @@ showstringspaces=false}
 \def\ebt{\end{boxteo}}         % ...
 \def\i{\infty}                 % infty
 \def\d{\partial}               % dx dy - partial     = \d
-\def\ind{\mathbb{I}_}          % indicator           = \ind
+% \def\ind{\mathbb{I}_}          % indicator           = \ind
 \def\xx{\chi_{\overline{\xi}}} % char of vec xi = \xx
 \def\Laplas{\text{Ф}}          % Laplas function     = \Laplas
 \def\veta{\overline{\eta}}     % vector eta          = \veta

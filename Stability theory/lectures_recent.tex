@@ -1,1 +1,68 @@
+\subsection{Метод функцій Ляпунова.}
 
+Розглянемо систему:
+\be
+ \overrightarrow{x}' = f( \overrightarrow{x})
+\ee
+дe $f: D \to \mathbb{R}^n, f\in C^{1} \left( D \right), D \subset \mathbb{R}^n $ та $\overrightarrow{f} ( \overrightarrow{0}) = 0$.
+\textbf{Задача. } Дослідити на стійкість розв'язок $ \overrightarrow{x} = \overrightarrow{0}$ системи (1).
+
+ \begin{defo}
+  Функція $V : D \to \mathbb{R} , V \in C(D) $ називається додатньо (від'ємнно) визначеною в $D$, якщо:
+  \\1. $V(0) = 0$;\\
+  2. $ V(x) > 0 \ (<0) \ \forall x \in D(\left\lbrace 0 \right\rbrace)$;
+ \end{defo}
+
+ \begin{defo}
+Похідною функції $ V : D \to \mathbb{R}$ в суму системи (1) називають функцію:
+$$
+\dot{V}_f(\overrightarrow{x}) =  \sum\limits_{i = 1}^{n}{ \frac{\partial V}{ \partial x_i} f_{i}( \overrightarrow{x}) } = <\nabla V \overrightarrow{x}, f(\overrightarrow{x})>
+$$
+ \end{defo}
+
+ \begin{defo}
+  Нехай $B_{R} ( \overrightarrow{0} ) $ - деякий окіл точки $ \overrightarrow{0} $. Функція $V \in C^{1} (B_{R} (\overrightarrow{0}))$ називається функцією Ляпунова системи (1), якщо:\\
+  1. $ V $ - доданьо визначена. \\
+  2. $ \dot{V}_f (\overrightarrow{x}) \leq 0 \quad x \in B_{R} ( \overrightarrow{0})$.
+ \end{defo}
+
+ \begin{remark}
+     Якщо $ V $ - від'ємно визначена і $ \dot{V}_f ( \overrightarrow{x}) \geq 0$, то:
+     $$
+     - V ( \overrightarrow{x} ) - \text{ функція Ляпунова. }
+     $$
+ \end{remark}
+
+ \begin{boxteo}[Ляпунова про стійкість]
+   Якщо в деякій кулі $B_{R}( \overrightarrow{0}) $ існує функція Ляпунова для системи (1), то розв'язок $ \overrightarrow{x} = \overrightarrow{0} $ системи (1) стійкий.
+ \end{boxteo}
+\begin{proof}
+ Нехай $ V \in C^{1} ( B_{R} ( \overrightarrow{0} ))$ - функція Ляпунова.\\
+ Доведемо, що розв'язок стійкий за означенням.
+ Візьмемо $ \forall \varepsilon > 0, \varepsilon < \mathbb{R}$.\\ Покладемо $ c( \varepsilon) = \min\limits_{\overrightarrow{x} : ||\overrightarrow{x}|| = \varepsilon} V(\overrightarrow{x}) $.
+ Тоді $ c(\varepsilon) > 0, $ бо $ V( \overrightarrow{x}) $ - додатньо визначена.\\
+ Виберемо $ \delta > 0 : 0 < \delta < \varepsilon $ таким чином, щоб: $ \forall \overrightarrow{x}: ||\overrightarrow{x}|| < \delta $ справдовується:\\
+ $V (\overrightarrow{x}) < C(\varepsilon) $ ( таке $\delta$ існує в силу неперервності $V( \overrightarrow{x})$ та $V ( \overrightarrow{x}) =0 $).\\
+ Візьмемо $\forall \overrightarrow{x}_0: ||\overrightarrow{x}_0||< \delta $ і розглянемо розв'язок $\overrightarrow{x} (t) $ з початковими умовами $ \overrightarrow{x}(t_0) = \overrightarrow{x}_0$.\\
+ Потрібно показати за означенням, що:
+ $$
+ ||\overrightarrow{x}(t)|| < \varepsilon \quad \forall t \geq t_0
+ $$
+Припустимо протилежне. Нехай $ \exists t_1 > t_0 $ таке, що $|| \overrightarrow{x}(t) ||< \varepsilon \ \forall t \in [ t_0 , t_1 ]:  $ $$ || \overrightarrow{ x} (t_1) || = \varepsilon$$
+Тоді за вибором $c(\varepsilon)$ справедливо, що:
+$$
+|| \overrightarrow{x} (t_1) || = \varepsilon
+$$
+Тоді за вибором $ c ( \varepsilon)$ справедливо, що:
+$$
+V(\overrightarrow{x} (t_1) ) \geq c(\varepsilon)
+$$
+З іншого боку:
+$$
+\frac{d}{dt} V(\overrightarrow{x} (t)) =  \sum\limits_{i = 1}^{ n}{ \frac{\partial V}{ \partial x_i } } \cdot \frac{dx_i}{dt} =  \sum\limits_{i = 1}^{n}{ \frac{\partial V}{ \partial x_i } f_i ( \overrightarrow{x} (t))} = \dot{V}_f (x) \leq 0 \  (\text{за умовою теореми})
+$$
+Отже, $V (\overrightarrow{x}(t))\!\! \downarrow \  \!\Rightarrow\!
+c'(\varepsilon) \!\leq\!  V(\overrightarrow{x} (t_1)) \!\leq\! V(\overrightarrow{x} (t_0)) = V(\overrightarrow{x}_0) \!<\! c(\varepsilon ) \!\Rightarrow\! \text{ протирічча. }
+$
+
+\end{proof}

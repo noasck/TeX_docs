@@ -1204,11 +1204,278 @@ $\forall \delta_1 > 0 \quad \exists \delta_2 > 0 : \forall x : ||\overrightarrow
 
 $$ u(t) = ||\overrightarrow{x}(t)|| \cdot e^{\gamma(t - t_0)}, \quad c = K \cdot \delta, \quad b = 0, \quad a = K \cdot \delta_1$$
 
-Отримуємо: $$||\overrightarrow{x}(t)|| e^{\gamma(t - t_0)} \!\leq\! K \delta \exp \left\lbrace {\int\limits_{t_0}^{t} K \delta_1 \mathrm{d}s} \right\rbrace \!=\! K \delta e^{K \cdot \delta (t - t_0)} \!\Rightarrow\! ||\overrightarrow{x}(t)|| \!\leq\! K \delta e^{(-\gamma + K \cdot \delta_1)(t - t_0)}$$ Оберемо $\delta_1$ так, щоб $-\gamma + K \cdot \delta_1 < 0 \quad \Longrightarrow \quad \delta_1 < \dfrac{\gamma}{K}$, тоді $||\overrightarrow{x}(t)|| \leq K \cdot \delta < \varepsilon$ при $\delta < \dfrac{\varepsilon}{K}$ і, крім того, $||\overrightarrow{x}(t)|| \leq K \cdot \delta \cdot e^{(-\gamma + K \cdot \delta_1)(t - t_0)} \xrightarrow[t \to \infty]{} 0$, що означає стійкість та асимптотичну стійкість розв'язку $\overrightarrow{x} = \overrightarrow{0}$ за означенням (в означенні в якості $\delta$ можемо взяти найменше з $\delta, \quad \delta_1, \quad \delta_2$).\\ Випадок 2. поки ще залишається без доведення. $\blacksquare$ \\
-\textbf{Зауваження.} (про фазові портрети автономної системи другого порядку). Тип фазового портрету в околі положень рівноваги автономної системи другого порядку у випадку $\Re \lambda \neq 0$ визначається типом фазового портрету лінеаризованої системи (вузол, сідло, фокус, вироджений вузол залишається вузлом, сідлом, фокусом, виродженим вузлом відповідно).
+Отримуємо: $$||\overrightarrow{x}(t)|| e^{\gamma(t - t_0)} \!\leq\! K \delta \exp \left\lbrace {\int\limits_{t_0}^{t} K \delta_1 \mathrm{d}s} \right\rbrace \!=\! K \delta e^{K \cdot \delta (t - t_0)} \!\Rightarrow\! ||\overrightarrow{x}(t)|| \!\leq\! K \delta e^{(-\gamma + K \cdot \delta_1)(t - t_0)}$$ Оберемо $\delta_1$ так, щоб $-\gamma + K \cdot \delta_1 < 0 \quad \Longrightarrow \quad \delta_1 < \dfrac{\gamma}{K}$, тоді $||\overrightarrow{x}(t)|| \leq K \cdot \delta < \varepsilon$ при $\delta < \dfrac{\varepsilon}{K}$ і, крім того, $||\overrightarrow{x}(t)|| \leq K \cdot \delta \cdot e^{(-\gamma + K \cdot \delta_1)(t - t_0)} \xrightarrow[t \to \infty]{} 0$, що означає стійкість та асимптотичну стійкість розв'язку $\overrightarrow{x} = \overrightarrow{0}$ за означенням (в означенні в якості $\delta$ можемо взяти найменше з $\delta, \quad \delta_1, \quad \delta_2$).\\ Випадок 2. поки ще залишається без доведення. $\blacksquare$ \\ \\
+\textbf{Зауваження.} (про фазові портрети автономної системи другого порядку). Тип фазового портрету в околі положень рівноваги автономної системи другого порядку у випадку $\Re \lambda \neq 0$ визначається типом фазового портрету лінеаризованої системи (вузол, сідло, фокус, вироджений вузол залишається вузлом, сідлом, фокусом, виродженим вузлом відповідно). \\
 
-\input{lectures_recent}
-\newpage
+%\input{lectures_recent}
+\section{Метод функцій Ляпунова}
+Розглянемо систему:
+\be
+ \overrightarrow{x}' = f(\overrightarrow{x})
+\ee
+дe $f: D \to \mathbb{R}^n, f\in C^{1} \left( D \right), D \subset \mathbb{R}^n $ та $\overrightarrow{f} ( \overrightarrow{0}) = 0$. \textbf{Задача. } Дослідити на стійкість розв'язок $ \overrightarrow{x} = \overrightarrow{0}$ системи (6).
+ \begin{defo}
+  Функція $V : D \to \mathbb{R}, V \in C(D) $ називається додатньо(від'ємно)-визначеною в $D$, якщо:
+\begin{enumerate}
+  \item $V(0) = 0$.
+  \item $V(x) > 0 \ (<0) \ \forall x \in D(\left\lbrace 0 \right\rbrace)$.
+\end{enumerate}
+ \end{defo}
 
+ \begin{defo}
+Похідною функції $ V : D \to \mathbb{R}$ в силу системи (6) називають функцію:
+$$
+\dot{V}_f(\overrightarrow{x}) =  \sum\limits_{i = 1}^{n}{ \frac{\partial V}{ \partial x_i} f_{i}( \overrightarrow{x}) } = <\nabla V \overrightarrow{x}, f(\overrightarrow{x})>
+$$
+ \end{defo}
 
+\begin{defo}
+  Нехай $B_{R} ( \overrightarrow{0} ) $ -- деякий окіл точки $ \overrightarrow{0} $. Функція $V \in C^{1} (B_{R} (\overrightarrow{0}))$ називається функцією Ляпунова системи (6), якщо:
+\begin{enumerate}
+  \item $V$ -- доданьо-визначена.
+  \item $\dot{V}_f (\overrightarrow{x}) \leq 0 \quad \forall x \in B_{R} ( \overrightarrow{0})$.
+\end{enumerate}
+\end{defo}
+
+\begin{remark}
+    Якщо $ V $ - від'ємно-визначена і $ \dot{V}_f ( \overrightarrow{x}) \geq 0$, то: $$ - V ( \overrightarrow{x} ) - \text{ функція Ляпунова. }$$
+\end{remark}
+
+\begin{boxteo}[Ляпунова про стійкість]
+  Якщо в деякій кулі $B_{R}( \overrightarrow{0}) $ існує функція Ляпунова для системи (6), то розв'язок $ \overrightarrow{x} = \overrightarrow{0} $ системи (6) стійкий.
+\end{boxteo}
+
+\begin{proof}
+   Нехай $ V \in C^{1} ( B_{R} ( \overrightarrow{0} ))$ -- функція Ляпунова. Доведемо, що розв'язок стійкий за означенням. Візьмемо $ \forall \varepsilon > 0, \varepsilon < \mathbb{R}$. Покладемо $ c( \varepsilon) \min\limits_{\overrightarrow{x} : ||\overrightarrow{x}|| = \varepsilon} V(\overrightarrow{x}) $. Тоді $ c(\varepsilon) > 0, $ бо $ V( \overrightarrow{x}) $ - додатньо-визначена. Виберемо $ \delta > 0 : 0 < \delta < \varepsilon $ таким чином, щоб: $ \forall \overrightarrow{x}: ||\overrightarrow{x}|| < \delta $ справдовується: $V (\overrightarrow{x}) < C(\varepsilon) $ ( таке $\delta$ існує в силу неперервності $V( \overrightarrow{x})$ та $V ( \overrightarrow{x}) =0 $). Візьмемо $\forall \overrightarrow{x}_0: ||\overrightarrow{x}_0||< \delta $ і розглянемо розв'язок $\overrightarrow{x} (t) $ з початковими умовами $ \overrightarrow{x}(t_0) = \overrightarrow{x}_0$. Потрібно показати за означенням, що:
+   $$
+   ||\overrightarrow{x}(t)|| < \varepsilon \quad \forall t \geq t_0
+   $$
+  Припустимо протилежне. Нехай $ \exists t_1 > t_0 $ таке, що $|| \overrightarrow{x}(t) ||< \varepsilon \ \forall t \in [ t_0 , t_1 ]:  $ $$ || \overrightarrow{ x} (t_1) || = \varepsilon$$
+  Тоді за вибором $ c ( \varepsilon)$ справедливо, що:
+  $$ V(\overrightarrow{x}(t_1)) \geq c(\varepsilon)$$
+  З іншого боку:
+  $$
+  \frac{d}{dt} V(\overrightarrow{x} (t)) =  \sum\limits_{i = 1}^{ n}{ \frac{\partial V}{ \partial x_i } } \cdot \frac{dx_i}{dt} =  \sum\limits_{i = 1}^{n}{ \frac{\partial V}{ \partial x_i } f_i ( \overrightarrow{x} (t))} = \dot{V}_f (\overrightarrow{x}) \leq 0 \  (\text{за умовою теореми})
+  $$
+  Отже, $V (\overrightarrow{x}(t))\!\! \downarrow \  \!\Rightarrow\!
+  c'(\varepsilon) \!\leq\!  V(\overrightarrow{x} (t_1)) \!\leq\! V(\overrightarrow{x} (t_0)) \!=\! V(\overrightarrow{x}_0) \!<\! c(\varepsilon ) \!\Rightarrow\! \text{ протиріччя.}$
+\end{proof}
+\begin{boxteo}[Ляпунова про асимптотичну стійкість]\ \\ Нехай в деякому околі $B_R(\overrightarrow{0})$ існує функція Ляпунова для системи (1), причому $\dot{V}_f (\overrightarrow{x})$ - від'ємно-визначена.
+Тоді розв'язок $\overrightarrow{x} = \overrightarrow{0}$ системи (1) є \textbf{асимптотично стійким.}
+\end{boxteo}
+
+\begin{proof}
+  По-перше, зауважимо, що існує функція Ляпунова. Отже, за попередньою теоремою розв'язок $\overrightarrow{x}  = \overrightarrow{0} $ принаймі стійкий, тобто:
+  $$
+  \forall \varepsilon  >0 \ \forall t_0 \ \exists \delta > 0 : \forall \overrightarrow{x}_0 : ||\overrightarrow{x}_0|| < \delta \ \text{справедливо, що:}
+  $$
+  $$
+  \text{для розв'язку з початковою умовою } \overrightarrow{x}(t_0) = \overrightarrow{x}_0 : ||\overrightarrow{x}(t)|| < \varepsilon \ \  \forall t \geq t_0
+  $$
+  По-друге, відзначимо, що:
+  $$
+  \frac{d}{dt} V (\overrightarrow{x}(t)) = \dot{V}_f ( \overrightarrow{x}(t)) \ \text{ -- від'ємно-визначена.}
+  $$
+  Отже, $V( \overrightarrow{x} (t))$ спадає і $V(\overrightarrow{x}(t))$ -- додатньо-визначена. Потрібно довести, що: $$||\overrightarrow{x} (t)|| \xrightarrow[t \to +\infty]{} 0, \text{ припустимо протилежне.}$$
+  Нехай $|| \overrightarrow{x}(t)|| \xrightarrow[t \to + \infty]{} a $, де $a > 0$. Тоді: $\forall t \geq t_0 \ ||\overrightarrow{x})t||>0 $ \\ Якщо ж $\exists t_1: ||\overrightarrow{x}(t_1)|| = 0 \Rightarrow V(\overrightarrow{x}(t_1)) = 0 \Rightarrow \begin{cases}
+   V(\overrightarrow{x}(t)) \! \downarrow \\
+   V(\overrightarrow{x}(t)) \text{ -- дод.-визнач.}
+  \end{cases}$, то:
+$$
+V(\overrightarrow{x}(t))  = 0 \ \ \forall t \geq t_1\ \Rightarrow\ \overrightarrow{x}(t) = 0 \ \ \forall t \geq t_1\ \Rightarrow\ ||\overrightarrow{x}(t)|| \xrightarrow[ t \to +\infty]{} 0
+$$
+Але, за припущенням $||\overrightarrow{x}(t)||$ не збігається до 0 при $t \to + \infty$.\\
+Отже, $\forall t \geq t_0: ||\overrightarrow{x}(t)|| > 0$. Отримали:
+$$
+\exists \varepsilon _1 > 0 : \varepsilon_1 \leq ||\overrightarrow{x} (t)|| < \varepsilon  \quad \forall t \geq t_0
+$$
+Покладемо: $ m = \max\limits_{\overrightarrow{x}: \varepsilon_1 \leq  ||\overrightarrow{x}|| \leq \varepsilon } \dot{V}_f ( \overrightarrow{x} ) < 0 \ \  \Longleftarrow \ \ \dot{V}_f (\overrightarrow{x}) \text{ -- від'ємно-визначена }$
+Тоді:
+$$
+\frac{d}{dt} V(\overrightarrow{t}) = \dot{V}_f (\overrightarrow{x}(t))  \leq m
+$$
+Проінтегруємо від $t_0$ до $t$ нерівність:
+$$
+\frac{d}{dt} V(\overrightarrow{x} (t)) \leq m \ \Longrightarrow \  V(\overrightarrow{x} (t)) - V(\overrightarrow{x} (t_0)) \leq  m (t-t_0)
+$$
+$$
+V(\overrightarrow{x}(t)) \leq \underbrace{mt}_{<0} - mt_0 + V(\overrightarrow{x}_0) \xrightarrow[t \to + \infty]{} -\infty \ \Longrightarrow \ V(\overrightarrow{x} (t)) \xrightarrow[t\to+\infty]{}  -\infty
+$$
+А оскільки $V(\overrightarrow{x})$ -- додатньо-визначена, то отримаємо протиріччя.
+\end{proof}
+
+\begin{boxteo}[Ляпунова про нестійкість] \ \\Нехай $\exists V \in C^{1} (B_R (\overrightarrow{0}))$ така, що:
+\begin{enumerate}
+  \item $V(\overrightarrow{0}) = 0$.
+  \item $\dot{V}_f $ - додатньо-визначена в $B_R (\overrightarrow{0})$.
+  \item Для як завгодно малого $\delta > 0 $ знайдеться $\overrightarrow{x}_0 : ||\overrightarrow{x}_0|| < \delta $ i $V (\overrightarrow{x}_0) > 0 $.
+\end{enumerate}
+(тобто $\dot{V}_f$ та $V$ одного знаку для $\overrightarrow{x}_0$)\\
+Тоді, розв'язок $\overrightarrow{x} = \overrightarrow{0} $ системи (6) нестійкий.
+\end{boxteo}
+
+\begin{proof}
+ За означенням потрібно, щоб $\exists \varepsilon : \forall > 0 $ знайдеться $\overrightarrow{x}_0 : ||\overrightarrow{x}_0|| < \delta$, але для розв'язку з початковою умовою $\overrightarrow{x}(t_0) = \overrightarrow{x}_0 \ \ \exists t_1 > t_0 $ таке, що $||\overrightarrow{x} (t_1)||>\varepsilon $. Візьмемо довільне $ \varepsilon > 0 \ \varepsilon  < R  $ та довільне $\delta > 0$. Тоді за умовою теореми $\exists \overrightarrow{x}_0 : ||\overrightarrow{x}_0|| < \delta $ і $V(\overrightarrow{x}_0) > 0$. Розглянемо $\overrightarrow{x}(t)$ - розв'язок з початковими умовами $\overrightarrow{x}(t_0) = \overrightarrow{x}_0$. Покажемо, що $\exists t_1 : ||\overrightarrow{x}(t_1)|| > \varepsilon $. Припустимо, що це не так. Нехай $\forall t \geq t_0 : ||\overrightarrow{x}(t)|| \leq \varepsilon $ та:
+$$
+\forall t \geq t_0 : ||\overrightarrow{x}(t)|| \leq \varepsilon
+$$
+Зауважимо, що:
+$$
+\frac{d}{dt} V(\overrightarrow{x}(t)) = \dot{V}_f (\overrightarrow{x}(t)) >0 \Longrightarrow V(\overrightarrow{x}(t)) \! \uparrow \Longrightarrow \forall t \geq t_0 : V(\overrightarrow{x}(t)) \geq  V(\overrightarrow{x}_0) =: \alpha > 0
+$$
+Тоді:
+$$
+(\text{оскільки } V(\overrightarrow{0}) = 0) \Longrightarrow \exists \varepsilon_0 >0 : \forall t \geq t_0 : \varepsilon _0 \leq ||\overrightarrow{x}(t)|| \leq \varepsilon
+$$
+Покладемо:$$m = \min\limits_{\overrightarrow{x} : \varepsilon_1 \leq ||\overrightarrow{x}|| \leq \varepsilon } \dot{V}_f(\overrightarrow{x}) > 0$$
+Отже, $ \dfrac{d}{dt}V(\overrightarrow{x}(t))  = \dot{V}_f(\overrightarrow{x}(t)) \geq m $. Проінтегруємо від $t_0$ до $t$:
+$$
+V(\overrightarrow{x}(t)) - V(\overrightarrow{x}(t_0)) \geq m (t -t_0), \quad
+V(\overrightarrow{x}(t)) \geq  mt - mt_0 + V(\overrightarrow{x}_0) \xrightarrow[t\to+\infty]{}+ \infty
+$$
+$$
+V(\overrightarrow{x}(t)) \xrightarrow[t\to+\infty]{} + \infty
+$$
+Отже, $V(\overrightarrow{x}(t))$ є необмеженою на обмеженій множині $\left\lbrace \overrightarrow{x} \Big| ||\overrightarrow{x}|| \leq \varepsilon  \right\rbrace$ і $V$ -- неперервна в цій множині.
+Отримали протиріччя $\bigotimes$.
+\end{proof}
+
+\begin{boxteo}[Четаєва про нестійкість]
+  Нехай $V \in C^{1} (D):$
+  \begin{enumerate}
+  \item $V(\overrightarrow{0}) = 0$.
+  \item $\exists D_+ \subset D$:
+  \begin{enumerate}
+      \item $V(\overrightarrow{x} ) > 0 \quad \forall \overrightarrow{x} \in D_+$
+      \item $\overrightarrow{0} \in \partial D_+ $
+      \item $V(\overrightarrow{x}) = 0 \quad \forall \overrightarrow{x} \in \partial D_+ \cap D$
+      \item $\dot{V}_f (\overrightarrow{x})>0 \quad \forall \overrightarrow{x }\in D_{+}$
+  \end{enumerate}
+  \end{enumerate}
+  Тоді розв'язок $\overrightarrow{x} = \overrightarrow{0} $ нестійкий.
+\end{boxteo}
+\begin{remark}
+    На жаль, не існує жодних методів та схем для пошуку функції Ляпунова в загальному випадку. Але іноді, в дуже частинних випадках може допомогти метод розділення змінних. Розглянемо його на прикладах.
+\end{remark}
+
+\begin{example}
+  $$
+  \begin{cases}
+   \dot{x} = x^3 - y \\
+   \dot{y} = x + y^3
+  \end{cases}
+  $$
+  Дослідити на стійкість розв'язок $\begin{bmatrix}
+   x \\
+   y
+  \end{bmatrix} = \begin{bmatrix}
+   0\\
+   0
+  \end{bmatrix}.$ Спробуємо за 1-м наближенням:
+  $$
+  A = \left. \begin{bmatrix}
+   \frac{\partial f_1}{\partial x} & \frac{\partial f_1}{\partial y}\\
+   \frac{\partial f_2}{\partial x} & \frac{\partial f_2}{\partial y}
+  \end{bmatrix}  \right|_{(0,0)} = \left. \begin{bmatrix}
+   3x^2 & -1 \\
+   1 & 3y^2
+  \end{bmatrix} \right|_{(0,0)} = \begin{bmatrix}
+   0 & -1 \\
+   1 & 0
+  \end{bmatrix}
+  $$
+  $$
+  \det(A - \lambda I) = \begin{vmatrix}
+   -\lambda & -1 \\
+   1 & - \lambda
+   \end{vmatrix} = \lambda^2 + 1 = 0 \Rightarrow \fbox{$\lambda = \pm i$} \Rightarrow \Re{\lambda} = 0 \Rightarrow \text{критичний випадок.}
+  $$
+Спробуємо метод функцій Ляпунова. Спробуємо знайти $V(x,y) = A(x) + B(y)$. Функції $A(x)$ та $B(y)$ підберемо так, щоб $V(x,y) \text{  та  } \dot{V}_f(x,y)$ були знаковизначеними. Маємо:
+$$
+\dot{V}_f (x,y) = \frac{\partial V}{\partial x} f_1 (x,y ) + \frac{\partial V}{ \partial y} f_2 (x,y)
+$$
+Тоді:
+$$
+\dot{V}_f (x,y)=  A'(x)(x^3-y) + B'(y) (x+y^3) = A'(x)x^3 - A' (x) y + B'(y) x + B'(y)y^3
+$$
+Підберемо $A(x)$ та $B(x)$ так, щоб $A'(x)y = B'(y)x$:
+$$
+\begin{cases}
+ B'(y)= y\\
+ A'(x) = x
+\end{cases}
+$$
+Візьмемо $B(y) = \dfrac{y^2}{2} \ \  A(x) = \dfrac{x^2}{2} $. Тоді: $V(x,y) = \frac{x^2}{2} + \frac{y^2}{2} \ \text{ -- додатньо-визначена.}$
+$\dot{V}_f (x,y) = x^4 + y^4  \ \text{ -- додатньо-визначена.}$ з цього отримуємо, що розв'язок нестійкий (бо $V$ та $\dot{V}_f$ одного знаку).
+\end{example}
+
+\begin{example}
+ $$
+ \begin{cases}
+\dot{x} = y-x+xy\\
+\dot{y} = x-y-y^3 -x^2
+ \end{cases}
+ $$
+ Спробуємо за першим наближенням:
+ $$
+ A = \left. \begin{vmatrix}
+  -1+y & 1 + x \\
+  1 - 2x & -1-3y^2
+ \end{vmatrix} \right|_{(0,0)} = \begin{bmatrix}
+  -1 & 1 \\
+  1 & -1
+ \end{bmatrix}
+ $$
+ $$
+ \det(A - \lambda I) = \begin{vmatrix}
+   -1 - \lambda & 1 \\
+   1 & -1-\lambda
+ \end{vmatrix} = (\lambda + 1)^2  - 1 = 0 \Rightarrow \begin{gathered}
+  \lambda_1 = 0 \\
+  \lambda_2 = -2
+ \end{gathered}
+ $$
+ $\exists \lambda : \Re \lambda = 0 \Longrightarrow $ маємо критичний випадок. Спробуємо метод функцій Ляпунова. Знайдемо $V(x,y) = A(x) + B(x)$:
+$$
+\dot{V}_f (x,y) = A'(x)(y-x+xy) + B'(y) (x-y-y^3 -x^2) =
+$$
+$$
+= A'(x)y - A'(x)x + A'(x)xy + B'(y)x - B'(y)y - B'(y)y^3 - B'(y)x^2
+$$
+Підберемо $A(x)$ та $B(y)$ так, щоб $
+A'(x)y = B'(y)x
+$:
+$$
+\begin{cases}
+ A'(x)  = x\\
+ B'(y) = y
+\end{cases}
+$$
+Візьмемо $A(x) = \dfrac{x^2}{2}\ \  B(y) = \dfrac{y^2}{2} $ Тоді: $V(x,y) = \frac{x^2}{2} + \frac{y^2}{2} \ \text{ -- додатньо-визначена.}$ $$\dot{V}_f (x,y) = xy - x^2 + x^2 y  + xy - y^2 - y^4 - x^2 y = -(x-y)^2 - y^4 \ \text{ -- від'ємно-визначена.} $$
+З наведених вище міркувань отримуємо, що розв'язок асимптотично стійкий.
+\end{example}
+
+\begin{example}
+ $$
+ \begin{cases}
+  \dot{x } = -xy^2\\
+  \dot{y} = 3yx^2
+ \end{cases}
+ $$
+ Спробуємо метод функцій Ляпунова:
+ $$
+ V(x,y) = A(x) + B(y), \quad
+ \dot{V}_f (x,y) = A'(x) \cdot (-xy^2) + B'(y) 3yx^2
+ $$
+ Виберемо $A(x)$ та $B(y)$:
+ $$
+ A'(x) \cdot xy^2 = 3 B'(y) yx^2 \Longrightarrow \begin{cases}
+  A'(x)  = 3x\\
+  B'(y) = y
+ \end{cases}
+ $$
+Візьмемо $A(x) = \dfrac{3x^2}{2} \ \  B(y) = \frac{y^2}{2} $. Тоді:
+$$ V(x,y) = \frac{3x^2}{2} + \frac{y^2}{2}  \ \text{ -- додатньо-визначена, } \quad \dot{V}_f (x,y) = 0 \leq 0$$
+\end{example}
+З наведених вище міркувань отримуємо, що розв'язок стійкий.
 \end{document}

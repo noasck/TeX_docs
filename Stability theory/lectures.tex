@@ -1207,8 +1207,8 @@ $$ u(t) = ||\overrightarrow{x}(t)|| \cdot e^{\gamma(t - t_0)}, \quad c = K \cdot
 Отримуємо: $$||\overrightarrow{x}(t)|| e^{\gamma(t - t_0)} \!\leq\! K \delta \exp \left\lbrace {\int\limits_{t_0}^{t} K \delta_1 \mathrm{d}s} \right\rbrace \!=\! K \delta e^{K \cdot \delta (t - t_0)} \!\Rightarrow\! ||\overrightarrow{x}(t)|| \!\leq\! K \delta e^{(-\gamma + K \cdot \delta_1)(t - t_0)}$$ Оберемо $\delta_1$ так, щоб $-\gamma + K \cdot \delta_1 < 0 \quad \Longrightarrow \quad \delta_1 < \dfrac{\gamma}{K}$, тоді $||\overrightarrow{x}(t)|| \leq K \cdot \delta < \varepsilon$ при $\delta < \dfrac{\varepsilon}{K}$ і, крім того, $||\overrightarrow{x}(t)|| \leq K \cdot \delta \cdot e^{(-\gamma + K \cdot \delta_1)(t - t_0)} \xrightarrow[t \to \infty]{} 0$, що означає стійкість та асимптотичну стійкість розв'язку $\overrightarrow{x} = \overrightarrow{0}$ за означенням (в означенні в якості $\delta$ можемо взяти найменше з $\delta, \quad \delta_1, \quad \delta_2$).\\ Випадок 2. поки ще залишається без доведення. $\blacksquare$ \\ \\
 \textbf{Зауваження.} (про фазові портрети автономної системи другого порядку). Тип фазового портрету в околі положень рівноваги автономної системи другого порядку у випадку $\Re \lambda \neq 0$ визначається типом фазового портрету лінеаризованої системи (вузол, сідло, фокус, вироджений вузол залишається вузлом, сідлом, фокусом, виродженим вузлом відповідно). \\
 
-%\input{lectures_recent}
-\section{Метод функцій Ляпунова}
+\section{Лекція 4}
+\subsection{Метод функцій Ляпунова}
 Розглянемо систему:
 \be
  \overrightarrow{x}' = f(\overrightarrow{x})
@@ -1357,7 +1357,7 @@ $$
 \begin{remark}
     На жаль, не існує жодних методів та схем для пошуку функції Ляпунова в загальному випадку. Але іноді, в дуже частинних випадках може допомогти метод розділення змінних. Розглянемо його на прикладах.
 \end{remark}
-
+\subsection{Приклади}
 \begin{example}
   $$
   \begin{cases}

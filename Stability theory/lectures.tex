@@ -1232,13 +1232,13 @@ $$
 \begin{defo}
   Нехай $B_{R} ( \overrightarrow{0} ) $ -- деякий окіл точки $ \overrightarrow{0} $. Функція $V \in C^{1} (B_{R} (\overrightarrow{0}))$ називається функцією Ляпунова системи (6), якщо:
 \begin{enumerate}
-  \item $V$ -- доданьо-визначена.
+  \item $V$ -- додатно визначена.
   \item $\dot{V}_f (\overrightarrow{x}) \leq 0 \quad \forall x \in B_{R} ( \overrightarrow{0})$.
 \end{enumerate}
 \end{defo}
 
 \begin{remark}
-    Якщо $ V $ - від'ємно-визначена і $ \dot{V}_f ( \overrightarrow{x}) \geq 0$, то: $$ - V ( \overrightarrow{x} ) - \text{ функція Ляпунова. }$$
+    Якщо $ V $ - від'ємно визначена і $ \dot{V}_f ( \overrightarrow{x}) \geq 0$, то: $$ - V ( \overrightarrow{x} ) - \text{ функція Ляпунова. }$$
 \end{remark}
 
 \begin{boxteo}[Ляпунова про стійкість]
@@ -1246,7 +1246,7 @@ $$
 \end{boxteo}
 
 \begin{proof}
-   Нехай $ V \in C^{1} ( B_{R} ( \overrightarrow{0} ))$ -- функція Ляпунова. Доведемо, що розв'язок стійкий за означенням. Візьмемо $ \forall \varepsilon > 0, \varepsilon < \mathbb{R}$. Покладемо $ c( \varepsilon) \min\limits_{\overrightarrow{x} : ||\overrightarrow{x}|| = \varepsilon} V(\overrightarrow{x}) $. Тоді $ c(\varepsilon) > 0, $ бо $ V( \overrightarrow{x}) $ - додатньо-визначена. Виберемо $ \delta > 0 : 0 < \delta < \varepsilon $ таким чином, щоб: $ \forall \overrightarrow{x}: ||\overrightarrow{x}|| < \delta $ справдовується: $V (\overrightarrow{x}) < C(\varepsilon) $ ( таке $\delta$ існує в силу неперервності $V( \overrightarrow{x})$ та $V ( \overrightarrow{x}) =0 $). Візьмемо $\forall \overrightarrow{x}_0: ||\overrightarrow{x}_0||< \delta $ і розглянемо розв'язок $\overrightarrow{x} (t) $ з початковими умовами $ \overrightarrow{x}(t_0) = \overrightarrow{x}_0$. Потрібно показати за означенням, що:
+   Нехай $ V \in C^{1} ( B_{R} ( \overrightarrow{0} ))$ -- функція Ляпунова. Доведемо, що розв'язок стійкий за означенням. Візьмемо $ \forall \varepsilon > 0, \varepsilon < \mathbb{R}$. Покладемо $ c( \varepsilon) \min\limits_{\overrightarrow{x} : ||\overrightarrow{x}|| = \varepsilon} V(\overrightarrow{x}) $. Тоді $ c(\varepsilon) > 0, $ бо $ V( \overrightarrow{x}) $ - додатно визначена. Виберемо $ \delta > 0 : 0 < \delta < \varepsilon $ таким чином, щоб: $ \forall \overrightarrow{x}: ||\overrightarrow{x}|| < \delta $ справдовується: $V (\overrightarrow{x}) < C(\varepsilon) $ ( таке $\delta$ існує в силу неперервності $V( \overrightarrow{x})$ та $V ( \overrightarrow{x}) =0 $). Візьмемо $\forall \overrightarrow{x}_0: ||\overrightarrow{x}_0||< \delta $ і розглянемо розв'язок $\overrightarrow{x} (t) $ з початковими умовами $ \overrightarrow{x}(t_0) = \overrightarrow{x}_0$. Потрібно показати за означенням, що:
    $$
    ||\overrightarrow{x}(t)|| < \varepsilon \quad \forall t \geq t_0
    $$
@@ -1260,7 +1260,7 @@ $$
   Отже, $V (\overrightarrow{x}(t))\!\! \downarrow \  \!\Rightarrow\!
   c'(\varepsilon) \!\leq\!  V(\overrightarrow{x} (t_1)) \!\leq\! V(\overrightarrow{x} (t_0)) \!=\! V(\overrightarrow{x}_0) \!<\! c(\varepsilon ) \!\Rightarrow\! \text{ протиріччя.}$
 \end{proof}
-\begin{boxteo}[Ляпунова про асимптотичну стійкість]\ \\ Нехай в деякому околі $B_R(\overrightarrow{0})$ існує функція Ляпунова для системи (1), причому $\dot{V}_f (\overrightarrow{x})$ - від'ємно-визначена.
+\begin{boxteo}[Ляпунова про асимптотичну стійкість]\ \\ Нехай в деякому околі $B_R(\overrightarrow{0})$ існує функція Ляпунова для системи (1), причому $\dot{V}_f (\overrightarrow{x})$ -- від'ємно визначена.
 Тоді розв'язок $\overrightarrow{x} = \overrightarrow{0}$ системи (1) є \textbf{асимптотично стійким.}
 \end{boxteo}
 
@@ -1274,9 +1274,9 @@ $$
   $$
   По-друге, відзначимо, що:
   $$
-  \frac{d}{dt} V (\overrightarrow{x}(t)) = \dot{V}_f ( \overrightarrow{x}(t)) \ \text{ -- від'ємно-визначена.}
+  \frac{d}{dt} V (\overrightarrow{x}(t)) = \dot{V}_f ( \overrightarrow{x}(t)) \ \text{ -- від'ємно визначена.}
   $$
-  Отже, $V( \overrightarrow{x} (t))$ спадає і $V(\overrightarrow{x}(t))$ -- додатньо-визначена. Потрібно довести, що: $$||\overrightarrow{x} (t)|| \xrightarrow[t \to +\infty]{} 0, \text{ припустимо протилежне.}$$
+  Отже, $V( \overrightarrow{x} (t))$ спадає і $V(\overrightarrow{x}(t))$ -- додатно визначена. Потрібно довести, що: $$||\overrightarrow{x} (t)|| \xrightarrow[t \to +\infty]{} 0, \text{ припустимо протилежне.}$$
   Нехай $|| \overrightarrow{x}(t)|| \xrightarrow[t \to + \infty]{} a $, де $a > 0$. Тоді: $\forall t \geq t_0 \ ||\overrightarrow{x})t||>0 $ \\ Якщо ж $\exists t_1: ||\overrightarrow{x}(t_1)|| = 0 \Rightarrow V(\overrightarrow{x}(t_1)) = 0 \Rightarrow \begin{cases}
    V(\overrightarrow{x}(t)) \! \downarrow \\
    V(\overrightarrow{x}(t)) \text{ -- дод.-визнач.}
@@ -1289,7 +1289,7 @@ $$
 $$
 \exists \varepsilon _1 > 0 : \varepsilon_1 \leq ||\overrightarrow{x} (t)|| < \varepsilon  \quad \forall t \geq t_0
 $$
-Покладемо: $ m = \max\limits_{\overrightarrow{x}: \varepsilon_1 \leq  ||\overrightarrow{x}|| \leq \varepsilon } \dot{V}_f ( \overrightarrow{x} ) < 0 \ \  \Longleftarrow \ \ \dot{V}_f (\overrightarrow{x}) \text{ -- від'ємно-визначена }$
+Покладемо: $ m = \max\limits_{\overrightarrow{x}: \varepsilon_1 \leq  ||\overrightarrow{x}|| \leq \varepsilon } \dot{V}_f ( \overrightarrow{x} ) < 0 \ \  \Longleftarrow \ \ \dot{V}_f (\overrightarrow{x}) \text{ -- від'ємно визначена }$
 Тоді:
 $$
 \frac{d}{dt} V(\overrightarrow{t}) = \dot{V}_f (\overrightarrow{x}(t))  \leq m
@@ -1301,13 +1301,13 @@ $$
 $$
 V(\overrightarrow{x}(t)) \leq \underbrace{mt}_{<0} - mt_0 + V(\overrightarrow{x}_0) \xrightarrow[t \to + \infty]{} -\infty \ \Longrightarrow \ V(\overrightarrow{x} (t)) \xrightarrow[t\to+\infty]{}  -\infty
 $$
-А оскільки $V(\overrightarrow{x})$ -- додатньо-визначена, то отримаємо протиріччя.
+А оскільки $V(\overrightarrow{x})$ -- додатно визначена, то отримаємо протиріччя.
 \end{proof}
 
 \begin{boxteo}[Ляпунова про нестійкість] \ \\Нехай $\exists V \in C^{1} (B_R (\overrightarrow{0}))$ така, що:
 \begin{enumerate}
   \item $V(\overrightarrow{0}) = 0$.
-  \item $\dot{V}_f $ - додатньо-визначена в $B_R (\overrightarrow{0})$.
+  \item $\dot{V}_f $ - додатно визначена в $B_R (\overrightarrow{0})$.
   \item Для як завгодно малого $\delta > 0 $ знайдеться $\overrightarrow{x}_0 : ||\overrightarrow{x}_0|| < \delta $ i $V (\overrightarrow{x}_0) > 0 $.
 \end{enumerate}
 (тобто $\dot{V}_f$ та $V$ одного знаку для $\overrightarrow{x}_0$)\\
@@ -1405,8 +1405,8 @@ $$
  A'(x) = x
 \end{cases}
 $$
-Візьмемо $B(y) = \dfrac{y^2}{2} \ \  A(x) = \dfrac{x^2}{2} $. Тоді: $V(x,y) = \frac{x^2}{2} + \frac{y^2}{2} \ \text{ -- додатньо-визначена.}$
-$\dot{V}_f (x,y) = x^4 + y^4  \ \text{ -- додатньо-визначена.}$ з цього отримуємо, що розв'язок нестійкий (бо $V$ та $\dot{V}_f$ одного знаку).
+Візьмемо $B(y) = \dfrac{y^2}{2} \ \  A(x) = \dfrac{x^2}{2} $. Тоді: $V(x,y) = \frac{x^2}{2} + \frac{y^2}{2} \ \text{ -- додатно визначена.}$
+$\dot{V}_f (x,y) = x^4 + y^4  \ \text{ -- додатно визначена.}$ З цього отримуємо, що розв'язок нестійкий (бо $V$ та $\dot{V}_f$ одного знаку).
 \end{example}
 
 \begin{example}
@@ -1435,7 +1435,7 @@ $\dot{V}_f (x,y) = x^4 + y^4  \ \text{ -- додатньо-визначена.}$
   \lambda_2 = -2
  \end{gathered}
  $$
- $\exists \lambda : \Re \lambda = 0 \Longrightarrow $ маємо критичний випадок. Спробуємо метод функцій Ляпунова. Знайдемо $V(x,y) = A(x) + B(x)$:
+ $\exists \lambda : \Re \lambda = 0 \Longrightarrow $ маємо критичний випадок. Спробуємо метод функцій Ляпунова. Знайдемо $V(x,y) = A(x) + B(y)$:
 $$
 \dot{V}_f (x,y) = A'(x)(y-x+xy) + B'(y) (x-y-y^3 -x^2) =
 $$
@@ -1451,7 +1451,7 @@ $$
  B'(y) = y
 \end{cases}
 $$
-Візьмемо $A(x) = \dfrac{x^2}{2}\ \  B(y) = \dfrac{y^2}{2} $ Тоді: $V(x,y) = \frac{x^2}{2} + \frac{y^2}{2} \ \text{ -- додатньо-визначена.}$ $$\dot{V}_f (x,y) = xy - x^2 + x^2 y  + xy - y^2 - y^4 - x^2 y = -(x-y)^2 - y^4 \ \text{ -- від'ємно-визначена.} $$
+Візьмемо $A(x) = \dfrac{x^2}{2}\ \  B(y) = \dfrac{y^2}{2} $ Тоді: $V(x,y) = \frac{x^2}{2} + \frac{y^2}{2} \ \text{ -- додатно визначена.}$ $$\dot{V}_f (x,y) = xy - x^2 + x^2 y  + xy - y^2 - y^4 - x^2 y = -(x-y)^2 - y^4 \ \text{ -- від'ємно визначена.} $$
 З наведених вище міркувань отримуємо, що розв'язок асимптотично стійкий.
 \end{example}
 
@@ -1475,7 +1475,7 @@ $$
  \end{cases}
  $$
 Візьмемо $A(x) = \dfrac{3x^2}{2} \ \  B(y) = \frac{y^2}{2} $. Тоді:
-$$ V(x,y) = \frac{3x^2}{2} + \frac{y^2}{2}  \ \text{ -- додатньо-визначена, } \quad \dot{V}_f (x,y) = 0 \leq 0$$
+$$ V(x,y) = \frac{3x^2}{2} + \frac{y^2}{2}  \ \text{ -- додатно визначена, } \quad \dot{V}_f (x,y) = 0 \leq 0$$
 \end{example}
 З наведених вище міркувань отримуємо, що розв'язок стійкий.
 \end{document}

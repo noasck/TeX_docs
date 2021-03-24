@@ -1,9 +1,5 @@
 % N-integrals by R^n - \underset{R^n}{ \int \cdots \int}
 
-
-\begin{center}
-	\Huge \textbf{Собственно, теорвер 2...}
-\end{center}
 \section{Функції від випадкових величин (векторів)}
 Для дискретної випадкової величини $\xi$: $\eta = \phi (\xi) \Rightarrow \eta$ - ДВВ. \\
 Припустимо, що $\varphi$ - неперервно диференційована. $\xi$ - асолютно неперервна зі щільністю $f_{\xi}(x)$. Розглядаємо $ \eta = \varphi(\xi) $:
@@ -23,12 +19,11 @@
 $$  \int\limits_{B }^{ }{ f_{\eta} (y)dy} = \mathbb{P} \left\lbrace \eta \in B \right\rbrace =
 \mathbb{P} \left\lbrace \varphi(\xi) \in B \right\rbrace = \mathbb{P} \left\lbrace \xi \in \phi^{-1} (B) \right\rbrace =  \int\limits_{\phi^{-1} (B)}^{}{f_{\xi}(x)dx} =
 $$
-
 $$
 = \left| \begin{gathered}
   \varphi(x) = y \\
-  x = \psi(y) \\
-  J = \psi'(y) = J_{\psi}
+  x = \psi(y)
+  % \\J = \psi'(y) = J_{\psi}
 \end{gathered} \right|  =  \int\limits_{B \cap E_{\varphi}}^{ }{ f_{\xi} (\psi (y)) \cdot \left| J_{\psi} (y)  \right| dy} =  \int\limits_{B}^{ }{f_{\xi} (\psi (y)) \cdot \left| \psi'(y) \right| \cdot \mathbb{I}_{E_{\varphi}}(y)dy}
 $$
 \end{proof}
@@ -41,20 +36,17 @@ $$
  E_{\varphi_1} = (0, + \i) \quad E_{\varphi_2} = (0, + \i)\\
  \psi (x) = y   \quad x^2 = y  \quad x = \pm \sqrt{y} \\
  \psi_1(y) = - \sqrt{y} \quad \psi_2(y) = \sqrt{y}
-\end{gathered} \qquad \quad
+\end{gathered} \qquad \qquad
 \begin{gathered}
-\includegraphics[scale=0.24]{assets/lectures_part_3-7a9fde69.png}
+\includegraphics[scale=0.25]{assets/lectures_part_3-7a9fde69.png}
 \end{gathered}
 $$
 \textbf{Тоді: } \fbox{$ f_{\eta} (y) =  \sum\limits_{i = 1}^{ n}{ f_{\xi} (\psi_i (y)) \cdot \left| \psi_i'(y) \right| \cdot \mathbb{I}_{E_{\varphi_i}}(y)}$}.
 \end{boxteo}
 \begin{proof}
   Розглядаемо множину B.
-  $$  \int\limits_{B }^{ }{ f_{\eta} (y)dy} = \mathbb{P} \left\lbrace \eta \in B \right\rbrace =
- \mathbb{P} \left\lbrace \xi \in \phi_1^{-1} (B) \cup \cdots \cup \xi \in \phi_n^{-1} (B) \right\rbrace =
-  $$
-  $$
-  =  \sum\limits_{i = 1}^{n}{ \mathbb{P} \left\lbrace \xi \in \phi_i^{-1} (B) \right\rbrace  }  - \text{ надалі доведення зводиться до попередньої теореми.}
+  $$  \int\limits_{B }^{ }{ f_{\eta} (y)dy} \!=\! \mathbb{P} \left\lbrace \eta \in B \right\rbrace \!=\!
+ \mathbb{P} \left\lbrace \xi \in \phi_1^{-1} (B) \cup \cdots \cup \xi \in \phi_n^{-1} (B) \right\rbrace  \!=\!\! \sum\limits_{i = 1}^{n}{ \mathbb{P} \left\lbrace \xi \in \phi_i^{-1} (B) \right\rbrace  }
   $$
   \end{proof}
 
@@ -81,11 +73,11 @@ $$
     $$
 \end{boxteo}
 Часто будемо використовувати: \fbox{$f_{\xi_1 + \xi_2} (y) =  \int\limits_{-\infty}^{ +\infty}{ f_{\overline{\xi} } (x, y-x) dx}$}.\\
-Якщо $ \xi_1 \independent \xi_2: $ \fbox{$ f_{\xi_1 + \xi_2} (y) =  \int\limits_{-\infty}^{ +\infty}{ f_{\xi_1} (x) \cdot f_{\xi_2} (y-x) dx}$}.\\ Також: $f_{\xi_1 + \xi_2} (y) = (f_{\xi_1} \circledast f_{\xi2} (y))$ - згортка.
-\subsection{Загальний алгоритм знаходження щільності функції від випадкових векторів.}
+Якщо $ \xi_1 \independent \xi_2: $ \fbox{$ f_{\xi_1 + \xi_2} (y) =  \int\limits_{-\infty}^{ +\infty}{ f_{\xi_1} (x) \cdot f_{\xi_2} (y-x) dx}$}.\\ Також: $f_{\xi_1 + \xi_2} (y) = (f_{\xi_1}(x) \circledast f_{\xi2} (y))$ - згортка.
+\subsection{Загальний алгоритм знаходження PDF}
 Розглядаємо $ \eta = \varphi( \overline{\xi}) \quad f_{\eta} (z) = ?$.
 $$
-F_{\eta} = \mathbb{P} \left\lbrace  \eta < z \right\rbrace = \mathbb{P} \left\lbrace \varphi(\xi_1, \xi_2) < z \right\rbrace = \left| \left\lbrace (x,y) \in \mathbb{R} \bigg| \varphi(x,y) < z \right\rbrace = D_z \right|  =
+F_{\eta} = \mathbb{P} \left\lbrace  \eta < z \right\rbrace = \mathbb{P} \left\lbrace \varphi(\xi_1, \xi_2) < z \right\rbrace = \left| \left\lbrace (x,y) \in \mathbb{R} \Big| \varphi(x,y) < z \right\rbrace = D_z \right|  =
 $$
 $$
  =  \iint\limits_{D_z}^{}{f_{\overline{\xi} }(x,y ) dxdy} \Longrightarrow f_\eta (z)  = F_\eta' (z)
@@ -122,9 +114,9 @@ x * y < z \Leftrightarrow \left[ \begin{gathered}
 \end{gathered}
  \right.
 \end{gathered}
- \qquad
+ \qquad  \qquad  \quad
  \begin{gathered}
-\includegraphics[scale=0.4]{assets/lectures_part_3-5c275c57.png}
+\includegraphics[scale=0.37]{assets/lectures_part_3-5c275c57.png}
  \end{gathered}
 $$
 $$
@@ -160,8 +152,8 @@ $$
 \end{gathered}
  \right.
  \qquad
-\end{gathered}
-  \begin{gathered} \includegraphics[scale=0.3]{assets/lectures_part_3-f7d7887c.png} \end{gathered}
+\end{gathered}  \qquad  \qquad  \qquad
+  \begin{gathered} \includegraphics[scale=0.27]{assets/lectures_part_3-f7d7887c.png} \end{gathered}
 $$
 Повертаємося до інтегралу, що записано вище:
 $$
@@ -176,8 +168,7 @@ $$
     $\xi_1, \xi_2 \sim N(0,1) \quad \xi_1 \independent \xi_2 \quad \eta = \frac{\xi_2}{\xi_1} $
 \\ Величини $\xi_1, \xi_2$ розподілені нормально: $
 f_{\xi_1} (x) = \frac{1}{\sqrt{2 \pi}} e^{ - \frac{x^2}{2} }  = f_{\xi_2 } (x).
-$\\
-Скористаємося знайденою формулою:
+$
 $$
 f_{\eta} (z) = -  \int\limits_{-\infty}^{ 0}{\frac{1}{\sqrt{2 \pi}} e^{ - \frac{x^2}{2} } \cdot \frac{1}{\sqrt{2 \pi}} e^{ - \frac{z^2x^2}{2} } } x dx + \int\limits_{0}^{ +\infty}{\frac{1}{\sqrt{2 \pi}} e^{ - \frac{x^2}{2} } \cdot \frac{1}{\sqrt{2 \pi}} e^{ - \frac{z^2x^2}{2} } } x dx  =
 $$
@@ -196,7 +187,7 @@ $$
 Отримали, що: $ \dfrac{N(0,1)}{N(0,1)} \sim \textbf{Cauchy Distribution} $
 \end{example}
 
-\subsection{Щільності розподілу максимума, мінімума та інших порядкових статистик.}
+\subsection{Щільності розподілу максимума, мінімума, порядкових статистик.}
 \subsubsection{Максимум.}
 Розглянемо максимум з деяких незалежних випадкових величин: $ \xi_1 , \xi_2, ... , \xi_n$.
 $$M = \max \left\lbrace \xi_1, ..., \xi_n \right\rbrace $$
@@ -308,7 +299,7 @@ $$
    Повернемося до доведення основної теореми. Нехай $ \varphi(x,y) \geq 0 \quad \forall (x,y) \in \mathbb{R}^2.$
    $$
    \mathbb{E} \eta = \underbrace{\mathbb{E} \varphi (\xi_1, \xi_2)}_{ \geq 0 } =  \int\limits_{0}^{ +\infty}{\mathbb{P} \left\lbrace \varphi(\xi_1, \xi_2) \geq z  \right\rbrace dz} =
-     D_z : \left\lbrace (x,y) \in \mathbb{R}^2 \big| \varphi(x,y) \geq z \right\rbrace =
+     D_z : \left\lbrace (x,y) \in \mathbb{R}^2 \Big| \varphi(x,y) \geq z \right\rbrace =
     $$
     $$
     =  \int\limits_{0}^{ +\infty}{\mathbb{P} \left\lbrace \overline{\xi} \in D_z \right\rbrace} =  \int\limits_{0}^{ +\infty}{ \left( \iint\limits_{D_z} f_{\overline{\xi}}(x,y)  dxdy \right) } dz =  \iint\limits_{R^2}{ f_{\overline{\xi}}(x,y) \left( \int\limits_{0}^{ \varphi(x,y)} dz  \right) }dxdy =
@@ -350,7 +341,7 @@ $$
 
 \newpage
 
-\section{Деякі ймовірнісні розподіли, що зустрічаються у математичній статистиці.}
+\section{Деякі додаткові ймовірнісні розподіли.}
 
 \subsection{Гамма-розподіл.}
 \subsubsection{PDF.}
@@ -619,3 +610,184 @@ $$
   \mathbb{P} \left\lbrace \left| \xi - \mathbb{E} \xi \right| \geq a  \right\rbrace=\mathbb{P} \left\lbrace  (\xi - \mathbb{E} \xi)^2 \geq a^2 \right\rbrace \leq \frac{\mathbb{E} \left( \xi - \mathbb{E} \xi \right)^2}{a^2} = \frac{\mathbb{D}\xi}{a^2}
  $$
 \end{proof}
+\newpage
+\subsection{Види збіжності випадкових величин}
+З мат. аналізу пам'ятаємо означення збіжності числової послідовності:
+\begin{defo} (Нагадування) \\
+ Послідовність $ \left\lbrace x_n\ \Big|\  n\in \mathbb{N} \right\rbrace$ збігається до $x$ якщо:
+ $$
+ \forall \varepsilon >0 \ \exists N \ \forall n\geq N \ |x_n - x| < \varepsilon
+ $$
+Для $(\xi_n)$ - послідовності випадкових величин, єдиного аналогічного означення не існує. Тому, доведеться розглянути декілька видів видів збіжності.
+\end{defo}
+\subsubsection{Збіжність з імовірністю 1.}
+Позначення: \fbox{\textbf{м.н.}-збіжність.}
+\begin{defo} Нехай задана послідовність $(\xi_n) = \left\lbrace \xi_n \Big| n \in \mathbb{N} \right\rbrace$, тоді:
+ $$
+ (\xi_n) \xrightarrow[n \to \infty]{\text{м.н.}} \xi \Longleftrightarrow \mathbb{P} \left\lbrace \xi_n \to \xi \right\rbrace = 1 \Longleftrightarrow \mathbb{P} \left\lbrace \omega : \xi_n (\omega) \to \xi(\omega) \right\rbrace = 1
+ $$
+ називається збіжністю з імовірністю 1 або м.н. збіжністю.
+ \begin{enumerate}
+     \item Найбільш природній вид збіжності.
+     \item Досить незручний для використання.
+ \end{enumerate}
+\end{defo}
+\subsubsection{Збіжність в середньому квадратичному.}
+Позначення: \fbox{$\mathbb{L}_2$-збіжність.}
+\begin{defo} Нехай задана послідовність $(\xi_n) = \left\lbrace \xi_n \bdash n \in \mathbb{N} \right\rbrace$, тоді:
+  $$
+  (\xi_n) \xrightarrow[n \to \infty]{\mathbb{L}_2}\xi \Longleftrightarrow \mathbb{E} \left( \xi_n - \xi \right)^2 \xrightarrow[n \to \infty]{} 0
+  $$
+  називається збіжністю в середньому квадратичному.
+\end{defo}
+\subsubsection{Збіжність в середньому.}
+Позначення: \fbox{$\mathbb{L}_1$-збіжність.}
+\begin{defo} Нехай задана послідовність $(\xi_n) = \left\lbrace \xi_n \bdash n \in \mathbb{N} \right\rbrace$, тоді:
+  $$
+  (\xi_n) \xrightarrow[n \to \infty]{\mathbb{L}_2}\xi \Longleftrightarrow \mathbb{E} \left| \xi_n - \xi \right| \xrightarrow[n \to \infty]{} 0
+  $$
+  називається збіжністю в середньому.
+\end{defo}
+\subsubsection{Збіжність за імовірністю.}
+Позначення: \fbox{$\mathbb{P}$-збіжність.}\\
+Надалі \textbf{критичною подією} будемо називати велике відхилення однієї величини від іншої на фіксоване додатнє число, тобто: $\varepsilon  > 0 : \left| \xi_n - \xi \right| > \varepsilon $.
+\begin{defo} Нехай задана послідовність $(\xi_n) = \left\lbrace \xi_n \bdash n \in \mathbb{N} \right\rbrace$, тоді:
+  $$
+  (\xi_n) \xrightarrow[n \to \infty]{\mathbb{P}}\xi \Longleftrightarrow
+  \forall \varepsilon > 0 \ \
+\mathbb{P} \left\lbrace   \left| \xi_n - \xi \right| > \varepsilon  \right\rbrace \xrightarrow[n\to\infty]{}0
+  $$
+  називається збіжністю за імовірністю.
+\end{defo}
+\begin{remark} Для збіжності за імовірністю справедливою є еквівалентність:
+$$
+\left( \forall \varepsilon > 0 \ \
+\mathbb{P} \left\lbrace   \left| \xi_n - \xi \right| > \varepsilon  \right\rbrace \xrightarrow[n\to\infty]{}0 \right) \Longleftrightarrow \left( \forall \varepsilon  > 0 \ \
+\mathbb{P} \left\lbrace   \left| \xi_n - \xi \right| \leq  \varepsilon  \right\rbrace \xrightarrow[n\to\infty]{}1 \right)
+$$
+\end{remark}
+\begin{wrapfigure}{R}{0.4\textwidth}
+\centering
+\vspace*{-1.5cm}
+\includegraphics[width=0.39\textwidth]{assets/g11500.png}
+{\small Cхема зв'язку різних видів збіжності.}
+\end{wrapfigure}
+\subsubsection{Взаємозв'язок збіжностей.}
+ Кожна стрілки відповідає теоремі, що описує зв'язок збіжностей.\\
+ Пунктирні стрілки 1 та 2 потребують додаткового пояснення:\\
+    $\circled{1}$. Завжди існує м.н.-збіжна підпослідовність.\\
+    $\circled{2}$. Виконується, якщо $\xi = const$.
+\\
+\def\L{\mathbb{L}}
+
+\textbf{Лема.} (Нерівність Ляпунова (ч.в.)) $$\mathbb{E} \left| \eta \right| \leq \sqrt{\mathbb{E} \eta^2} $$
+\begin{proof}
+ $\mathbb{E} ( \left|\eta \right|^2 ) - \left( \mathbb{E} \left| \eta \right| \right)^2=  \mathbb{E} (\eta^2) - (\mathbb{E} \left| \eta \right|)^2=  \mathbb{D} \left| \eta \right| \geq  0 \Rightarrow  \mathbb{E} \left| \eta \right| \leq \sqrt{\mathbb{E} \eta^2} $
+\end{proof}
+\begin{teo} Покажемо, що $\L_2 \Longrightarrow \L_1$, тобто:
+$$
+ \begin{gathered}
+  \L_2 : \mathbb{E} (\xi_n - \xi)^2 \xrightarrow[n\to\i]{} 0\\
+  \Downarrow\\
+  \L_1 : \mathbb{E} \left| \xi_n - \xi \right| \xrightarrow[n\to\i]{} 0\\
+ \end{gathered}
+$$
+\end{teo}
+\begin{proof}За нерівністю Ляпунова та правилом ''2-ох міліціонерів'':
+$$
+0 \leq  \underbrace{\mathbb{E} \left|  \xi_n - \xi \right|}_{\to 0} \leq  \sqrt{\mathbb{E}(\xi_n - \xi)^2} \xrightarrow[n\to\infty]{} 0\  \Longleftarrow\   \L_2\text{-збіжність.}
+$$
+\end{proof}
+\begin{teo} Покажемо, що $\L_1 \Longrightarrow \mathbb{P}$, тобто:
+$$
+ \begin{gathered}
+ \L_1 : \mathbb{E} \left| \xi_n - \xi \right| \xrightarrow[n\to\i]{} 0\\
+  \Downarrow\\
+\mathbb{P}: \ \ \forall \varepsilon > 0 : \mathbb{P} \left\lbrace \left| \xi_n - \xi \right| > \varepsilon \right\rbrace \xrightarrow[n\to\i]{} 0\\
+ \end{gathered}
+$$
+\end{teo}
+\begin{proof} Підставимо $ \left| \xi_n  - \xi\right|$ у нерівність Маркова:
+$$
+0  \leq \underbrace{\mathbb{P} \left\lbrace \left| \xi_n  - \xi\right| > \varepsilon  \right\rbrace}_{\to 0} \leq \frac{\mathbb{E} \left| \xi_n  - \xi\right|}{\varepsilon } \xrightarrow[n\to\i]{} 0 \  \Longleftarrow\   \L_1\text{-збіжність.}
+$$
+За правилом  ''2-ох міліціонерів'' отримали збіжність імовірності до 0.
+\end{proof}
+
+\subsubsection{Збіжність за розподілом (слабка збіжність).}
+
+Позначення: \fbox{\textbf{d}-збіжність.}
+\begin{defo} Нехай задана послідовність $(\xi_n) = \left\lbrace \xi_n \Big| n \in \mathbb{N} \right\rbrace$, тоді:
+ $$
+ (\xi_n) \xrightarrow[n \to \infty]{d} \xi \Longleftrightarrow\  \begin{gathered}
+  F_{\xi}(x)\in C^{1}(D)\\
+  F_{\xi_n}(x)\in C^{1}(D)
+ \end{gathered}\ \  \forall x \in D:  \underbrace{F_{\xi_n}(x)}_{\mathbb{P} \left\lbrace \xi_n < x \right\rbrace} \xrightarrow[n\to\i]{} \underbrace{F_{\xi}(x)}_{\mathbb{P} \left\lbrace \xi< x \right\rbrace}
+ $$
+ називається збіжністю за розподілом.\\
+\end{defo}
+\begin{teo} Покажемо, що $d \Longrightarrow \mathbb{P}$ якщо $ \xi = const$, тобто:
+$$
+ \begin{gathered}
+ d : \ \ \exists C \in \mathbb{R} \  \ \forall x \neq C:  F_{\xi_n}(x) \xrightarrow[n\to\i]{}F_{C}(x) \\
+  \Downarrow\\
+\mathbb{P}: \ \ \forall \varepsilon > 0 : \mathbb{P} \left\lbrace \left| \xi_n - C \right| > \varepsilon \right\rbrace \xrightarrow[n\to\i]{} 0\\
+ \end{gathered}
+$$
+\end{teo}
+\begin{proof} Умову збіжності послідовності $(\xi_n)$ за розподілом до константи $\exists C \in \mathbb{R}$ природнім чином можна представити як:
+$$
+(\xi_n) \xrightarrow[n\to\infty]{} C \ \Longleftrightarrow \ \mathbb{P} \left\lbrace \xi_n < x  \right\rbrace \xrightarrow[n\to\infty]{}
+\begin{cases}
+ 0 ,& x \leq  C; \\
+ 1 ,&  x > C ;
+\end{cases} = F_C(x)
+$$
+В той же час, умову збіжності за імовірністю можна розписати так:
+$$
+(\xi_n) \xrightarrow[n \to \infty]{\mathbb{P}} C \Longleftrightarrow
+\forall \varepsilon > 0 \ \
+\mathbb{P} \left\lbrace   \xi_n \in [C - \varepsilon, C + \varepsilon]   \right\rbrace \xrightarrow[n\to\infty]{}1
+$$
+Розпишемо, скориставшись правилом $\mathbb{P} \left\lbrace  \xi \in [a,b) \right\rbrace = F_{\xi}(b) - F_{\xi}(a)$:
+$$
+1 \geq \mathbb{P} \left\lbrace \xi_n \in [C - \varepsilon , C + \varepsilon ] \right\rbrace \geq \mathbb{P} \left\lbrace \xi \in [C- \varepsilon, C + \varepsilon ] \right\rbrace =
+$$
+$$
+= F_{\xi_n} (C+ \varepsilon )- F_{\xi_n} (C - \varepsilon ) \xrightarrow[n\to\infty]{} F_C(C + \varepsilon) - F_C(C - \varepsilon ) = 1 - 0 = 1
+$$
+Тому, за правилом ''2-ох міліціонерів'', отримали збіжність послідовності $(\xi_n)$ за імовірністью до константи $C$. Отже: $ d \xRightarrow[]{\xi=const} \mathbb{P} $.
+\end{proof}
+\begin{remark}
+    Для всіх видів збіжності виконуються арифм. власт. границь.
+\end{remark}
+\subsubsection{Критерій середньоквадратичної збіжності до константи.}
+\begin{boxteo} Нехай задана послідовність $(\xi_n) = \left\lbrace \xi_n \Big| n \in \mathbb{N} \right\rbrace$, тоді:
+  $$
+  \exists C \in \mathbb{R} : (\xi_n) \xrightarrow[]{\L_2} C \ \Longleftrightarrow \  \begin{cases}
+   \mathbb{E} \xi_n \xrightarrow[n\to\infty]{} C; \\
+   \mathbb{D} \xi_n \xrightarrow[n\to\infty]{} 0;
+  \end{cases}
+  $$
+\end{boxteo}
+\begin{proof}
+ $$
+ (\xi_n) \xrightarrow{ \L_2 } C \Longleftrightarrow  \mathbb{E} (\xi_n - C)^2  \xrightarrow[n\to\infty]{} 0 \Longleftrightarrow \mathbb{E} \left( \left( \xi_n  - \mathbb{E} \xi_n \right) + (\mathbb{E} \xi_n - C) \right)^2 \xrightarrow[n\to\infty]{} 0  \Longleftrightarrow
+ $$
+ $$
+ \Longleftrightarrow \mathbb{E} (\xi_n - \mathbb{E} \xi_n)^2 + \mathbb{E}\left(  (\mathbb{E}\xi_n - C)^2 \right) + 2 \mathbb{E}(\xi_n - \mathbb{E}\xi_n) (\mathbb{E}\xi_n - C) \xrightarrow[n\to\infty]{} 0  \Longleftrightarrow
+ $$
+ $$
+  \Longleftrightarrow \mathbb{D} \xi_n + ( \mathbb{E}\xi_n - C)  \xrightarrow[n\to\infty]{} 0 \Longleftrightarrow \begin{cases}
+   \mathbb{E} \xi_n \xrightarrow[n\to\infty]{} C; \\
+   \mathbb{D} \xi_n \xrightarrow[n\to\infty]{} 0;
+  \end{cases}
+  $$
+\end{proof}
+
+\begin{boxteo}[Окремий випадок теореми неперервності П.Леві]
+$$
+(\xi_n) \xrightarrow{d} \xi \ \Longleftrightarrow \ \forall t \in \mathbb{R} \ \  \underbrace{\chi_{\xi_n}}_{\mathbb{E} e ^{it \xi_n}} (t) \xrightarrow[n\to\infty]{}  \underbrace{\chi_{\xi}(t)}_{\mathbb{E} e ^{it \xi_n}}
+$$
+Без доведення. \ \ $\blacksquare$
+\end{boxteo}

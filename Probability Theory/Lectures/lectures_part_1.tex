@@ -2,7 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{ragged2e}
 \usepackage{mathtools}
-
+% \usepackage{setspace}
 
 \usepackage{wrapfig}
 % Example:
@@ -139,6 +139,7 @@ showstringspaces=false}
 \def\vxi{\overline{\xi}}       % vector xi           = \vxi
 \def\vtheta{\overline{\theta}} % vector theta   = \vtheta
 \def\gammadistr{\Gamma}
+\def\bdash{\ \Big|\  }
 
 \begin{center}
 	\Huge \textbf{Собственно, теорвер...}
@@ -572,11 +573,7 @@ $$
 	  \end{gathered}}{  \int\limits_{-\infty}^{ x}{   \int\limits_{-\infty}^{ y}{
 		f_{\xi_1, \xi_2}(x,y) dxdy = 1} }} $$
 		$$
-		F_{\xi_1, \xi_2} (x,y) \begin{gathered}
-		   \\
-			\longrightarrow \\
-			x,y\to \infty
-		\end{gathered} 1
+		F_{\xi_1, \xi_2} (x,y) \xrightarrow[x,y\to \infty]{}1
 		$$
 	\end{proof}
 \end{defo}
@@ -710,7 +707,7 @@ $$
 	}{\pi} (1 - \sqrt{x^2 + y^2})dxdy
 	$$
 \end{example}
-
+\newpage
 \subsection{Коваріація та її властивості.}
 $$
 \begin{gathered}
@@ -882,6 +879,7 @@ $$
 	-1, k<0\\
  \end{gathered} \right. $$
 \end{proof}
+\newpage
 \subsection{Незалежність випадкових величин}
 \begin{defo}
 	Випадкові величини $\xi, \eta$ називають незалежними, якщо події \\$ \left\lbrace \xi\in [a,b] \right\rbrace, \left\lbrace \eta\in [a,b] \right\rbrace $ є незалежними $ \forall a \leq  b , c\leq d$\\
@@ -897,9 +895,6 @@ $$
 	$$
 
 \end{defo}
-
-\pagebreak
-
 \begin{boxteo}
 	$\xi, \eta$ - незалежні $\Leftrightarrow F_{\xi, \eta} = F_{\xi}(x) \cdot F_{\eta}(y)$
 \end{boxteo}
@@ -914,8 +909,6 @@ $$
 $$
 $$
 = F_{\xi}(b) F_{\eta} (d) - F_{\xi}(b) F_{\eta}(c) - F_{\xi}(a) F_{\eta}(d) + F_{\xi}(a) F_{\eta}(c)  =$$
-
-
 $$= \left( F_{\xi}(b) - F_{\xi}(a) \right) \left( F_{\eta}(d) - F_\eta (c) \right) = \mathbb{P} \left\lbrace \xi\in [a,b) \right\rbrace \cdot \mathbb{P} \left\lbrace \eta \in [c,b) \right\rbrace
 $$
 
@@ -924,6 +917,6 @@ $$
 
 \newpage
 \input{lectures_part_3}
-\newpage
+\vfill
 \input{lectures_part_4}
 \end{document}

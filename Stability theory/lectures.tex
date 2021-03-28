@@ -94,7 +94,7 @@
 \subsection{Нормальні системи диференційних рівнянь}
 
 
-\be
+\be \label{nsde}
 \left\lbrace
 \begin{gathered}
     x'_1 (t) = f_1(t, x_1 (t), ... , x_n(t)) \\
@@ -104,7 +104,7 @@
 \end{gathered}\right.
 \ee
 
- Системою диф. рівнянь n-го порядку в нормальній формі називається система вигляду (1), де $ f_i : D \to \mathbb{R}, \quad D \subset \mathbb{R}^{n+1 }, \quad i = \overline{1, n}$.
+ Системою диф. рівнянь n-го порядку в нормальній формі називається система вигляду \eqref{nsde}, де $ f_i : D \to \mathbb{R}, \quad D \subset \mathbb{R}^{n+1 }, \quad i = \overline{1, n}$.
 \look
 \[
       \overrightarrow{x}(t) = \left[\begin{array}{l}
@@ -118,21 +118,21 @@
       f_n
       \end{array}\right] \text{, що}
 \]
-$D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $(1): \overrightarrow{x}'(t) = \overrightarrow{f}(t, \overrightarrow{x}(t))$.
+$D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $\eqref{nsde}: \overrightarrow{x}'(t) = \overrightarrow{f}(t, \overrightarrow{x}(t))$.
 
 
 \def\rect{\textbf{П}}
 \bd
-\textbf{Розв'язком системи} (1) на $(\alpha , \beta)$ називається така вектор-функція $\overrightarrow{x} (t) \in C^1(\alpha , \beta)$, що:
+\textbf{Розв'язком системи} \eqref{nsde} на $(\alpha , \beta)$ називається така вектор-функція $\overrightarrow{x} (t) \in C^1(\alpha , \beta)$, що:
 \begin{enumerate}
   \item $(t, x_1(t), \dots, x_n(t)) \in D \quad \forall t \in (\alpha, \beta)$;
-  \item $\overrightarrow{x}(t)$  перетворює $(1)$ на тотожність на інтервалі $(\alpha, \beta)$.
+  \item $\overrightarrow{x}(t)$  перетворює $\eqref{nsde}$ на тотожність на інтервалі $(\alpha, \beta)$.
 \end{enumerate}
 
-\textbf{Загальним розв'язком системи}  (1) називається n-параметрична сім'я розв'язків (1), що охоплює всі розв'язки системи.
+\textbf{Загальним розв'язком системи}  \eqref{nsde} називається n-параметрична сім'я розв'язків \eqref{nsde}, що охоплює всі розв'язки системи.
 \ed
 
-Задача Коші. Для заданих $t_0, \overrightarrow{x}^{0} \in D$ знайти такий розв'язок (1), що $\overrightarrow{x} (t_0) = \overrightarrow{x}^{0}$.
+Задача Коші. Для заданих $t_0, \overrightarrow{x}^{0} \in D$ знайти такий розв'язок \eqref{nsde}, що $\overrightarrow{x} (t_0) = \overrightarrow{x}^{0}$.
 Нехай $\Pi = \{(t, \overrightarrow{x}) \in \mathbb{R} \quad \big| \quad |t-t_0| \leq a, \quad ||\overrightarrow{x} - \overrightarrow{x}_0|| \leq b \}$.
 
 \begin{boxteo}[Теорема Пеано]
@@ -147,7 +147,7 @@ $D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $(1): \ov
 \end{boxteo}
 
 \begin{boxteo}[про продовження]
-Нехай для системи (1) виконується, що $\overrightarrow{f} \in C(D), \quad D \subset \mathbb{R}^{n + 1}$ -- обмежена область. Тоді $\forall t : (t_0, \overrightarrow{x}_0) \in D$ існують такі $t^{-}, t^{+} : t^{-} < t_0 < t^{+}$, що розв'язок системи (1) з початкової умови $\overrightarrow{x}(t_0) = \overrightarrow{x}_0$ існує на інтервалі $(t^{-}, t^{+})$, причому $(t^{-}, \overrightarrow{x}(t^{-})) \text{ та } (t^{+}, \overrightarrow{x}(t^{+}))$ належать межі області $D$.
+Нехай для системи \eqref{nsde} виконується, що $\overrightarrow{f} \in C(D), \quad D \subset \mathbb{R}^{n + 1}$ -- обмежена область. Тоді $\forall t : (t_0, \overrightarrow{x}_0) \in D$ існують такі $t^{-}, t^{+} : t^{-} < t_0 < t^{+}$, що розв'язок системи \eqref{nsde} з початкової умови $\overrightarrow{x}(t_0) = \overrightarrow{x}_0$ існує на інтервалі $(t^{-}, t^{+})$, причому $(t^{-}, \overrightarrow{x}(t^{-})) \text{ та } (t^{+}, \overrightarrow{x}(t^{+}))$ належать межі області $D$.
     \begin{center} \includegraphics[scale=0.35]{assets/lect0.png} \end{center}
 \end{boxteo}
 
@@ -156,34 +156,34 @@ $D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $(1): \ov
   \begin{spacing}{1}
   \begin{enumerate}
     \item $\overrightarrow{f} \in C(\Pi)$;
-    \item $\exists! L > 0 : \forall (t_1, \overrightarrow{x}_1), (t_2, \overrightarrow{x}_2) \in \Pi$ справедливо, що $|| f(t_1, \overrightarrow{x}_1) - f(t_2, \overrightarrow{x}_2)|| \leq \\ \leq L||\overrightarrow{x}_1 - \overrightarrow{x}_2||$ (умова Ліпшиця).
+    \item $\exists! L > 0 : \forall (t_1, \overrightarrow{x}_1), (t_2, \overrightarrow{x}_2) \in \Pi$ справедливо $|| f(t_1, \overrightarrow{x}_1) - f(t_2, \overrightarrow{x}_2)|| \leq \\ \leq L||\overrightarrow{x}_1 - \overrightarrow{x}_2||$ (умова Ліпшиця).
   \end{enumerate}
   \end{spacing}
 
 
-  Тоді $\exists!$ розв'язок задачі Коші з початкової умови $\overrightarrow{x}(t_0) = \overrightarrow{x}_0(t)$, визначений принаймні на $I_h = (t_0 - h, t_0 + h), \quad h = \min\{{a, \dfrac{b}{M}}\}, \quad M = \max\limits_{\Pi}||f(t, \overrightarrow{x})||$.
+  Тоді $\exists!$ розв'язок задачі Коші з початкової умови $\overrightarrow{x}(t_0) = \overrightarrow{x}_0(t)$, визначений принаймні на $I_h = (t_0 - h, t_0 + h), \  h = \min\{{a, \dfrac{b}{M}}\}, \  M = \max\limits_{\Pi}||f(t, \overrightarrow{x})||$.
 \end{boxteo}
 
 \subsection{Основні поняття теорії стійкості.}
-Розглянемо систему диференційних рівнянь $\overrightarrow{x}' = \overrightarrow{f}(t, \overrightarrow{x})$ (1), де $f : D \rightarrow \mathbb{R}^n$ та $D = [a, +\infty) \times G, \quad G \subset \mathbb{R}^n$. Нехай при цьому $\overrightarrow{f}$ задавольняє умовам існування та єдиності розв'язку задачі Коші в будь-якій точці $(t_0, \overrightarrow{x}_0) \in D$
+Розглянемо систему диференційних рівнянь $\overrightarrow{x}' = \overrightarrow{f}(t, \overrightarrow{x})$ \eqref{nsde}, де $f : D \rightarrow \mathbb{R}^n$ та $D = [a, +\infty) \times G, \quad G \subset \mathbb{R}^n$. Нехай при цьому $\overrightarrow{f}$ задавольняє умовам існування та єдиності розв'язку задачі Коші в будь-якій точці $(t_0, \overrightarrow{x}_0) \in D$
 
 \bd
-Розв'язок $\overrightarrow{x} = \overrightarrow{\varphi}(t)$ системи (1) називається \textbf{стійким} за Ляпуновим, якщо
+Розв'язок $\overrightarrow{x} = \overrightarrow{\varphi}(t)$ системи \eqref{nsde} називається \textbf{стійким} за Ляпуновим, якщо
 
 \begin{enumerate}
   \item $\overrightarrow{x} = \overrightarrow{\varphi}(t) \quad \exists  \text{ на } [a, +\infty)$ (відсутніть вертикальних асимптот)
-  \item $\forall \varepsilon > 0 \quad \forall t_0 \geq a \quad \exists \delta > 0 : \forall $ розв'язку $\overrightarrow{x}(t)$ системи (1) такого, що $||\overrightarrow{x}(t_0) - \overrightarrow{\varphi}(t_0)|| < \delta$ виконується наступне, що $\overrightarrow{x}(t)$ існує на $[t_0, +\infty)$ та $||\overrightarrow{x}(t) - \overrightarrow{\varphi}(t)|| < \varepsilon \quad \forall t \geq t_0$.
+  \item $\forall \varepsilon > 0 \quad \forall t_0 \geq a \quad \exists \delta > 0 : \forall $ розв'язку $\overrightarrow{x}(t)$ системи \eqref{nsde} такого, що $||\overrightarrow{x}(t_0) - \overrightarrow{\varphi}(t_0)|| < \delta$ виконується наступне, що $\overrightarrow{x}(t)$ існує на $[t_0, +\infty)$ та $||\overrightarrow{x}(t) - \overrightarrow{\varphi}(t)|| < \varepsilon \quad \forall t \geq t_0$.
 \end{enumerate}
 \ed
 
 \begin{center} \includegraphics[scale=0.35]{assets/lect1.jpg} \end{center}
 
 \bd
-Розв'язок $\overrightarrow{x} = \overrightarrow{\varphi}(t)$ системи (1) називається \textbf{асимптотично стійким} за Ляпуновим, якщо
+Розв'язок $\overrightarrow{x} = \overrightarrow{\varphi}(t)$ системи \eqref{nsde} називається \textbf{асимптотично стійким} за Ляпуновим, якщо
 
 \begin{enumerate}
   \item $\overrightarrow{x} = \overrightarrow{\varphi}(t)$ стійкий;
-  \item $\forall t_0 \geq a \quad \exists \delta > 0: \forall$ розв'язку $\overrightarrow{x}(t)$ с-ми (1) такого, що $||\overrightarrow{x}(t_0) - \overrightarrow{\varphi}(t_0)|| < \delta$ справедливо, що $||\overrightarrow{x}(t_0) - \overrightarrow{\varphi}(t_0)|| \rightarrow 0 \text{ при } t \rightarrow + \infty$.
+  \item $\forall t_0 \geq a \quad \exists \delta > 0: \forall$ розв'язку $\overrightarrow{x}(t)$ с-ми \eqref{nsde} такого, що $||\overrightarrow{x}(t_0) - \overrightarrow{\varphi}(t_0)|| < \delta$ справедливо, що $||\overrightarrow{x}(t_0) - \overrightarrow{\varphi}(t_0)|| \rightarrow 0 \text{ при } t \rightarrow + \infty$.
 \end{enumerate}
 
 \begin{center} \includegraphics[scale=0.35]{assets/lect2.jpg} \end{center}
@@ -193,7 +193,7 @@ $D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $(1): \ov
 
 \begin{enumerate}
   \item Або $\overrightarrow{x} = \overrightarrow{\varphi}(t) \quad \nexists$ на  $[a, +\infty)$ (вертикальні асимптоти);
-  \item Або $\exists \varepsilon > 0 : \exists t_0 \geq a :  \forall \delta > 0$ існує розв'язок $\overrightarrow{x}(t)$ системи (1) такий, що $||\overrightarrow{x}(t_0) - \overrightarrow{\varphi}(t_0)|| < \delta$, але $||\overrightarrow{x}(t_0) - \overrightarrow{\varphi}(t_0)|| > \varepsilon$
+  \item Або $\exists \varepsilon > 0 : \exists t_0 \geq a :  \forall \delta > 0$ існує розв'язок $\overrightarrow{x}(t)$ системи \eqref{nsde} такий, що $||\overrightarrow{x}(t_0) - \overrightarrow{\varphi}(t_0)|| < \delta$, але $||\overrightarrow{x}(t_0) - \overrightarrow{\varphi}(t_0)|| > \varepsilon$
 \end{enumerate}
 
 \vfill
@@ -256,35 +256,35 @@ $$
 \end{example}
 
 \remark
-Очевидно, що простіше досліджувати на стійкість розв'язок типу $\varphi(t) = 0$. Нехай (1) $\overrightarrow{x}'(t) = \overrightarrow{f}(t, \overrightarrow{x})$, а $\overrightarrow{x} = \overrightarrow{\varphi(t)}$ -- розв'язок, який потрібно дослідити на стійкість. Застосуємо заміну: $\overrightarrow{z} = \overrightarrow{x} - \overrightarrow{\varphi}(t), \text{ де } \overrightarrow{z}$ -- нова невідома вектор-функція. Отримаємо систему:
+Очевидно, що простіше досліджувати на стійкість розв'язок типу $\varphi(t) = 0$. Нехай \eqref{nsde} $\overrightarrow{x}'(t) = \overrightarrow{f}(t, \overrightarrow{x})$, а $\overrightarrow{x} = \overrightarrow{\varphi(t)}$ -- розв'язок, який потрібно дослідити на стійкість. Застосуємо заміну: $\overrightarrow{z} = \overrightarrow{x} - \overrightarrow{\varphi}(t), \text{ де } \overrightarrow{z}$ -- нова невідома вектор-функція. Отримаємо систему:
 $$
 \overrightarrow{z}'(t) + \overrightarrow{\varphi}'(t) = \overrightarrow{f}(t, \overrightarrow{z} + \overrightarrow{\varphi}(t)) \quad \Rightarrow \quad \overrightarrow{z}'(t) = \overrightarrow{f}(t, \overrightarrow{z} + \overrightarrow{\varphi}(t)) - \overrightarrow{f}(t, \overrightarrow{\varphi})(t) \quad (*)
 $$
-Можно довести, що розв'язок $\overrightarrow{x} = \overrightarrow{\varphi}(t)$ системи (1) -- стійкий (асимптотично стійкий або нестійкий) $\Longleftrightarrow$ розв'язок $\overrightarrow{z} = \overrightarrow{0}$  cистеми $(*)$ -- стійкий (асимптотично стійкий або нестійкий).
+Можно довести, що розв'язок $\overrightarrow{x} = \overrightarrow{\varphi}(t)$ системи \eqref{nsde} -- стійкий (асимптотично стійкий або нестійкий) $\Longleftrightarrow$ розв'язок $\overrightarrow{z} = \overrightarrow{0}$  cистеми $(*)$ -- стійкий (асимптотично стійкий або нестійкий).
 
 \subsection{Стійкість розв'язків лінійних систем}
 Лінійна неоднорідна система рівнянь n-ого порядку має вигляд (далі ЛНС):
-\be
+\be \label{srls1}
 \overrightarrow{x}' = A(t) \overrightarrow{x} + \overrightarrow{f} (t).
 \ee
 
 $ \text{Де } A(t) \in \mathbb{R}^{n \times n}, \quad A(t) \in C [ a, + \infty), \quad \overrightarrow{f} \in C[a, + \infty)$ \\
 
-Тоді $\forall t_0 \geq a, \quad \forall \overrightarrow{x}_0 \in \mathbb{R}^n \quad$ існує єдиний розв'язок ЛНС (2) з початковими умовми $\overrightarrow{x}(t_0) = \overrightarrow{x}_0$, визначений на $[a, +\infty)$.
+Тоді $\forall t_0 \geq a, \quad \forall \overrightarrow{x}_0 \in \mathbb{R}^n \quad$ існує єдиний розв'язок ЛНС \eqref{srls1} з початковими умовми $\overrightarrow{x}(t_0) = \overrightarrow{x}_0$, визначений на $[a, +\infty)$.
 
-Нехай $\overrightarrow{\varphi}(t)$ -- розв'язок (2), який потрібно дослідити на стійкість.
+Нехай $\overrightarrow{\varphi}(t)$ -- розв'язок \eqref{srls1}, який потрібно дослідити на стійкість.
 Застосуємо заміну: $ \overrightarrow{z} (t) = \overrightarrow{x} - \vphi (t)$, де $ \overrightarrow{z}(t)$ - нова невідома вектор-функція, а $\vphi (t)$ - розв'язок, який ми маємо дослідити на стійкість.
 
 Отримали лінійну однорідну систему першого порядку (далі ЛОС):
 
 $$ \overrightarrow{z}'(t)   + \vphi'(t) = A(t)\overrightarrow{z}(t) + A(t)\vphi(t) + \overrightarrow{f}(t) $$
-\be
+\be \label{losp1}
 \overrightarrow{z}' = A(t) \overrightarrow{z} \text{ -- ЛОС n-ого порядку}
 \ee
 
 Заміною ми звели дослідження довільного розв'язку лінійної неоднорідної системи до дослідження нульового розв'язку відповідної ЛОС. Таким чином, приходимо до висновку, що усі розв'язки є одночасно стійкими, асимптотично стійкими або не стійкими. А отже, розглядаючи будь-яку лінійну систему, можемо говорити про стійкість не окремого розв'язку, а системи в цілому. Досліджуючи при цьому розв'язок $\overrightarrow{x}(t) = \overrightarrow{0}$\\
 
-Розв'яжемо ЛОС (3) (перейдемо до змінної $x$): $\quad \overrightarrow{x}'  =  A(t) \overrightarrow{x} $ -- ЛОС (3).
+Розв'яжемо ЛОС \eqref{losp1} (перейдемо до змінної $x$): $\quad \overrightarrow{x}'  =  A(t) \overrightarrow{x} $ -- ЛОС \eqref{losp1}.
 
 $X(t) $ -- її фундаментальна матриця (далі позначаємо ФМ). Тоді загальний розв'язок: $ \overrightarrow{x} (t) = X(t) \cdot \overrightarrow{C}$, де $\overrightarrow{ C} \in \mathbb{R}^n$.
 Розв'язок задачі Коші з початковими умовами $ \overrightarrow{x} (t_0) = \overrightarrow{x_0}$:
@@ -294,9 +294,9 @@ $$
 
 \begin{spacing}{2.5}
   \begin{boxteo}[Про стійкість ЛОС]\quad \\
-  а) (3) - стійка $\Longleftrightarrow \exists K > 0: \sup\limits_{t\geq  a} ||X(t) || \leq K$.\\
-  б) (3) - асимптотично стійка $\Longleftrightarrow  ||X(t)|| \to 0 $, при $ t \to +\infty$.\\
-  в) (3) - нестійка. $ \Longleftrightarrow \exists \left\lbrace t_n \right\rbrace_{n=1}^{\infty} : ||X(t_n)|| \to +\infty $, при $n \to \infty$
+  а) \eqref{losp1} - стійка $\Longleftrightarrow \exists K > 0: \sup\limits_{t\geq  a} ||X(t) || \leq K$.\\
+  б) \eqref{losp1} - асимптотично стійка $\Longleftrightarrow  ||X(t)|| \to 0 $, при $ t \to +\infty$.\\
+  в) \eqref{losp1} - нестійка. $ \Longleftrightarrow \exists \left\lbrace t_n \right\rbrace_{n=1}^{\infty} : ||X(t_n)|| \to +\infty $, при $n \to \infty$
   \end{boxteo}
 \end{spacing}
 
@@ -310,7 +310,7 @@ $$
 \end{proof}
 \end{spacing}
 \begin{proof}
-a) \fbox{$\Longrightarrow$} \\ Нехай (3) -- стійка. Припустимо від супротивного, що
+a) \fbox{$\Longrightarrow$} \\ Нехай \eqref{losp1} - стійка. Припустимо від супротивного, що
 
 $$\exists  \left\lbrace t_n \right\rbrace_{n\geq 1}^{\infty} : t_n \rightarrow +\infty : ||X(t_n)|| \to {+\infty} \text{ при } n \to \infty$$\\
 Тоді $\exists j = \overrightarrow{1, n} : || \overrightarrow{x}^{j} (t_n)|| \to \infty$, де $\overrightarrow{x}^j$  - це $j$-тий стовпчик ФМ. \\ Покладемо $\forall \delta > 0:$
@@ -343,14 +343,14 @@ $$
 
 \subsection{Стійкість ЛОС зі сталою матрицею.}
 
-\begin{equation}
+\begin{equation}\label{slsm2}
 \overrightarrow{x} ' (t) = A \overrightarrow{x} (t) \text{, де $A$ - стала матриця $n \times n$}
 \end{equation}
 \begin{boxteo} \quad \\
-a) (4) - стійка $ \Longleftrightarrow  \forall \lambda $ - власне число матриці $A$: \\
+a) \eqref{slsm2} - стійка $ \Longleftrightarrow  \forall \lambda $ - власне число матриці $A$: \\
 $\Re \lambda \leq 0$, причому якщо $ \Re \lambda = 0$, то йому відповідають лише одновимірні клітини Жордана. \\
-б) (4) - асимптотично стійка $ \Longleftrightarrow \forall \lambda $ - власні числа матриці $A: \Re \lambda < 0 $.\\
-в) (4) - нестійка $ \Longleftrightarrow $ не є стійкою.
+б) \eqref{slsm2} - асимптотично стійка $ \Longleftrightarrow \forall \lambda $ - власні числа матриці $A: \Re \lambda < 0 $.\\
+в) \eqref{slsm2} - нестійка $ \Longleftrightarrow $ не є стійкою.
 \end{boxteo}
 
 \begin{proof}
@@ -1064,18 +1064,18 @@ b) $ \lambda_1 =  \lambda_2 = 0 \quad (a = - bk)$
 \subsection{Стійкість за першим наближенням}
 
 Розглянемо систему:
-\begin{equation}
+\begin{equation}\label{1sdp}
   \dot{\vect{x}} = \overrightarrow{f}(\overrightarrow{x}(t)), \quad \overrightarrow{f}: D \rightarrow \mathbb{R}^n, \quad D \subset \mathbb{R}^n
 \end{equation}
 Функція $f$ один раз неперервно диференційована ($f \in C^1(D)$), це гарантує існування та єдиність довільної задачі Коші: $\quad \forall t_0 \in \mathbb{R} \quad \forall x_0 \in D$. \\
-Система (5) -- автономна система n-ого порядку, $\overrightarrow{f}$ не залежить явно від $t$.
-Нехай $\overrightarrow{f}(\overrightarrow{0}) = \overrightarrow{0}$, тобто $\overrightarrow{x} = \overrightarrow{0}$ -- положення рівноваги системи (5), якщо це не так і $\overrightarrow{x} = \overrightarrow{x}^*$ -- положення рівноваги, то заміна $\overrightarrow{z} = \overrightarrow{x} - \overrightarrow{x}^*$ зведе задачу до положення рівноваги $\overrightarrow{z} = \overrightarrow{0}$.
+Система \eqref{1sdp} -- автономна система n-ого порядку, $\overrightarrow{f}$ не залежить явно від $t$.
+Нехай $\overrightarrow{f}(\overrightarrow{0}) = \overrightarrow{0}$, тобто $\overrightarrow{x} = \overrightarrow{0}$ -- положення рівноваги системи \eqref{1sdp}, якщо це не так і $\overrightarrow{x} = \overrightarrow{x}^*$ -- положення рівноваги, то заміна $\overrightarrow{z} = \overrightarrow{x} - \overrightarrow{x}^*$ зведе задачу до положення рівноваги $\overrightarrow{z} = \overrightarrow{0}$.
 
-\textbf{Завдання: } дослідити на стійкість розв'язок $\overrightarrow{x} = \overrightarrow{0}$ системи (5). Оскільки $\overrightarrow{f} \in C^1(D)$, то в деякому околі $B_r(\overrightarrow{0})$ функцію $\overrightarrow{f}$ можно подати у вигляді:
+\textbf{Завдання: } дослідити на стійкість розв'язок $\overrightarrow{x} = \overrightarrow{0}$ системи \eqref{1sdp}. Оскільки $\overrightarrow{f} \in C^1(D)$, то в деякому околі $B_r(\overrightarrow{0})$ функцію $\overrightarrow{f}$ можно подати у вигляді:
 \begin{equation*}
   \overrightarrow{f}(\overrightarrow{x}) = \dfrac{\partial \overrightarrow{f}}{\partial \overrightarrow{x}}(\overrightarrow{0}) \cdot \overrightarrow{x} + f_1(\overrightarrow{x}), \text{ де } f_1(\overrightarrow{x}) = o(||\overrightarrow{x}||), \quad \overrightarrow{x} \rightarrow \overrightarrow{0} \quad \text{ (формула Тейлора)}
 \end{equation*}
-Позначимо: $\dfrac{\partial \overrightarrow{f}}{\partial \overrightarrow{x}}(\overrightarrow{0}) = A$ -- стала $n \times n$ матриця Якобі. Тоді в околі точки $\overrightarrow{0}$ система (5) набуває вигляду:
+Позначимо: $\dfrac{\partial \overrightarrow{f}}{\partial \overrightarrow{x}}(\overrightarrow{0}) = A$ -- стала $n \times n$ матриця Якобі. Тоді в околі точки $\overrightarrow{0}$ система \eqref{1sdp} набуває вигляду:
 \begin{center}
   \fbox{$\overrightarrow{x}'(t) = A\overrightarrow{x}(t) + o(||\overrightarrow{x}||)$}
 \end{center}
@@ -1083,13 +1083,13 @@ b) $ \lambda_1 =  \lambda_2 = 0 \quad (a = - bk)$
 \begin{equation*}
   \overrightarrow{x}' = A\overrightarrow{x}, \text{ де } \quad A = \dfrac{\partial\overrightarrow{f}}{\partial\overrightarrow{x}}(\overrightarrow{0})
 \end{equation*}
-називається с-мою 1-ого наближення (або лінеаризованою с-мою) для (5).
+називається с-мою 1-ого наближення (або лінеаризованою с-мою) для \eqref{1sdp}.
 
 \begin{boxteo}[про стійкість за першим наближенням]
   Розглянемо два випадки:
   \begin{enumerate}
-    \item Якщо $\forall \lambda$ -- власні матриці $A$ справедливо, що $\Re \lambda < 0$, то розв'язок $\overrightarrow{x} = \overrightarrow{0}$ системи (5) асимптотично стійкий.
-    \item Якщо існує таке власне число матриці $А$, що $\Re \lambda > 0$, то розв'язок $\overrightarrow{x} = \overrightarrow{0}$ системи (5) нестійкий.
+    \item Якщо $\forall \lambda$ -- власні матриці $A$ справедливо, що $\Re \lambda < 0$, то розв'язок $\overrightarrow{x} = \overrightarrow{0}$ системи \eqref{1sdp} асимптотично стійкий.
+    \item Якщо існує таке власне число матриці $А$, що $\Re \lambda > 0$, то розв'язок $\overrightarrow{x} = \overrightarrow{0}$ системи \eqref{1sdp} нестійкий.
   \end{enumerate}
 \end{boxteo}
 
@@ -1210,10 +1210,10 @@ $$ u(t) = ||\overrightarrow{x}(t)|| \cdot e^{\gamma(t - t_0)}, \quad c = K \cdot
 \section{Лекція 4}
 \subsection{Метод функцій Ляпунова}
 Розглянемо систему:
-\be
+\be \label{2spd}
  \overrightarrow{x}' = f(\overrightarrow{x})
 \ee
-дe $f: D \to \mathbb{R}^n, f\in C^{1} \left( D \right), D \subset \mathbb{R}^n $ та $\overrightarrow{f} ( \overrightarrow{0}) = 0$. \textbf{Задача. } Дослідити на стійкість розв'язок $ \overrightarrow{x} = \overrightarrow{0}$ системи (6).
+дe $f: D \to \mathbb{R}^n, f\in C^{1} \left( D \right), D \subset \mathbb{R}^n $ та $\overrightarrow{f} ( \overrightarrow{0}) = 0$. \textbf{Задача. } Дослідити на стійкість розв'язок $ \overrightarrow{x} = \overrightarrow{0}$ системи \eqref{2spd}.
  \begin{defo}
   Функція $V : D \to \mathbb{R}, V \in C(D) $ називається додатньо(від'ємно)-визначеною в $D$, якщо:
 \begin{enumerate}
@@ -1223,14 +1223,14 @@ $$ u(t) = ||\overrightarrow{x}(t)|| \cdot e^{\gamma(t - t_0)}, \quad c = K \cdot
  \end{defo}
 
  \begin{defo}
-Похідною функції $ V : D \to \mathbb{R}$ в силу системи (6) називають функцію:
+Похідною функції $ V : D \to \mathbb{R}$ в силу системи \eqref{2spd} називають функцію:
 $$
 \dot{V}_f(\overrightarrow{x}) =  \sum\limits_{i = 1}^{n}{ \frac{\partial V}{ \partial x_i} f_{i}( \overrightarrow{x}) } = <\nabla V \overrightarrow{x}, f(\overrightarrow{x})>
 $$
  \end{defo}
 
 \begin{defo}
-  Нехай $B_{R} ( \overrightarrow{0} ) $ -- деякий окіл точки $ \overrightarrow{0} $. Функція $V \in C^{1} (B_{R} (\overrightarrow{0}))$ називається функцією Ляпунова системи (6), якщо:
+  Нехай $B_{R} ( \overrightarrow{0} ) $ -- деякий окіл точки $ \overrightarrow{0} $. Функція $V \in C^{1} (B_{R} (\overrightarrow{0}))$ називається функцією Ляпунова системи \eqref{2spd}, якщо:
 \begin{enumerate}
   \item $V$ -- додатно визначена.
   \item $\dot{V}_f (\overrightarrow{x}) \leq 0 \quad \forall x \in B_{R} ( \overrightarrow{0})$.
@@ -1242,7 +1242,7 @@ $$
 \end{remark}
 
 \begin{boxteo}[Ляпунова про стійкість]
-  Якщо в деякій кулі $B_{R}( \overrightarrow{0}) $ існує функція Ляпунова для системи (6), то розв'язок $ \overrightarrow{x} = \overrightarrow{0} $ системи (6) стійкий.
+  Якщо в деякій кулі $B_{R}( \overrightarrow{0}) $ існує функція Ляпунова для системи \eqref{2spd}, то розв'язок $ \overrightarrow{x} = \overrightarrow{0} $ системи \eqref{2spd} стійкий.
 \end{boxteo}
 
 \begin{proof}
@@ -1260,8 +1260,8 @@ $$
   Отже, $V (\overrightarrow{x}(t))\!\! \downarrow \  \!\Rightarrow\!
   c'(\varepsilon) \!\leq\!  V(\overrightarrow{x} (t_1)) \!\leq\! V(\overrightarrow{x} (t_0)) \!=\! V(\overrightarrow{x}_0) \!<\! c(\varepsilon ) \!\Rightarrow\! \text{ протиріччя.}$
 \end{proof}
-\begin{boxteo}[Ляпунова про асимптотичну стійкість]\ \\ Нехай в деякому околі $B_R(\overrightarrow{0})$ існує функція Ляпунова для системи (1), причому $\dot{V}_f (\overrightarrow{x})$ -- від'ємно визначена.
-Тоді розв'язок $\overrightarrow{x} = \overrightarrow{0}$ системи (1) є \textbf{асимптотично стійким.}
+\begin{boxteo}[Ляпунова про асимптотичну стійкість]\ \\ Нехай в деякому околі $B_R(\overrightarrow{0})$ існує функція Ляпунова для системи \eqref{2spd}, причому $\dot{V}_f (\overrightarrow{x})$ -- від'ємно визначена.
+Тоді розв'язок $\overrightarrow{x} = \overrightarrow{0}$ системи \eqref{2spd} є \textbf{асимптотично стійким.}
 \end{boxteo}
 
 \begin{proof}
@@ -1311,7 +1311,7 @@ $$
   \item Для як завгодно малого $\delta > 0 $ знайдеться $\overrightarrow{x}_0 : ||\overrightarrow{x}_0|| < \delta $ i $V (\overrightarrow{x}_0) > 0 $.
 \end{enumerate}
 (тобто $\dot{V}_f$ та $V$ одного знаку для $\overrightarrow{x}_0$)\\
-Тоді, розв'язок $\overrightarrow{x} = \overrightarrow{0} $ системи (6) нестійкий.
+Тоді, розв'язок $\overrightarrow{x} = \overrightarrow{0} $ системи \eqref{2spd} нестійкий.
 \end{boxteo}
 
 \begin{proof}
@@ -1478,4 +1478,7 @@ $$
 $$ V(x,y) = \frac{3x^2}{2} + \frac{y^2}{2}  \ \text{ -- додатно визначена, } \quad \dot{V}_f (x,y) = 0 \leq 0$$
 \end{example}
 З наведених вище міркувань отримуємо, що розв'язок стійкий.
+\newpage
+
+\input{lectures_recent}
 \end{document}

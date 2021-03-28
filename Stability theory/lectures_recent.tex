@@ -1,0 +1,174 @@
+\section{Лекція 5}
+\subsection{Перші інтеграли систем диференційних рівнянь.}
+\begin{example}
+ Розглянемо рівняння
+ $y' = y \circledast \ \Longrightarrow \  y =  C \cdot e^x $ - заг. розв.\\
+ Легко побачити, що функція:
+ $$
+ \psi (x,y)  = y \cdot e^{-x}
+ $$
+ Має таку властивість:
+ $$
+ \forall y(x) \text{ - розв. } \ \frac{\d}{\d x} \psi(x, y(x)) = (y(x)\cdot e^{-x})' = y' \cdot e^{-x}  = y \cdot e^{-x} = 0
+ $$
+ Таким чином, $\forall y(x) $ - розв'язок $\psi (x, y(x)) = const$. Інакше кажучи, $\psi(x,y) $ є сталою вздовд довільного розв'язку рівняння $\circledast$. \\Такі функції називають \textbf{першими інтегралами}.
+\end{example}
+\begin{defo}
+Розглянемо систему:
+  \be\label{spd3}
+  \overrightarrow{x}' = \overrightarrow{f} (t, \overrightarrow{x}),
+  \ee
+  де $f: D \to \mathbb{R}^n ; D \subset \mathbb{R}^{n+1}; f \in C(D)$.\\
+  Функція $U(t, \overrightarrow{x}) \in C^1 (D)$ називається \textbf{першим інтегралом} системи \eqref{spd3}, якщо для кожного розв'язку системи \eqref{spd3} $\overrightarrow{x} = \overrightarrow{x}(t), t \in I$ виконується:
+$$
+\frac{d}{d t} U ( t, \overrightarrow{x}(t)) = 0 \quad \forall t \in I
+$$
+(тобто $U$ є сталою вздовж довільного розв'язку системи \eqref{spd3})
+\end{defo}
+\begin{example}
+  $$
+  \begin{dcases}
+   \dot{x} = y^2 + z^2\\
+   \dot{y} = z \\
+   \dot{z} = -y
+  \end{dcases}
+  $$
+  Розглядаємо функцію $U(t,x,y,z) = y^2 + z^2$.\\
+  Тоді для кожного розв'язку системи $\begin{bmatrix}
+   x(t)&
+   y(t)&
+   z(t)
+  \end{bmatrix}^T$ маємо:
+  $$
+  \frac{d}{dt} U(t, x(t), y(t), z(t)) = \frac{\d U}{\d t} + \frac{\d U}{\d x}\cdot \frac{\d x}{\d t}  + \frac{\d U}{\d y}\cdot \frac{\d y}{\d t} +
+  \frac{\d U}{\d z}\cdot \frac{\d z}{\d t} = 2yz - 2zy = 0
+  $$
+  Таким чином, $U(t,x,y,z)= y^2 + z^2$ - І інтеграл системи.
+\end{example}
+\begin{remark}
+    Похідною функції $U\in C^1(D) $ є функція:
+    $$
+    \dot{U}_f (t, \overrightarrow{x}) = \frac{\d U}{\d t} +  \sum\limits_{i = 1}^{n}{ \frac{\d U}{\d x_i} \cdot f_i(t, \overrightarrow{x})  }
+    $$
+\end{remark}
+\begin{boxteo}[Аналітичний критерій першого інтегралу]
+  $U\in C^1(D)$ є першим інтегралом системи \eqref{spd3} т.т.т.к.:
+  $$
+  \forall (t,x) \in D \ \ \dot{U}_f (t,x) = 0
+  $$
+\end{boxteo}
+\begin{proof}
+ \fbox{$\Longleftarrow$} $\dot{U}_f (t,x) \Rightarrow$ Для довільного розв'язку $\overrightarrow{x}(t), t\in I$.
+ $$
+ 0 = \frac{\d U}{\d t} +  \sum\limits_{i = 1}^{ n}{ \frac{\d U}{\d x_i}  } \cdot f_i (t, \overrightarrow{x}) = \frac{\d U}{\d t} +  \sum\limits_{i = 1}^{ n}{ \frac{\d U}{\d x_i}  } \cdot \frac{d x_i}{dt} = \frac{d}{dt} U(t, \overrightarrow{x}(t)) \  \Rightarrow
+ $$
+ $$
+\Rightarrow \ \frac{d}{dt} U(t, \overrightarrow{x}(t)) = 0 \ \Rightarrow \ U \text{ - перший інтеграл.}
+ $$
+\fbox{$\Longrightarrow$} Нехай $U$ - І інтеграл. Тоді для кожного розв'язку виконується:
+$$
+0 = \frac{\d U}{\d t} +  \sum\limits_{i = 1}^{ n}{ \frac{\d U}{\d x_i} } \cdot \frac{d x_i}{dt} =  \frac{\d U}{\d t} +  \sum\limits_{i = 1}^{ n}{ \frac{\d U}{\d x_i} } \cdot f_i = \dot{U}_f (t, \overrightarrow{x}(t))
+$$
+Отже, $\forall \overrightarrow{x}(t)$ - розв'язку: $\dot{U}_f(t, \overrightarrow{x}(t)) = 0$.\\
+І оскільки $\overrightarrow{f} \in C(D)$, то за т. Пеано $\forall (t,\overrightarrow{x}) \in D$ знайдеться розв'язок, що проходить через цю точку, а отже: $\forall (t, \overrightarrow{x}) \in D \ \  \dot{U}_f(t, \overrightarrow{x})=0$.
+\end{proof}
+
+\begin{remark}
+    З прикладу бачимо, що для диф. рівняння першого порядку пошук першого інтегралу, фактично, завершує розв'язання цього рівняння.
+\end{remark}
+\textbf{Питання.} скільки потрібно знайти перших інтегралів системи  \eqref{spd3}, щоб вважати її розв'язаною?
+\begin{remark}
+    Якщо $U$ - перший інтеграл системи, то $\forall \varphi \in C(D)$:
+    $$
+    \varphi(U) \ \text{ - також перший інтеграл.}
+    $$
+\end{remark}
+\def\rank{\text{rank}}
+\begin{defo}
+  Перші інтегралии назвемо функціонально незалежними, якщо ранг матриці Якобі для цих перших інтегралів $ \left\lbrace U_i \right\rbrace_{i=1}^{k}$ дорівнює їх кількості.
+  $$
+  \rank{\begin{bmatrix}
+   \frac{\d U_1}{\d x_1} & \cdots & \frac{\d U_1}{\d x_n} \\
+   \frac{\d U_2}{\d x_1} & \cdots & \frac{\d U_2}{\d x_n} \\
+   \vdots & \ddots & \vdots\\
+   \frac{\d U_k}{\d x_1} & \cdots & \frac{\d U_k}{\d x_n}
+  \end{bmatrix}} = k
+  $$
+\end{defo}
+\begin{defo}
+ Набір з n функціонально незалежних перших інтегралів називається повним набором перших інтегралів.
+\end{defo}
+\begin{boxteo}[про існування повного набору перших інтегралів] \ \\
+Нехай $\overrightarrow{f} \in C^1(D)$. Тоді $\forall (t, \overrightarrow{t}) \in D$ знайдеться окіл цієї точки, в якому існує повний набір.
+\end{boxteo}
+\begin{boxteo}[про загальний розв'язок системи \eqref{spd3}]
+
+  Нехай $\overrightarrow{f} \in C^1(D)$;  \ \\ $\left\lbrace U_i \right\rbrace_{i=1}^n$ - повний набір перших інтегралів системи \eqref{spd3}. Тоді співвідношення:
+  $$
+\left\lbrace U_i (x,y)  = c_i \right\rbrace^n_{i=1}
+  $$
+  задають загальний розв'язок системи \eqref{spd3}.
+\end{boxteo}
+\subsection{Методи розв'язання систем n-го порядку.}
+\subsubsection{Метод виключення.} (Метод зведення до рівняння n-го порядку відносно однієї зі змінних)
+\begin{example}
+$$ \begin{dcases}
+ \frac{dy}{dx} = \frac{y^2}{z-x}\\
+ \frac{dz}{dx} = y+1
+ \end{dcases}$$
+ Продиференціюємо перше рівняння:
+ $$
+ y'' = \frac{2yy'(z-x) - (z' - 1)y^2}{(z-x)^2}
+ $$
+\end{example}
+ З першого рівняння: $z-x = \dfrac{y^2}{y'} $.\\
+З другого рівняння: $z' - 1 = y$.\\
+Підставимо:
+$$
+y'' = \frac{2yy' \cdot \frac{y^2}{y'} -y^3}{ \frac{y^4}{(y')^{2}} }
+$$
+$$
+y'' = \frac{y^3}{y^4} \cdot (y')^{2} \ \Longrightarrow \  y'' = \frac{(y')^{2}}{y}
+$$
+Зауважимо, що ми втратили розв'язок $y=0$, поділивши на $y$. Отримали:\\ $y'' = \frac{(y')^2}{y} $ \text{- рівняння , що не залежить від} $x$.\\
+Заміна: $y$ - нова незалежна змінна:
+$$
+y' = p, p = p(y) \text{ - нова невід'ємна функція.}
+$$
+$$
+y'' = \frac{dy'}{dx} = \frac{dy'}{dy} \cdot \frac{dy}{dx} = p' \cdot p
+$$
+$$
+p'p = \frac{p}{y} \quad p' = \frac{p}{y} \quad \frac{dp}{dy} = \frac{p}{y} \quad \frac{dp}{p} = \frac{dy}{y}
+$$
+$$
+\ln \left| p \right| = \ln |y| + \ln |c_1| \ \Longrightarrow \  p = c_1 \cdot y
+$$
+$$
+y' = c_1 y \ \Longrightarrow \  \frac{dy}{y} = c_1 \ \Longrightarrow \ \ln|y| = c_1 x + \ln|c_2| \ \Longrightarrow \  \fbox{$y = c_2 \cdot e^{c_1 x}$}
+$$
+Знайдемо z:
+$$
+z - x = \frac{y^2}{y'} = \frac{c_2^2 e^{2c_1 x}}{c_1 c_2 e^{c_1 x}} = \frac{c_2}{c_1} e^{c_1 x}
+$$
+$$
+z  = \frac{c_2}{c_1} e^{c_1 x}   +x
+$$
+Остаточна відповідь:
+$$
+\left[
+\begin{array}{l}
+\begin{dcases}
+ y = c_2 e^{c_1 x}\\
+ z = \frac{c_2}{c_1} e^{c_1 x} + x
+\end{dcases}
+\\
+\begin{dcases}
+ y = 0\\
+ z = x + c
+\end{dcases}
+\end{array}
+ \right.
+$$
+
+\subsubsection{Метод інтегрованих комбінацій.}

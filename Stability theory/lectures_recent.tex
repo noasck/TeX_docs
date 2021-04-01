@@ -1,30 +1,3 @@
-\section{Лекція 5}
-\subsection{Перші інтеграли систем диференційних рівнянь.}
-\begin{example}
- Розглянемо рівняння
- $y' = y \circledast \ \Longrightarrow \  y =  C \cdot e^x $ - заг. розв.\\
- Легко побачити, що функція:
- $$
- \psi (x,y)  = y \cdot e^{-x}
- $$
- Має таку властивість:
- $$
- \forall y(x) \text{ - розв. } \ \frac{\d}{\d x} \psi(x, y(x)) = (y(x)\cdot e^{-x})' = y' \cdot e^{-x}  = y \cdot e^{-x} = 0
- $$
- Таким чином, $\forall y(x) $ - розв'язок $\psi (x, y(x)) = const$. Інакше кажучи, $\psi(x,y) $ є сталою вздовд довільного розв'язку рівняння $\circledast$. \\Такі функції називають \textbf{першими інтегралами}.
-\end{example}
-\begin{defo}
-Розглянемо систему:
-  \be\label{spd3}
-  \overrightarrow{x}' = \overrightarrow{f} (t, \overrightarrow{x}),
-  \ee
-  де $f: D \to \mathbb{R}^n ; D \subset \mathbb{R}^{n+1}; f \in C(D)$.\\
-  Функція $U(t, \overrightarrow{x}) \in C^1 (D)$ називається \textbf{першим інтегралом} системи \eqref{spd3}, якщо для кожного розв'язку системи \eqref{spd3} $\overrightarrow{x} = \overrightarrow{x}(t), t \in I$ виконується:
-$$
-\frac{d}{d t} U ( t, \overrightarrow{x}(t)) = 0 \quad \forall t \in I
-$$
-(тобто $U$ є сталою вздовж довільного розв'язку системи \eqref{spd3})
-\end{defo}
 \begin{example}
   $$
   \begin{dcases}
@@ -33,7 +6,7 @@ $$
    \dot{z} = -y
   \end{dcases}
   $$
-  Розглядаємо функцію $U(t,x,y,z) = y^2 + z^2$.\\
+  Розглядаємо функцію $U(t, x, y, z) = y^2 + z^2$.\\
   Тоді для кожного розв'язку системи $\begin{bmatrix}
    x(t)&
    y(t)&
@@ -43,7 +16,7 @@ $$
   \frac{d}{dt} U(t, x(t), y(t), z(t)) = \frac{\d U}{\d t} + \frac{\d U}{\d x}\cdot \frac{\d x}{\d t}  + \frac{\d U}{\d y}\cdot \frac{\d y}{\d t} +
   \frac{\d U}{\d z}\cdot \frac{\d z}{\d t} = 2yz - 2zy = 0
   $$
-  Таким чином, $U(t,x,y,z)= y^2 + z^2$ - І інтеграл системи.
+  Таким чином, $U(t,x,y,z)= y^2 + z^2$ -- І інтеграл системи.
 \end{example}
 \begin{remark}
     Похідною функції $U\in C^1(D) $ є функція:
@@ -172,3 +145,21 @@ $$
 $$
 
 \subsubsection{Метод інтегрованих комбінацій.}
+Розглянемо систему (7) в нормальній формі:
+\begin{equation*}
+  \begin{cases}
+    \dot{x_1} = f_1(t, x_1, \dots, x_n) \\
+    \dot{x_2} = f_2(t, x_1, \dots, x_n) \\
+    \qquad \qquad \dots \\
+    \dot{x_n} = f_n(t, x_1, \dots, x_n)
+  \end{cases}
+\end{equation*}
+Записують у симетричній формі: \\
+\begin{equation*}
+  \dfrac{\mathrm{d}x_1}{f_1} = \dfrac{\mathrm{d}x_2}{f_2} = \quad \dots \quad = \dfrac{\mathrm{d}x_n}{f_n} = \dfrac{\mathrm{d}t}{1}
+\end{equation*}
+Після цього застосовують наступну властивість:
+\begin{equation*}
+  \text{Якщо } \ \dfrac{a_1}{b_1} = \dfrac{a_2}{b_2} = \quad \dots \quad = \dfrac{a_n}{b_n}
+\end{equation*}
+То $\forall \{c_i\}^n_{i=1} \text{ справедливо, що:}$

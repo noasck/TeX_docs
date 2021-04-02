@@ -162,4 +162,30 @@ $$
 \begin{equation*}
   \text{Якщо } \ \dfrac{a_1}{b_1} = \dfrac{a_2}{b_2} = \quad \dots \quad = \dfrac{a_n}{b_n}
 \end{equation*}
-То $\forall \{c_i\}^n_{i=1} \text{ справедливо, що:}$
+То $\forall \{c_i\}^n_{i=1} \text{ справедливо, що: } \dfrac{a_1}{b_1} = \dfrac{a_2}{b_2} = \quad \dots \quad = \dfrac{a_n}{b_n} = \dfrac{\sum\limits_{i=1}^{n}c_ia_i}{\sum\limits_{i=1}^{n}c_ib_i}$, легко довести методом мат. індукції. Мета: підібрати $\{c_i\}^n_{i=1}$, таким чином, щоб отримати інтегровні рівняння в окремих рівностях.
+
+\begin{example}
+  \begin{equation*}
+    \begin{cases}
+      \dfrac{\mathrm{d}y}{\mathrm{d}x} = \dfrac{z - 1}{z} \\
+      \dfrac{\mathrm{d}z}{\mathrm{d}x} = \dfrac{1}{y - x}
+    \end{cases}
+  \end{equation*}
+\end{example}
+Запишемо систему у симетричній формі: $$ \dfrac{z\mathrm{d}y}{z - 1} = \dfrac{(y-x)\mathrm{d}z}{1} = \dfrac{\mathrm{d}x}{1}$$
+Візьмемо $c_1 = 1, c_2 = 0, c_3 = -z$, тоді: $$\dfrac{z\mathrm{d}y}{z - 1} = \doubleunderline{\dfrac{(y - x)\mathrm{d}z}{1}} = \dfrac{\mathrm{d}x}{1} = \dfrac{z\mathrm{d}y - z\mathrm{d}x}{z - 1 - z} = \doubleunderline{-\dfrac{z(\mathrm{d}y - \mathrm{d}x)}{1}}$$
+Отримуємо: $(y - x)\mathrm{d}z = -z\mathrm{d}(y - x)$, тоді: $\dfrac{\mathrm{d}z}{z} = - \dfrac{\mathrm{d}(y - x)}{y -x}$, з цього маємо: $$ \ln z = - \ln|y - x| + \ln c_1 \quad \Longrightarrow \quad z = \dfrac{c_1}{y - x} \quad \Longrightarrow \quad z (y - x) = c_1$$
+Далі: $$ \dfrac{\mathrm{d}y}{\mathrm{d}x} = \dfrac{z - 1}{z} = 1 - \dfrac{1}{z} \quad \Longrightarrow \quad \dfrac{\mathrm{d}y}{\mathrm{d}x} = 1 - \dfrac{y - x}{c_1} \quad \Longrightarrow \quad \dfrac{\mathrm{d}y}{\mathrm{d}x} + \dfrac{y}{c_1} = 1 + \dfrac{x}{c_1}$$
+Остання рівність це лінійне неоднорідне рівняння першого порядку, застосуємо метод Бернуллі: $y = uv$, тоді: $$u'v + uv' + \dfrac{uv}{c_1} = 1 + \dfrac{x}{c_1} \quad \Longrightarrow \quad u'v + u(v' + \dfrac{v}{c_1}) = 1 + \dfrac{x}{c_1}$$
+
+З цього тримуємо: $$ \dfrac{\mathrm{d}v}{\mathrm{d}x} = -\dfrac{v}{c_1} \quad \Longrightarrow \quad \dfrac{\mathrm{d}v}{v} = -\dfrac{1}{c_1}\mathrm{d}x \quad \Longrightarrow \quad v = e^{-\dfrac{x}{c_1}}$$
+
+Тоді: $$u' \cdot e^{-\dfrac{x}{c_1}} = 1 + \dfrac{x}{c_1} \quad \Longrightarrow \quad u' = e^{\dfrac{x}{c_1}} + \dfrac{x}{c_1} \cdot e^{\dfrac{x}{c_1}} \quad \Longrightarrow \quad u = x \cdot e^{\dfrac{x}{c_1}} + c_2$$
+
+Остаточно отримуємо:$$ y = (x \cdot e^{\dfrac{x}{c_1}} + c_2) \cdot e^{-\dfrac{x}{c_1}} \quad \Longrightarrow \quad y = x + c_2 e^{-\dfrac{x}{c_1}} \quad \Longrightarrow \quad c_2 = (y - x)e^{\dfrac{x}{c_1}}$$
+
+Тоді: $c_2 = (y - x)e^{\dfrac{x}{z(y - x)}}$, відповідь:
+$\begin{cases}
+  z(y - x) = c_1 \\
+  (y - x)e^{\dfrac{x}{z(y - x)}} = c_2
+\end{cases}$.

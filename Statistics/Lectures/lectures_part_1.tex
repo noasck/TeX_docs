@@ -1,0 +1,157 @@
+\documentclass[fontsize=12pt,a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{ragged2e}
+\usepackage{mathtools}
+\usepackage{setspace}
+
+\usepackage{wrapfig}
+% Example:
+% \begin{wrapfigure}{R}{0.4\textwidth}
+% \centering
+% \includegraphics[width=0.35\textwidth]{assets/lectures_part_3-91d0349d.png}
+% The PDF of the Student distribution.
+% \end{wrapfigure}
+
+\setlength{\parindent}{4em}
+\setlength{\parskip}{1em}
+\renewcommand{\baselinestretch}{1.4}
+
+
+% \usepackage{esint}
+\usepackage[english,russian, ukrainian]{babel}
+\usepackage{misccorr,color,ragged2e,amsfonts,amsthm,graphicx,systeme,amsmath,mdframed,lipsum}
+\renewcommand\qedsymbol{$\blacksquare$}
+\renewcommand*{\proofname}{\text{Доведення}}
+\theoremstyle{definition}
+\newtheorem*{defo}{Означення}
+\newtheorem*{teo}{Теорема}
+\newtheorem*{example}{Приклад}
+\theoremstyle{remark}
+\newtheorem*{remark}{Зауваження}
+\theoremstyle{definition}
+\newtheorem*{consequence}{Наслідок}
+\theoremstyle{definition}
+\newtheorem{statement}{Утверждение}[section]
+\newmdtheoremenv{boxteo}{Теорема}[section]
+\setlength\parindent{0pt}
+\DeclareMathOperator*\lowlim{\underline{lim}}
+\DeclareMathOperator*\uplim{\overline{lim}}
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+  \node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
+\def\index#1{\mathbb{I}_{#1}}
+\def\index{\mathbb{I}}
+%
+% \makeatletter
+% %% make esint definition in line with amsmath
+% \@for\next:={int,iint,iiint,iiiint,dotsint,oint,oiint,sqint,sqiint,
+%   ointctrclockwise,ointclockwise,varointclockwise,varointctrclockwise,
+%   fint,varoiint,landupint,landdownint}\do{%
+%     \expandafter\edef\csname\next\endcsname{%
+%       \noexpand\DOTSI
+%       \expandafter\noexpand\csname\next op\endcsname
+%       \noexpand\ilimits@
+%     }%
+%   }
+% \makeatother
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+\usepackage{listings}
+
+% Python style for highlighting
+\newcommand\pythonstyle{\lstset{
+language=Python,
+basicstyle=\ttm,
+otherkeywords={self},             % Add keywords here
+keywordstyle=\ttb\color{deepblue},
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle=\ttb\color{deepred},    % Custom highlighting style
+stringstyle=\color{deepgreen},
+frame=tb,                         % Any extra options here
+showstringspaces=false            %
+}}
+
+\definecolor{javared}{rgb}{0.6,0,0} % for strings
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
+\definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
+\definecolor{javadocblue}{rgb}{0.25,0.35,0.75} % javadoc
+
+\lstset{language=C++,
+basicstyle=\ttfamily,
+keywordstyle=\color{javapurple}\bfseries,
+stringstyle=\color{javared},
+commentstyle=\color{javagreen},
+morecomment=[s][\color{javadocblue}]{/**}{*/},
+numbers=left,
+numberstyle=\tiny\color{black},
+stepnumber=2,
+numbersep=10pt,
+tabsize=4,
+showspaces=false,
+showstringspaces=false}
+
+
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+\pythonstyle
+\lstset{#1}
+}
+{}
+
+% Python for external files
+\newcommand\pythonexternal[2][]{{
+\pythonstyle
+\lstinputlisting[#1]{#2}}}
+
+% Python for inline
+\newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+%
+% \begin{python}
+% class MyClass(Yourclass):
+%     def __init__(self, my, yours):
+%         bla = '5 1 2 3 4'
+%         print bla
+% \end{python}
+
+\begin{document}
+
+
+
+\def\be{\begin{equation}}      % equation
+\def\ee{\end{equation}}        % ...
+\def\bd{\begin{defo}}          % definition
+\def\ed{\end{defo}}            % ...
+\def\bbt{\begin{boxteo}}       % boxteo
+\def\ebt{\end{boxteo}}         % ...
+\def\i{\infty}                 % infty
+\def\d{\partial}               % dx dy - partial     = \d
+% \def\ind{\mathbb{I}_}          % indicator           = \ind
+\def\xx{\chi_{\overline{\xi}}} % char of vec xi = \xx
+\def\Laplas{\text{Ф}}          % Laplas function     = \Laplas
+\def\veta{\overline{\eta}}     % vector eta          = \veta
+\def\vxi{\overline{\xi}}       % vector xi           = \vxi
+\def\vtheta{\overline{\theta}} % vector theta   = \vtheta
+\def\gammadistr{\Gamma}
+\def\bdash{\ \Big|\  }
+
+\begin{center}
+	\Huge \textbf{Собственно, теорвер...}
+\end{center}
+
+\tableofcontents
+
+\newpage
+\input{lectures_part_5}
+
+\end{document}

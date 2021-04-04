@@ -1,35 +1,62 @@
-\documentclass[14pt,a4paper]{scrartcl}
+\documentclass[a4paper]{scrartcl}
 \usepackage[utf8]{inputenc}
-\usepackage{ragged2e}
-\usepackage{mathtools}
-% \usepackage{esint}
-\usepackage[english,russian, ukrainian]{babel}
-\usepackage{misccorr,color,ragged2e,amsfonts,amsthm,graphicx,systeme,amsmath,mdframed,lipsum}
+\usepackage{showframe}
+\usepackage{wrapfig}
+% Example:
+% \begin{wrapfigure}{R}{0.4\textwidth}
+% \centering
+% \includegraphics[width=0.35\textwidth]{assets/lectures_part_3-91d0349d.png}
+% The PDF of the Student distribution.
+% \end{wrapfigure}
+
+
+\usepackage[english, russian, ukrainian]{babel}
+\usepackage{misccorr,
+            color,
+            ragged2e,
+            amsfonts,
+            amsthm,
+            graphicx,
+            systeme,
+            amsmath,
+            mdframed,
+            lipsum,
+            mathtools,
+            setspace
+            }
+
 \renewcommand\qedsymbol{$\blacksquare$}
 \renewcommand*{\proofname}{\text{Доведення}}
+
 \theoremstyle{definition}
 \newtheorem*{defo}{Означення}
-\newtheorem*{teo}{Теорема}
+\newtheorem*{lemme}{Лема}
 \newtheorem*{example}{Приклад}
 \theoremstyle{remark}
 \newtheorem*{remark}{Зауваження}
 \theoremstyle{definition}
 \newtheorem*{consequence}{Наслідок}
 \theoremstyle{definition}
-\newtheorem{statement}{Утверждение}[section]
+\newtheorem{statement}{Твердження}[section]
 \newmdtheoremenv{boxteo}{Теорема}[section]
-\setlength\parindent{0pt}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.5em}
 \DeclareMathOperator*\lowlim{\underline{lim}}
 \DeclareMathOperator*\uplim{\overline{lim}}
+
 \newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
 \def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+  \node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
 
 % Default fixed font does not support bold face
 \DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
 \DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
 
 % Custom colors
-\usepackage{color}
 \definecolor{deepblue}{rgb}{0,0,0.5}
 \definecolor{deepred}{rgb}{0.6,0,0}
 \definecolor{deepgreen}{rgb}{0,0.5,0}
@@ -40,33 +67,14 @@
 \newcommand\pythonstyle{\lstset{
 language=Python,
 basicstyle=\ttm,
-otherkeywords={self},             % Add keywords here
+morekeywords={self},              % Add keywords here
 keywordstyle=\ttb\color{deepblue},
 emph={MyClass,__init__},          % Custom highlighting
 emphstyle=\ttb\color{deepred},    % Custom highlighting style
 stringstyle=\color{deepgreen},
 frame=tb,                         % Any extra options here
-showstringspaces=false            %
+showstringspaces=false
 }}
-
-\definecolor{javared}{rgb}{0.6,0,0} % for strings
-\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
-\definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
-\definecolor{javadocblue}{rgb}{0.25,0.35,0.75} % javadoc
-
-\lstset{language=C++,
-basicstyle=\ttfamily,
-keywordstyle=\color{javapurple}\bfseries,
-stringstyle=\color{javared},
-commentstyle=\color{javagreen},
-morecomment=[s][\color{javadocblue}]{/**}{*/},
-numbers=left,
-numberstyle=\tiny\color{black},
-stepnumber=2,
-numbersep=10pt,
-tabsize=4,
-showspaces=false,
-showstringspaces=false}
 
 
 % Python environment
@@ -77,11 +85,6 @@ showstringspaces=false}
 }
 {}
 
-% \begin{python}
-%  c  o  d  e
-%    .  .  .
-% \end{python}
-
 % Python for external files
 \newcommand\pythonexternal[2][]{{
 \pythonstyle
@@ -89,41 +92,36 @@ showstringspaces=false}
 
 % Python for inline
 \newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
-%
+
+%                 USAGE:
 % \begin{python}
 % class MyClass(Yourclass):
 %     def __init__(self, my, yours):
 %         bla = '5 1 2 3 4'
 %         print bla
 % \end{python}
+%
+%
+% \pythonexternal{demo.py}
+%
+%
+% Definition \pythoninline{class MyClass} means \dots
+
+\def\be{\begin{equation}}      % equation
+\def\ee{\end{equation}}        % ...
+\def\i{\infty}                 % infinity
+\def\d{\partial}               % dx dy - partial     = \d
+\def\bdash{\ \Big|\  }         % big vertical line   = |
+\def\index{\mathbb{I}}         % indicator
 
 \begin{document}
 
+\begin{center}
+	\Huge \textbf{Собственно, {}\dots}
+\end{center}
 
+\tableofcontents
 
-\def\be{\begin{equation}}
-\def\ee{\end{equation}}
-% Definition
-\def\bd{\begin{defo}}
-\def\ed{\end{defo}}
-
-% Box Theorem
-\def\bbt{\begin{boxteo}}
-\def\ebt{\end{boxteo}}
-
-\def\i{\infty}
-
-\def\d{\partial}
-
-
-
-
-% MAIN CONTENT HERE
-
-
-
-
-
-
-
+\newpage
+\dots
 \end{document}

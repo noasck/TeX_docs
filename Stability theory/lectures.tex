@@ -45,6 +45,8 @@
 \definecolor{deepred}{rgb}{0.6,0,0}
 \definecolor{deepgreen}{rgb}{0,0.5,0}
 
+\def\doubleunderline#1{\underline{\underline{#1}}}
+
 \doublespacing
 
 \begin{document}
@@ -1478,7 +1480,36 @@ $$
 $$ V(x,y) = \frac{3x^2}{2} + \frac{y^2}{2}  \ \text{ -- додатно визначена, } \quad \dot{V}_f (x,y) = 0 \leq 0$$
 \end{example}
 З наведених вище міркувань отримуємо, що розв'язок стійкий.
-\newpage
+
+\section{Лекція 5}
+\subsection{Перші інтеграли систем диференційних рівнянь.}
+\begin{example}
+ Розглянемо рівняння
+ $y' = y \ \Longrightarrow \  y =  C \cdot e^x $ - заг. розв.\\
+ Легко побачити, що функція:
+ $$
+ \psi (x,y)  = y \cdot e^{-x}
+ $$
+ Має таку властивість:
+ $$
+ \forall y(x) \text{ - розв'язок} \ \dfrac{\mathrm{d}}{\mathrm{d}x} \psi(x, y(x)) = (y(x)\cdot e^{-x})' = y' \cdot e^{-x}  = y \cdot e^{-x} = 0
+ $$
+ Таким чином, $\forall y(x) $ -- розв'язок $\psi (x, y(x)) = const$. Інакше кажучи, функція $\psi(x,y) $ є сталою вздовж довільного розв'язку рівняння. Такі функції називають \textbf{першими інтегралами}.
+\end{example}
+\begin{defo}
+Розглянемо систему:
+  \be\label{spd3}
+  \overrightarrow{x}' = \overrightarrow{f} (t, \overrightarrow{x}),
+  \ee
+  де $f: D \to \mathbb{R}^n ; D \subset \mathbb{R}^{n+1}; f \in C(D)$.\\
+  Функція $U(t, \overrightarrow{x}) \in C^1 (D)$ називається \textbf{першим інтегралом} системи \eqref{spd3}, якщо для кожного розв'язку системи \eqref{spd3} $\overrightarrow{x} = \overrightarrow{x}(t), t \in I$ виконується:
+$$
+\frac{d}{d t} U ( t, \overrightarrow{x}(t)) = 0 \quad \forall t \in I
+$$
+(тобто $U$ є сталою вздовж довільного розв'язку системи \eqref{spd3}).
+\end{defo}
+
+
 
 \input{lectures_recent}
 \end{document}

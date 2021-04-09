@@ -1509,7 +1509,210 @@ $$
 (тобто $U$ є сталою вздовж довільного розв'язку системи \eqref{spd3}).
 \end{defo}
 
+\begin{example}
+  $$
+  \begin{dcases}
+   \dot{x} = y^2 + z^2\\
+   \dot{y} = z \\
+   \dot{z} = -y
+  \end{dcases}
+  $$
+  Розглядаємо функцію $U(t, x, y, z) = y^2 + z^2$.\\
+  Тоді для кожного розв'язку системи $\begin{bmatrix}
+   x(t)&
+   y(t)&
+   z(t)
+  \end{bmatrix}^T$ маємо:
+  $$
+  \frac{d}{dt} U(t, x(t), y(t), z(t)) = \frac{\d U}{\d t} + \frac{\d U}{\d x}\cdot \frac{\d x}{\d t}  + \frac{\d U}{\d y}\cdot \frac{\d y}{\d t} +
+  \frac{\d U}{\d z}\cdot \frac{\d z}{\d t} = 2yz - 2zy = 0
+  $$
+  Таким чином, $U(t,x,y,z)= y^2 + z^2$ -- І інтеграл системи.
+\end{example}
+\begin{remark}
+    Похідною функції $U\in C^1(D) $ є функція:
+    $$
+    \dot{U}_f (t, \overrightarrow{x}) = \frac{\d U}{\d t} +  \sum\limits_{i = 1}^{n}{ \frac{\d U}{\d x_i} \cdot f_i(t, \overrightarrow{x})  }
+    $$
+\end{remark}
+\begin{boxteo}[Аналітичний критерій першого інтегралу]
+  $U\in C^1(D)$ є першим інтегралом системи \eqref{spd3} т.т.т.к.:
+  $$
+  \forall (t,x) \in D \ \ \dot{U}_f (t,x) = 0
+  $$
+\end{boxteo}
+\begin{proof}
+ \fbox{$\Longleftarrow$} $\dot{U}_f (t,x) \Rightarrow$ Для довільного розв'язку $\overrightarrow{x}(t), t\in I$.
+ $$
+ 0 = \frac{\d U}{\d t} +  \sum\limits_{i = 1}^{ n}{ \frac{\d U}{\d x_i}  } \cdot f_i (t, \overrightarrow{x}) = \frac{\d U}{\d t} +  \sum\limits_{i = 1}^{ n}{ \frac{\d U}{\d x_i}  } \cdot \frac{d x_i}{dt} = \frac{d}{dt} U(t, \overrightarrow{x}(t)) \  \Rightarrow
+ $$
+ $$
+\Rightarrow \ \frac{d}{dt} U(t, \overrightarrow{x}(t)) = 0 \ \Rightarrow \ U \text{ - перший інтеграл.}
+ $$
+\fbox{$\Longrightarrow$} Нехай $U$ - І інтеграл. Тоді для кожного розв'язку виконується:
+$$
+0 = \frac{\d U}{\d t} +  \sum\limits_{i = 1}^{ n}{ \frac{\d U}{\d x_i} } \cdot \frac{d x_i}{dt} =  \frac{\d U}{\d t} +  \sum\limits_{i = 1}^{ n}{ \frac{\d U}{\d x_i} } \cdot f_i = \dot{U}_f (t, \overrightarrow{x}(t))
+$$
+Отже, $\forall \overrightarrow{x}(t)$ - розв'язку: $\dot{U}_f(t, \overrightarrow{x}(t)) = 0$.\\
+І оскільки $\overrightarrow{f} \in C(D)$, то за т. Пеано $\forall (t,\overrightarrow{x}) \in D$ знайдеться розв'язок, що проходить через цю точку, а отже: $\forall (t, \overrightarrow{x}) \in D \ \  \dot{U}_f(t, \overrightarrow{x})=0$.
+\end{proof}
+
+\begin{remark}
+    З прикладу бачимо, що для диф. рівняння першого порядку пошук першого інтегралу, фактично, завершує розв'язання цього рівняння.
+\end{remark}
+\textbf{Питання.} скільки потрібно знайти перших інтегралів системи  \eqref{spd3}, щоб вважати її розв'язаною?
+\begin{remark}
+    Якщо $U$ - перший інтеграл системи, то $\forall \varphi \in C(D)$:
+    $$
+    \varphi(U) \ \text{ - також перший інтеграл.}
+    $$
+\end{remark}
+\def\rank{\text{rank}}
+\begin{defo}
+  Перші інтегралии назвемо функціонально незалежними, якщо ранг матриці Якобі для цих перших інтегралів $ \left\lbrace U_i \right\rbrace_{i=1}^{k}$ дорівнює їх кількості.
+  $$
+  \rank{\begin{bmatrix}
+   \frac{\d U_1}{\d x_1} & \cdots & \frac{\d U_1}{\d x_n} \\
+   \frac{\d U_2}{\d x_1} & \cdots & \frac{\d U_2}{\d x_n} \\
+   \vdots & \ddots & \vdots\\
+   \frac{\d U_k}{\d x_1} & \cdots & \frac{\d U_k}{\d x_n}
+  \end{bmatrix}} = k
+  $$
+\end{defo}
+\begin{defo}
+ Набір з n функціонально незалежних перших інтегралів називається повним набором перших інтегралів.
+\end{defo}
+\begin{boxteo}[про існування повного набору перших інтегралів] \ \\
+Нехай $\overrightarrow{f} \in C^1(D)$. Тоді $\forall (t, \overrightarrow{t}) \in D$ знайдеться окіл цієї точки, в якому існує повний набір.
+\end{boxteo}
+\begin{boxteo}[про загальний розв'язок системи \eqref{spd3}]
+
+  Нехай $\overrightarrow{f} \in C^1(D)$;  \ \\ $\left\lbrace U_i \right\rbrace_{i=1}^n$ - повний набір перших інтегралів системи \eqref{spd3}. Тоді співвідношення:
+  $$
+\left\lbrace U_i (x,y)  = c_i \right\rbrace^n_{i=1}
+  $$
+  задають загальний розв'язок системи \eqref{spd3}.
+\end{boxteo}
+\subsection{Методи розв'язання систем n-го порядку.}
+\subsubsection{Метод виключення.} (Метод зведення до рівняння n-го порядку відносно однієї зі змінних)
+\begin{example}
+$$ \begin{dcases}
+ \frac{dy}{dx} = \frac{y^2}{z-x}\\
+ \frac{dz}{dx} = y+1
+ \end{dcases}$$
+ Продиференціюємо перше рівняння:
+ $$
+ y'' = \frac{2yy'(z-x) - (z' - 1)y^2}{(z-x)^2}
+ $$
+\end{example}
+ З першого рівняння: $z-x = \dfrac{y^2}{y'} $.\\
+З другого рівняння: $z' - 1 = y$.\\
+Підставимо:
+$$
+y'' = \frac{2yy' \cdot \frac{y^2}{y'} -y^3}{ \frac{y^4}{(y')^{2}} }
+$$
+$$
+y'' = \frac{y^3}{y^4} \cdot (y')^{2} \ \Longrightarrow \  y'' = \frac{(y')^{2}}{y}
+$$
+Зауважимо, що ми втратили розв'язок $y=0$, поділивши на $y$. Отримали:\\ $y'' = \frac{(y')^2}{y} $ \text{- рівняння , що не залежить від} $x$.\\
+Заміна: $y$ - нова незалежна змінна:
+$$
+y' = p, p = p(y) \text{ - нова невід'ємна функція.}
+$$
+$$
+y'' = \frac{dy'}{dx} = \frac{dy'}{dy} \cdot \frac{dy}{dx} = p' \cdot p
+$$
+$$
+p'p = \frac{p}{y} \quad p' = \frac{p}{y} \quad \frac{dp}{dy} = \frac{p}{y} \quad \frac{dp}{p} = \frac{dy}{y}
+$$
+$$
+\ln \left| p \right| = \ln |y| + \ln |c_1| \ \Longrightarrow \  p = c_1 \cdot y
+$$
+$$
+y' = c_1 y \ \Longrightarrow \  \frac{dy}{y} = c_1 \ \Longrightarrow \ \ln|y| = c_1 x + \ln|c_2| \ \Longrightarrow \  \fbox{$y = c_2 \cdot e^{c_1 x}$}
+$$
+Знайдемо z:
+$$
+z - x = \frac{y^2}{y'} = \frac{c_2^2 e^{2c_1 x}}{c_1 c_2 e^{c_1 x}} = \frac{c_2}{c_1} e^{c_1 x}
+$$
+$$
+z  = \frac{c_2}{c_1} e^{c_1 x}   +x
+$$
+Остаточна відповідь:
+$$
+\left[
+\begin{array}{l}
+\begin{dcases}
+ y = c_2 e^{c_1 x}\\
+ z = \frac{c_2}{c_1} e^{c_1 x} + x
+\end{dcases}
+\\
+\begin{dcases}
+ y = 0\\
+ z = x + c
+\end{dcases}
+\end{array}
+ \right.
+$$
+
+\subsubsection{Метод інтегрованих комбінацій.}
+Розглянемо систему (7) в нормальній формі:
+\begin{equation*}
+  \begin{cases}
+    \dot{x_1} = f_1(t, x_1, \dots, x_n) \\
+    \dot{x_2} = f_2(t, x_1, \dots, x_n) \\
+    \qquad \qquad \dots \\
+    \dot{x_n} = f_n(t, x_1, \dots, x_n)
+  \end{cases}
+\end{equation*}
+Записують у симетричній формі: \\
+\begin{equation*}
+  \dfrac{\mathrm{d}x_1}{f_1} = \dfrac{\mathrm{d}x_2}{f_2} = \quad \dots \quad = \dfrac{\mathrm{d}x_n}{f_n} = \dfrac{\mathrm{d}t}{1}
+\end{equation*}
+Після цього застосовують наступну властивість:
+\begin{equation*}
+  \text{Якщо } \ \dfrac{a_1}{b_1} = \dfrac{a_2}{b_2} = \quad \dots \quad = \dfrac{a_n}{b_n}
+\end{equation*}
+То $\forall \{c_i\}^n_{i=1} \text{ справедливо, що: } \dfrac{a_1}{b_1} = \dfrac{a_2}{b_2} = \quad \dots \quad = \dfrac{a_n}{b_n} = \dfrac{\sum\limits_{i=1}^{n}c_ia_i}{\sum\limits_{i=1}^{n}c_ib_i}$, легко довести методом мат. індукції. Мета: підібрати $\{c_i\}^n_{i=1}$, таким чином, щоб отримати інтегровні рівняння в окремих рівностях.
+
+\begin{example}
+  \begin{equation*}
+    \begin{cases}
+      \dfrac{\mathrm{d}y}{\mathrm{d}x} = \dfrac{z - 1}{z} \\
+      \dfrac{\mathrm{d}z}{\mathrm{d}x} = \dfrac{1}{y - x}
+    \end{cases}
+  \end{equation*}
+\end{example}
+Запишемо систему у симетричній формі: $$ \dfrac{z\mathrm{d}y}{z - 1} = \dfrac{(y-x)\mathrm{d}z}{1} = \dfrac{\mathrm{d}x}{1}$$
+Візьмемо $c_1 = 1, c_2 = 0, c_3 = -z$, тоді: $$\dfrac{z\mathrm{d}y}{z - 1} = \doubleunderline{\dfrac{(y - x)\mathrm{d}z}{1}} = \dfrac{\mathrm{d}x}{1} = \dfrac{z\mathrm{d}y - z\mathrm{d}x}{z - 1 - z} = \doubleunderline{-\dfrac{z(\mathrm{d}y - \mathrm{d}x)}{1}}$$
+Отримуємо: $(y - x)\mathrm{d}z = -z\mathrm{d}(y - x)$, тоді: $\dfrac{\mathrm{d}z}{z} = - \dfrac{\mathrm{d}(y - x)}{y -x}$, з цього маємо: $$ \ln z = - \ln|y - x| + \ln c_1 \quad \Longrightarrow \quad z = \dfrac{c_1}{y - x} \quad \Longrightarrow \quad z (y - x) = c_1$$
+Далі: $$ \dfrac{\mathrm{d}y}{\mathrm{d}x} = \dfrac{z - 1}{z} = 1 - \dfrac{1}{z} \quad \Longrightarrow \quad \dfrac{\mathrm{d}y}{\mathrm{d}x} = 1 - \dfrac{y - x}{c_1} \quad \Longrightarrow \quad \dfrac{\mathrm{d}y}{\mathrm{d}x} + \dfrac{y}{c_1} = 1 + \dfrac{x}{c_1}$$
+Остання рівність це лінійне неоднорідне рівняння першого порядку, застосуємо метод Бернуллі: $y = uv$, тоді: $$u'v + uv' + \dfrac{uv}{c_1} = 1 + \dfrac{x}{c_1} \quad \Longrightarrow \quad u'v + u(v' + \dfrac{v}{c_1}) = 1 + \dfrac{x}{c_1}$$
+
+З цього тримуємо: $$ \dfrac{\mathrm{d}v}{\mathrm{d}x} = -\dfrac{v}{c_1} \quad \Longrightarrow \quad \dfrac{\mathrm{d}v}{v} = -\dfrac{1}{c_1}\mathrm{d}x \quad \Longrightarrow \quad v = e^{-\dfrac{x}{c_1}}$$
+
+Тоді: $$u' \cdot e^{-\dfrac{x}{c_1}} = 1 + \dfrac{x}{c_1} \quad \Longrightarrow \quad u' = e^{\dfrac{x}{c_1}} + \dfrac{x}{c_1} \cdot e^{\dfrac{x}{c_1}} \quad \Longrightarrow \quad u = x \cdot e^{\dfrac{x}{c_1}} + c_2$$
+
+Остаточно отримуємо:$$ y = (x \cdot e^{\dfrac{x}{c_1}} + c_2) \cdot e^{-\dfrac{x}{c_1}} \quad \Longrightarrow \quad y = x + c_2 e^{-\dfrac{x}{c_1}} \quad \Longrightarrow \quad c_2 = (y - x)e^{\dfrac{x}{c_1}}$$
+
+Тоді: $c_2 = (y - x)e^{\dfrac{x}{z(y - x)}}$, відповідь:
+$\begin{cases}
+  z(y - x) = c_1 \\
+  (y - x)e^{\dfrac{x}{z(y - x)}} = c_2
+\end{cases}$.
+
+\newpage
+
+\section{Лекція 6}
+\subsection{Варіаційне числення}
+Історія екстремальних задач (задач на знаходження найменших та найбільших величин) -- це, фактично, історія математики. Найдревнішою з таких задач прийнято вважати класичну задачу Дідони (серед гладких замкнутих кривих заданої довжини знайти криву, що охоплює найбільшу полощу). Однак до певного моменту розв'язання екстремальних задач потребувало індивідуального підходу до кожної задачі і більш походило на мистецтво, ніж на науку. Систематичний розвиток класичного варіаційного числення розпочався в 1696 році, коли Йоганн Бернуллі опублікував в німецькому науковому часописі $"$Acta Eruditorum$"$ задачу, відому сьогодні як $"$задача про брахістохрону$"$, з закликом до найвідоміших науковців того часу розв'язати її. Задача: задано дві точки $A$ та $B$ на полощині, які не лежать на вертикальній прямій. Знайти гладку криву, по якій матераільна точка лише під дією сили тяжніння скотиться з точки $A$ в точку $B$ за найкоротший проміжок часу. Протягом року Йоганн Бернуллі розв'язав задачу сам і отримав ще чотири різних ров'язки від Ісаака Ньютона, Якоба Бернуллі, Готфріда Вільгельма Лейбніца, Гійома де Лопіталя. І саме розв'язання задачі про брахістохрону, запропоноване Ісааком Ньютона, дало початок розвитку варіаційного числення як окремої матетматичної теорії. В подальшому варіаціїне числення завдячує своєму розвитку таким вченим як Леонард Ейлер, Жозеф Луі Лагрнаж, Карл Якобі, Адрієн-Марі Лежандр, Карл Веєрштрасс та інші. \\ \\
+
+Нехай $Y$ -- дійсний нормований простір з нормою $||y||$ елементів $y \in Y$
+
+\begin{boxteo}
+  $C[a, b]$ -- дійсний нормований простір з нормою $$||\varphi(x)||_{C[a, b]} = \max\limits_{x \in [a, b]}|\varphi(x)|$$
+\end{boxteo}
 
 
-\input{lectures_recent}
+%\input{lectures_recent}
 \end{document}

@@ -31,6 +31,9 @@ Snippets are important part of my TeX environment. You can use them with ```Atom
   'summ':
     'prefix': 'sum'
     'body': ' \\\\sum\\\\limits_{$1 = $2}^{${3: \\\\infty}}{$4}'
+  'multiplication':
+    'prefix': 'mult'
+    'body': ' \\\\prod\\\\limits_{$1 = $2}^{${3: \\\\infty}}{$4}'
   'Integr a_b':
     'prefix': 'int'
     'body': ' \\\\int\\\\limits_{$1}^{${2: +\\\\infty}}{$3}'
@@ -48,13 +51,16 @@ Snippets are important part of my TeX environment. You can use them with ```Atom
     'body': '\\\\sigma $1'
   'module':
     'prefix': '\|'
-    'body': '\\\\left\\\| $1 \\\\right\\\| $2'
+    'body': '\\\\left\\\| $1 \\\\right\\\|'
   'big_round_bracket':
     'prefix': 'bir'
-    'body': '\\\\left\\\( $1 \\\\right\\\) $2'
+    'body': '\\\\left\\\( $1 \\\\right\\\)'
+  'big_squared_bracket':
+    'prefix': 'bsq'
+    'body': '\\\\left\\\[ $1 \\\\right\\\]'
   'braket':
     'prefix': 'braket'
-    'body': '\\\\left\\\\lbrace $1 \\\\right\\\\rbrace $2'
+    'body': '\\\\left\\\\lbrace $1 \\\\right\\\\rbrace'
   'neq':
     'prefix': '\!\='
     'body': '\\\\neq '
@@ -73,12 +79,33 @@ Snippets are important part of my TeX environment. You can use them with ```Atom
   'gathered':
     'prefix': 'gathered'
     'body': '\\\\begin\\\{gathered\\\}\n $1 \n\\\\end\\\{gathered\\\}'
+  'cases':
+    'prefix': 'cases'
+    'body': '\\\\begin\\\{cases\\\}\n $1 \n\\\\end\\\{cases\\\}'
+  'dcases':
+    'prefix': 'dcases'
+    'body': '\\\\begin\\\{dcases\\\}\n $1 \n\\\\end\\\{dcases\\\}'
+  'center':
+    'prefix': 'center'
+    'body': '\\\\begin\\\{center\\\}\n $1 \n\\\\end\\\{center\\\}'
+  'example':
+    'prefix': 'example'
+    'body': '\\\\begin\\\{example\\\}\n $1 \n\\\\end\\\{example\\\}'
+  'definition':
+    'prefix': 'defo'
+    'body': '\\\\begin\\\{defo\\\}\n $1 \n\\\\end\\\{defo\\\}'
   'bmatrix':
     'prefix': 'bmatrix'
     'body': '\\\\begin\\\{bmatrix\\\}\n $1 \n\\\\end\\\{bmatrix\\\}'
+  'vmatrix':
+    'prefix': 'vmatrix'
+    'body': '\\\\begin\\\{vmatrix\\\}\n $1 \n\\\\end\\\{vmatrix\\\}'
   'alpha':
-    'prefix': 'alp'
+    'prefix': 'alpha'
     'body': '\\\\alpha'
+  'beta':
+    'prefix': 'beta'
+    'body': '\\\\beta'
   'rational':
     'prefix': 'R',
     'body': '\\\\mathbb\\\{R\\\}'
@@ -88,6 +115,9 @@ Snippets are important part of my TeX environment. You can use them with ```Atom
   'natural':
     'prefix': 'N',
     'body': '\\\\mathbb\\\{N\\\}'
+  'vector':
+    'prefix': 'vect',
+    'body': '\\\\overrightarrow\\\{$1\\\}'
   'mean':
     'prefix': 'E',
     'body': '\\\\mathbb\\\{E\\\}'
@@ -110,7 +140,7 @@ Snippets are important part of my TeX environment. You can use them with ```Atom
     'prefix': 'tg'
     'body': '\\\\tg\\\{\\\($1\\\)\\\} '
   'varphi':
-    'prefix': 'fi'
+    'prefix': 'phi'
     'body': '\\\\varphi'
   'omega':
     'prefix': 'w'
@@ -121,8 +151,10 @@ Snippets are important part of my TeX environment. You can use them with ```Atom
   'xi':
     'prefix': 'xi'
     'body': '\\\\xi'
+  'eta':
+    'prefix': 'eta'
+    'body': '\\\\eta'
   'includegraphics':
     'prefix': 'image'
-    'body': '\\\\begin{center} \\\\includegraphics\\\[scale=$1\\\]\\\{$2\\\} \\\\end\\\{center\\\}'
-
+    'body': '\\\\includegraphics\\\[scale=$1\\\]\\\{$2\\\}'
 ```

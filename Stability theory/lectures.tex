@@ -1709,10 +1709,23 @@ $\begin{cases}
 
 Нехай $Y$ -- дійсний нормований простір з нормою $||y||$ елементів $y \in Y$
 
-\begin{boxteo}
+\begin{example}
   $C[a, b]$ -- дійсний нормований простір з нормою $$||\varphi(x)||_{C[a, b]} = \max\limits_{x \in [a, b]}|\varphi(x)|$$
-\end{boxteo}
+  Нехай $M \subset Y$ -- деяка підмножина. Відображення $F: M \rightarrow \mathbb{R}; M \subset Y$ називається функціоналом з областью визначення $M$. Тобто на множині $M \subset Y$ задана функціонал $F(y)$, якщо кожному елементу $y \in M$ однозначно поставлено у відповідність дійсне число.
+\end{example}
+\begin{example}
+  $J(y) = \mathop{\mathlarger{\int}}\limits_{a}^{b}y(x)\mathrm{d}x, \quad a, b \in \mathbb{R}, \quad a < b$, що розглядаютсья на множині функцій $M = \{ y \in C[a,b] \quad | \quad y(a) = A, \ y(B) = B\}$ є функціоналом, який кожній функції з множини $M$ ставить у відповідність число (значення інтеграла )
+\end{example}
+Класичне варіаційне числення вивчає загальні методи знаходження екстремумів функціоналів, заданих в певних функціональних просторах.
 
+\subsection{Найпростіша задача варіаційного числення}
+Розглянемо $C^1[a, b]$ -- дійсний нормований простір з нормою $$||\varphi(x)||_{C^1[a, b]} = \max\limits_{x \in [a, b]}|\varphi(x)| + \max\limits_{x \in [a, b]}|\varphi'(x)|$$
 
+Нехай $a, b \in \mathbb{R}, \ a < b$ -- задані числа. $F(x, y, p) \in C^1([a, b] \times \mathbb{R}^2)$ -- задана функція. Розглянемо інтеграл:
+\begin{equation}
+  J(y) = \mathop{\mathlarger{\int}}\limits_{a}^{b}F(x, y(x), y'(x))\mathrm{d}x
+\end{equation}
+
+На множині функцій: $M = \{ y \in C^1[a, b] \quad | \quad y(a) = A, \ y(b) = B\}$, де числа $A, B \in \mathbb{R}$ -- задані.
 %\input{lectures_recent}
 \end{document}

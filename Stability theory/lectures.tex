@@ -1735,5 +1735,15 @@ $\begin{cases}
 \defo Задача пошуку слабкого локального (глобального) екстремуму (min, max) функціоналу $J(y)$ на $M$ називається найпростішою задачею варіаційного числення.
 
 Відомо, що при дослідженні функцій на екстремум вирішальну роль відіграє похідна функції. При дослідженні екстремумів функціоналів схожу роль відіграє поняття варіації функціоналу. Введемо його.
+
+Для довільної функції $y \in M : \forall h(x) \in C^1[a, b]$ такої, що $h(a) = h(b) = 0$ та $\forall \alpha \in \mathbb{R}$ розглянемо сімейство функцій: $$y(x, \alpha) = y(x) + \alpha h(x)$$
+Тоді $\forall \alpha \in \mathbb{R} y(x, \alpha) \in M$ розглянемо: $$ J(y + \alpha h) = \int\limits_{a}^{b} F(x, y(x) + \alpha h(x), y'(x) + \alpha h'(x)) \mathrm{d}x$$
+
+Тоді функція $\Phi(\alpha) := J(y + \alpha h)$ є неперервно-диференційовную по $\alpha$ в деякому околі точки $\alpha = 0$.
+
+$$\Phi'(0) = \dfrac{\mathrm{d}}{\mathrm{d}\alpha}J(y + \alpha h)\Big|_{\alpha = 0} = \int\limits_{a}^{b}(\dfrac{\partial F(x, y, y')}{\partial y} \cdot h(x) + \dfrac{\partial F(x, y, y')}{\partial y'} \cdot h'(x))\mathrm{d}x$$
+
+\defo Допустимим приростом (варіацією) функції $y \in M$ називають довільну функцію $h(x) \in C^1[a, b] : h(a) = h(b) = 0$.
+
 %\input{lectures_recent}
 \end{document}

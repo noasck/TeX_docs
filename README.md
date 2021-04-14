@@ -2,13 +2,18 @@
 TeX documents in different fields: Calculus, Physics, Numerical Math, etc.
 
 --------------------------------
+## Getting started
 Fist of all, template I use in my documents: [Untitled template...](https://github.com/noasck/TeX_docs/blob/main/Untitled.tex)
+
+Another useful resource is [Latex Workbook for Beginners...](https://github.com/noasck/TeX_docs/blob/main/Latex%20for%20beginners.pdf)
+
+And the last one, my own post with [First steps in LaTeX](https://telegra.ph/Dive-into-LaTeX-10-18)
 ## Content you may like
-1. Stability theory lectures [TeX Source...](https://github.com/noasck/TeX_docs/tree/main/Stability%20theory)
+1. Stability theory lectures **UKR** [TeX Source...](https://github.com/noasck/TeX_docs/tree/main/Stability%20theory)
 
-Notice, that stabtheory included in release with appropriative tag.
+Notice, that ```stabtheory_lec<num>``` included in **Release** with appropriative tag.
 
-2. Probability theory lectures [TeX Source...](https://github.com/noasck/TeX_docs/tree/main/Probability%20Theory/Lectures)
+2. Probability theory lectures **UKR** [TeX Source...](https://github.com/noasck/TeX_docs/tree/main/Probability%20Theory/Lectures) [Final PDF...](https://github.com/noasck/TeX_docs/releases/download/pt_final/default.pdf)
 
 Repository contains **vector graphics** source provided in a *svg* files. All pictures were created with ```Inkscape``` editor.
 

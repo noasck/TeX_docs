@@ -11,6 +11,7 @@
 \theoremstyle{definition}
 \newtheorem*{defo}{Означення}
 \newtheorem*{teo}{Теорема}
+\newtheorem*{lema}{Лема}
 \newtheorem*{example}{Приклад}
 \newtheorem*{remark}{Зауваження}
 \theoremstyle{definition}
@@ -21,7 +22,20 @@
 \newmdtheoremenv{boxlema}{Лема}[section]
 \newtheorem*{look}{Позначення}
 
-
+\makeatletter
+\newcommand\incircbin
+{%
+  \mathpalette\@incircbin
+}
+\newcommand\@incircbin[2]
+{%
+  \mathbin%
+  {%
+    \ooalign{\hidewidth$#1#2$\hidewidth\crcr$#1\bigcirc$}%
+  }%
+}
+\newcommand{\oeq}{\ \incircbin{=} \ }
+\makeatother
 %
 % \usepackage{harpoon}
 % \newcommand*{\vect}[1]{\overrightharp{\ensuremath{#1}}}
@@ -66,6 +80,7 @@
 \def\vx{\overrightarrow{x}}
 \def\vphi{\overrightarrow{\varphi}}
 \def\vf{\overrightarrow{f}}
+\def\vline{\bigg|}
 
 \begin{titlepage}
 \begin{center}
@@ -96,7 +111,7 @@
 \subsection{Нормальні системи диференційних рівнянь}
 
 
-\be \label{nsde}
+\be \label{nsde1}
 \left\lbrace
 \begin{gathered}
     x'_1 (t) = f_1(t, x_1 (t), ... , x_n(t)) \\
@@ -106,7 +121,7 @@
 \end{gathered}\right.
 \ee
 
- Системою диф. рівнянь n-го порядку в нормальній формі називається система вигляду \eqref{nsde}, де $ f_i : D \to \mathbb{R}, \quad D \subset \mathbb{R}^{n+1 }, \quad i = \overline{1, n}$.
+ Системою диф. рівнянь n-го порядку в нормальній формі називається система вигляду \eqref{nsde1}, де $ f_i : D \to \mathbb{R}, \quad D \subset \mathbb{R}^{n+1 }, \quad i = \overline{1, n}$.
 \look
 \[
       \overrightarrow{x}(t) = \left[\begin{array}{l}
@@ -120,21 +135,21 @@
       f_n
       \end{array}\right] \text{, що}
 \]
-$D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $\eqref{nsde}: \overrightarrow{x}'(t) = \overrightarrow{f}(t, \overrightarrow{x}(t))$.
+$D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $\eqref{nsde1}: \overrightarrow{x}'(t) = \overrightarrow{f}(t, \overrightarrow{x}(t))$.
 
 
 \def\rect{\textbf{П}}
 \bd
-\textbf{Розв'язком системи} \eqref{nsde} на $(\alpha , \beta)$ називається така вектор-функція $\overrightarrow{x} (t) \in C^1(\alpha , \beta)$, що:
+\textbf{Розв'язком системи} \eqref{nsde1} на $(\alpha , \beta)$ називається така вектор-функція $\overrightarrow{x} (t) \in C^1(\alpha , \beta)$, що:
 \begin{enumerate}
   \item $(t, x_1(t), \dots, x_n(t)) \in D \quad \forall t \in (\alpha, \beta)$;
-  \item $\overrightarrow{x}(t)$  перетворює $\eqref{nsde}$ на тотожність на інтервалі $(\alpha, \beta)$.
+  \item $\overrightarrow{x}(t)$  перетворює $\eqref{nsde1}$ на тотожність на інтервалі $(\alpha, \beta)$.
 \end{enumerate}
 
-\textbf{Загальним розв'язком системи}  \eqref{nsde} називається n-параметрична сім'я розв'язків \eqref{nsde}, що охоплює всі розв'язки системи.
+\textbf{Загальним розв'язком системи}  \eqref{nsde1} називається n-параметрична сім'я розв'язків \eqref{nsde1}, що охоплює всі розв'язки системи.
 \ed
 
-Задача Коші. Для заданих $t_0, \overrightarrow{x}^{0} \in D$ знайти такий розв'язок \eqref{nsde}, що $\overrightarrow{x} (t_0) = \overrightarrow{x}^{0}$.
+Задача Коші. Для заданих $t_0, \overrightarrow{x}^{0} \in D$ знайти такий розв'язок \eqref{nsde1}, що $\overrightarrow{x} (t_0) = \overrightarrow{x}^{0}$.
 Нехай $\Pi = \{(t, \overrightarrow{x}) \in \mathbb{R} \quad \big| \quad |t-t_0| \leq a, \quad ||\overrightarrow{x} - \overrightarrow{x}_0|| \leq b \}$.
 
 \begin{boxteo}[Теорема Пеано]
@@ -149,7 +164,7 @@ $D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $\eqref{n
 \end{boxteo}
 
 \begin{boxteo}[про продовження]
-Нехай для системи \eqref{nsde} виконується, що $\overrightarrow{f} \in C(D), \quad D \subset \mathbb{R}^{n + 1}$ -- обмежена область. Тоді $\forall t : (t_0, \overrightarrow{x}_0) \in D$ існують такі $t^{-}, t^{+} : t^{-} < t_0 < t^{+}$, що розв'язок системи \eqref{nsde} з початкової умови $\overrightarrow{x}(t_0) = \overrightarrow{x}_0$ існує на інтервалі $(t^{-}, t^{+})$, причому $(t^{-}, \overrightarrow{x}(t^{-})) \text{ та } (t^{+}, \overrightarrow{x}(t^{+}))$ належать межі області $D$.
+Нехай для системи \eqref{nsde1} виконується, що $\overrightarrow{f} \in C(D), \quad D \subset \mathbb{R}^{n + 1}$ -- обмежена область. Тоді $\forall t : (t_0, \overrightarrow{x}_0) \in D$ існують такі $t^{-}, t^{+} : t^{-} < t_0 < t^{+}$, що розв'язок системи \eqref{nsde1} з початкової умови $\overrightarrow{x}(t_0) = \overrightarrow{x}_0$ існує на інтервалі $(t^{-}, t^{+})$, причому $(t^{-}, \overrightarrow{x}(t^{-})) \text{ та } (t^{+}, \overrightarrow{x}(t^{+}))$ належать межі області $D$.
     \begin{center} \includegraphics[scale=0.35]{assets/lect0.png} \end{center}
 \end{boxteo}
 
@@ -167,25 +182,25 @@ $D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $\eqref{n
 \end{boxteo}
 
 \subsection{Основні поняття теорії стійкості.}
-Розглянемо систему диференційних рівнянь $\overrightarrow{x}' = \overrightarrow{f}(t, \overrightarrow{x})$ \eqref{nsde}, де $f : D \rightarrow \mathbb{R}^n$ та $D = [a, +\infty) \times G, \quad G \subset \mathbb{R}^n$. Нехай при цьому $\overrightarrow{f}$ задавольняє умовам існування та єдиності розв'язку задачі Коші в будь-якій точці $(t_0, \overrightarrow{x}_0) \in D$
+Розглянемо систему диференційних рівнянь $\overrightarrow{x}' = \overrightarrow{f}(t, \overrightarrow{x})$ \eqref{nsde1}, де $f : D \rightarrow \mathbb{R}^n$ та $D = [a, +\infty) \times G, \quad G \subset \mathbb{R}^n$. Нехай при цьому $\overrightarrow{f}$ задавольняє умовам існування та єдиності розв'язку задачі Коші в будь-якій точці $(t_0, \overrightarrow{x}_0) \in D$
 
 \bd
-Розв'язок $\overrightarrow{x} = \overrightarrow{\varphi}(t)$ системи \eqref{nsde} називається \textbf{стійким} за Ляпуновим, якщо
+Розв'язок $\overrightarrow{x} = \overrightarrow{\varphi}(t)$ системи \eqref{nsde1} називається \textbf{стійким} за Ляпуновим, якщо
 
 \begin{enumerate}
   \item $\overrightarrow{x} = \overrightarrow{\varphi}(t) \quad \exists  \text{ на } [a, +\infty)$ (відсутніть вертикальних асимптот)
-  \item $\forall \varepsilon > 0 \quad \forall t_0 \geq a \quad \exists \delta > 0 : \forall $ розв'язку $\overrightarrow{x}(t)$ системи \eqref{nsde} такого, що $||\overrightarrow{x}(t_0) - \overrightarrow{\varphi}(t_0)|| < \delta$ виконується наступне, що $\overrightarrow{x}(t)$ існує на $[t_0, +\infty)$ та $||\overrightarrow{x}(t) - \overrightarrow{\varphi}(t)|| < \varepsilon \quad \forall t \geq t_0$.
+  \item $\forall \varepsilon > 0 \quad \forall t_0 \geq a \quad \exists \delta > 0 : \forall $ розв'язку $\overrightarrow{x}(t)$ системи \eqref{nsde1} такого, що $||\overrightarrow{x}(t_0) - \overrightarrow{\varphi}(t_0)|| < \delta$ виконується наступне, що $\overrightarrow{x}(t)$ існує на $[t_0, +\infty)$ та $||\overrightarrow{x}(t) - \overrightarrow{\varphi}(t)|| < \varepsilon \quad \forall t \geq t_0$.
 \end{enumerate}
 \ed
 
 \begin{center} \includegraphics[scale=0.35]{assets/lect1.jpg} \end{center}
 
 \bd
-Розв'язок $\overrightarrow{x} = \overrightarrow{\varphi}(t)$ системи \eqref{nsde} називається \textbf{асимптотично стійким} за Ляпуновим, якщо
+Розв'язок $\overrightarrow{x} = \overrightarrow{\varphi}(t)$ системи \eqref{nsde1} називається \textbf{асимптотично стійким} за Ляпуновим, якщо
 
 \begin{enumerate}
   \item $\overrightarrow{x} = \overrightarrow{\varphi}(t)$ стійкий;
-  \item $\forall t_0 \geq a \quad \exists \delta > 0: \forall$ розв'язку $\overrightarrow{x}(t)$ с-ми \eqref{nsde} такого, що $||\overrightarrow{x}(t_0) - \overrightarrow{\varphi}(t_0)|| < \delta$ справедливо, що $||\overrightarrow{x}(t_0) - \overrightarrow{\varphi}(t_0)|| \rightarrow 0 \text{ при } t \rightarrow + \infty$.
+  \item $\forall t_0 \geq a \quad \exists \delta > 0: \forall$ розв'язку $\overrightarrow{x}(t)$ с-ми \eqref{nsde1} такого, що $||\overrightarrow{x}(t_0) - \overrightarrow{\varphi}(t_0)|| < \delta$ справедливо, що $||\overrightarrow{x}(t_0) - \overrightarrow{\varphi}(t_0)|| \rightarrow 0 \text{ при } t \rightarrow + \infty$.
 \end{enumerate}
 
 \begin{center} \includegraphics[scale=0.35]{assets/lect2.jpg} \end{center}
@@ -195,7 +210,7 @@ $D \rightarrow \mathbb{R}, \quad D \subset \mathbb{R}^{n+1}$, тоді $\eqref{n
 
 \begin{enumerate}
   \item Або $\overrightarrow{x} = \overrightarrow{\varphi}(t) \quad \nexists$ на  $[a, +\infty)$ (вертикальні асимптоти);
-  \item Або $\exists \varepsilon > 0 : \exists t_0 \geq a :  \forall \delta > 0$ існує розв'язок $\overrightarrow{x}(t)$ системи \eqref{nsde} такий, що $||\overrightarrow{x}(t_0) - \overrightarrow{\varphi}(t_0)|| < \delta$, але $||\overrightarrow{x}(t_0) - \overrightarrow{\varphi}(t_0)|| > \varepsilon$
+  \item Або $\exists \varepsilon > 0 : \exists t_0 \geq a :  \forall \delta > 0$ існує розв'язок $\overrightarrow{x}(t)$ системи \eqref{nsde1} такий, що $||\overrightarrow{x}(t_0) - \overrightarrow{\varphi}(t_0)|| < \delta$, але $||\overrightarrow{x}(t_0) - \overrightarrow{\varphi}(t_0)|| > \varepsilon$
 \end{enumerate}
 
 \vfill
@@ -258,11 +273,11 @@ $$
 \end{example}
 
 \remark
-Очевидно, що простіше досліджувати на стійкість розв'язок типу $\varphi(t) = 0$. Нехай \eqref{nsde} $\overrightarrow{x}'(t) = \overrightarrow{f}(t, \overrightarrow{x})$, а $\overrightarrow{x} = \overrightarrow{\varphi(t)}$ -- розв'язок, який потрібно дослідити на стійкість. Застосуємо заміну: $\overrightarrow{z} = \overrightarrow{x} - \overrightarrow{\varphi}(t), \text{ де } \overrightarrow{z}$ -- нова невідома вектор-функція. Отримаємо систему:
+Очевидно, що простіше досліджувати на стійкість розв'язок типу $\varphi(t) = 0$. Нехай \eqref{nsde1} $\overrightarrow{x}'(t) = \overrightarrow{f}(t, \overrightarrow{x})$, а $\overrightarrow{x} = \overrightarrow{\varphi(t)}$ -- розв'язок, який потрібно дослідити на стійкість. Застосуємо заміну: $\overrightarrow{z} = \overrightarrow{x} - \overrightarrow{\varphi}(t), \text{ де } \overrightarrow{z}$ -- нова невідома вектор-функція. Отримаємо систему:
 $$
 \overrightarrow{z}'(t) + \overrightarrow{\varphi}'(t) = \overrightarrow{f}(t, \overrightarrow{z} + \overrightarrow{\varphi}(t)) \quad \Rightarrow \quad \overrightarrow{z}'(t) = \overrightarrow{f}(t, \overrightarrow{z} + \overrightarrow{\varphi}(t)) - \overrightarrow{f}(t, \overrightarrow{\varphi})(t) \quad (*)
 $$
-Можно довести, що розв'язок $\overrightarrow{x} = \overrightarrow{\varphi}(t)$ системи \eqref{nsde} -- стійкий (асимптотично стійкий або нестійкий) $\Longleftrightarrow$ розв'язок $\overrightarrow{z} = \overrightarrow{0}$  cистеми $(*)$ -- стійкий (асимптотично стійкий або нестійкий).
+Можно довести, що розв'язок $\overrightarrow{x} = \overrightarrow{\varphi}(t)$ системи \eqref{nsde1} -- стійкий (асимптотично стійкий або нестійкий) $\Longleftrightarrow$ розв'язок $\overrightarrow{z} = \overrightarrow{0}$  cистеми $(*)$ -- стійкий (асимптотично стійкий або нестійкий).
 
 \subsection{Стійкість розв'язків лінійних систем}
 Лінійна неоднорідна система рівнянь n-ого порядку має вигляд (далі ЛНС):
@@ -1712,20 +1727,20 @@ $\begin{cases}
 
 
 \textbf{Історія екстремальних задач} (задач на знаходження найменших та найбільших величин) --- це, фактично, історія математики. Найдревнішою з таких задач прийнято вважати класичну \textit{задачу Дідони} (серед гладких замкнутих кривих заданої довжини знайти криву, що охоплює найбільшу полощу).\par
-Однак до певного моменту розв'язання екстремальних задач потребувало індивідуального підходу до кожної задачі і більш походило на мистецтво, ніж на науку. Систематичний розвиток класичного варіаційного числення розпочався в 1696 році, коли Йоганн Бернуллі опублікував в німецькому науковому часописі ''Acta Eruditorum'' задачу, відому сьогодні як \textit{''задача про брахістохрону''}, з закликом до найвідоміших науковців того часу розв'язати її.
+Однак до певного моменту розв'язання екстремальних задач потребувало індивідуального підходу до кожної задачі і більш походило на мистецтво, ніж на науку. Систематичний розвиток класичного варіаційного числення розпочався в 1696 році, коли Йоганн Бернуллі опублікував в німецькому науковому часописі ''Acta Eruditorum'' задачу, відому сьогодні як \textit{''задача про брахісторону''}, з закликом до найвідоміших науковців того часу розв'язати її.
 \vspace*{-3em}
 $$
 \begin{array}{c c}
 \includegraphics[width=0.28\textwidth]{assets/lectures-11609b3d.png} & \includegraphics[width=0.6\textwidth]{assets/lectures-f1089691.png}\\
-\text{Йоганн Бернуллі} & \text{Іллюстрація задачі ''задачі про брахістохрону''}
+\text{Йоганн Бернуллі} & \text{Іллюстрація задачі ''задачі про брахісторону''}
 \end{array}
 $$
-\textbf{Задача: } задано дві точки $A$ та $B$ на полощині, які не лежать на вертикальній прямій. Знайти гладку криву, по якій матераільна точка лише під дією сили тяжніння скотиться з точки $A$ в точку $B$ за найкоротший проміжок часу. \par Протягом року Йоганн Бернуллі розв'язав задачу сам і отримав ще чотири різних ров'язки від Ісаака Ньютона, Якоба Бернуллі, Готфріда Вільгельма Лейбніца, Гійома де Лопіталя. І саме розв'язання задачі про брахістохрону, запропоноване Ісааком Ньютона, дало початок розвитку варіаційного числення як окремої матетматичної теорії. В подальшому варіаціїне числення завдячує своєму розвитку таким вченим як Леонард Ейлер, Жозеф Луі Лагрнаж, Карл Якобі, Адрієн-Марі Лежандр, Карл Вейєрштрасс та інші.\par
+\textbf{Задача: } задано дві точки $A$ та $B$ на полощині, які не лежать на вертикальній прямій. Знайти гладку криву, по якій матераільна точка лише під дією сили тяжніння скотиться з точки $A$ в точку $B$ за найкоротший проміжок часу. \par Протягом року Йоганн Бернуллі розв'язав задачу сам і отримав ще чотири різних ров'язки від Ісаака Ньютона, Якоба Бернуллі, Готфріда Вільгельма Лейбніца, Гійома де Лопіталя. І саме розв'язання задачі про брахісторону, запропоноване Ісааком Ньютона, дало початок розвитку варіаційного числення як окремої матетматичної теорії. В подальшому варіаціїне числення завдячує своєму розвитку таким вченим як Леонард Ейлер, Жозеф Луі Лагрнаж, Карл Якобі, Адрієн-Марі Лежандр, Карл Вейєрштрасс та інші.\par
 
 Нехай $Y$ -- дійсний нормований простір з нормою $||y||$ елементів $y \in Y$
 
 \begin{example}
-  $C[a, b]$ -- дійсний нормований простір з нормою $$||\varphi(x)||_{C[a, b]} = \max\limits_{x \in [a, b]}|\varphi(x)|$$
+  $C[a, b]$ -- дійсний нормований простір з нормою: $$||\varphi(x)||_{C[a, b]} = \max\limits_{x \in [a, b]}|\varphi(x)|$$
   Нехай $M \subset Y$ -- деяка підмножина. Відображення $F: M \rightarrow \mathbb{R}; M \subset Y$ називається функціоналом з областью визначення $M$. Тобто на множині $M \subset Y$ задана функціонал $F(y)$, якщо кожному елементу $y \in M$ однозначно поставлено у відповідність дійсне число.
 \end{example}
 \begin{example}
@@ -1759,18 +1774,35 @@ $$M = \{ y \in C^1[a, b] \  | \  y(a) = A, \ y(b) = B\}$$
 
 Тоді функція $\Phi(\alpha) := J(y + \alpha h)$ є неперервно-диференційовную по $\alpha$ в деякому околі точки $\alpha = 0$.
 
-$$\Phi'(0) = \dfrac{\mathrm{d}}{\mathrm{d}\alpha}J(y + \alpha h)\Big|_{\alpha = 0} = \int\limits_{a}^{b}(\dfrac{\partial F(x, y, y')}{\partial y} \cdot h(x) + \dfrac{\partial F(x, y, y')}{\partial y'} \cdot h'(x))\mathrm{d}x$$
+$$\Phi'(0) = \dfrac{\mathrm{d}}{\mathrm{d}\alpha}J(y + \alpha h)\Big|_{\alpha = 0} = \int\limits_{a}^{b}\left(\dfrac{\partial F(x, y, y')}{\partial y} \cdot h(x) + \dfrac{\partial F(x, y, y')}{\partial y'} \cdot h'(x)\right)\mathrm{d}x$$
 
 \defo Допустимим приростом (варіацією) функції $y \in M$ називають довільну функцію $h(x) \in C^1[a, b] : h(a) = h(b) = 0$.
 
 Вираз $\ \dfrac{\mathrm{d}}{\mathrm{d}\alpha} J(y + \alpha h)\Big|_{\alpha = 0}$, де $h(x)$ -- допустимий приріст, називають першою варіацією функціоналу $J(y)$ на функції $y(x)$ в напрямку $h(x)$, позначення:
 
-$$ \delta J(h, y) =  \dfrac{\mathrm{d}}{\mathrm{d}\alpha} J(y + \alpha h)\Big|_{\alpha = 0}$$
+$$ \delta J(h, y) =  \dfrac{d}{d\alpha} J(y + \alpha h)\Big|_{\alpha = 0}$$
 
 \begin{boxteo}
-  Нехай $\tilde{y}(x) \in M$ --  розв'язок найпростішої задачі варіаційного числення. Тоді: $$ \delta J(\tilde{y}, h) = 0 \ \forall h \in C^1[a, b] : h(a) = h(b) = 0$$
+  Нехай $\tilde{y}(x) \in M$ --  розв'язок найпростішої задачі варіаційного числення. Тоді:
+% \vspace{-2em}
+  \ \fbox{$\delta J(\tilde{y}, h) = 0$} $\ \  \forall h \in C^1[a, b] : h(a) = h(b) = 0$.
 \end{boxteo}
 
-\proof Нехай $\tilde{y}(x) \in M$ дає слабкий локальний мінімум задачі, тобто $$\exists \delta > 0 : \forall \eta \in C^1[a, b] : \eta(a) = \eta(b) = 0 : ||\eta||_{C^1[a,b]} < \delta$$ справедливо, що $J(\tilde{y} + \eta) \geq J(\tilde{y})$. Покладемо: $$\eta(x) = \alpha h(x), h(x) \ \text{ -- допустимий приріст}$$
-%\input{lectures_recent}
+\begin{proof}
+  Нехай $\tilde{y}(x) \in M$ дає слабкий локальний мінімум задачі, тобто $$\exists \delta > 0 : \forall \eta \in C^1[a, b] : \eta(a) = \eta(b) = 0 : ||\eta||_{C^1[a,b]} < \delta$$ справедливо, що $J(\tilde{y} + \eta) \geq J(\tilde{y})$. Покладемо: $$\eta(x) = \alpha h(x), \ \text{де } h(x) \text{ --- допустимий приріст.}$$
+  Тоді $\tilde{y} = \eta \in M$ та для достатньо малих $\alpha$:
+  $$
+  ||\eta|| = |\alpha| \left( \max\limits_{x\in [a,b]} \left| h(x) \right| + \max\limits_{x\in [a,b]} \left| h'(x) \right| \right) = |\alpha| \cdot ||h||_{C^1[a,b]} < \delta
+  $$
+  Таким чином:
+  $$
+  \Phi(\alpha) = J( \tilde{y} + \alpha h) \geq J  (\tilde{y}) = \Phi(0) \  \Longrightarrow
+  $$
+  $\Longrightarrow$ т. $\alpha = 0 $ --- точка локального мінімуму $\Phi (\alpha). $ Тому:
+  $$
+  0 = \Phi'(0) = \delta J(\tilde{y}, h)
+  $$
+\end{proof}
+
+\input{lectures_recent}
 \end{document}

@@ -251,8 +251,81 @@ $$
 $$
 Класичне рівняння Ейлера надто складне для даної задачі.
 \begin{lema}
-  Якщо $F(x,y,y') = F(y, y')$ (не залежить від $x$), то рівняння Ейлера набуває вигляду:
+  Якщо $F(x,y,y') = F(y, y')$, то рівняння Ейлера набуває вигляду:
   $$
   \frac{\mathrm{d}}{\mathrm{d} x} \left( F - y' \frac{\d F}{ \d y'}  \right) = 0
   $$
 \end{lema}
+\begin{proof}
+ Розглядаємо рівняння Ейлера:
+ $$
+ \frac{\d F}{\d y} - \frac{\mathrm{d} }{\mathrm{d} x} \left( \frac{\d F}{\d y'}  \right) = 0
+ $$
+$$
+{ \everymath={\displaystyle}
+\begin{array}{c c l}
+\frac{\mathrm{d}}{\mathrm{d} x} \left( F (y, y') - y' \frac{\d F}{\d y}  \right) & = &\frac{\d F}{\d y} \cdot y' +
+\frac{\d F}{\d y} \cdot y'' - y'' \frac{\d F}{\d y} - y' \frac{\mathrm{d}}{\mathrm{d} x} \left( \frac{\d F}{\d y'}  \right) =\\
+\  & = & 0 + y'  \underbrace{\left(\frac{\d F}{\d y} - \frac{\mathrm{d} }{\mathrm{d} x} \left( \frac{\d F}{\d y'}  \right)  \right)}_{=0}   = 0
+\end{array}}
+ $$
+\end{proof}
+
+$$
+\frac{\mathrm{d} }{\mathrm{d} x} \left( F  - y' \frac{\d F}{\d y'}  \right) = 0 \quad \Longrightarrow \quad
+F - y' \frac{\d F}{\d y'} = C
+$$
+$$
+F = \sqrt{ \frac{1 + (y')^2}{y} }
+$$
+$$
+\frac{\d F }{\d y'} = \frac{1}{\sqrt{y}} \cdot \frac{2 y'}{2 \sqrt{1 + (y')^2}}  = \frac{y'}{\sqrt{y (1 + y')^2}}
+$$
+Маємо:
+$$
+\sqrt{ \frac{1 + (y')^2}{y} } - \frac{(y')^2}{\sqrt{y (1 + y')^2}} = C
+$$
+Домножимо ліву та праву і праву частину на $\sqrt{y(1 + (y')^2)}$:
+$$
+1 + (y')^2  - (y')^2 = C \sqrt{y(1 + (y')^2)}
+$$
+$$
+y(1 + (y')^2) = C_1 \text{, де } C_1 = \frac{1}{C^2}
+$$
+Отримали рівняння, нерозв'язне відносно похідної:
+$$
+y = \frac{C_1}{ 1 + (y')^2}
+$$
+Параметризація:
+$$
+x = x \qquad y' = \ctg{p} \qquad p\text{ -- параметр.}
+$$
+$$
+y = \frac{C_1}{ 1 + \ctg^2{p}} = C_1 \cdot \sin^2{p}
+$$
+$$
+dy = y'dx
+$$
+$$
+2 C_1 \sin{p} \cos{p} \mathrm{d} p = \frac{\cos{p}}{\sin{p}} \mathrm{d} x
+$$
+$$
+2 C_1 \sin^2{p} \mathrm{d} p = \mathrm{d} x
+$$
+$$
+C_1 (1 - \cos{( 2p)})  \mathrm{d} p = \mathrm{d} x
+$$
+$$
+\begin{dcases}
+ x = C_1 ( p - \frac{ \sin{(2p)}}{2} ) + C_2\\
+ y = C_1 \sin^2{p}
+\end{dcases}
+$$
+$$\begin{dcases}
+ \text{Параметризоване рівняння циклоїди:}\\
+ x = \frac{C_1}{2}  ( 2p - \sin{(2p)} ) + C_2\\
+ y = \frac{C_1}{2} ( 1 - \cos{(2p)})
+\end{dcases}
+$$
+Оскільки $y(0) = 0 \Longrightarrow C_2 = 0$.
+$C_1$ знаходимо з умови $y(x_1) = y_1$.

@@ -2115,5 +2115,15 @@ $$
 
 Оскільки $y(0) = 0 \Longrightarrow C_2 = 0$. $C_1$ знаходимо з умови $y(x_1) = y_1$.
 
-%\input{lectures_recent}
+
+\section{Лекція 7}
+\subsection{Задча з вільним кінцем}
+Нехай $a, b \in \mathrm{R}, a < b$ -- задачі числа, $F(x, y, p) \in C^2([a, b] \times \mathrm{R}^2)$ -- задана функція. Розглянемо інтеграл: $$J(y) = \int\limits_{a}^{b}F(x, y(x), y'(x))\mathrm{d}x$$
+На множині функцій: $$ M = \{ y \in C^1[a, b] \ | \ y(a = A)\}, \text{ де } A \in \mathrm{R} \text{ -- задане число} $$
+Функції $y \in M$ -- допустимі функції.
+
+\defo Допустима фунція $\tilde{y}(x) \in M$ забезпечує слабкий локальний min(max) функціоналу $J(y)$ на $M$, якщо $\exists \delta > 0 : \forall y \in M ||y - \tilde{y}||_{C^1[a, b]} < \delta$ справедливо, що $J(y) \geq (\leq) J(\tilde{y})$. Якщо нерівність виконується для $\forall y \in M$, то допустима функція $\tilde{y} \in M$ забезпечує глобальний min(max) функціоналу $J(y)$ на $M$.
+
+\defo Задач пошуку слабкого локального (глобального) екстремуму функціоналу $J(y)$ на $M$ називається задачею з вільним кінцем.
+ %\input{lectures_recent}
 \end{document}

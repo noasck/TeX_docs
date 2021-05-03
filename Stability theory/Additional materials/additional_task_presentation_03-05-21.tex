@@ -1,0 +1,152 @@
+\documentclass{beamer}
+\usepackage[english, russian, ukrainian]{babel}
+\usepackage{tikz}
+\usepackage{amsfonts, amsmath, mathtools}
+\usetheme{Warsaw}
+\usecolortheme{default}
+
+\title{Додаткове завдання: Тиждень 11.}
+\author{Терещенко Д., Людомирський Ю., Гапон М.}
+\institute{KA-96, IASA}
+\date{2021}
+
+\def\d{\partial}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Задача зі старшими похідними. № 7.16.}
+$$
+\begin{dcases}
+  \int\limits_{0}^{1}{ \ddot{x}^2 + \dot{x} \mathrm{d} t \to \mathrm{extr}} \\
+  x(0) = 3 \quad \dot{x} (0) = 0 \quad x(1) = \cosh{1} \quad \dot{x} (1) = \sinh{1}
+\end{dcases}
+$$
+\begin{itemize}
+  \item Складемо рівняння Ейлера-Пуассона:
+  $$
+  \frac{\d F}{\d x} - \frac{\mathrm{d}}{ \mathrm{d} t} \frac{\d F}{\d \dot{x}} + \frac{\mathrm{d}^2}{\mathrm{d} t^2} \frac{\d F }{\d \ddot{x}} = 0
+  $$
+  $$
+  \frac{\d F}{\d \dot{x}} = 2 \dot{x} ; \qquad \qquad \frac{\mathrm{d}}{\mathrm{d} t} \frac{\d F}{\d \dot{x}} = 2 x^{(2)};
+  $$
+  $$
+  \frac{\d F}{\d \ddot{x}} = 2 \ddot{x} ; \qquad \qquad \frac{\d^2}{\mathrm{d} t^2} \frac{\d F}{\d \ddot{x}} = 2x^{(4)}  ;
+  $$
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+Підставимо та спростимо:
+$$
+0 -  2 x^{(2)} + 2 x^{(4)} = 0
+$$
+\fbox{$x^{(4)} - x^{(2)} = 0$}
+ \ \textbf{ -- рівняння Ейлера-Пуассона.}
+
+Складемо характеристичне рівняння:
+$$
+\lambda^4 - \lambda^2 = 0 \quad \Longrightarrow \quad \lambda_1=0 \text{ кр.2 }, \lambda_2 = 1, \lambda_3 = -1
+$$
+Отже, отримали \alert{сімейство екстремалей:}
+$$
+x = C_1 + C_2 t + C_3 e^{t} + C_4 e^{-t}
+$$
+\end{frame}
+
+
+
+\begin{frame}
+\begin{itemize}
+  \item Знайдемо допустимі екстремалі. Для цього підставимо числа з умови:
+\end{itemize}
+\begin{enumerate}
+  \item $x(0) = С_1 + С_3 + С_4= 1$;
+  \item $\dot{x} (0) = C_2 + C_3 - C_4 = 0$;
+  \item $x(1) = C_1 + C_2 + C_3 e + C_4 e^{-1} = \cosh{1} $
+  \item $\dot{x}(1) = C_1 + C_2 + C_3 e - C_4 e^{-1} = \sinh{1} $
+\end{enumerate} \par
+$$
+\begin{array}{r c l}
+   (3) - (4) & : \qquad & 2C_4 e^{-1} = \cosh 1 - \sinh{1} = e^{-1} \Longrightarrow C_4 = \frac{1}{2};\\
+   (1)  & : \qquad & C_1 + C_3 = \frac{1}{2} ;\\
+    (2)& : \qquad & C_2 + C_3 = \frac{1}{2}  .\\
+\end{array}
+$$
+З останніх двох рівностей отримуємо: $C_1 = C_2$.
+$$
+\begin{array}{r c l}
+   (3) + (4) & : \qquad & 2 C_1 + 2C_2 + 2 C_3 e = \cosh 1 + \sinh 1  = e.\\
+\end{array}
+$$
+\end{frame}
+\begin{frame}
+  Підставляємо: $C_2 = C_1 = \frac{1}{2} - C_3  \quad \Longrightarrow \quad
+  2 - 4 C_3 + 2 C_3 e = e;
+  $
+  $$
+  C_3 (2 e - 4) = e -2 \Longrightarrow C_3 = \frac{1}{2} \Longrightarrow C_2 = C_1 = \frac{1}{2} - \frac{1}{2} = 0
+  $$
+  $$
+  \begin{array}{r c l}
+     (1) & : \qquad & 2 C_1 + C_3 + C_4= 1 \Longrightarrow C_4 = \frac{1}{2} \\
+  \end{array}
+  $$
+  Отже, \alert{єдина допустима екстремаль має викляд:}
+\begin{center}
+ \fbox{$\tilde{x} (t) = \dfrac{e^t + e^{-t}}{2} = \cosh t  $}
+\end{center}
+\end{frame}
+\begin{frame}
+\begin{itemize}
+  \item \textbf{Перевірка}. $\forall h \in C^2 [a,b] : h(0) = h(1) = h'(0) = h(1) = 0$.
+\end{itemize}
+$$
+J(\tilde{x} + h) - J(\tilde{x}) =  \int\limits_{0}^{1}{ ((\tilde{x} + h)'')^2 + ((\tilde{x} + h)')^2 \mathrm{d} t} -  \int\limits_{0}^{ 1}{
+(\tilde{x}'')^2 + (\tilde{x}')^2 \mathrm{d} t =
+}
+$$
+$$
+=  \int\limits_{0}^{1}{
+2 \underbrace{\tilde{x}'' h''}_{(*)} + ( h'' )^2 + 2 \tilde{x}' h' + (h')^2 \mathrm{d} t
+ } =
+$$
+$$
+=
+\left| \
+\begin{gathered}
+\text{Візьмемо ($*$) частинами:}\\
+ \int\limits_{0}^{1}{\underbrace{\tilde{x}''}_{u} \underbrace{h''}_{v} \mathrm{d} t}  = \left| \begin{gathered}
+  u =  \tilde{x}'' \\
+  u' =  \tilde{x}'''
+ \end{gathered} \
+\begin{gathered}
+ v' = h''\\
+ v = h'
+\end{gathered}\right| =
+= \underbrace{\tilde{x}'' h' \bigg|_{0}^{1}}_{=0} -  \int\limits_{0}^{1}{ \tilde{x}''' h' \mathrm{d} t} = \\
+= \left| \begin{gathered}
+ \text{Знайдемо третю похідну:}\\
+ \tilde{x}''' = (\cosh t)^{(3)}  = \sinh t
+\end{gathered} \right| = -  \int\limits_{0}^{1}{ \sinh t \cdot h' \mathrm{d} t}
+\end{gathered}
+   \  \right|=
+$$
+\end{frame}
+\begin{frame}
+   $$= \int\limits_{0}^{1}{ (h'')^2 + (h')^2 \mathrm{d} t } + 2  \int\limits_{0}^{1}{ \underbrace{\tilde{x}'' h''}_{=-\sinh t \cdot h'} + \underbrace{\tilde{x}'}_{= \sinh t} h' \mathrm{d} t} = $$
+   $$
+   = \int\limits_{0}^{1}{ (h'')^2 + (h')^2 \mathrm{d} t } + 2  \underbrace{\int\limits_{0}^{1}{ - \sinh t \cdot h' + \sinh t \cdot h' \mathrm{d} t}}_{=0} =
+   $$
+   $$ = \int\limits_{0}^{1}{ (h'')^2 + (h')^2 \mathrm{d} t }  \mathbf{\geq 0} \qquad
+\begin{gathered}
+  \forall h \in C^2 [a,b] :\\
+  h(0) = h(1) = h'(0) = h(1) = 0
+\end{gathered}
+   $$
+   Отримали \alert{глобальний мінімум} для $\tilde{x} (t) = \cosh t  $.
+\end{frame}
+\end{document}

@@ -1,6 +1,6 @@
 \documentclass[a4paper]{scrartcl}
 \usepackage[utf8]{inputenc}
-\usepackage{showframe} % disable this to hide #border.
+% \usepackage{showframe} % disable this to hide #border.
 \usepackage{wrapfig}
 % Example:
 % \begin{wrapfigure}{R}{0.4\textwidth}
@@ -227,7 +227,8 @@ a_n =\frac{1
  \qquad b_n = \frac{1
 }{l }  \int\limits_{-l}^{l}{ g(t) \sin{ \left( \frac{\pi n t}{l}  \right)} \mathrm{d} t}
 $$
-
+\newpage
+\section{Лекція 2.}
 \subsection{Аналіз збіжності ряду.}
 \begin{lemme}[Рімана]
 $f$ -- інтегрована на $[a,b]$ навіть в невласному сенсі. \par Тобто $ \int\limits_{a}^{b}{f(x) \mathrm{d} x}$ -- збігається. Тоді:
@@ -237,5 +238,169 @@ $f$ -- інтегрована на $[a,b]$ навіть в невласному 
 \end{enumerate}
 
 \end{lemme}
-
+Надалі розглядаємо:
+$$
+S_k(x) = \frac{a_0}{2} +  \sum\limits_{n =1}^{k}{ a_n\cos{(nx)} + b_n \sin{(nx)}}
+$$
+$$
+a_n = \frac{1}{\pi}  \int\limits_{-\pi}^{\pi}{f(t) \cos{(nt)} \mathrm{d} t} \qquad b_n = \frac{1}{\pi}  \int\limits_{-\pi}^{ \pi}{f(t) \sin{(nt)} \mathrm{d} t}
+$$
+% Тоді часткову суму можна записати наступним чином:
+% $$
+% S_k(x) =  \frac{1}{2\pi}  \int\limits_{-\pi}^{ \pi}{f(t)\mathrm{d} t} +  \sum\limits_{n =1}^{k}{
+% \int\limits_{-\pi}^{\pi}{f(t) \left[ \cos{(nt)} \cos{(nx)} + \sin{(nt)} \sin{(nx)} \right] \mathrm{d} t}
+% } =
+% $$
+% $$
+% = \frac{1}{\pi}  \int\limits_{-\pi}^{\pi}{ f(t) \cdot \left[  \frac{1}{2} +  \sum\limits_{n = 1}^{ k}{\cos{n( t -x)}}  \right] \mathrm{d} t}
+% = \cdots = \frac{1}{\pi}  \int\limits_{0}^{\pi}{ \left[ f(x+u) + f(x-u) \right] \frac{\sin{ \frac{2k+1}{2} u }}{2 \sin \frac{u}{2} } \mathrm{d} u }
+% $$
+\begin{boxteo}
+$f(x)$ -- $2\pi$-періодична, інтегрована. Тоді:
+$$
+S_k(x) = \frac{a_0}{2} +  \sum\limits_{n =1}^{k}{ a_n\cos{(nx)} + b_n \sin{(nx)}}
+$$
+Часткова сума ряду Фур'є дорівнює:
+$$
+S_k(t) = \frac{1}{\pi}  \int\limits_{0}^{\pi}{ \left[ f(x+u) + f(x-u) \right]\cdot \frac{\sin{ \frac{2k+1}{2} u }}{2 \sin \frac{u}{2} } \mathrm{d} u }
+$$
+Підінтегральний множник $\dfrac{\sin{ \frac{2k+1}{2} u }}{2 \sin \frac{u}{2} }= D_k(u)$  називається \textit{ядром Діріхле}.
+\end{boxteo}
+Властивості ядра Діріхле:
+\begin{enumerate}
+  \item $D_k(u)$ --- парна, $2 \pi$ період функції;
+  \item $ \int\limits_{-\pi}^{\pi}{D_k(u) \mathrm{d} u} = 1 ;$
+\end{enumerate}
+\subsection{Збіжність часткових сум.}
+Розглядаємо:
+$$
+S_k(x) - C = \frac{1}{\pi}  \int\limits_{0}^{\pi}{ \left[ f(x+u) + f(x-u) \right]\cdot D_k(u) \mathrm{d} u } - C \cdot \frac{1}{\pi}  \int\limits_{-\pi}^{\pi}{D_k(u)\mathrm{d} u} =
+$$
+$$
+= \frac{1}{\pi}  \int\limits_{0}^{\pi}{ \left[ f(x+u) + f(x-u) - 2C \right]\cdot D_k(u) \mathrm{d} u }
+$$
+Позначимо: $f(x+u) + f(x-u) - 2C  = g_{C, x}(u)$. Отже:
+$$
+S_k(x) - C = \frac{1}{\pi}  \int\limits_{0}^{\pi}{
+g_{C, x}(u) D_k(u) \mathrm{d} u
+}
+$$
+\begin{boxteo}[Ознака Діні для рядів Фур'є]
+$
+f(x)
+$ -- $2\pi$-періодична, інтегрована.\par
+Якщо $\exists \delta >0 :  \int\limits_{0}^{\delta}{
+\frac{ \left| g_{C,x} (u) \right|}{u} \mathrm{d} u
+} $ -- збігається, то:
+$
+S_{\delta}(x) \xrightarrow[k\to\infty]{}C
+$.
+\end{boxteo}
+\begin{consequence}
+  $f(x)$ -- диференційована в т. $x_0$, тоді:
+  $$
+  S_k(x_0) \xrightarrow[k\to \infty]{} f(x_0) \quad \Longleftrightarrow \quad f(x_0) = \frac{a_0}{2} +  \sum\limits_{n = 1}^{ \infty}{
+  a_n \cos{(nx_0)} + b_n \sin{(nx_0)}
+  }
+  $$
+\end{consequence}
+\begin{consequence}
+$
+f(x)
+$ -- $2\pi$-періодична, інтегрована. $x_0$ -- точка розриву 1го роду (''стрибок''). $f(x)$ має в т. $x_0$ ліву та праву похідні. Тоді:
+$$
+S_k (x_0) \xrightarrow[k\to \infty]{} \frac{1}{2}  \left( f(x_0+) + f(x_0-) \right)
+$$
+\end{consequence}
+\begin{defo}
+ $f(x)$ задовольняє умові Ліпшиця в околі т. $x_0$, якщо:
+ $$
+ \forall x_1, x_2 \in (x_0 - \delta, x_0 + \delta) \left| f(x_1) - f(x_2) \right| \leq L \left| x_1 - x_2 \right|
+ $$
+\end{defo}
+\begin{consequence}
+$
+f(x)
+$ -- $2\pi$-період., інтегрована та задов. ум. Ліпшиця в околі т. $x_0$. Тоді:
+$$
+S_k (x_0) \xrightarrow[k\to \infty]{} f(x_0)
+$$
+\end{consequence}
+\newpage
+\section{Лекція 3.}
+\subsection{Рівномірна збіжність ряду Фур'є.}
+\begin{boxteo}
+$
+f(x)
+$ -- $2\pi$-періодична та кусково-неперервно диференційована.\par
+Тоді ряд Фур'є функції $f(x)$ \textit{рівномірно збігається}.
+\end{boxteo}
+\begin{proof}
+ Дуже велике доведення -- дивіться в конспекті:)
+\end{proof}
+\subsection{Середні по Чезаре}
+\begin{defo}
+$f(x)$ -- $2\pi$-періодична, інтегрована.
+$$
+\frac{a_0}{2} +  \sum\limits_{n =1}^{\infty}{ a_n\cos{(nx)} + b_n \sin{(nx)}} \text{ -- ряд Фур'є для } f(x);
+$$
+$$
+S_k = \frac{a_0}{2} +  \sum\limits_{n =1}^{k}{ a_n\cos{(nx)} + b_n \sin{(nx)}} \text{ -- часткові суми;}
+$$
+$$
+\mathcal{G}_n(x) = \frac{1}{n}(S_1(x), S_2(x), \dots, S_{n-1}(x)) \textit{ --- середні по Чезаре.}
+$$
+\end{defo}
+Отримаємо інтегральний вид середніх по Чезаре. Отримали:)
+\begin{lemme} $f(x)$ -- $2\pi$-періодична, інтегрована.
+  $$
+  S_k = \frac{a_0}{2} +  \sum\limits_{n =1}^{k}{ a_n\cos{(nx)} + b_n \sin{(nx)}} \text{ -- часткові суми;}
+  $$
+  $$
+  \mathcal{G}_n(x) = \frac{1}{n}  \sum\limits_{k = 0}^{n-1}{ S_k (x)}  \text{ --- середні по Чезаре;}
+  $$
+  Тоді  $\mathcal{G}_n(x) $ має інтегральний вигляд:
+  $$
+  \mathcal{G}_n(x) = \int\limits_{0}^{ \frac{\pi}{2} }{ \frac{f(x  + 2 v) + f(x - 2v)}{2} F_n(v) \mathrm{d} v} ,
+  $$
+  , де $F_n (v) = \dfrac{\sin^2 (nv)}{\pi n \sin^2 v} $ --- \textit{ядро Фейера}.
+\end{lemme}
+\subsubsection*{Властивості ядра Фейера:}
+\begin{enumerate}
+  \item $F_n (-v) = F_n (v)$;
+  \item $F_n (v) - \pi$-періодична;
+  \item $\displaystyle  \int\limits_{0}^{2\pi}{F_n (v) \mathrm{d} v} = \frac{1}{2} $.
+\end{enumerate}
+\subsubsection*{Властивості коефіцієнтів ряда Фур'є.}
+\begin{enumerate}
+  \item $f(x)$ -- непарна, задана на $(-l; l)$. Тоді:
+  $$
+  a_n = \frac{1}{l}  \int\limits_{-l}^{ l}{
+  f(x) \cos{( \frac{\pi n x}{l} )} \mathrm{d} x
+  } = 0 ;
+  $$
+  \item $f(x)$ -- парна, задана на $(-l; l)$. Тоді:
+  $$
+  b_n = \frac{1}{l}  \int\limits_{-l}^{ l}{
+  f(x) \sin{( \frac{\pi n x}{l} ) } \mathrm{d} x
+  }  = 0.
+  $$
+  \item $f(x)$ -- парна, з періодом $2l$. \par
+  Якщо функція неперервна на $(-l, l)$, то вона неперервна на $\mathbb{R}$.
+  \item $f(x)$ -- непарна. Тоді:
+  $$
+  b_n = \frac{1}{l}  \int\limits_{-l}^{ l}{
+  f(x) \sin{( \frac{\pi n x}{l} ) } \mathrm{d} x
+  }  = \frac{2}{l}  \int\limits_{0}^{ l}{
+  f(x) \sin{( \frac{\pi n x}{l} ) } \mathrm{d} x
+  } $$
+  \item $f(x)$ -- парна. Тоді:
+  $$
+  a_n = \frac{1}{l}  \int\limits_{-l}^{ l}{
+  f(x) \cos{( \frac{\pi n x}{l} ) } \mathrm{d} x
+  }  = \frac{2}{l}  \int\limits_{0}^{ l}{
+  f(x) \cos{( \frac{\pi n x}{l} ) } \mathrm{d} x
+  }
+  $$
+\end{enumerate}
 \end{document}

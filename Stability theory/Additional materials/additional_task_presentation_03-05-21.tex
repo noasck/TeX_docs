@@ -5,8 +5,8 @@
 \usetheme{Warsaw}
 \usecolortheme{default}
 
-\title{Додаткове завдання: Тиждень 11.}
-\author{Терещенко Д., Людомирський Ю., Гапон М.}
+\title{Додаткове завдання: Тиждень 13.}
+\author{Терещенко Д., Гапон М., Людомирський Ю.}
 \institute{KA-96, IASA}
 \date{2021}
 
@@ -17,12 +17,19 @@
 \frame{\titlepage}
 
 \begin{frame}
+
 \frametitle{Задача зі старшими похідними. № 7.16.}
+{\small
+\textit{Вони не знали навіть того, що вони вже ``знали''. (C) Р. Фейнман}
+}
 $$
 \begin{dcases}
-  \int\limits_{0}^{1}{ \ddot{x}^2 + \dot{x} \mathrm{d} t \to \mathrm{extr}} \\
+  \int\limits_{0}^{1}{ \ddot{x}^2 + \dot{x}^2 \mathrm{d} t \to \mathrm{extr}} \\
   x(0) = 3 \quad \dot{x} (0) = 0 \quad x(1) = \cosh{1} \quad \dot{x} (1) = \sinh{1}
 \end{dcases}
+$$
+$$
+F(t, \dot{x}, \ddot{x}) =  \ddot{x}^2 + \dot{x}^2 \text{ -- з умови.}
 $$
 \begin{itemize}
   \item Складемо рівняння Ейлера-Пуассона:
@@ -90,12 +97,7 @@ $$
   $$
   C_3 (2 e - 4) = e -2 \Longrightarrow C_3 = \frac{1}{2} \Longrightarrow C_2 = C_1 = \frac{1}{2} - \frac{1}{2} = 0
   $$
-  $$
-  \begin{array}{r c l}
-     (1) & : \qquad & 2 C_1 + C_3 + C_4= 1 \Longrightarrow C_4 = \frac{1}{2} \\
-  \end{array}
-  $$
-  Отже, \alert{єдина допустима екстремаль має викляд:}
+  Отже, \alert{єдина допустима екстремаль має вигляд:}
 \begin{center}
  \fbox{$\tilde{x} (t) = \dfrac{e^t + e^{-t}}{2} = \cosh t  $}
 \end{center}
@@ -126,7 +128,7 @@ $$
 \begin{gathered}
  v' = h''\\
  v = h'
-\end{gathered}\right| =
+\end{gathered}\right|
 = \underbrace{\tilde{x}'' h' \bigg|_{0}^{1}}_{=0} -  \int\limits_{0}^{1}{ \tilde{x}''' h' \mathrm{d} t} = \\
 = \left| \begin{gathered}
  \text{Знайдемо третю похідну:}\\

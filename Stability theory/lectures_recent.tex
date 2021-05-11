@@ -1,399 +1,177 @@
-\begin{boxteo}
-Якщо допустима функція:
+\section{Лекція 8.}
+\subsection{Задача зі старшими похідними.}
+Нехай $C^k [a,b]$ --- простір $k$-раз неперервно-диференційованих на $[a,b]$ функцій.\par
+
+$C^k[a,b]$ --- нормований простір з нормою:
 $$
-\tilde{y} \in C^2[a,b]
+||\varphi(x)||_{C^k[a,b]} =
+\max\limits_{x\in[a,b]}{ |\varphi(x)|} +
+ \max\limits_{x\in[a,b]}{|\varphi'(x)|} + \dots
+  \max\limits_{x\in[a,b]}{|\varphi^{(k)}(x)|}
 $$
-є розв'язком задачі з вільним кінцем, то $\tilde{y} (x)$ задовільняє рівнянню Ейлера на $[a,b]$:
+Нехай $a,b \in \mathbb{R}, a<b$ -- задані числа.
 $$
-\frac{\d F
-}{\d y}  - \frac{\mathrm{d} }{\mathrm{d} x} \frac{\d F }{\d y'} = 0
+F(x,y,p_1, \dots, p_k) \in C^{k+1}\left( [a,b] \times \mathbb{R}^{k+1} \right) \text{ -- задана функція.}
 $$
-та граничній умові при $x = b$:
+Розглядаємо інтеграл:
 $$
-\frac{\d }{
-\d y'
-} F(x, y(x), y'(x))\bigg|_{x=b} = 0
-$$
-\end{boxteo}
-\begin{proof}
-Для довільного $\alpha \in \mathbb{R}$, $\forall h\ in C^1 [a,b]:h(a)=0$ розглянемо функцію $\Phi (\alpha) = J(\tilde{y} = \alpha h)$.\par
-Тоді для $\Phi (\alpha)$ справедливо, що:
-$$
-\Phi (\alpha) = J(\tilde{y} + \alpha h) \geq J(\tilde{y}) = \Phi(0)
-$$
-в деякому околі т. $\alpha = 0$ (якщо $\tilde{y}(x)$  -- забезпечує слабкий локальний мінімум).
-Отже, т. $\alpha = 0$ - точка локального екстремуму функції $\Phi (\alpha) \Rightarrow \Phi' (0) = 0$.
-$$
-0 = \Phi'(0) = \frac{\mathrm{d} }{ \mathrm{d} \alpha} J(\ty - \alpha h) \bigg|_{\alpha = 0} =
+J(y) =  \int\limits_{a}^{ b}{
+F(x, y, y' , y'', \dots , y^{(k)}) \mathrm{d} x
+}\  \text{ на множині функцій:}
 $$
 $$
-= \frac{\mathrm{d}}{\mathrm{d} \alpha} \left(   \int\limits_{a}^{b}{
-F(x, \ty(x) + \alpha h(x), \ty' (x) + \alpha h' (x) ) \mathrm{d}x
-} \right) \bigg|_{\alpha = 0} =
+M = \left\lbrace
+y\in C^{k}[a,b] \ \bigg| \  y^{(j)} (a) = A_j , y^{(j)} (b) = B_j , j=\overline{0, k-1}
+ \right\rbrace \qquad A_j ,  B_j \in \mathbb{R}
 $$
-$$
-=  \int\limits_{a}^{b}{ \frac{\d F(x, \ty, \ty')}{\d y} \cdot h + \frac{\d F(x, \ty, \ty')}{\d y'} \cdot h' } \mathrm{d} x \oeq
-$$
-Візьмемо другий додаток частинами:
-$$
-\oeq \frac{\d F(x,\ty, \ty')}{\d y'} \cdot h(x) \bigg|_{a}^{b} +  \int\limits_{a}^{b}{
-\left(
-\frac{\d F(x, \ty, \ty')}{\d y} - \frac{\mathrm{d}}{\mathrm{d} x} \left(
-\frac{\d F(x, \ty, \ty')}{\d y'}
- \right)
- \right)\cdot h(x) \mathrm{d} x =
-}
-$$
-$$
-= \frac{\d F}{\d y'} (b, \ty(b), \ty'(b)) \cdot h(b) +  \int\limits_{a}^{b}{
-\left( \frac{\d F}{ \d y} - \frac{\mathrm{d}}{\mathrm{d} x} \frac{\d F}{\d y'}    \right) h \mathrm{d} x = 0 \ \ (*)
-}
-$$
-$$
-\forall h \in C^1 [a,b] : h(a) = 0
-$$
-Дана рівність виконується в тому числі і при:
-$$
-\forall h \in C^1 [a,b] : h(a) = h(b) = 0.
-$$
-Тоді $\forall h \in C^1[a,b] : h(a) = h(b) = 0$:
-$$
- \int\limits_{a }^{b}{ \left( \frac{\d F}{\d y} - \frac{\mathrm{d}}{\mathrm{d} x} \frac{\d F}{\d y'}    \right)
-h \mathrm{d} x = 0
- }
-$$
-$\Longrightarrow $ внаслідок леми Лагранжа отримуємо рівняння Ейлера.\par
-Доведемо граничну умову. Повернемося до рівності $(*)$:
-$$
-\forall h \in C^1 [a,b] : h(a) = 0:
-$$
-$$
-(*) \ \Longrightarrow \ \frac{\d F}{\d y'} (b, \ty(b), \ty'(b)) \cdot h(b) =0 \ \Longrightarrow
-$$
-$\Longrightarrow \ $ (з довільного вибору $h(b)$) $\Longrightarrow$ гранична умова.
-\end{proof}
-\begin{remark}
-  Розв'язки рівняння Ейлера називаються екстремалями. Розв'язки, які задовольняють умові $x(a) = A$ та граничній умові:
-  $$
-  \frac{\d F}{\d y'}\bigg|_{x=b} = 0
-  $$
-  називаються \textit{допустимими екстремалями}.
-\end{remark}
-\begin{remark}
-  Аналогічно можна розглянути задачу з закріпленим верхнім кінцем та вільним нижнім кінцем $(x(b) = B)$. Тоді гранчна умова має виконуватись в т. $x=a$.\par
-  Аналогічно можна розглянути задачу з двома вільними кінцями (тоді має виконуватись дві граничні умови).
-\end{remark}
-\begin{example}
- $$
- \begin{dcases}
-  J(y) =  \int\limits_{0}^{1}{ (y'(x))^2 \mathrm{d} x};\\
-  y(0) = 1.
- \end{dcases}
- $$
- \begin{enumerate}
-   \item Складаємо і розв'язуємо рівняння Ейлера:
-   $$
-   \frac{\d F}{\d y} - \frac{\mathrm{d}}{ \mathrm{d} x} \frac{\d F}{\d y'}  = 0
-   $$
-   $$
-   F=(y')^2 \qquad \frac{\d F}{\d y} = 0 \qquad \frac{\d F}{\d y'} = 2y'
-   $$
-   $$
- - \frac{\mathrm{d}}{\mathrm{d} x} (2y') = 0 \Longrightarrow   y' = C_1  \Longrightarrow \ \fbox{$y = C_1 x + C_2 $ -- сімейство екстремалей.}
-   $$
-   \item Знаходимо допустимі екстремалі:
-   $$
-   y(0) = 1 \quad \Longrightarrow \quad 1 = 0 + C_2 \quad \Longrightarrow \quad C_2 = 1
-   $$
-   $$
-   \frac{\d F}{\d y'} \bigg|_{x=1}  = 0 \qquad 2y' (1) = 0 \qquad (y' = C_1)
-   $$
-   $$
-   2C_1 = 0 \quad \Longrightarrow \quad C_1 = 0 \quad \Longrightarrow \quad \fbox{$\ty (x)= 1$ -- єдина допустима екстремаль.}
-   $$
-   \item Перевірка.
-   $$
-   \forall h\in C^1 [0,1] : h(0) = 0
-   $$
-   $$
-   J(\ty + h) - J(\ty) =  \int\limits_{0}^{1}{ (\ty' + h')^2 \mathrm{d} x} -  \int\limits_{0}^{ 1}{ (\ty')^2 \mathrm{d} x} =  \int\limits_{0}^{1}{ (2\ty' h' + (h')^2) \mathrm{d} x} \oeq
-   $$
-   1-ий доданок беремо частинами: $2\ty' = y ; h' = v'$.
-   $$
-   \hspace*{-2em}\oeq 2\ty' h \bigg|_{0}^{1} +  \int\limits_{0}^{1}{-2 \ty'' h + (h')^2 \mathrm{d}x}
-    = \left| \ \begin{gathered}
-     h(0) = 0 \Rightarrow 2\ty' h(0) = 0;\\
-     \ty (x) = C_1 \Rightarrow y' = y'' = 0
-    \end{gathered} \ \right| =  \int\limits_{0}^{1}{ (h')^2 \mathrm{d} x} \geq  0
-   $$
-   $$
-   \forall h \in C^1[0,1] : h(0) = 0 \quad \Longrightarrow \quad \text{Маємо глобальний мінімум.}
-   $$
- \end{enumerate}
- \end{example}
- \subsection{Задача Больца.}
- Нехай $a,b \in \mathbb{R}, a < b$:
- \begin{itemize}
-   \item $F(x,y,p) \in C^2([a,b] \times \mathbb{R}^2)$ -- задана функція.
-   \item $f(u,v) \in C^1 (\mathbb{R}^2)$ -- задана функція.
- \end{itemize}
- В просторі $C^1[a,b]$ розглянемо інтеграл:
- $$
- J(y) =  \int\limits_{a}^{b}{F(x,y(x), y'(x))} \mathrm{d} x + f(y(a), y(b))
- $$
-Означення слабкого локального (глобального) мінімуму (максимуму) аналогічні попереднім задачам.
+Функції $y \in M$ називаються \textit{допустимими}.
 \begin{defo}
- Задача пошуку слабкого локального (глобального) екстремуму функцаоналу $J(y)$ в просторі $C^1 [a,b]$ називається \textbf{задачею Больца}.
+Означення слабкого локального(глобального) мінімуму (максимуму) інтегралу $J(y)$ на $M$ аналогічні попереднім задачам.
 \end{defo}
-\begin{boxteo}
-Нехай $\ty (x) \in C^2  [a,b]$  -- розв'язок задачі Больца. Тоді $\ty(x)$ задовольняэ рівнянню Ейлера на $[a,b]$:
-$$
-\frac{\d F}{ \d y} - \frac{\mathrm{d}}{\mathrm{d} x} \frac{\d F}{\d y'} = 0
-$$
-та умови трансверсальності:
-$$
-\frac{\d }{\d y'} F (x, y(x), y'(x)) \bigg|_{x = a}  = \frac{\d f}{\d u} (y(a), y(b))
-$$
-$$
-\frac{\d }{\d y'} F (x, y(x), y'(x)) \bigg|_{x = b}  = -\frac{\d f}{\d v} (y(a), y(b))
-$$
-\end{boxteo}
-\begin{proof}
- $\forall \alpha \in \mathbb{R}, \forall h\in C^1 [a,b]$ розглянемо функцію:
- $$
- \Phi (\alpha) = J(\ty - \alpha h)
- $$
- Оскільки $\ty$ - слабкий локальний (глобальний) екстремум функціоналу $J(\ty)$, то точка $\alpha = 0$ -- т. локального екстремуму функції:
- $$\Phi (\alpha) \Longrightarrow 0 = \Phi'(0) = \frac{\mathrm{d}}{\mathrm{d} \alpha} J( \ty + \alpha h) \bigg|_{\alpha=0}= $$
- $$
- = \frac{\mathrm{d}}{\mathrm{d} \alpha} \left(
- \int\limits_{a}^{ b}{
- F(x,\ty+ \alpha h , \ty' + \alpha h')
- } \right) \mathrm{d} x  + f (\underbrace{\ty (a) + \alpha h(a)}_{u}, \underbrace{\ty (b) + \alpha h (b)}_{v})\bigg|_{\alpha = 0} =
- $$
- $$
-  =  \int\limits_{a}^{b}{ \left( \frac{\d F}{\d y} (x,\ty, \ty') \cdot h + \frac{\d F}{\d y'} (x, \ty, \ty') \cdot h'   \right) \mathrm{d} x} +
- $$
- $$
- + \frac{\d f}{\d u}(\ty(a), \ty(b))\cdot h(a) + \frac{\d f}{\d v} (\ty (a), \ty(b)) \cdot h(b) \oeq
- $$
- Візьмемо 2-гий доданок під інтегралом частинами:
- $$
- \oeq \frac{\d F}{\d y'} (x,\ty, \ty') \cdot h\bigg|_a^b +  \int\limits_{ a}^{b}{ \left(
-\frac{\d F}{\d y} (x ,\ty, \ty') - \frac{\mathrm{d}}{\mathrm{d} x} \frac{\d F}{\d y'} (x, \ty, \ty')
- \right) \cdot h \mathrm{d} x
- } +
- $$
- $$
- + \frac{ \d f}{\d u}  (\ty(a), \ty (b) )  \cdot h(a) + \frac{\d f}{\d v} (\ty(a), \ty(b)) \cdot h(b) = 0 \qquad (*)
-  $$
-  Дана рівність (*) виконується $\forall h \in C^1[a,b]$, в тому числі:
-  $$
-  \forall h \in C^1 [a,b] : h(a) = h(b) = 0
-  $$
-  Розглянемо саме цей випадок. Маємо:
-  $$
-   \int\limits_{a}^{b}{
-   \left( \frac{\d F}{\d y} (x, \ty, \ty')  - \frac{\mathrm{d} }{\mathrm{d} x} \frac{\d F}{\d y'} (x,\ty, \ty')  \right)  \cdot h(x) \mathrm{d} x = 0
-   }
-  $$
-  З леми Лагранжа отримуємо рівняння Ейлера:
-  $$
-  \frac{\d F}{ \d y} - \frac{ \mathrm{d}}{\mathrm{d} x} \frac{\d F}{ \d y'} = 0 \ \text{ для } \  \ty(x) \text{ на } [a,b]
-  $$
-  Повернемося до рівності (*) $ \forall h \in C^1[a,b]$. Маємо:
-  $$
-  \frac{\d F}{\d y'} (b, \ty(b) , \ty'(b))\cdot h(b) - \frac{\d F}{\d y'} (a, \ty(a), \ty'(a))\cdot h(a) +
-  $$
-  $$
-  + \frac{\d f}{\d u} (\ty(a), \ty(b)) \cdot h(a)+ \frac{\d f}{\d n}   (\ty(a), \ty(b)) \cdot h(b) = 0 \Longrightarrow
-  $$
-  $$
-  \Longrightarrow \left[
-   \frac{\d F}{\d y'} (b, \ty(b) , \ty'(b)) + \frac{\d f}{\d n}   (\ty(a), \ty(b))
-    \right] \cdot h(b) +
-   $$
-   $$
-   + \left[
-- \frac{\d F}{\d y'} (a, \ty(a), \ty'(a))+ \frac{\d f}{\d u} (\ty(a), \ty(b))
-    \right]\cdot h(a) = 0
-   $$
-   З довільності вибору $h(x) \in C^1 [a,b]$ отримуємо умови трансверсальності.
-\end{proof}
-\begin{remark}
-  Аналогічно всі розв'язки рівняння Ейлера називаютсья \textit{екстремалями}.
-  Розв'язи, які задовольняють умовам трансверсальності --- \textit{допустимими екстремалями}.
-\end{remark}
-
-\begin{example}
-  $$
-   \int\limits_{0}^{1}{ (y')^2 - y} \mathrm{d} x + \frac{y^2(1)}{2}  \longrightarrow \mathrm{extr}
-  $$
-\begin{spacing}{1}
-\begin{enumerate}
-  \item Складаємо і розв'язуємо рівняння Ейлера:
-  $$
-  \frac{\d F}{\d y}  - \frac{\mathrm{d} }{\mathrm{d} x} \frac{\d F}{\d y'} = 0
-  $$
-  $$
-  -1 - \frac{\mathrm{d}}{\mathrm{d} x} (2y') = 0
-  $$
-  $$
-  -1 - 2y'' = 0 \quad \Longrightarrow \quad y'' = \frac{1}{2}
-  $$
-  $$
-  y' = - \frac{1}{2} x + C_1
-  $$
-  $$
-  y = - \frac{1}{4} x^2 + C_1 x + C_2 \text{ --- сімейство екстремалей.}
-  $$
-  \item Знаходимо допустимі екстремалі з умов трансверсальності:
-  $$
-  \frac{\d F}{\d y' } \bigg|_{x=0} = \frac{\d f}{ \d u} (y(0), y(1))
-  $$
-  $$
-  \frac{\d F}{\d y' } \bigg|_{x=1} = - \frac{\d f}{ \d v} (y(0), y(1))
-  $$
-  $$
-  \frac{\d F}{\d y'} =2 y' = 2 \left( - \frac{1}{2} x + C_1  \right) = - x + 2C_1
-  $$
-  $$
-\frac{\d F}{\d y'} (0) = 2C_1 \qquad \frac{\d F}{\d y'} (1) = -1 + 2 C_1
-  $$
-  $$
-  f(u,v) = \frac{v^2}{2} \qquad \frac{\d f}{ \d u} = 0 \qquad \frac{\d f}{ \d v} = v
-  $$
-  $$
-  \frac{\d f}{\d v} (y(0), y(1)) = y(1) = - \frac{1}{4} + C_1 + C_2
-  $$
-  $$
-  \frac{\d F}{\d y' } \bigg|_{x =0 } = \frac{\d f}{\d u} (y(0), y(1)) \ \Longrightarrow \  2 C_1 = 0 \ \Longrightarrow \  C_1 = 0
-  $$
-  $$
-  \frac{\d F}{\d y' }\bigg|_{x=1} =   \frac{\d f}{\d u} (y(0), y(1))
-  \ \Longrightarrow \   -1 + 2C_1 = \frac{1}{4} - C_1 - C_2
-  $$
-  $$
-  -1 = \frac{1}{4} - C_2  \ \Longrightarrow \   C_2 = \frac{1}{4} + 1 = \frac{5}{4}
-  $$
-  Остаточно, $\ty(x) = - \frac{1}{4} x^2 + \frac{5}{4}  $ --- єдина допустима екстремаль.
-  \item Перевірка $\forall h \in C^1 [0,1]$:
-  $$
-    \hspace*{-2em}
-  J(\ty + h) - J(
-  \ty
-  ) \!=\!\!  \int\limits_{0}^{1} (\ty'+ h')^2 - (\ty - h)\  \mathrm{d} x +  \frac{(\ty(1) + h(1))^2}{ 2} - \! \int\limits_{0}^{1}{(\ty')^2 - \ty\  \mathrm{d}x} - \frac{(\ty (1))^2}{2}\! =\!
-  $$
-  $$
-  =  \int\limits_{0}^{ 1}{\underbrace{2\ty'}_{u}\underbrace{h'}_{v'} + (h')^2 - h} \mathrm{d} x  + \ty(1)h(1) + \frac{h^2 (1)}{2}  =
-  $$
-  $$
-=2\ty' h\bigg|_{0}^1 +  \int\limits_{0}^{1}{ -2 \ty'' h + (h')^2 - h \mathrm{d} x} + \ty(1) h(1) + \frac{h^2}{2} \oeq
-  $$
-  $$
-  \left| \
-  \begin{gathered}
-    \ty(1) = \frac{5}{4} - \frac{1}{4} = 1 \quad  \ty'(x) = - \frac{1}{4} \cdot 2 x = - \frac{x}{2}  \\
-     \ty'(0)=0 \quad \ty'(1) = - \frac{1}{2} \quad \ty''(x) = -\frac{1}{2}
-  \end{gathered}
-   \right|
-  $$
-  $$
-  \oeq - h(1) +  \int\limits_{0}^{1}{ h + (h')^2 - h \ \mathrm{d} x} + h(1) +
-  \frac{h^2(1)}{2}
-  =  \int\limits_{0}^{1}{(h')^2 \mathrm{d} x} + \frac{h^2(1)}{2} \geq 0
-  $$
-  $
-  \forall h \in C^1[0,1] \Longrightarrow
-  $ маємо \textbf{глобальний мінімум.}
-\end{enumerate}
-\end{spacing}
-\end{example}
-
-\subsection{Векторні задачі.}
-Розглянемо простір:
-$$
-C_n^1[a,b] = \left\lbrace \overrightarrow{y} (x) = (y_1(x), \dots , y_n(x)) \ \bigg| \  y_i(x) \in C^1[a,b] \ \forall i = \overline{1, n} \right\rbrace
-$$
-$
-C_n^1 [a,b]
-$ --- нормований простір з нормою:
-$$
-||\overrightarrow{y}||_{C_n^1 [a,b] } = \max\limits_{x\in[a,b]}||\overrightarrow{y}(x)||_{\mathbb{R}^n} +
- \max\limits_{x\in[a,b]}||\overrightarrow{y}'(x)||_{\mathbb{R}^n}
-$$
-\subsubsection{Найпростіша векторна задача.}
-Нехай $a,b \in \mathbb{R} , a < b$ -- задані числа.
-$$
-F(x, \overrightarrow{y}, \overrightarrow{p}) = F(x, y_1, \dots, y_n, p_1, \dots, p_n)\in C^2 ([a,b] \times \mathbb{R}^{2n}) \text{ -- задана функція.}
-$$
-Розглянемо інтеграл:
-$$
-J(\overrightarrow{y}) = J(y_1, \dots, y_n) =  \int\limits_{a}^{b}{F(x,\overrightarrow{y}(x), \overrightarrow{y}'(x)) \mathrm{d} x} =
-$$
-$$
-=  \int\limits_{a}^{ b}{ F(x, y_1 (x), \dots, y_n(x), y_1'(x), \dots, y_n'(x)) \ \mathrm{d} x}
-$$
-де $\overrightarrow{A} = (A_1, \dots , A_n) ; \overrightarrow{B} = (B_1, \dots , B_n)$ -- задані, функції $\overrightarrow{y} \in M$ --- допустимі. \par
-Означення сабкого локального (глобального) мінімуму (максимуму) аналогічні попереднім задачам (тільки норма береться в просторі $C_n^1[a,b]$).
 \begin{defo}
- Задача пошуку екстремуму функціоналу $J(y)$ на $M$ називається \textit{векторною найпростішою задачею.}
+ Задача пошуку слабкого  локального(глобального) мінімуму (максимуму) інтегралу $J(y)$ називається \textbf{задачею зі старшими похідними.}
 \end{defo}
+Для довільної функції $y\in M$, для довільної функції:
+$$
+h \in C^{k}[a,b] : h^{(j)}(a) = h^{(j)}(b) = 0 \ \forall \alpha \in \mathbb{R}
+$$
+розглянемо сімейство функцій:
+$$
+y(x, \alpha) = y(x) + \alpha h(x)
+$$
+Тоді $\forall \alpha \in \mathbb{R} \  y(x, \alpha) \in M$. Розглядаємо:
+$$
+J(y + \alpha h) =  \int\limits_{a }^{b}{F(x, y + \alpha h(x), y' + \alpha h' (x), \dots , y^{(k)} + \alpha h^{(k)}) \mathrm{d} x}
+$$
+Тоді функція: $\Phi (\alpha) = J(y + \alpha h)$ є неперервно-диференційованою по $\alpha$ в деякому околі т.$\alpha = 0$:
+$$
+\Phi'(0) = \frac{\mathrm{d}}{\mathrm{d} \alpha} J(y + \alpha h)\bigg|_{\alpha = 0}
+$$
+\begin{defo}
+ \textbf{Допустимим приростом} функції $y\in M$ називають довільну функцію $h(x) \in C^k[a,b]:$
+ $$
+ h^{(j)} (a) = h^{(j)} (b) = 0 \qquad \forall j = \overline{0, k-1}
+ $$
+ Вираз $ \dfrac{\mathrm{d}}{\mathrm{d} \alpha} J(y + \alpha h) \bigg|_{\alpha = 0},$ де $h(x)$ -- допустимий приріст, називається \textit{першою варіацією} функціоналу $J(y)$ на функції $y(x)$ в напрямку $h(x)$.
+ Позначення:
+ $$
+ \delta J(y, h) = \frac{\mathrm{d}}{\mathrm{d} \alpha} J (y + \alpha h) \bigg|_{\alpha = 0}
+ $$
 
-\begin{boxteo}
- Нехай функція  $\tvy (x) \in C_n^2 [a,b]$ є розв'язком найпростішої векторної задачі. Тоді $\tvy (x)$ задовільняє
- \textit{систему рівнянь Ейлера} на $[a,b]$:
- $$
- \frac{\d F}{\d y_i } - \frac{\mathrm{d}}{\mathrm{d} x} \frac{\d F}{\d y_i'} = 0 \qquad i = \overline{1, n}
- $$
-\end{boxteo}
+\end{defo}
+Нехай $\ty(x)$ -- розв`язок задачі зі старшими похідними. Тоді т.$\alpha = 0 $ є точкою локальнного екстремуму функції $\Phi (\alpha)$ . Отже $\Phi' (0) = 0 \Longrightarrow$ \fbox{$\delta J(\ty, h)=0$} для кожного допустимого приросту $h$. Таким чином, отримали необхідну умову розв'язку в термінах першої варіації функціоналу.
+\begin{lema}[Узагальнена лема Лагранжа]
+Якщо $f \in C[a,b] $ і $ \int\limits_{a}^{b}{f(x)h(x) \mathrm{d} x}  = 0$:
+$$
+\forall h(x) \in C^{k}[a,b] : h^{(j)} (a) = h^{(j)} (b) = 0 , j = \overline{0, k-1}
+$$
+то $f(x) = 0 \quad \forall x\in [a,b]$.
+\end{lema}
 \begin{proof}
- Нехай $\tvy(x) = \ty_1 (x),  \dots , \ty_n (x)$ -- розв'язок. Зафіксуємо в $J(\overrightarrow{y})$:
+ Припустимо від супротивного: $\exists x_0 \in [a,b] : f(x_0) \neq 0$. Нехай $f(x_0)>0$.\par
+ Оскільки $f\in C[a,b]$, то знайдеться окіл т. $x_0 : \Theta_{\varepsilon} (x_0) = (x_0 - \varepsilon, x_0 + \varepsilon )$ такий, що:
  $$
- y_2 (x) = \tilde{y}_2(x), y_3 (x) = \tilde{y}_3(x), \dots , y_n (x) = \tilde{y}_n(x)
+ f(x) >0 \qquad \forall x \in \Theta_{\varepsilon}(x_0)
  $$
- Таким чином, отимуємо найпростішу задачу відносно $y_1$:
+ Візьмемо:
  $$
- \begin{dcases}
-  J(y_1) =  \int\limits_{a}^{ b}{F(x, y_1(x), \ty_2(x), \dots, \ty_n(x), y_1'(x), \ty_2'(x), \dots, \ty_n'(x))} \mathrm{d} x \to \mathrm{exrt};\\
-  y_1(a) = A_1 \qquad y_1 (b) = B_1
- \end{dcases}
+ h(x) = \begin{cases}
+  (x - (x_0 - \varepsilon))^{2k} (x - (x_0 + \varepsilon))^{2k}, & x \in \Theta_{\varepsilon};\\
+  0 , & x \notin \Theta_{\varepsilon};\\
+ \end{cases}
  $$
- Тоді $\ty_1(x)$ -- розв'язок даної задачі, тож $\ty_1(x)$  задовольняє р-ня Ейлера на $[a,b]$:
+ Тоді $h \in C^{k}[a,b] ; h^{(j)} (a) = h^{(j)}(b) = 0, j=\overline{0, k-1}$. При цьому:
  $$
- \frac{\d F}{\d y_1} - \frac{\mathrm{d}}{ \mathrm{d} x} \frac{\d F}{\d y_1'} = 0
+ 0 =  \int\limits_{a}^{b}{ f(x) h(x) \mathrm{d} x} =  \int\limits_{x_0 - \varepsilon}^{x_0 + \varepsilon}{f(x) h(x)} >0,
  $$
- Аналогічно зафіксувавши $ y_1 (x) = \tilde{y}_1(x), y_3 (x) = \tilde{y}_3(x), \dots , y_n (x) = \tilde{y}_n(x)$,  отримаємо найпростішу задачу для $y_2(x)$ та виконяння рівняння Ейлера для $\ty_2 (x)$. Продовживши аналогічні міркування, отримаємо систему рівнянь Ейлера.
+ оскільки $f(x)h(x) >0$ на $\Theta_{\varepsilon}$. Отримали \textbf{протиріччя}.
 \end{proof}
 \newpage
-\subsubsection{Векторна задача Больца.}
-Нехай $a,b \in \mathbb{R}; a<b$ -- задані числа.
-$$
-F(x,\overrightarrow{y}, \overrightarrow{p}) \in C^2([a,b]\times \mathbb{R}^{2n}) \text{ -- задана функція.}
-$$
-$$
-f(\overrightarrow{u}, \overrightarrow{v})\in C^1(\mathbb{R}^{2n}) \text{ -- задана функція.}
-$$
-В просторі $C_n^1[a,b]$ розглянемо функціонал:
-$$
-J(\overrightarrow{y}) = J(y_1, \dots , y_n) =  \int\limits_{a}^{b}{ F(x, \overrightarrow{y}(x), \overrightarrow{y}'(x))} \mathrm{d} x + f(\overrightarrow{y}(a), \overrightarrow{y}(b))
-$$
-\begin{defo}
- Задача пошуку слабкого лок. (глобального) екстремуму функціоналу $J(\overrightarrow{y})$ в просторі $C_n^1 [a,b]$ називається \textbf{ векторною задачею Больца}.
-\end{defo}
+
 \begin{boxteo}
- Нехай вектор-функція $\tvy (x) \in C_n^2 [a,b]$ є розв'язком задачі Больца. Тоді $\tvy (x)$ задовольняє систему рівнянь Ейлера на $[a,b]$:
+ Нехай допустима функція $\ty (x) \in C^{2k} [a,b]$ є розв'язком задачі зі старшими похідними. Тоді $\ty(x)$ задовольняє рівняння \textit{Ейлера-Пуассона} на $[a,b]$:
  $$
- \frac{\d F}{\d y_i} - \frac{\mathrm{d}}{ \mathrm{d} x} \frac{\d F}{\d y_i'}  = 0 \qquad \forall i = \overline{1, n}
+ \frac{\d F}{\d y} - \frac{\mathrm{d}}{\mathrm{d} x} \frac{\d F}{\d y'} + \frac{\d^2}{\mathrm{d} x^2} \frac{\d F}{\d y''} - \dots + (-1)^k \frac{\mathrm{d}^k}{\mathrm{d} x^k} \frac{\d F}{\d y^{(k)}} = 0
  $$
- та умови \textit{трансверсальності}:
- $$
- \frac{\d}{\d y_i'} F(x, \overrightarrow{y}(x),  \overrightarrow{y}'(x))\vline_{x =a} = \frac{\d f}{\d u_i} (\overrightarrow{a}, \overrightarrow{y}(b)) \qquad i = \overline{1,n}
- $$
- $$
-  \frac{\d}{\d y_i'} F(x, \overrightarrow{y}(x),  \overrightarrow{y}'(x))\vline_{x =b} =- \frac{\d f}{\d v_i} (\overrightarrow{a}, \overrightarrow{y}(b)) \qquad i = \overline{1,n}
- $$
- \begin{proof}
-  Аналогічно попередній теоремі.
- \end{proof}
 \end{boxteo}
+
+\begin{proof}
+   Нехай допустима функція $\ty (x) \in C^{2k} [a,b]$ є розв'язком задачі зі старшими похідними. Тоді:
+   $$
+\begin{gathered}
+\forall h(x) \in C^{k}[a,b] : h^{(j)} (a)  = h^{(j)}(b) = 0 \\
+0 = \delta J(\ty, h) = \frac{\mathrm{d}}{\mathrm{d} \alpha} J(\ty + \alpha h)\bigg|_{\alpha = 0} =
+\end{gathered}
+   $$
+   $$
+   = \frac{\mathrm{d}}{\mathrm{d} \alpha }\!  \left(   \int\limits_{a}^{b}{
+   F(x,\ty + \alpha h(x) , \ty' + \alpha h'(x),\dots,
+\ty^{(k)} + \alpha h^{(k)} (x)
+    ) \mathrm{d} x
+   } \right)\!\!\bigg|_{\alpha = 0} =
+   $$
+   $$
+    = \int\limits_{a}^{b}{
+    \frac{\d F(x,\ty, \ty', \dots, \ty^{(k)})}{\d y} \cdot h(x) +  \frac{\d F(x,\ty, \ty', \dots, \ty^{(k)})}{\d y'} \cdot h'(x) +
+    }
+   $$
+   $$
+   + \frac{\d F(x,\ty, \ty', \dots, \ty^{(k)})}{\d y''} \cdot h''(x) + \dots + \frac{\d F(x,\ty, \ty', \dots, \ty^{(k)})}{\d y^{(k)}} \cdot h^{(k)}(x) \  \mathrm{d} x
+   $$
+   Проінтегрувавши частинами кожен доданок, починаючи з дрогого, стільки разів, скільки потрібно, зоб позбутися похідних $h(x)$ (2-гий доданок -- 1 раз, 3-тій додаок -- 2 рази і т.д.) та враховуючи, що $h^{(j)} = a = h^{(j)} (b) = 0, j = \overline{0, k-1}$. \par Далі з узагальненої леми Лагранжа отримаємо рівняння Ейлера-Пуассона.
+\end{proof}
+Будь-який розв'язок рівняння Ейлера-Пуассона називається \textbf{екстремаллю}. Будь-яка екстремаль, що є допустимою функцією, називається \textit{допустимою екстремаллю} функціоналу $J(y)$.
+
+\subsection*{Приклад.}
+$$
+\begin{dcases}
+ J(y) =  \int\limits_{0}^{1}{ (y'')^2 + (y')^2 - 2 y  \mathrm{d} x } \to \mathrm{extr};\\
+ y(0) = y' (0) = 0 \quad y(1) = - \frac{1}{2} \quad y'(1) = -1 .
+\end{dcases}
+$$
+\begin{enumerate}
+  \item Складаємо і розв'язуємо рівняння Ейлера-Пуассона:
+  $$
+  \frac{\d F}{\d y} - \frac{\mathrm{d}}{\mathrm{d} x} \frac{\d F}{\d y'} + \frac{\mathrm{d}^2}{ \mathrm{d} x ^2} \frac{\d F}{\d y''} = 0
+  $$
+  За умовою: $ F(x, y, y', y'') = (y'')^2 + (y' )^2 - 2y$.
+  $$
+  \frac{
+  \d F
+  }{
+\d y
+  } = -2 ; \  \frac{\d F}{\d y'} = 2 y' ; \  \frac{\mathrm{d}}{\mathrm{d} x} \left( \frac{\d F}{
+  \d y'
+  }  \right)  = 2 y'' ; \  \frac{\d F}{\d y''
+  }  = 2y''; \  \frac{\mathrm{d}^2}{ \mathrm{d} x^2} \left( \frac{\d F}{\d y''}  \right)  = 2 y^{(4)}.
+  $$
+Маємо:
+$$
+-2 - 2 y'' + 2 y^{(4)} = 0
+$$
+$$
+y^{(4)} - y'' = 1 \text{ -- рівняння Ейлера-Пуассона.}
+$$
+Розв'яжемо відповідне лінійне однорідне рівняння:
+$$
+y^{(4)} - y'' = 0
+\quad \Longrightarrow \quad \lambda^4 - \lambda^2 = 0
+$$
+$$
+\lambda^2 (\lambda-1) (\lambda+1 ) = 0 \quad \Longrightarrow \quad \lambda_1 = 0 \text{кр. 2} \
+\lambda_2 = 1 \ \ \lambda_3 = -1
+$$
+$$
+y_o = C_1 + C_2x + C_3 e^x + C_4 e^{-x}
+$$
+Розглянемо праву частину початкового ЛНР:
+$$
+1 = e^{\lambda} = e^0  \Longrightarrow \lambda = 0 \text{ -- корінь кратності 2.}
+$$
+$$
+y_{\text{ч}} (x) = Ax^2
+$$
+$$
+y_{\text{ч}}' = 2Ax ; \  y_{\text{ч}}'' = 2 A ; \  y_{\text{ч}}^{(3)} = y_{\text{ч}}^{(4)} = 0
+$$
+\end{enumerate}

@@ -381,4 +381,129 @@ $$
 \left( \frac{\d L}{\d y} - \frac{\mathrm{d}}{\mathrm{d} x} \frac{\d L}{\d y'}\right)\cdot h \  \mathrm{d} x
 }  = 0 \xRightarrow{\text{Лема Лагранжа}} \text{ рівняння Ейлера для } L.
 $$
+Залишилося довести, що якобіан:
+$$
+\frac{
+\d (\varphi , \psi)
+}{\d (\alpha, \beta)}\bigg|_{\alpha = \beta = 0} \equiv 0 \qquad \quad \forall h \in C^1[a,b] : h(a) = h(b) = 0
+$$
+Припустимо від супротивного, що:
+$$
+\exists h^* \in C^1 [a,b] : h^*(a) = h^*(b) = 0
+\  \text{ та } \  \frac{
+\d (\varphi , \psi)
+}{\d (\alpha, \beta)}\bigg|_{\alpha = \beta = 0} \neq  0 \  \text{ при }\  h = h^*
+$$
+Тобто для:
+$$
+\begin{gathered}
+\varphi(\alpha, \beta) = J(\ty + \alpha h^* + \beta h_0) \\
+\psi (\alpha , \beta) = K(\ty + \alpha h^* + \beta h_0)
+\end{gathered}
+$$
+Розглянемо систему рівнянь:
+$$
+\begin{cases}
+ \varphi(\alpha, \beta) = \varphi(0,0) - \varepsilon;\\
+ \psi (\alpha, \beta) = \psi(0,0) , \text{ де } \varepsilon>0 \text{ -- довільне фіксоване.}
+\end{cases}
+$$
+Оскільки $\dfrac{
+\d (\varphi , \psi)
+}{\d (\alpha, \beta)}\bigg|_{\alpha = \beta = 0} \neq  0$,  то за теоремою про неявну функцію існує розв'язок системи $(\alpha^*, \beta^*)$ в околі нуля:
+$$
+\begin{cases}
+ \varphi(\alpha^*, \beta^*) = \varphi(0,0) - \varepsilon;\\
+ \psi(\alpha^*, \beta^*) = \psi (0,0) .
+\end{cases}
+$$
+Покладемо: $y^* = \ty + \alpha^* h^* + \beta^* h_0$. Тоді:\par
+$\varphi(\alpha^*, \beta^*) = K(y^*)= K(\ty) = l \Rightarrow K(y^*) = \alpha \Rightarrow y^*$ -- допустима. \\ $J(y^*) < J(\ty) \Rightarrow$ $\ty$ --  не слабкий локальний мінімум $\Rightarrow$ протиріччя.
 \end{proof}
+\begin{remark}
+  Умова теореми $\delta K(\ty, h) \neq 0$ рівносильна тому, що $\ty(x)$ не є екстремаллю найпростішої задачі для $K(y)$. Насправді, дана умова -- для спрощення доведення. Теорема справедлива і без неї, однак в цьому випадку можливою є ситуація $\lambda_0 = 0(\lambda\neq 0)$.
+ \end{remark}
+
+\begin{remark}
+  Класична ізопериметрична задача допускає узагальнення на векторний випадок та  на випадок багатьох умов зв'язку.
+\end{remark}
+\begin{defo}
+ Будь-який розв'язок рівняння Ейлера називається екстремаллю ізопериметричної задачі. Екстремаль, що є допустимою функцією, називається допустимою екстремаллю.
+\end{defo}
+\begin{example}
+ $$
+ \begin{dcases}
+  J(y) =  \int\limits_{0}^{1}{(y')^2 \mathrm{d} x} \to \mathrm{extr};\\
+  y(0) = 0 \quad y(1) = 1 \quad  \int\limits_{0}^{1}{y(x) \mathrm{d} x} = 1.
+ \end{dcases}
+ $$
+ \begin{enumerate}
+   \item Складемо функцію Лагранжа:
+   $$
+   \mathcal{L} = \lambda_0 (y')^2 + \lambda y
+   $$
+   \item Складаємо рівняння Ейлера:
+   $$
+   \frac{\d \mathcal{L}}{\d y}  - \frac{\mathrm{d}}{\mathrm{d} x} \frac{\d \mathcal{L}}{\d y'} = 0
+   $$
+   $$
+   \frac{\d \mathcal{L}}{ \d y} = \lambda \qquad \frac{\d \mathcal{L}}{\d y'} = 2 \lambda_0 y' \qquad
+   \frac{\mathrm{d}}{\mathrm{d} x } \frac{\d L}{\d y'} = 2 \lambda_0 y''
+   $$
+   $$
+   \lambda - 2 \lambda_0 y'' = 0 \text{ -- рівняння Ейлера.}
+   $$
+   Якщо $\lambda_0 = 0 \Rightarrow \lambda = 0 \Rightarrow$ цей випадок неможливий. Нехай $\lambda_0 = 1$:
+   $$
+   \lambda - 2 y' = 0 \qquad y'' = \frac{\lambda}{2} \qquad y' = \frac{\lambda}{2} x + C_1
+   $$
+   \fbox{$y = \frac{\lambda}{4} x^2 + C_1 x + C_2 $} --- сімейство екстремалей.
+   \item Знаходимо допустимі екстремалі.
+   $$
+\begin{array}{r l}
+y(0) = 0 &\Rightarrow C_2 = 0\\
+y(1) = 1 & \Rightarrow \frac{\lambda}{4} + C_1 = 1
+\end{array}
+   $$
+   $$
+    \int\limits_{0}^{1}{y(x) \mathrm{d} x} = 1 \Rightarrow  \int\limits_{0}^{1}{
+    \frac{\lambda}{4}x^2 + C_1 x \mathrm{d} x = 1
+    }
+   $$
+   $$
+   1 = \frac{\lambda}{4} \cdot \frac{x^3}{3} + C_1 \frac{x^2}{2}\bigg|_0^1 = \frac{\lambda}{12} + \frac{C_1}{2}
+   $$
+   $$
+   C_1 = 1 - \frac{\lambda}{4} \Longrightarrow \frac{\lambda}{12} + \frac{1}{2} - \frac{\lambda}{8} = 1
+   $$
+   $$
+   - \frac{\lambda}{24} = \frac{1}{2} \Longrightarrow \lambda = -12 \Longrightarrow C_1 = 1 + \frac{12}{4} = 4
+   $$
+   \fbox{$\ty(x) = -3 x^2 + 4 x$} -- допустима екстремаль.
+   \item \underline{Перевірка.} $\forall h \in C^1 [a,b]$: \
+   $
+   h(0) = h(1) = 0  \quad  \int\limits_{0}^{1}{\ty + h \mathrm{d} x} = 1 \  \Rightarrow \   \int\limits_{0}^{1}{h \mathrm{d} x} = 0 $
+   $$
+   \begin{gathered}
+   J(\ty + h) - J(\ty) =  \int\limits_{0}^{1}{(\ty' + h')^2 \mathrm{d} x } -  \int\limits_{0}^{1}{
+   (\ty')^2 \mathrm{d} x
+   } =
+\\
+   =  \int\limits_{0}^{1}{
+   \underbrace{2 \ty'}_{u} \underbrace{h'}_{v'} + (h')^2 \mathrm{d} x
+   } = \underbrace{2 \ty' h\bigg|_0^1 }_{=0}+  \int\limits_{0}^{1}{
+   -2\ty'' h + (h')^2 \mathrm{d} x
+   } =
+\\
+   = \left|
+\begin{gathered}
+ \ty  = -3x^2 + 4 x \\
+ \ty' = -6x + 4 ; \ty'' = -6
+\end{gathered}
+    \right| =  \underbrace{\int\limits_{0}^{1}{12h + (h')^2} \mathrm{d} x}_{ \int\limits_{0}^{1}{hdx} = 0}=
+\\
+    =  \int\limits_{0}^{1}{(h')^2} \geq  0\Longrightarrow \textbf{ слабкий глобальний мінімум.}
+   \end{gathered}
+   $$
+ \end{enumerate}
+\end{example}

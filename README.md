@@ -24,7 +24,7 @@ For making typesetting correctly you need to avoid bad practices or legacy\depre
 1. Use defined **theorem styles** like ```defo, teo, boxteo, proof```, etc.
 2. Use **LaTeX Math mode** ```\[ \]``` for display math and ```\( \)``` for inline math instead of **TeX** ```$ $  $$ $$```.
 3. In curly brackets (like in sets or sequences) use ```\  \big| \  ``` as a separator.
-4. Use ```\bigg|_{}^{}``` for **subtractions/restrictions** ![image](https://user-images.githubusercontent.com/39808592/119129084-21572f80-ba3f-11eb-96a5-10ee60aa12cf.png).
+4. Use ```\bigg|_{}^{}``` for **subtractions/restrictions** :  ![image](https://user-images.githubusercontent.com/39808592/119129084-21572f80-ba3f-11eb-96a5-10ee60aa12cf.png).
 -------------------------------
 
 ## Snippets

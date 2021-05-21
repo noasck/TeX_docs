@@ -3,7 +3,7 @@ TeX documents in different fields: Calculus, Physics, Numerical Math, etc.
 
 --------------------------------
 ## Getting started
-Fist of all, template I use in my documents: [Untitled template...](https://github.com/noasck/TeX_docs/blob/main/Untitled.tex)
+First of all, the template I use in my documents: [Untitled template...](https://github.com/noasck/TeX_docs/blob/main/Untitled.tex)
 
 Another useful resource is [Latex Workbook for Beginners...](https://github.com/noasck/TeX_docs/blob/main/Latex%20for%20beginners.pdf)
 
@@ -18,10 +18,18 @@ Notice, that ```stabtheory_lec<num>``` included in **Release** with appropriativ
 Repository contains **vector graphics** source provided in a *svg* files. All pictures were created with ```Inkscape``` editor.
 
 -------------------------------
+## Best practices
+For making typesetting correctly you need to avoid bad practices or legacy\deprecated *LaTeX* commands and packages. There is my own list of recommendations that you can use as a styleguide.
+
+1. Use defined **theorem styles** like ```defo, teo, boxteo, proof```, etc.
+2. Use **LaTeX Math mode** ```\[ \]``` for display math and ```\( \)``` for inline math instead of **TeX** ```$ $  $$ $$```.
+3. In curly brackets (like in sets or sequences) use ```\  \big| \  ``` as a separator.
+4. Use ```\bigg|_{}^{}``` for **subtractions/restrictions** ![image](https://user-images.githubusercontent.com/39808592/119129084-21572f80-ba3f-11eb-96a5-10ee60aa12cf.png).
+-------------------------------
 
 ## Snippets
 
-Snippets are important part of my TeX environment. You can use them with ```Atom``` editor with ```atom-latex``` extension installed.
+Snippets are an important part of my TeX environment. You can use them with ```Atom``` editor with ```atom-latex``` extension installed.
 
 
 ``` yaml
@@ -114,7 +122,7 @@ Snippets are important part of my TeX environment. You can use them with ```Atom
   'rational':
     'prefix': 'R',
     'body': '\\\\mathbb\\\{R\\\}'
-  'probability':
+  'probability':t
     'prefix': 'P',
     'body': '\\\\mathbb\\\{P\\\} \\\\left\\\\lbrace $1 \\\\right\\\\rbrace'
   'natural':

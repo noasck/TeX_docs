@@ -348,10 +348,10 @@ $$
 S_k = \frac{a_0}{2} +  \sum\limits_{n =1}^{k}{ a_n\cos{(nx)} + b_n \sin{(nx)}} \text{ -- часткові суми;}
 $$
 $$
-\mathcal{G}_n(x) = \frac{1}{n}(S_1(x), S_2(x), \dots, S_{n-1}(x)) \textit{ --- середні по Чезаре.}
+\mathcal{G}_n(x) = \frac{1}{n}(S_1(x), S_2(x), \dots, S_{n-1}(x)) \textit{ --- середні по Чезаро.}
 $$
 \end{defo}
-Отримаємо інтегральний вид середніх по Чезаре. Отримали:)
+Отримаємо інтегральний вид середніх по Чезаро. Отримали:)
 \begin{lemme} $f(x)$ -- $2\pi$-періодична, інтегрована.
   $$
   S_k = \frac{a_0}{2} +  \sum\limits_{n =1}^{k}{ a_n\cos{(nx)} + b_n \sin{(nx)}} \text{ -- часткові суми;}
@@ -361,15 +361,15 @@ $$
   $$
   Тоді  $\mathcal{G}_n(x) $ має інтегральний вигляд:
   $$
-  \mathcal{G}_n(x) = \int\limits_{0}^{ \frac{\pi}{2} }{ \frac{f(x  + 2 v) + f(x - 2v)}{2} F_n(v) \mathrm{d} v} ,
+  \mathcal{G}_n(x) = \frac{1}{2} \int\limits_{0}^{ \frac{\pi}{2} }{ \left[ f(x  + 2 v) + f(x - 2v) \right] F_n(v) \mathrm{d} v} ,
   $$
-  , де $F_n (v) = \dfrac{\sin^2 (nv)}{\pi n \sin^2 v} $ --- \textit{ядро Фейера}.
+ де $F_n (v) = \dfrac{\sin^2 (nv)}{\pi n \sin^2 v} $ --- \textit{ядро Фейера}.
 \end{lemme}
 \subsubsection*{Властивості ядра Фейера:}
 \begin{enumerate}
   \item $F_n (-v) = F_n (v)$;
   \item $F_n (v) - \pi$-періодична;
-  \item $\displaystyle  \int\limits_{0}^{2\pi}{F_n (v) \mathrm{d} v} = \frac{1}{2} $.
+  \item $\displaystyle \int\limits_{0}^{ \frac{\pi}{2}}{F_n (v) \mathrm{d} v} = \frac{1}{2} $.
 \end{enumerate}
 \subsubsection*{Властивості коефіцієнтів ряда Фур'є.}
 \begin{enumerate}
@@ -403,4 +403,15 @@ $$
   }
   $$
 \end{enumerate}
+\newpage
+\section{Лекція 4.}
+\begin{boxteo}[Фейера]
+Задана функція \( f  \in C[0, 2\pi]\). Тоді:
+\[
+ \mathcal{G}_n (f) \rightrightarrows f  \text{ на } [0, 2\pi] \quad n \to \i
+\]
+\end{boxteo}
+\begin{consequence}[1]
+  f \in 
+\end{consequence}
 \end{document}

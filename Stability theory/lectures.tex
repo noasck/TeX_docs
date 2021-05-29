@@ -8,6 +8,19 @@
 \renewcommand*{\proofname}{\text{Доведення}}
 \renewcommand{\labelitemi}{$\textemdash$}
 
+
+\makeatletter
+% we use \prefix@<level> only if it is defined
+\renewcommand{\@seccntformat}[1]{%
+  \ifcsname prefix@#1\endcsname
+    \csname prefix@#1\endcsname
+  \else
+    \csname the#1\endcsname\quad
+  \fi}
+% define \prefix@section
+\newcommand\prefix@section{Лекція \thesection }
+\makeatother
+
 \theoremstyle{definition}
 \newtheorem*{defo}{Означення}
 \newtheorem*{teo}{Теорема}
@@ -112,7 +125,7 @@
 \tableofcontents
 \newpage
 
-\section{Лекція 1}
+\section{}
 \subsection{Нормальні системи диференційних рівнянь}
 
 
@@ -427,7 +440,7 @@ $$
   \end{boxteo}
 \end{spacing}
 
-\section{Лекція 2}
+\section{}
 \subsection{Приклади дослідження на стійкість диф. рівнянь, що описують поведінку екологічних процесів.}
 
 \subsubsection{Модель одновимірної популяції.}
@@ -1082,7 +1095,7 @@ b) $ \lambda_1 =  \lambda_2 = 0 \quad (a = - bk)$
 
 \begin{center} \includegraphics[scale=0.3]{assets/lectures_recent-49093f01.png} \end{center}
 
-\section{Лекція 3}
+\section{}
 \subsection{Стійкість за першим наближенням}
 
 Розглянемо систему:
@@ -1229,7 +1242,7 @@ $$ u(t) = ||\overrightarrow{x}(t)|| \cdot e^{\gamma(t - t_0)}, \quad c = K \cdot
 Отримуємо: $$||\overrightarrow{x}(t)|| e^{\gamma(t - t_0)} \!\leq\! K \delta \exp \left\lbrace {\int\limits_{t_0}^{t} K \delta_1 \mathrm{d}s} \right\rbrace \!=\! K \delta e^{K \cdot \delta (t - t_0)} \!\Rightarrow\! ||\overrightarrow{x}(t)|| \!\leq\! K \delta e^{(-\gamma + K \cdot \delta_1)(t - t_0)}$$ Оберемо $\delta_1$ так, щоб $-\gamma + K \cdot \delta_1 < 0 \quad \Longrightarrow \quad \delta_1 < \dfrac{\gamma}{K}$, тоді $||\overrightarrow{x}(t)|| \leq K \cdot \delta < \varepsilon$ при $\delta < \dfrac{\varepsilon}{K}$ і, крім того, $||\overrightarrow{x}(t)|| \leq K \cdot \delta \cdot e^{(-\gamma + K \cdot \delta_1)(t - t_0)} \xrightarrow[t \to \infty]{} 0$, що означає стійкість та асимптотичну стійкість розв'язку $\overrightarrow{x} = \overrightarrow{0}$ за означенням (в означенні в якості $\delta$ можемо взяти найменше з $\delta, \quad \delta_1, \quad \delta_2$).\\ Випадок 2. поки ще залишається без доведення. $\blacksquare$ \\ \\
 \textbf{Зауваження.} (про фазові портрети автономної системи другого порядку). Тип фазового портрету в околі положень рівноваги автономної системи другого порядку у випадку $\Re \lambda \neq 0$ визначається типом фазового портрету лінеаризованої системи (вузол, сідло, фокус, вироджений вузол залишається вузлом, сідлом, фокусом, виродженим вузлом відповідно). \\
 
-\section{Лекція 4}
+\section{}
 \subsection{Метод функцій Ляпунова}
 Розглянемо систему:
 \be \label{2spd}
@@ -1505,7 +1518,7 @@ $$ V(x,y) = \frac{3x^2}{2} + \frac{y^2}{2}  \ \text{ -- додатно визн�
 
 \newpage
 
-\section{Лекція 5}
+\section{}
 \subsection{Перші інтеграли систем диференційних рівнянь.}
 \begin{example}
  Розглянемо рівняння
@@ -1727,7 +1740,7 @@ $\begin{cases}
 
 \newpage
 
-\section{Лекція 6}
+\section{}
 \subsection{Варіаційне числення}
 
 
@@ -2118,7 +2131,7 @@ $$
 
 \newpage
 
-\section{Лекція 7}
+\section{}
 \subsection{Задача з вільним кінцем}
 Нехай $a, b \in \mathrm{R}, a < b$ -- задачі числа, $F(x, y, p) \in C^2([a, b] \times \mathrm{R}^2)$ -- задана функція. Розглянемо інтеграл: $$J(y) = \int\limits_{a}^{b}F(x, y(x), y'(x))\mathrm{d}x$$
 На множині функцій: $$ M = \{ y \in C^1[a, b] \ | \ y(a = A)\}, \text{ де } A \in \mathrm{R} \text{ -- задане число} $$

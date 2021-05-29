@@ -2527,6 +2527,536 @@ $$
   Аналогічно попередній теоремі.
  \end{proof}
 \end{boxteo}
+\section{Лекція 8}
+\subsection{Задача зі старшими похідними.}
+Нехай $C^k [a,b]$ --- простір $k$-раз неперервно-диференційованих на $[a,b]$ функцій.\par
+
+$C^k[a,b]$ --- нормований простір з нормою:
+$$
+||\varphi(x)||_{C^k[a,b]} =
+\max\limits_{x\in[a,b]}{ |\varphi(x)|} +
+ \max\limits_{x\in[a,b]}{|\varphi'(x)|} + \dots
+  \max\limits_{x\in[a,b]}{|\varphi^{(k)}(x)|}
+$$
+Нехай $a,b \in \mathbb{R}, a<b$ -- задані числа.
+$$
+F(x,y,p_1, \dots, p_k) \in C^{k+1}\left( [a,b] \times \mathbb{R}^{k+1} \right) \text{ -- задана функція.}
+$$
+Розглядаємо інтеграл:
+$$
+J(y) =  \int\limits_{a}^{ b}{
+F(x, y, y' , y'', \dots , y^{(k)}) \mathrm{d} x
+}\  \text{ на множині функцій:}
+$$
+$$
+M = \left\lbrace
+y\in C^{k}[a,b] \ \bigg| \  y^{(j)} (a) = A_j , y^{(j)} (b) = B_j , j=\overline{0, k-1}
+ \right\rbrace \qquad A_j ,  B_j \in \mathbb{R}
+$$
+Функції $y \in M$ називаються \textit{допустимими}.
+\begin{defo}
+Означення слабкого локального(глобального) мінімуму (максимуму) інтегралу $J(y)$ на $M$ аналогічні попереднім задачам.
+\end{defo}
+\begin{defo}
+ Задача пошуку слабкого  локального(глобального) мінімуму (максимуму) інтегралу $J(y)$ називається \textbf{задачею зі старшими похідними.}
+\end{defo}
+Для довільної функції $y\in M$, для довільної функції:
+$$
+h \in C^{k}[a,b] : h^{(j)}(a) = h^{(j)}(b) = 0 \ \forall \alpha \in \mathbb{R}
+$$
+розглянемо сімейство функцій:
+$$
+y(x, \alpha) = y(x) + \alpha h(x)
+$$
+Тоді $\forall \alpha \in \mathbb{R} \  y(x, \alpha) \in M$. Розглядаємо:
+$$
+J(y + \alpha h) =  \int\limits_{a }^{b}{F(x, y + \alpha h(x), y' + \alpha h' (x), \dots , y^{(k)} + \alpha h^{(k)}) \mathrm{d} x}
+$$
+Тоді функція: $\Phi (\alpha) = J(y + \alpha h)$ є неперервно-диференційованою по $\alpha$ в деякому околі т.$\alpha = 0$:
+$$
+\Phi'(0) = \frac{\mathrm{d}}{\mathrm{d} \alpha} J(y + \alpha h)\bigg|_{\alpha = 0}
+$$
+\begin{defo}
+ \textbf{Допустимим приростом} функції $y\in M$ називають довільну функцію $h(x) \in C^k[a,b]:$
+ $$
+ h^{(j)} (a) = h^{(j)} (b) = 0 \qquad \forall j = \overline{0, k-1}
+ $$
+ Вираз $ \dfrac{\mathrm{d}}{\mathrm{d} \alpha} J(y + \alpha h) \bigg|_{\alpha = 0},$ де $h(x)$ -- допустимий приріст, називається \textit{першою варіацією} функціоналу $J(y)$ на функції $y(x)$ в напрямку $h(x)$.
+ Позначення:
+ $$
+ \delta J(y, h) = \frac{\mathrm{d}}{\mathrm{d} \alpha} J (y + \alpha h) \bigg|_{\alpha = 0}
+ $$
+
+\end{defo}
+Нехай $\ty(x)$ -- розв`язок задачі зі старшими похідними. Тоді т.$\alpha = 0 $ є точкою локальнного екстремуму функції $\Phi (\alpha)$ . Отже $\Phi' (0) = 0 \Longrightarrow$ \fbox{$\delta J(\ty, h)=0$} для кожного допустимого приросту $h$. Таким чином, отримали необхідну умову розв'язку в термінах першої варіації функціоналу.
+\begin{lema}[Узагальнена лема Лагранжа]
+Якщо $f \in C[a,b] $ і $ \int\limits_{a}^{b}{f(x)h(x) \mathrm{d} x}  = 0$:
+$$
+\forall h(x) \in C^{k}[a,b] : h^{(j)} (a) = h^{(j)} (b) = 0 , j = \overline{0, k-1}
+$$
+то $f(x) = 0 \quad \forall x\in [a,b]$.
+\end{lema}
+\begin{proof}
+ Припустимо від супротивного: $\exists x_0 \in [a,b] : f(x_0) \neq 0$. Нехай $f(x_0)>0$.\par
+ Оскільки $f\in C[a,b]$, то знайдеться окіл т. $x_0 : \Theta_{\varepsilon} (x_0) = (x_0 - \varepsilon, x_0 + \varepsilon )$ такий, що:
+ $$
+ f(x) >0 \qquad \forall x \in \Theta_{\varepsilon}(x_0)
+ $$
+ Візьмемо:
+ $$
+ h(x) = \begin{cases}
+  (x - (x_0 - \varepsilon))^{2k} (x - (x_0 + \varepsilon))^{2k}, & x \in \Theta_{\varepsilon};\\
+  0 , & x \notin \Theta_{\varepsilon};\\
+ \end{cases}
+ $$
+ Тоді $h \in C^{k}[a,b] ; h^{(j)} (a) = h^{(j)}(b) = 0, j=\overline{0, k-1}$. При цьому:
+ $$
+ 0 =  \int\limits_{a}^{b}{ f(x) h(x) \mathrm{d} x} =  \int\limits_{x_0 - \varepsilon}^{x_0 + \varepsilon}{f(x) h(x)} >0,
+ $$
+ оскільки $f(x)h(x) >0$ на $\Theta_{\varepsilon}$. Отримали \textbf{протиріччя}.
+\end{proof}
 \newpage
- \input{lectures_recent}
+
+\begin{boxteo}
+ Нехай допустима функція $\ty (x) \in C^{2k} [a,b]$ є розв'язком задачі зі старшими похідними. Тоді $\ty(x)$ задовольняє рівняння \textit{Ейлера-Пуассона} на $[a,b]$:
+ $$
+ \frac{\d F}{\d y} - \frac{\mathrm{d}}{\mathrm{d} x} \frac{\d F}{\d y'} + \frac{\d^2}{\mathrm{d} x^2} \frac{\d F}{\d y''} - \dots + (-1)^k \frac{\mathrm{d}^k}{\mathrm{d} x^k} \frac{\d F}{\d y^{(k)}} = 0
+ $$
+\end{boxteo}
+
+\begin{proof}
+   Нехай допустима функція $\ty (x) \in C^{2k} [a,b]$ є розв'язком задачі зі старшими похідними. Тоді:
+   $$
+\begin{gathered}
+\forall h(x) \in C^{k}[a,b] : h^{(j)} (a)  = h^{(j)}(b) = 0 \\
+0 = \delta J(\ty, h) = \frac{\mathrm{d}}{\mathrm{d} \alpha} J(\ty + \alpha h)\bigg|_{\alpha = 0} =
+\end{gathered}
+   $$
+   $$
+   = \frac{\mathrm{d}}{\mathrm{d} \alpha }\!  \left(   \int\limits_{a}^{b}{
+   F(x,\ty + \alpha h(x) , \ty' + \alpha h'(x),\dots,
+\ty^{(k)} + \alpha h^{(k)} (x)
+    ) \mathrm{d} x
+   } \right)\!\!\bigg|_{\alpha = 0} =
+   $$
+   $$
+    = \int\limits_{a}^{b}{
+    \frac{\d F(x,\ty, \ty', \dots, \ty^{(k)})}{\d y} \cdot h(x) +  \frac{\d F(x,\ty, \ty', \dots, \ty^{(k)})}{\d y'} \cdot h'(x) +
+    }
+   $$
+   $$
+   + \frac{\d F(x,\ty, \ty', \dots, \ty^{(k)})}{\d y''} \cdot h''(x) + \dots + \frac{\d F(x,\ty, \ty', \dots, \ty^{(k)})}{\d y^{(k)}} \cdot h^{(k)}(x) \  \mathrm{d} x
+   $$
+   Проінтегрувавши частинами кожен доданок, починаючи з дрогого, стільки разів, скільки потрібно, зоб позбутися похідних $h(x)$ (2-гий доданок -- 1 раз, 3-тій додаок -- 2 рази і т.д.) та враховуючи, що $h^{(j)} = a = h^{(j)} (b) = 0, j = \overline{0, k-1}$. \par Далі з узагальненої леми Лагранжа отримаємо рівняння Ейлера-Пуассона.
+\end{proof}
+Будь-який розв'язок рівняння Ейлера-Пуассона називається \textbf{екстремаллю}. Будь-яка екстремаль, що є допустимою функцією, називається \textit{допустимою екстремаллю} функціоналу $J(y)$.
+
+\subsection*{Приклад.}
+$$
+\begin{dcases}
+ J(y) =  \int\limits_{0}^{1}{ (y'')^2 + (y')^2 - 2 y  \mathrm{d} x } \to \mathrm{extr};\\
+ y(0) = y' (0) = 0 \quad y(1) = - \frac{1}{2} \quad y'(1) = -1 .
+\end{dcases}
+$$
+\begin{enumerate}
+  \item Складаємо і розв'язуємо рівняння Ейлера-Пуассона:
+  $$
+  \frac{\d F}{\d y} - \frac{\mathrm{d}}{\mathrm{d} x} \frac{\d F}{\d y'} + \frac{\mathrm{d}^2}{ \mathrm{d} x ^2} \frac{\d F}{\d y''} = 0
+  $$
+  За умовою: $ F(x, y, y', y'') = (y'')^2 + (y' )^2 - 2y$.
+  $$
+  \frac{
+  \d F
+  }{
+\d y
+  } = -2 ; \  \frac{\d F}{\d y'} = 2 y' ; \  \frac{\mathrm{d}}{\mathrm{d} x} \left( \frac{\d F}{
+  \d y'
+  }  \right)  = 2 y'' ; \  \frac{\d F}{\d y''
+  }  = 2y''; \  \frac{\mathrm{d}^2}{ \mathrm{d} x^2} \left( \frac{\d F}{\d y''}  \right)  = 2 y^{(4)}.
+  $$
+Маємо:
+$$
+-2 - 2 y'' + 2 y^{(4)} = 0
+$$
+$$
+y^{(4)} - y'' = 1 \text{ -- рівняння Ейлера-Пуассона.}
+$$
+Розв'яжемо відповідне лінійне однорідне рівняння:
+$$
+y^{(4)} - y'' = 0
+\quad \Longrightarrow \quad \lambda^4 - \lambda^2 = 0
+$$
+$$
+\lambda^2 (\lambda-1) (\lambda+1 ) = 0 \quad \Longrightarrow \quad \lambda_1 = 0 \text{ кр. 2} ,
+\lambda_2 = 1 , \lambda_3 = -1
+$$
+$$
+y_o = C_1 + C_2x + C_3 e^x + C_4 e^{-x}
+$$
+Розглянемо праву частину початкового ЛНР:
+$$
+1 = e^{\lambda} = e^0  \Longrightarrow \lambda = 0 \text{ -- корінь кратності 2.}
+$$
+$$
+y_{\text{ч}} (x) = Ax^2
+$$
+$$
+y_{\text{ч}}' = 2Ax ; \qquad  y_{\text{ч}}'' = 2 A ; \qquad  y_{\text{ч}}^{(3)} = y_{\text{ч}}^{(4)} = 0
+$$
+Підставимо: $-2 A = 1 \Rightarrow A= - \dfrac{1}{2} \Rightarrow y_{\text{ч}}(x) = -  \dfrac{1}{2} x^2$. Загальний розв'язок:
+$$
+y(x) = C_1 + С_2 x + C_3 e^x + C_4 e^{-x} - \frac{1}{2} x^2 \textit{ -- сімейство екстремалей.}
+$$
+\item Знайдемо допустимі екстремалі:
+$$
+y(0) = 0 \qquad y'(0) =0 \qquad y(1) = -  \frac{1}{2}  \qquad y' (1) = -1
+$$
+$$
+y' (x) = C_2 + C_3 e^{x} - C_4 e^{-x} - x
+$$
+$$
+\begin{array}{r l}
+y(0) = 0: & C_1 + C_3 + C_4 = 0\\
+y'(0) = 0 : &C_2 + C_3 - C_4 = 0 \\
+y(1) = - \frac{1}{2} : &  C_1 + C_2 + C_3 e + C_4 e^{-1 } - \frac{1}{2} = - \frac{1}{2}\\
+y'(1) = -1 : & C_2 + C_3 e - C_4 e^{-1}  -1 = -1
+\end{array}
+$$
+$$
+\begin{cases}
+ C_1 + C_3 + C_4 = 0\\
+C_2 + C_3 - C_4 = 0 \\
+C_1 + C_2 + C_3 e + C_4 e^{-1} = 0\\
+C_2 + C_3 - C_4 e^{-1} = 0
+\end{cases} \qquad
+\begin{cases}
+ C_1 = - C_3 - C_4 \\
+ C_2 = C_4 - C_3 \\
+ - 2 C_3 + C_3 e + C_4 e^{-1} = 0\\
+ C_4 - C_3 + C_3 e - C_4 e^{-1} = 0
+\end{cases}
+$$
+$$
+ C_4 = 2 C_3 e - C_3 e^2 \qquad
+ 2C_3 e - C_3 e^2 - C_3 + C_3 e - 2 C_3 + C_3 e = 0 \Longrightarrow
+$$
+$$
+C_3 = 0 \Longrightarrow C_4 = 0 \Longrightarrow C_1 = 0, C_2 = 0
+$$
+Отримали: \fbox{$\ty (x) = - \frac{1}{2} x^2 $} --- \textit{допустима екстремаль.}
+\item Перевірка.
+ $
+\forall h \in C^2[a,b] : h(0) = h(1) = h'(0) = h'(1) = 0:
+$
+$$
+J(\ty + h) - J(\ty) =  \int\limits_{0}^{1}{ (\ty'' + h'')^2 + (\ty' + h')^2 - 2 (\ty + h) \ \mathrm{d} x} -
+$$
+$$
+-  \int\limits_{0}^{ 1}{(\ty'')^2 + (\ty')^2 - 2 \ty \ \mathrm{d} x} =  \int\limits_{0}^{1}{
+2 \ty'' h'' + (h'')^2 + 2 \ty'h' + (h')^2 - 2 h
+\ \mathrm{d} x
+} \oeq
+$$
+$$
+ \int\limits_{0}^{1}{2 \ty'' h'' \mathrm{d} x} = \left|\ \begin{gathered}
+  \text{Візьмемо частинами:}\\
+  v' = h'' \qquad u = 2\ty''\\
+  v = h'  \qquad u' = 2 \ty'''
+ \end{gathered} \ \right| = \underbrace{2 \ty'' h'\bigg|_0^1}_{= 0} -  \int\limits_{0}^{1}{\ty''' h' \ \mathrm{d} x} =
+$$
+$$
+=\! \left|\ \begin{gathered}
+ \text{Візьмемо частинами:}\\
+ v' = h' \qquad u = 2\ty^{(3)}\\
+ v = h  \qquad u' = 2 \ty^{(4)}
+\end{gathered} \ \right| \!=\!   \underbrace{-2\ty''' h\bigg|_0^1}_{=0} +  \int\limits_{0}^{1}{2 \ty^{(4)}} h \ \mathrm{d} x \!=\!\! \begin{bmatrix}
+ \ty = - \frac{1}{2} x^2 \\
+ \ty' = -x \\ \ty'' = -1\\
+ \ty''' = \ty^{(4)} = 0
+\end{bmatrix}\! \!=\! 0
+$$
+$$
+ \int\limits_{0}^{1}{2 \ty' h' \ \mathrm{d} x} = \left|\ \begin{gathered}
+  \text{Візьмемо частинами:}\\
+  v' = h' \qquad u = 2\ty'\\
+  v = h  \qquad u' = 2 \ty''
+ \end{gathered} \ \right| =  \underbrace{2 \ty' h'\bigg|_0^1}_{= 0} -  \!\int\limits_{0}^{ 1}{
+ 2 \ty'' h \ \mathrm{d} x =\!  \int\limits_{0}^{1}{2 h \ \mathrm{d} x}
+ }
+$$
+$$
+\oeq \! \int\limits_{0}^{1}{(h'')^2 + 2 h + (h')^2 - 2 h \mathrm{d} x} =\!  \int\limits_{0}^{1}{(h'')^2 + (h')^2 \mathrm{d} x} \geq 0
+$$
+ Отримали \textbf{глобальний мінімум.}
+\end{enumerate}
+\newpage
+
+\subsection{Класична ізопериметрична задача.}
+Нехай $a, b \in \mathbb{R}, \  a<b$ -- задані числа.
+$$
+F(x,y,p),\mathcal{C} (x,y , p) \in C^2  ([a,b] \times \mathbb{R}^2) \text{ -- задані.}
+$$
+Розглядаємо інтеграл:
+$ \displaystyle
+J(y) =  \int\limits_{a}^{ b}{ F(x, y(x), y'(x))} \mathrm{d} x
+$ на множині:
+$$
+M = \left\lbrace
+y \in C^1 [a,b]  \ \bigg| \  y(a) = A , y(b) = B, K(y) =  \int\limits_{a}^{b}{\mathcal{C} (x,y, y') \mathrm{d} x  = l }
+ \right\rbrace,
+$$
+де $A, B, l \in \mathbb{R}$ -- задані числа.\par
+\begin{itemize}
+  \item Функції $y \in M$ називаються \textit{допустимими.}
+  \item Умова $K(y) = l$ називається \textit{умовою зв'язку.}
+  \item Означення слабкого локального/глобального min/max аналогічні.
+\end{itemize}
+\begin{defo}
+ Задача пошуку слабкого локального/глобального екстремуму функціоналу $J(y)$ на $M$ називається \textbf{класичною ізопериметричною задачею.}
+\end{defo}
+Окрім $\delta J(y, h)$ розглянемо також:
+$$
+\begin{gathered}
+\delta K(y,h ) = \frac{\mathrm{d}}{\mathrm{d} \alpha} K(y + \alpha h)\bigg|_{\alpha = 0} =  \int\limits_{a}^{b}{
+\frac{\d \mathcal{C}}{\d y} h(x) +
+\frac{\d \mathcal{C}}{\d y'} h'(x)  \mathrm{d} x
+} \\
+\forall h \in C^1[a,b] : h(a) = h(b) = 0
+\end{gathered}
+$$
+\begin{defo} \! \textbf{Функцією Лагранжа} називають \!($\lambda_0, \lambda$ \!--\! множники Лагранжа):
+  $$
+  L(x, y(x) , y'(x), \lambda_0, \lambda) = \lambda_0 F(x, y, y') + \lambda\mathcal{C}(x, y, y')
+  $$
+\end{defo}
+\begin{boxteo}
+ Нехай $\ty (x) \in C^2[a,b]$ -- розв'язок класичної ізопериметричною задачі. Нехай при цьому $\delta K(\ty, h) \neq 0$. Тоді знайдеться такий множник Лагранжа $\lambda$, що $\forall \lambda_0 >0 \  \ty(x) $ задовольняє рівняння Ейлера на $[a,b]$:
+ $$
+ \frac{\d L }{\d y} - \frac{\mathrm{d}}{\mathrm{d} x} \frac{\d L}{\d y'} = 0
+ $$
+\end{boxteo}
+\begin{proof}
+ Нехай $\ty(x)$ -- слабкий локальний мінімум задачі. Зауважимо, що з умови теореми:
+ $$
+ \exists h_0 \in C^1 [a,b] : h_0(a) = h_0(b) = 0 \Rightarrow \delta K(\ty, h_0) \neq 0
+ $$
+ Для довільного $h \in C^1 [a,b] : h(a) = h(b) = 0$ розглянемо функції:
+ $$
+\begin{gathered}
+\varphi(\alpha, \beta) = J(\ty + \alpha h + \beta h_0) \\
+\psi (\alpha , \beta) = K(\ty + \alpha h + \beta h_0)
+\end{gathered} \quad \forall \alpha, \beta \in \mathbb{R}
+ $$
+ Тоді $\varphi(0, 0) = J(\ty) ; \ \psi(0, 0) = K(\ty).$
+ $$
+ \frac{\d \varphi}{\d \alpha} \bigg|_{\alpha = \beta = 0} = \delta J(\ty, h); \qquad   \frac{\d \varphi}{\d \beta} \bigg|_{\alpha = \beta = 0} = \delta J(\ty, h_0);
+ $$
+ $$
+  \frac{\d \psi}{\d \alpha} \bigg|_{\alpha = \beta = 0} = \delta K(\ty, h); \qquad   \frac{\d \psi}{\d \beta} \bigg|_{\alpha = \beta = 0} = \delta K(\ty, h_0);
+ $$
+ Припустимо, що Якобіан:
+ $$
+ \frac{\d (\varphi, \psi)}{ \d (\alpha , \beta)}  \bigg|_{\alpha = \beta = 0}  \equiv 0 \quad \forall h \in C^1[a,b] : h(a) = h(b) = 0
+ $$
+ Якщо це так, то:
+$$
+0 = \frac{\d (\varphi, \psi)}{ \d (\alpha , \beta)}  \bigg|_{\alpha = \beta = 0} = \begin{vmatrix}
+ \frac{\d \varphi}{\mathrm{d} \alpha} & \frac{\d \varphi}{ \d \beta}\\
+ \frac{\d \psi}{\mathrm{d} \alpha} & \frac{\d \psi}{ \d \beta}
+\end{vmatrix} = \begin{vmatrix}
+ \delta J(\ty, h) & \delta J(\ty, h_0)\\
+ \delta K(\ty, h) & \delta K(\ty, h_0)
+\end{vmatrix} =
+$$
+$$
+= \delta J(\ty, h) \cdot \delta K(\ty, h_0) - \delta J(\ty, h_0) \cdot \delta K(\ty, h) = 0
+$$
+Оскільки $\delta K (\ty, h_0) \neq  0$, то поділимо на $\delta K (\ty, h_0)$:
+$$
+\delta J(\ty, h) - \frac{\delta J(\ty, h_0)}{\delta K(\ty, h_0)} \delta K(\ty, h) = 0
+$$
+Покладемо $\lambda_0 = 1, \lambda = - \dfrac{\delta J(\ty, h_0)}{\delta K(\ty, h_0)}$. Якщо $\lambda_0 \neq 1, \lambda_0 > 0$, то $\lambda = - \lambda_0 \dfrac{\delta J(\ty, h_0)}{\delta K(\ty, h_0)}$:
+$$
+\lambda_0 \delta J(\ty, h) + \lambda \delta K(\ty, h) = 0 \qquad \forall h \in C^1[a,b]: h(a) = h(b) = 0
+$$
+$$
+0 = \lambda_0  \int\limits_{a}^{b}{
+\frac{\d F}{\d y} \cdot h + \underbrace{\frac{\d F}{\d y'} \cdot h'}_{\text{частинами}} \mathrm{d} x
+}
+ + \lambda  \int\limits_{a}^{b}{ \frac{\d \mathcal{C}}{\d y}\cdot h + \underbrace{\frac{\d \mathcal{C}}{\d y' }\cdot h'}_{\text{частинами}} \mathrm{d} x } =
+$$
+$$
+= \lambda_0 \int\limits_{a}^{b}{
+\left(
+\frac{\d F}{\d y} - \frac{\mathrm{d}}{\mathrm{d} x} \frac{\d F}{\d y'} \right) h \mathrm{d} x
+} + \lambda \int\limits_{a}^{b}{
+\left(
+\frac{\d \mathcal{C}}{\d y} - \frac{\mathrm{d}}{\mathrm{d} x} \frac{\d \mathcal{C}}{\d y'} \right) h \  \mathrm{d} x
+} =
+$$
+$$
+=  \int\limits_{a}^{b}{
+\left[
+\left( \lambda_0 \frac{\d F}{\d y}  + \lambda \frac{\d \mathcal{C}}{\d y} \right)
+- \frac{\mathrm{d}}{\mathrm{d} x}
+\left(
+ \lambda_0 \frac{\d F}{\d y'} + \lambda \frac{\d \mathcal{C}}{\d y'}
+ \right)
+\right] \cdot h \  \mathrm{d} x
+} =
+$$
+$$
+=  \int\limits_{a}^{b}{
+\left( \frac{\d L}{\d y} - \frac{\mathrm{d}}{\mathrm{d} x} \frac{\d L}{\d y'}\right)\cdot h \  \mathrm{d} x
+}  = 0 \xRightarrow{\text{Лема Лагранжа}} \text{ рівняння Ейлера для } L.
+$$
+Залишилося довести, що якобіан:
+$$
+\frac{
+\d (\varphi , \psi)
+}{\d (\alpha, \beta)}\bigg|_{\alpha = \beta = 0} \equiv 0 \qquad \quad \forall h \in C^1[a,b] : h(a) = h(b) = 0
+$$
+Припустимо від супротивного, що:
+$$
+\exists h^* \in C^1 [a,b] : h^*(a) = h^*(b) = 0
+\  \text{ та } \  \frac{
+\d (\varphi , \psi)
+}{\d (\alpha, \beta)}\bigg|_{\alpha = \beta = 0} \neq  0 \  \text{ при }\  h = h^*
+$$
+Тобто для:
+$$
+\begin{gathered}
+\varphi(\alpha, \beta) = J(\ty + \alpha h^* + \beta h_0) \\
+\psi (\alpha , \beta) = K(\ty + \alpha h^* + \beta h_0)
+\end{gathered}
+$$
+Розглянемо систему рівнянь:
+$$
+\begin{cases}
+ \varphi(\alpha, \beta) = \varphi(0,0) - \varepsilon;\\
+ \psi (\alpha, \beta) = \psi(0,0) , \text{ де } \varepsilon>0 \text{ -- довільне фіксоване.}
+\end{cases}
+$$
+Оскільки $\dfrac{
+\d (\varphi , \psi)
+}{\d (\alpha, \beta)}\bigg|_{\alpha = \beta = 0} \neq  0$,  то за теоремою про неявну функцію існує розв'язок системи $(\alpha^*, \beta^*)$ в околі нуля:
+$$
+\begin{cases}
+ \varphi(\alpha^*, \beta^*) = \varphi(0,0) - \varepsilon;\\
+ \psi(\alpha^*, \beta^*) = \psi (0,0) .
+\end{cases}
+$$
+Покладемо: $y^* = \ty + \alpha^* h^* + \beta^* h_0$. Тоді:\par
+$\varphi(\alpha^*, \beta^*) = K(y^*)= K(\ty) = l \Rightarrow K(y^*) = \alpha \Rightarrow y^*$ -- допустима. \\ $J(y^*) < J(\ty) \Rightarrow$ $\ty$ --  не слабкий локальний мінімум $\Rightarrow$ протиріччя.
+\end{proof}
+\begin{remark}
+  Умова теореми $\delta K(\ty, h) \neq 0$ рівносильна тому, що $\ty(x)$ не є екстремаллю найпростішої задачі для $K(y)$. Насправді, дана умова -- для спрощення доведення. Теорема справедлива і без неї, однак в цьому випадку можливою є ситуація $\lambda_0 = 0(\lambda\neq 0)$.
+ \end{remark}
+
+\begin{remark}
+  Класична ізопериметрична задача допускає узагальнення на векторний випадок та  на випадок багатьох умов зв'язку.
+\end{remark}
+\begin{defo}
+ Будь-який розв'язок рівняння Ейлера називається екстремаллю ізопериметричної задачі. Екстремаль, що є допустимою функцією, називається допустимою екстремаллю.
+\end{defo}
+\begin{example}
+ $$
+ \begin{dcases}
+  J(y) =  \int\limits_{0}^{1}{(y')^2 \mathrm{d} x} \to \mathrm{extr};\\
+  y(0) = 0 \quad y(1) = 1 \quad  \int\limits_{0}^{1}{y(x) \mathrm{d} x} = 1.
+ \end{dcases}
+ $$
+ \begin{enumerate}
+   \item Складемо функцію Лагранжа:
+   $$
+   \mathcal{L} = \lambda_0 (y')^2 + \lambda y
+   $$
+   \item Складаємо рівняння Ейлера:
+   $$
+   \frac{\d \mathcal{L}}{\d y}  - \frac{\mathrm{d}}{\mathrm{d} x} \frac{\d \mathcal{L}}{\d y'} = 0
+   $$
+   $$
+   \frac{\d \mathcal{L}}{ \d y} = \lambda \qquad \frac{\d \mathcal{L}}{\d y'} = 2 \lambda_0 y' \qquad
+   \frac{\mathrm{d}}{\mathrm{d} x } \frac{\d L}{\d y'} = 2 \lambda_0 y''
+   $$
+   $$
+   \lambda - 2 \lambda_0 y'' = 0 \text{ -- рівняння Ейлера.}
+   $$
+   Якщо $\lambda_0 = 0 \Rightarrow \lambda = 0 \Rightarrow$ цей випадок неможливий. Нехай $\lambda_0 = 1$:
+   $$
+   \lambda - 2 y' = 0 \qquad y'' = \frac{\lambda}{2} \qquad y' = \frac{\lambda}{2} x + C_1
+   $$
+   \fbox{$y = \frac{\lambda}{4} x^2 + C_1 x + C_2 $} --- сімейство екстремалей.
+   \item Знаходимо допустимі екстремалі.
+   $$
+\begin{array}{r l}
+y(0) = 0 &\Rightarrow C_2 = 0\\
+y(1) = 1 & \Rightarrow \frac{\lambda}{4} + C_1 = 1
+\end{array}
+   $$
+   $$
+    \int\limits_{0}^{1}{y(x) \mathrm{d} x} = 1 \Rightarrow  \int\limits_{0}^{1}{
+    \frac{\lambda}{4}x^2 + C_1 x \mathrm{d} x = 1
+    }
+   $$
+   $$
+   1 = \frac{\lambda}{4} \cdot \frac{x^3}{3} + C_1 \frac{x^2}{2}\bigg|_0^1 = \frac{\lambda}{12} + \frac{C_1}{2}
+   $$
+   $$
+   C_1 = 1 - \frac{\lambda}{4} \Longrightarrow \frac{\lambda}{12} + \frac{1}{2} - \frac{\lambda}{8} = 1
+   $$
+   $$
+   - \frac{\lambda}{24} = \frac{1}{2} \Longrightarrow \lambda = -12 \Longrightarrow C_1 = 1 + \frac{12}{4} = 4
+   $$
+   \fbox{$\ty(x) = -3 x^2 + 4 x$} -- допустима екстремаль.
+   \item \underline{Перевірка.} $\forall h \in C^1 [a,b]$: \
+   $
+   h(0) = h(1) = 0  \quad  \int\limits_{0}^{1}{\ty + h \mathrm{d} x} = 1 \  \Rightarrow \   \int\limits_{0}^{1}{h \mathrm{d} x} = 0 $
+   $$
+   \begin{gathered}
+   J(\ty + h) - J(\ty) =  \int\limits_{0}^{1}{(\ty' + h')^2 \mathrm{d} x } -  \int\limits_{0}^{1}{
+   (\ty')^2 \mathrm{d} x
+   } =
+\\
+   =  \int\limits_{0}^{1}{
+   \underbrace{2 \ty'}_{u} \underbrace{h'}_{v'} + (h')^2 \mathrm{d} x
+   } = \underbrace{2 \ty' h\bigg|_0^1 }_{=0}+  \int\limits_{0}^{1}{
+   -2\ty'' h + (h')^2 \mathrm{d} x
+   } =
+\\
+   = \left|
+\begin{gathered}
+ \ty  = -3x^2 + 4 x \\
+ \ty' = -6x + 4 ; \ty'' = -6
+\end{gathered}
+    \right| =  \underbrace{\int\limits_{0}^{1}{12h + (h')^2} \mathrm{d} x}_{ \int\limits_{0}^{1}{hdx} = 0}=
+\\
+    =  \int\limits_{0}^{1}{(h')^2} \geq  0\Longrightarrow \textbf{ слабкий глобальний мінімум.}
+   \end{gathered}
+   $$
+ \end{enumerate}
+\end{example}
+
+\section{Лекція 9}
+\subsection{Необхідні умови другого порядку та достатні умови слабкого локального екстремуму найпростішої задачі варіаційного числення}
+Нехай $a, b \in \mathbb{R}, \ a < b$ -- задані числа.
+$$F(x, y, p) \in C^3([a, b] \times \mathbb{R}^2)$$
+Розглянемо інтеграл: $$J(y) = \int\limits_a^b F(x, y, y')\mathrm{d}x$$
+На множині: $$M = \{ y(x) \in C^1[a,b] \ \ | \ \ y(a) = A, \ y(b) = B\}, \ A, B \in \mathbb{R} \text{ -- задані числа}$$
+
+Введемо поняття другої варіації функціоналу $J(y)$. Для довільної функції $y(x) \in M$, для довільної функції $h(x) \in C^1[a, b]: h(a) = h(b) = 0$. Для будь-якого $\alpha \in \mathbb{R}$ розглянемо сімейство функцій:
+
+$$y(x, \alpha) = y(x) + \alpha \cdot h(x) \in M$$
+Розглянемо функцію: $$\Phi(\alpha) = J(y + \alpha h) = \int\limits_a^b F(x, y + \alpha h, y' + \alpha h')\mathrm{d}x$$
+
+Нагадуємо, що першою варіацією функціоналу $J(y)$ на функції $y(x)$ в напрямку $h$ називається:
+$$\delta J(y, h) = \dfrac{\mathrm{d}}{\mathrm{d}\alpha} J(y + \alpha h)\Big|_{\alpha = 0} \ (= \Phi'(0))$$
+
+\defo Другою варіацією функціоналу J(y) на функції $y(x) \in M$ в нарямку $h$, де $h(x) \in C^[a, b] : h(a) = h(b) = 0$, називається: $$\delta^2 J(y, h) = \dfrac{\mathrm{d}^2}{\mathrm{d \alpha^2}} J(y + \alpha h) \Big|_{\alpha = 0} \ (= \Phi''(0)) $$
+
+\begin{boxteo}
+   Якщо $\tilde{y}(x) \in M$ забезпечує слабкий локальний мінімум (максимум) функціоналу $J(y)$ на $M$, то $\forall h(x) \in C^1[a,b], \ h(a) = h(b) = 0$:
+   $$\delta^2 J(\tilde{y}, h) \geq 0 \text{ -- для мінімуму}$$
+   $$\delta^2 J(\tilde{y}, h) \leq 0 \text{ -- для максимуму}$$
+\end{boxteo}
 \end{document}

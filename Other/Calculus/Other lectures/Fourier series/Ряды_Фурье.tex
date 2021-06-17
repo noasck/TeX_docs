@@ -115,7 +115,22 @@ showstringspaces=false
 \def\index{\mathbb{I}}         % indicator
 \def\res#1{\underset{#1}{\mathrm{res}}}
 
+% ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+\newcommand\reallywidehat[1]{\arraycolsep=0pt\relax%
+\begin{array}{c}
+\stretchto{
+  \scaleto{
+    \scalerel*[\widthof{\ensuremath{#1}}]{\kern-.5pt\bigwedge\kern-.5pt}
+    {\rule[-\textheight/2]{1ex}{\textheight}} %WIDTH-LIMITED BIG WEDGE
+  }{\textheight} %
+}{0.5ex}\\           % THIS SQUEEZES THE WEDGE TO 0.5ex HEIGHT
+#1\\                 % THIS STACKS THE WEDGE ATOP THE ARGUMENT
+\rule{-1ex}{0ex}
+\end{array}
+}
+
 \begin{document}
+
 \tableofcontents
 \newpage
 
@@ -123,7 +138,7 @@ showstringspaces=false
 	\Huge \textbf{Ряд Фур'є}
 \end{center}
 \par
-\section{Лекція 1.}
+\section{Ряди Фур'є.}
 \subsection{Поява. Передмова.}
 Нехай $g(z)$ -- аналітична в  кільці $K = \left\lbrace  z \bdash 1 - \varepsilon_1 < |z| < 1 + \varepsilon_2 \right\rbrace$; $ \left\lbrace  z \bdash  |z| = 1 \right\rbrace \subset K.$\par
 Розкладаємо $g(z)$ в ряд Лорана за степенями $z $ в цьому кільці:
@@ -147,7 +162,6 @@ $$
 f(x) =  \sum\limits_{n =-\i }^{ \infty}{C_n \cdot e^{inx}}, \  C_n =  \frac{1}{2\pi}  \int\limits_{0}^{ 2 \pi}{ f(x) e^{-inx} \mathrm{d} x}
 $$
 \subsection{Комплексна форма ряду Фур'є.}
-
 $f \in D[0, 2\pi]$ -- періодична, інтегрова на $[0, 2 \pi]$. За функцією $f(x)$ будуємо ряд Фур'є:
 $$
 S(x) =  \sum\limits_{n =-\i }^{ \infty}{C_n \cdot e^{inx}}, \  C_n =  \frac{1}{2\pi}  \int\limits_{0}^{ 2 \pi}{ f(x) e^{-inx} \mathrm{d} x}
@@ -228,7 +242,6 @@ a_n =\frac{1
 }{l }  \int\limits_{-l}^{l}{ g(t) \sin{ \left( \frac{\pi n t}{l}  \right)} \mathrm{d} t}
 $$
 \newpage
-\section{Лекція 2.}
 \subsection{Аналіз збіжності ряду.}
 \begin{lemme}[Рімана]
 $f$ -- інтегрована на $[a,b]$ навіть в невласному сенсі. \par Тобто $ \int\limits_{a}^{b}{f(x) \mathrm{d} x}$ -- збігається. Тоді:
@@ -327,7 +340,6 @@ S_k (x_0) \xrightarrow[k\to \infty]{} f(x_0)
 $$
 \end{consequence}
 \newpage
-\section{Лекція 3.}
 \subsection{Рівномірна збіжність ряду Фур'є.}
 \begin{boxteo}
 $
@@ -365,6 +377,7 @@ $$
   $$
  де $F_n (v) = \dfrac{\sin^2 (nv)}{\pi n \sin^2 v} $ --- \textit{ядро Фейера}.
 \end{lemme}
+\newpage
 \subsubsection*{Властивості ядра Фейера:}
 \begin{enumerate}
   \item $F_n (-v) = F_n (v)$;
@@ -402,9 +415,12 @@ $$
   f(x) \cos{( \frac{\pi n x}{l} ) } \mathrm{d} x
   }
   $$
+  \item  $f(x)$ -- \( 2\pi \) період. \( f(x+ \pi) = -f(x) \), тоді: \(
+    a_n = b_n = 0
+ \) при \( n = 2k, k\in \mathbb{N} \).
 \end{enumerate}
 \newpage
-\section{Лекція 4.}
+\subsection{Теорема Фейера.}
 \begin{boxteo}[Фейера]
 Задана функція \( f  \in C[0, 2\pi]\). Тоді:
 \[
@@ -412,6 +428,166 @@ $$
 \]
 \end{boxteo}
 \begin{consequence}[1]
-  f \in 
+\(   f \in C [0, 2 \pi] \) тоді \( \forall \varepsilon >0 \) існує тригонометричний многочлен:
+\[
+ T_{\varepsilon}(x) = A_0 +  \sum\limits_{n=1}^{N(\varepsilon)}{A_n \cos{ nx} + B_n \sin{ nx}}
+\]
+такий, що \( ||f - T_{\varepsilon}|| =  \max\limits_{[0,2\pi]}{ \left| f(x) - T_{\varepsilon}(x) \right|  } < \varepsilon \).
 \end{consequence}
+\begin{consequence}{2}
+  \( f \in C [a,b] \) тоді \( \forall \varepsilon> 0 \  \exists P_{\varepsilon} (x)\) -- многочлен, такий що: \[ ||f - P_{\varepsilon}|| =  \max\limits_{[a,b]}{ \left| f(x) - P_{\varepsilon}(x) \right|  } < \varepsilon \]
+\end{consequence}
+\subsection{Рівність Ларсеваля.}
+\begin{boxteo}[Рівність Ларсеваля]
+ \( f \) -- \(2\pi\)-періодична, інтегрована. \par
+ Тоді виконується рівність:
+ \[
+    \int\limits_{0}^{2\pi}{
+    f^2(x)\mathrm{d}x
+    } = \frac{a_0^2}{2} +  \sum\limits_{n=1}^{\i}{
+    \left( a_n^2 + b_n^2 \right)
+    }
+ \]
+\end{boxteo}
+\begin{example}[застосування]
+  \[
+   f (x) = x \qquad x\in[-\pi, \pi] \textit{ -- непарна, тому } a_n = 0 \  \forall n\geq 0
+  \]
+  \[
+\begin{split}
+b_n &= \frac{1}{\pi}  \int\limits_{-\pi}^{\pi}{
+x \sin{nx} \mathrm{d} x
+}  = \left| \begin{gathered}
+ u = x \quad \mathrm{d}u  =\mathrm{d} x\\
+ \mathrm{d} v = \sin{nx} \mathrm{d} x\\
+ v = - \frac{\cos{nx}}{n}
+\end{gathered} \right| =  \frac{1}{\pi} \left(
+- \frac{x \cos{nx}}{n} \bigg|_{-\pi}^\pi  +  \int\limits_{-\pi}^{\pi}{
+\frac{\cos{nx}\mathrm{d} x}{n}
+}
+ \right) =\\
+&= \frac{1}{\pi n} \left( - \pi (-1)^n - \pi(-1)^n \right) = \frac{2 (-1)^{n+1}}{ n}
+\end{split}
+  \]
+  \[
+    \int\limits_{-\pi}^{\pi}{
+    f^2(x) \mathrm{d} x
+    } =  \int\limits_{-\pi}^{\pi}{
+    x^2 \mathrm{d} x
+    } - \frac{x^3}{3} \bigg|_{-\pi}^{\pi}  = \frac{2 \pi^3}{3 \pi}
+\qquad
+   \frac{4}{\pi^2}  \sum\limits_{n=1}^{\i}{
+   \frac{1}{n^2} = \frac{2 \pi^3}{3 \pi} \quad  \Longrightarrow \quad \sum\limits_{n=1}^{\i}{
+   \frac{1}{n^2} = \frac{\pi^2}{6}
+   }
+   }
+  \]
+\end{example}
+\newpage
+\section{Перетворення Фур'є.}
+\begin{defo} \( f(x) \) задана на \( \mathbb{R} \) така, що інтеграл: \( \displaystyle
+\int\limits_{-\i}^{\i}{
+\left| f(x) \right| \mathrm{d} x
+} \) збігається.\par
+\textbf{Перетворенням Фур`є} функції \( f(x) \) називають:
+\[
+ \widehat{f}(\lambda) = \mathrm{F}[f] =  \frac{1}{\sqrt{2\pi}}   \int\limits_{-\i}^{\i}{
+ f(x) e^{i \lambda x} \mathrm{d} x
+ }
+\]
+\end{defo}
+\subsubsection*{Властивості:}
+\begin{enumerate}
+  \item \( \displaystyle
+  \int\limits_{-\i}^{\i}{
+  \left| f(x) \right| \mathrm{d} x
+  } \) збігається \(  \Longrightarrow \displaystyle \int\limits_{-\i}^{\i}{
+  f(x) e^{i \lambda x} \mathrm{d} x }\) --- збігається рівномірно на \( \mathbb{R} \).
+  \item \( \widehat{f} (\lambda ) \) --- неперервна на \( \mathbb{R} \).
+  \item \( f(x) \) така, що \(  \int\limits_{-\i}^{\i}{
+  (1 + |x|^k) \left| f(x) \right| \mathrm{d} x
+  } < \i
+   \), тоді:
+   \[
+\exists \left( \widehat{f}(\lambda) \right)^k = \widehat{\left[ (ix)^k \cdot f(x) \right]} (\lambda)
+   \]
+   \item \(  f(x) \in C^{(k-1)} (\mathbb{R})   \
+   \exists f^{(k)} (x)
+   \) -- інтегрована на \( \mathbb{R} \) та \(
+   f^{(k)} (x) \xrightarrow[x\to \pm \i]{} 0
+    \). Тоді:
+    \[
+      \widehat{\left[ f^{(k)} \right]} (\lambda) = (-i \lambda)^k \widehat{f} (\lambda)
+    \]
+\end{enumerate}
+\subsubsection*{cos та sin-перетворення Фур'є.}
+\begin{itemize}
+  \item cos-перетворення: \( \displaystyle
+  \sqrt{ \frac{2}{\pi}}  \int\limits_{0}^{\i}{f(t) \cos{\lambda t}} \mathrm{d} t \)
+  \item sin-перетворення: \( \displaystyle
+    \sqrt{ \frac{2}{\pi}}  \int\limits_{0}^{\i}{f(t) \sin{\lambda t}} \mathrm{d} t \)
+\end{itemize}
+\section{Зворотнє перетворення Фур'є.}
+\[
+ g(\lambda) : \qquad  \int\limits_{-\i}^{\i}{ \left| g(\lambda) \right|\mathrm{d} \lambda} < \i
+\]
+\[
+ \tilde{g} (x) = \mathrm{F}^{-1}[g] = \frac{1}{\sqrt{2\pi}}   \int\limits_{-\i}^{\i}{
+ g(\lambda) e^{-i \lambda x} \mathrm{d} \lambda
+ }
+\]
+При цьому маємо:
+\[
+  \frac{1}{2\pi}  \int\limits_{-A}^{A}{
+  \widehat{f} (\lambda) e^{- i \lambda x} \mathrm{d} x
+  }  = \frac{1}{\pi}  \int\limits_{0}^{\i}{
+  \left[  f(x + t) + f (x - t) - 2 i \right] \frac{\sin At}{t} \mathrm{d} t
+  }
+\]
+Позначимо: \( h (t) =  f(x-t) + f(x + t) - 2i \)
+\begin{boxteo}[Ознака Діні для пертворення Фур'є]
+\[
+  f(x) \quad \longrightarrow \quad  \int\limits_{-\i}^{\i}{ |f(x)|\mathrm{d}x} < \i
+\]
+Якщо \(  \displaystyle \exists \delta >0 :  \int\limits_{0}^{\delta}{
+\left| \frac{h(t)}{t} \right| \mathrm{d} t
+} < \i: \)
+\[
+ \frac{1}{\pi}  \int\limits_{0}^{\i}{ h(t) \frac{\sin{At}}{t}} \mathrm{d} t \xrightarrow[A \to \i]{} 0
+\]
+\end{boxteo}
+\begin{consequence}[1]
+\( f(x) \) -- неперервно-дифференційована в т. \( x_0  \), тоді:
+\[
+\overset{\times}{f}(\lambda) = f(x_0)
+\]
+\end{consequence}
+\begin{consequence}[1]
+\( f(x) \) -- дифференційована в лівому та правому околі т. \( x_0  \), тоді:
+\[
+\overset{\times}{f}(\lambda) = \frac{f(x_0+) + f(x_0-)}{2}
+\]
+\end{consequence}
+\newpage
+\section{Операційне числення. Перетворення Лапласа.}
+\begin{defo} Функція \( f(t) \) називається \textbf{оригіналом}, якщо задовільняє умовам:
+\begin{itemize}
+  \item \( f(t) = 0  \) для \( t < 0 \).
+  \item \( f(t) \) -- кусково-неперервна.
+  \item \( \exists M \ \exists \alpha : \left| f(t) \right| < M e^{\alpha t} \)
+\end{itemize}
+\end{defo}
+\begin{defo}
+ Функція Хевісайда: \( \displaystyle \chi (t) = \begin{dcases}
+  1 , & t\geq 0 ;\\
+  0 , & t < 0.
+ \end{dcases} \)
+\end{defo}
+\begin{defo}
+  \( f(t) \) -- оригінал. Степенню зростання \( f(x) \) називається число:
+  \[
+   \sigma(f) =  \inf\limits_{}{ \left\lbrace \alpha : \exists M \ \left| f(t) \right| < M e^{\alpha t} \right\rbrace} 
+  \]
+
+\end{defo}
 \end{document}

@@ -176,7 +176,7 @@ $$
 = - \frac{1}{2\pi}  \int\limits_{-\infty}^{0}{ e^{ -\frac{x^2}{2}(1+z^2) }} \underbrace{xdx}_{= d \left( \frac{x^2}{2}  \right)}  + \frac{1}{2\pi}  \int\limits_{0}^{+ \infty}{ e^{ -\frac{x^2}{2}(1+z^2) }} \underbrace{xdx}_{= d \left( \frac{x^2}{2}  \right)} =
 $$
 $$
-= - \frac{1 }{2 \pi ( 1 + z^2)}  \int\limits_{-\infty}^{0}{ e^{- \frac{x^2}{2}(1+z^2) } d \left( \frac{x^2}{2}(1+z^2) \right) }  + \frac{1 }{2 \pi ( 1 + z^2)}  \int\limits_{0}^{+ \infty}{ e^{- \frac{x^2}{2}(1+z^2) } d \left( \frac{x^2}{2}(1+z^2) \right) } =
+=\! - \frac{1 }{2 \pi ( 1 \!+\! z^2)}  \!\int\limits_{-\infty}^{0}{ e^{- \frac{x^2}{2}(1+z^2) } d \left( \frac{x^2}{2}(1\!+\!z^2) \right) }  \!+ \frac{1 }{2 \pi ( 1 \!+\! z^2)}  \!\int\limits_{0}^{+ \infty}{ e^{- \frac{x^2}{2}(1+z^2) } d\! \left( \frac{x^2}{2}(1\!+\!z^2) \right) } \!=
 $$
 $$
 = \frac{1 }{2 \pi ( 1 + z^2)}   e^{- \frac{x^2}{2}(s+z^2) } \Bigg|_{x = -\infty}^{0}  - \frac{1 }{2 \pi ( 1 + z^2)}   e^{- \frac{x^2}{2}(1+z^2) } \Bigg|_{x = 0}^{+\infty} =
@@ -255,7 +255,7 @@ $$
  \xi_1 \\
  \vdots \\
  \xi_n
-\end{bmatrix}$. Та фукнція $\varphi: \mathbb{R}^n \to \mathbb{R}$. В такому вигляді, ми не можемо застосувати теорему до характеристичної функції, адже характеристична функція є комплекснозначною. Але, слід зауважити, що умови теореми будуть виконуватися і в комплексному випадку.
+\end{bmatrix}$ та фукнція $\varphi: \mathbb{R}^n \to \mathbb{R}$. В такому вигляді, ми не можемо застосувати теорему до характеристичної функції, адже характеристична функція є комплекснозначною. Але, слід зауважити, що умови теореми будуть виконуватися і в комплексному випадку.
 $$
 \mathbb{E} \varphi(\overline{\xi}) = \underset{R^n}{ \int \cdots \int} \varphi (x_1, ..., x_n) \cdot f_{\overline{\xi}}(x_1, ..., x_n)dx_1 \cdots dx_n
 $$
@@ -483,8 +483,8 @@ $$
 \begin{dcases}
  \frac{\left( \frac{1}{2} \right) ^{ 1/2 }}{\Gamma \left(  \frac{1}{2}  \right) }  y^{ \frac{1}{2}  - 1} e^{ - \frac{1}{2} y } , & y > 0; \\
  0 , & y \leq  0
-\end{dcases} \quad \begin{gathered}
- \text{Впізнаємо гамма-розподіл:}\\
+\end{dcases} \  \begin{gathered}
+ \text{Гамма-розподіл:}\\
  \chi_1^2 \sim \Gamma \left( \frac{1}{2} ; \frac{1}{2}  \right)
 \end{gathered}
 $$
@@ -516,7 +516,7 @@ $\mathbb{D} \chi^2_n = \mathbb{D} \Gamma \left( \frac{1}{2} , \frac{1}{2}   \rig
 The PDF of the Student distribution.
 \end{wrapfigure}
 Позначається $t_n $ або $ St_n$. Розглядаємо розподіл такої величини $\eta$:
-$$\eta = \frac{\xi_0}{\sqrt{ \frac{\xi_1^2 + ... + \xi_n^2}{n} }} = \xi_0 \frac{n}{ \sqrt{
+$$\eta = \frac{\xi_0}{\sqrt{ \frac{\xi_1^2 + ... + \xi_n^2}{n} }} = \xi_0 \cdot \frac{\sqrt{n}}{ \sqrt{
 \chi^2_n
 }} ,$$
 де $\xi_0, \xi_1, ... , \xi_n - $ незалежні стандартні гаусівські величини.

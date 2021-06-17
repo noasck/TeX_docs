@@ -3,6 +3,7 @@
 \usepackage{ragged2e}
 \usepackage{mathtools}
 % \usepackage{setspace}
+% \usepackage{showframe}
 
 \usepackage{wrapfig}
 % Example:
@@ -262,7 +263,7 @@ $$
 F_{min(\xi_1, ..., \xi_n)} (x) = \mathbb{P} \left\lbrace \min \left(\xi_1, ... , \xi_n  \right) < x  \right\rbrace  = 1 - \mathbb{P} \left\lbrace \min \left(\xi_1, ... , \xi_n  \right) \geq  x  \right\rbrace =
 $$
 $$
-1 - \mathbb{P} \left\lbrace  \xi_1 \geq x, ... , \xi_n \geq x \right\rbrace = 1 - \mathbb{P} \left\lbrace \xi_1 \geq  x \right\rbrace \cdot ... \cdot \mathbb{P} \left\lbrace   \xi_n \geq 1\right\rbrace = 1 - e ^ { - \lambda_1 x} \cdot e^ { -\lambda_2 x} \cdot ... \cdot e^{- \lambda_n x} =
+=\! 1 - \mathbb{P} \left\lbrace  \xi_1 \!\geq\! x, ... , \xi_n \!\geq\! x \right\rbrace \!=\! 1 - \mathbb{P} \left\lbrace \xi_1 \!\geq\!  x \right\rbrace \cdot ... \cdot \mathbb{P} \left\lbrace   \xi_n \!\geq\! 1\right\rbrace \!=\! 1 - e ^ { - \lambda_1 x} \cdot e^ { -\lambda_2 x} \cdot ... \cdot e^{- \lambda_n x} \!=
 $$
 $$
  = F_{Exp(\lambda_1 + \lambda_2 + ... + \lambda_n)} (x), x\geq 0
@@ -315,11 +316,11 @@ f_ \xi (x) = \frac{1}{ \sqrt{2\pi} } e^{ - \frac{x^2}{2} }, \quad x \in \mathbb{
 \end{gathered}\qquad\qquad \begin{gathered} \includegraphics[scale=0.3]{images/5.png} \end{gathered}
 $$
 Знайдемо числові характеристики розподілу:\\
-$ \mathbb{E} \xi =  \int\limits_{- \infty}^{ +\infty}{ x * \frac{1}{ \sqrt{2\pi} } e^{ - \frac{x^2}{2} } dx} = 0$ (Функція щільності парна)\\
-$\mathbb{D} \xi = \mathbb{E} \xi^2 =  \int\limits_{- \infty }^{ +\infty}{ x^2 \frac{1}{ \sqrt{2\pi} } e^{ - \frac{x^2}{2} } dx} = \sqrt{\frac{2}{\pi}}  \int\limits_{0}^{\infty}{x^2
+$\displaystyle \mathbb{E} \xi =  \int\limits_{- \infty}^{ +\infty}{ x * \frac{1}{ \sqrt{2\pi} } e^{ - \frac{x^2}{2} } dx} = 0$ (Функція щільності парна)\\
+$\displaystyle \mathbb{D} \xi = \mathbb{E} \xi^2 =  \int\limits_{- \infty }^{ +\infty}{ x^2 \frac{1}{ \sqrt{2\pi} } e^{ - \frac{x^2}{2} } dx} = \sqrt{\frac{2}{\pi}}  \int\limits_{0}^{\infty}{x^2
 e^ {-x^2/2}dx
 }  =  \sqrt{\frac{2}{\pi}}  \int\limits_{0}^{\infty}{2t
-e^ {-t} \frac{dt}{ \sqrt{2t}}} = \frac{2}{\sqrt{\pi}}  \int\limits_{0}^{\infty}{ t^ {1/2} e^{-t} dt} = \\ = \frac{2}{\sqrt{\pi}} \text{Г}(3/2) = \frac{2}{\sqrt{\pi}} \cdot \frac{1}{2} \cdot \text{Г}( \frac{1}{2} )   = 1  $\\
+e^ {-t} \frac{dt}{ \sqrt{2t}}} = \\= \frac{2}{\sqrt{\pi}}  \int\limits_{0}^{\infty}{ t^ {1/2} e^{-t} dt}  = \frac{2}{\sqrt{\pi}} \text{Г}(3/2) = \frac{2}{\sqrt{\pi}} \cdot \frac{1}{2} \cdot \text{Г}( \frac{1}{2} )   = 1  $\\
 Для гаусівського розподілу: $N(a, \sigma^2)$, де $a = \mathbb{E} \xi \quad \sigma = \sqrt{\mathbb{D} \xi}$\\
 $$
 F_ \xi (x) =  \int\limits_{- \infty}^{ x}{ f_ \xi (t) dt} =  \int\limits_{- \infty}^{ x}{ \frac{1}{\sqrt{2\pi}  }e^{ - \frac{t^2}{2}} dt } =  \int\limits_{- \infty}^{0}{\frac{1}{\sqrt{2\pi}  }e^{ - \frac{t^2}{2}} dt } +  \int\limits_{0}^{ x}{\frac{1}{\sqrt{2\pi}  }e^{ - \frac{t^2}{2}} dt } =
@@ -330,7 +331,6 @@ $\xi \sim N(0,1).$ Знайдемо $ \mathbb{P} \left\lbrace \xi \in [b,c] \rig
 $$
 \mathbb{P} \left\lbrace  \xi \in [b,c] \right\rbrace = F_ \xi (c) - F_ \xi( b) = \Phi (c)- \Phi (b)
 $$
-
 $$
 k = 2n, n\in \mathbb{N} \qquad \mathbb{E} \xi^k =   \int\limits_{0}^{ +\infty}{ x^k e^ { -x^2/2 }dx} = \frac{2^{k/2}}{\sqrt{\pi}}  \int\limits_{0}^{ +\infty}{ t^ { \frac{k-1}{2}  } e^{-t} dt} = \frac{2^ \frac{k}{2} }{ \sqrt(\pi) } \text{Г} ( \frac{k+1}{2} ) =
 $$
@@ -343,7 +343,6 @@ $$
  0 ,\qquad k = 2n+ 1, n \in \mathbb{N}
 \end{gathered} \right.
 $$
-Перейдемо до загального гаусівського розподілу.\\
 \textbf{Загальний гаусівський розподіл.}
 \begin{defo}
 Візьмемо, що $\xi_0 \sim N(0, 1)$ - стандартна гаусівська величина. \\
@@ -435,14 +434,14 @@ $$
 \text{В багатовимірному:}\\
   \lim\limits_{x\to  -\infty}{ F_ {\overline{\xi}} (x,y)} =  0\\
 	  \lim\limits_{y\to  -\infty}{ F_ {\overline{\xi}} (x,y)} =  0
-\end{gathered} \qquad \qquad
+\end{gathered} \qquad \
 \begin{gathered}
  \includegraphics[scale=0.24]{images/10.png}
 \end{gathered}
 $$
 \begin{proof}
 $  \lim\limits_{n\to  \infty}{ F_{ \overline{\xi}} (x_n, y_n)} = 0 $, якщо $ x_n \to \infty$ або $y_n \to \infty$.
-$$ \lim\limits_{n\to  \infty}{ F_{\overline{\xi}} (x_n, y_n) } =   \lim\limits_{n \to  \infty}{ \mathbb{P} \left\lbrace \xi_1 < x_n , \xi_2 < y_n \right\rbrace} = \mathbb{P} \left\lbrace  \bigcap\limits_{n\geq 1} (\xi_1 < x_n, \xi_2 < y_n) \right\rbrace = \mathbb{P} \left\lbrace \emptyset \right\rbrace = 0$$
+$$ \lim\limits_{n\to  \infty}{ F_{\overline{\xi}} (x_n, y_n) } \!=\!   \lim\limits_{n \to  \infty}{ \mathbb{P} \left\lbrace \xi_1 \!<\! x_n , \xi_2 \!<\! y_n \right\rbrace}\!=\! \mathbb{P} \left\lbrace  \bigcap\limits_{n\geq 1} (\xi_1 \!<\! x_n, \xi_2 \!<\! y_n) \right\rbrace \!=\! \mathbb{P} \left\lbrace \emptyset \right\rbrace \!=\! 0$$
 
 \end{proof}
 4b.
@@ -459,7 +458,7 @@ $$
 $$
 \begin{proof}
 $$
- \lim\limits_{n\to  \infty}{ F_{\overline{\xi}} (x_n, y_n) } =   \lim\limits_{n \to  \infty}{ \mathbb{P} \left\lbrace \xi_1 < x_n , \xi_2 < y_n \right\rbrace} = \mathbb{P} \left\lbrace  \bigcup\limits_{n\geq 1} (\xi_1 < x_n, \xi_2 < y_n) \right\rbrace = \mathbb{P} \left\lbrace \Omega \right\rbrace = 1
+ \lim\limits_{n\to  \infty}{ F_{\overline{\xi}} (x_n, y_n) } \!=\!   \lim\limits_{n \to  \infty}{ \mathbb{P} \left\lbrace \xi_1 \!<\! x_n , \xi_2 \!<\! y_n \right\rbrace} \!=\! \mathbb{P} \left\lbrace  \bigcup\limits_{n\geq 1} (\xi_1 \!<\! x_n, \xi_2 \!<\! y_n) \right\rbrace \!=\! \mathbb{P} \left\lbrace \Omega \right\rbrace \!=\! 1
  $$
 \end{proof}
 4c.
@@ -499,7 +498,7 @@ $$
 \begin{gathered}
  \includegraphics[scale=0.26]{images/6.png}\qquad
 \end{gathered}$$
-У багатовимірному випадку нас цікавить вірогідність $\mathbb{P} \left\lbrace \xi_1 \in [ a_1, b_1), \xi_2 \in [ a_2, b_2) \right\rbrace$ (користуємося правилом знаходження приросту функції 2-ох змінних):
+У багатовимірному випадку нас цікавить вірогідність $\mathbb{P} \left\lbrace \xi_1 \!\in\! [ a_1, b_1), \xi_2 \!\in\! [ a_2, b_2) \right\rbrace$ (користуємося правилом знаходження приросту функції 2-ох змінних):
 $$\mathbb{P} \left\lbrace \xi_1 \in [ a_1, b_1), \xi_2 \in [ a_2, b_2) \right\rbrace = \mathbb{P} \left\lbrace \overline{\xi}  \in \text{ П}\right\rbrace =$$
 $$
 = F_{\overline{\xi}} (b_1, b_2) - F_{\overline{\xi}} (b_1, a_2)  - F_{\overline{\xi}} (b_1, a_2) + F_{\overline{\xi}} (a_1, a_2)
@@ -636,7 +635,7 @@ $$	f_{ \overline{xi}} (x,y) = \left\lbrace  \begin{gathered}
 	f_{\xi} (x) =  \int\limits_{-\infty}^{ +\infty}{ f_{ \overline{\xi}} dy}
 	\end{gathered}\qquad
 	\begin{gathered}
-	 \includegraphics[scale=0.25]{images/17.png}
+	 \includegraphics[scale=0.24]{images/17.png}
 	\end{gathered}
 	$$
 	1. $ \begin{gathered}
@@ -899,9 +898,9 @@ $$
 	$\xi, \eta$ - незалежні $\Leftrightarrow F_{\xi, \eta} = F_{\xi}(x) \cdot F_{\eta}(y)$
 \end{boxteo}
 \begin{proof}
-Нехай $\xi, \eta$ - незалежні $\Leftrightarrow \forall a\leq b, c\leq d: \mathbb{P} \left\lbrace  \xi \in [a,b], \eta \in [c,d] \right\rbrace = \mathbb{P} \left\lbrace \xi\in[a,b] \right\rbrace \cdot \mathbb{P} \left\lbrace \eta\in[c,d] \right\rbrace \Rightarrow \mathbb{P} \left\lbrace  \xi\in [a,b), \eta \in [c,d) \right\rbrace = \mathbb{P} \left\lbrace \xi \in [a,b) \right\rbrace \cdot \mathbb{P} \left\lbrace \eta \in [c,d) \right\rbrace  $\\
+Нехай $\xi, \eta$ - незалежні $\Leftrightarrow \forall a\leq b, c\leq d: \mathbb{P} \left\lbrace  \xi \in [a,b], \eta \in [c,d] \right\rbrace \!=\! \mathbb{P} \left\lbrace \xi\in[a,b] \right\rbrace \cdot \mathbb{P} \left\lbrace \eta\in[c,d] \right\rbrace \Rightarrow \mathbb{P} \left\lbrace  \xi\in [a,b), \eta \in [c,d) \right\rbrace \!=\! \mathbb{P} \left\lbrace \xi \in [a,b) \right\rbrace \cdot \mathbb{P} \left\lbrace \eta \in [c,d) \right\rbrace  $\\
 $
-\mathbb{P} \left\lbrace \xi<b, \eta <d  \right\rbrace = \mathbb{P} \left\lbrace \xi < b \right\rbrace \cdot \mathbb{P} \left\lbrace \eta <d \right\rbrace \Leftrightarrow F_{\xi, \eta} (b,d) = F_{\xi}(b) \cdot F(\eta)(d)
+=\!\mathbb{P} \left\lbrace \xi\!<\!b, \eta \!<\!d  \right\rbrace \!=\! \mathbb{P} \left\lbrace \xi \!<\! b \right\rbrace \cdot \mathbb{P} \left\lbrace \eta \!<\!d \right\rbrace \!\Leftrightarrow\! F_{\xi, \eta} (b,d) \!=\! F_{\xi}(b) \cdot F(\eta)(d)
 $\\
 Нехай навпаки: $ F_{\xi, \eta } (x,y)  = F_{\xi}(x) - F_{\eta}(y)\quad \forall x,y \in \mathbb{R}$
 $$

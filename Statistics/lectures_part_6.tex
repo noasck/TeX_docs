@@ -284,7 +284,7 @@ $$
 \subsection{Помилки І-го та ІІ-го роду.}
 \begin{center}
 \vspace*{2em}
- \includegraphics[scale=0.3]{assets/lectures_part_6-4c5b9490.png}
+ \includegraphics[scale=0.4]{assets/lectures_part_6-4c5b9490.png}
 \end{center}
 \vspace*{1em}
 \begin{itemize}
@@ -323,7 +323,7 @@ $$
   $$
 \blue{Потужність критерію} дорівнює $(1 - \beta), $ де $\beta$ -- ймовірність помилки ІІ-го роду:
   $$
-  \mathbb{P} \left\lbrace \text{Приймаємо } H_1 \ \big| \  H_1 \text{ -- вірна} \right\rbrace = \mathbb{P} \left\lbrace \overrightarrow{\xi} \in \omega\ \big| \  H_1 \text{ -- вірна} \right\rbrace = \beta
+  \mathbb{P} \left\lbrace \text{Приймаємо } H_0 \ \big| \  H_1 \text{ -- вірна} \right\rbrace = \mathbb{P} \left\lbrace \overrightarrow{\xi} \in \omega\ \big| \  H_1 \text{ -- вірна} \right\rbrace = \beta
   $$
 \end{spacing}
 \textit{Повернемося до прикладу.} Саме від значущості та потужності критерію буде залежати положення ``межі'' $x$. Найчастіше вибирають значення: $\alpha = 0.01, 0.05, 0.1$.\par
@@ -347,7 +347,7 @@ $$
 1 - \beta = 1 - \mathbb{P} \left\lbrace \overrightarrow{\xi} \in \omega \ \big| \  H_1 \right\rbrace  =
 1 - \mathbb{P} \left\lbrace \overrightarrow{\xi} \in \omega \ \big| \  a= a_1 \right\rbrace = \frac{1}{2} + \Laplas \left( \sqrt{n} \cdot \frac{a_1 - x}{ \sigma}  \right)
 $$
-Бачимо, що збільшуючи $\alpha$ збільшуємо і $\beta$: \mathbox{\alpha \downarrow  \Rightarrow t_{\alpha}\to \infty \Rightarrow \beta \uparrow \Rightarrow (1- \beta) \downarrow}. \par
+Бачимо, що зменшуючи $\alpha$ -- збільшуємо $\beta$: \mathbox{\alpha \downarrow  \Rightarrow t_{\alpha}\to \infty \Rightarrow \beta \uparrow \Rightarrow (1- \beta) \downarrow}. \par
 Знайдемо рівень значущості та потужність критерію для загального випадку:
 \[
 \begin{split}
@@ -381,22 +381,19 @@ $$
   \item Більш категоричний факт -- \blue{відхилення гіпотези} $H_0$: на рівні значущості $\alpha$, гіпотеза $H_0$ \textit{суперечить} вибірковим даним.
   \item \blue{Прийняття} $H_0$:\  -//- $H_0$ \textit{не суперечить} вибірковим даним.
 \end{itemize}
-\subsection{Критерії згоди (goodness-of-fit).}
+\subsection{Критерій \(\chi^2\) (критерій Пірсона).}
 Припустимо, є Г.С. та вибірка з неї: $\overrightarrow{ \xi} = (\xi_1, \dots, \xi_n)$. \par
 Нехай $F$ -- теоретична функція розподілу $\xi$. Висуваємо гіпотезу:
 $$
 H_0 = \left\lbrace F(x) = F_0(x) \right\rbrace \qquad \quad H_1 = \left\lbrace F(x) \neq  F_0(x) \right\rbrace
 $$
-\subsubsection{Критерій \(\chi^2\) (критерій Пірсона).}
-\begin{itemize}
-  \item Розіб'ємо область значень Г.С. \( \mathcal{E}_\xi \) на інтервали $\Delta_1, \Delta_2, \dots, \Delta_m:$
-  \[
+Розіб'ємо область значень Г.С. \( \mathcal{E}_\xi \) на інтервали $\Delta_1, \Delta_2, \dots, \Delta_m:$
+  \ \(
    \begin{dcases}
     \Delta_i \cap \Delta_j = \emptyset \quad \forall i \neq j \\
     \bigcup_i \Delta_i =  \mathcal{E}_\xi
    \end{dcases}
-  \]
-\end{itemize}
+  \)
 Складаємо таблицю. Наведемо опис застосованих характеристик:
 \begin{enumerate}
   \item Кількість елементів, що потрапили в $\Delta_k = n_k$;
@@ -419,11 +416,11 @@ $$
 \begin{boxteo}[Пірсона про критерій \( \chi^2 \)]
  Якщо гіпотетичний розподіл вгадано правильно (тобто, \( H_0 \) справдовується), то:
  $$
- \chi^2 (n) \xrightarrow[\mathrm{d}]{n \to \i} \chi^2_{m-1}
+ \chi^2 (n) \xrightarrow[n \to \i]{\mathrm{d}} \chi^2_{m-1}
  $$
  \textbf{Вправа:} Довести.
 \end{boxteo}
-\subsubsection{Застосування критерію \( \chi^2 \) для перевірки гіпотез.}
+\subsubsection{Застосування критерію \( \chi^2 \) для перевірки простих гіпотез.}
 Якщо \( H_0 \) виконана, то за теоремою при великих \( n \ : \
 \chi^2(n) \text{ має розподіл приблизно } \chi^2_{m-1}\). \par
 Припустимо, що \(  \chi^2  > \chi_{m-1, \alpha}^2 \). Розглянемо можливі причини:
@@ -446,3 +443,278 @@ np_k \geq 5
   np_k \geq  10
  \end{cases}
 \]
+\subsubsection{Застосування критерію \( \chi^2 \) для перевірки складних гіпотез.}
+Приклад складної гіпотези:
+\(
+ H_0 = \left\lbrace
+\text{ Г.С. розподілена за законом Пуассона }
+  \right\rbrace
+\).\par
+\( H_0 \) -- складна гіпотеза про розподіл Г.С.,
+s -- кількість параметрів розподілу, тоді:
+\[
+ \chi^2 (n, \theta^*) =  \sum\limits_{i=1}^{m}{
+ \frac{(n_i - np_i(\theta^*))^2}{np_i (\theta^*)}
+ } \qquad \widehat{\theta} = \underset{\theta^* \in \Theta}{\arg \min}\ \chi^2 (n, \theta^*) \qquad p_i = \mathbb{P} \lbrace \!\!\!\underbrace{\xi}_{\sim P(\theta^*)}\!\!\!  < \Delta_i \rbrace
+\]
+
+\begin{boxteo}[Теорема Фішера]
+Якщо виконана гіпотеза \( H_0 \), то:
+\[
+  \chi^2 (n) \xrightarrow[n\to\i]{\mathrm{d}}  \chi^2_{m-s-1} \qquad \chi^2 (n) = \chi^2(n, \widehat{\theta})
+\]
+Якщо \( \chi^2(n, \widehat{\theta}_{MLE}) < \chi^2_{m-s-1, \alpha} \), тоді:
+\(
+  \chi^2(n, \widehat{\theta}) <  \chi^2(n, \widehat{\theta}_{MLE})  < \chi^2_{m-s-1, \alpha}
+\). \par
+Тобто, якщо гіпотеза не суперечить даним при перевірці одною з оцінок параметрів, то гіпотезу можна прийняти на цьому рівні значущості.
+\end{boxteo}
+\subsubsection{Застосування критерію \( \chi^2 \) для перевірки незалежності.}
+Нехай є Г.С.: \( \begin{bmatrix}
+ \xi \\ \eta
+\end{bmatrix} \). Та вибірка:
+\(
+\begin{bmatrix}
+ \xi_1 \\ \eta_1
+\end{bmatrix} ,  \dots , \begin{bmatrix}
+  \xi_n \\ \eta_n
+\end{bmatrix}
+ \). Гіпотеза: \( H_0 = \left\lbrace \xi \independent \eta \right\rbrace \).
+\begin{itemize}
+  \item Вибираємо інтервали для \( \xi \) та  \( \eta \):
+\(
+\mathcal{E}_{\xi} = \Delta_1 \cup \cdots \cup \Delta_k, \
+\mathcal{E}_{\eta} = \nabla_1 \cup \cdots \cup \nabla_l
+\)
+\item Складаємо таблицю, де \( n_{ij} \text{ -- кількість пар } \begin{bmatrix}
+ \xi_p \\ \eta_p
+\end{bmatrix} \in \Delta_i \times \nabla_j \):
+\[
+ \begin{array}{c|c|c|c|c|c}
+ \overrightarrow{\xi} \big\backslash \overrightarrow{\eta}& \quad \nabla_1 \quad & \quad \cdots \quad & \quad \nabla_j \quad &\quad  \cdots \quad &\quad  \nabla_l \quad \\
+\hline
+\Delta_1 & n_{11} & \cdots & n_{1j} & \cdots & n_{1l}\\
+\hline
+\vdots & \vdots & \ddots & \vdots& \ddots & \vdots\\
+\hline
+\Delta_i & n_{i1} & \cdots & n_{ij} & \cdots & n_{il}\\
+\hline
+\vdots& \vdots & \ddots & \vdots & \ddots & \vdots\\
+\hline
+\Delta_k& n_{k1} & \cdots & n_{kj} & \cdots & n_{kl}\\
+ \end{array}
+\]
+\item За припущенням: \( \eta \independent \xi \Longrightarrow \mathbb{P} \left\lbrace
+\begin{bmatrix}
+ \xi \\ \eta
+\end{bmatrix} \in \Delta_i \times \nabla_j   \right\rbrace  = \mathbb{P} \left\lbrace \xi \in \Delta_i \right\rbrace \cdot \mathbb{P} \left\lbrace \eta \in \nabla_j \right\rbrace
+\)\par
+За ЗВЧ: \(
+\begin{dcases}
+\mathbb{P} \left\lbrace  \xi \in \Delta_i \right\rbrace  \xleftarrow[n\to\i]{\mathbb{P}} \dfrac{n_i^{*}}{n} = \dfrac{\sum\limits_{j=1}^{l}{n_{ij}}}{n}; \\
+\mathbb{P} \left\lbrace  \eta \in \nabla_j \right\rbrace  \xleftarrow[n\to\i]{\mathbb{P}} \dfrac{n_j^{**}}{n} = \dfrac{\sum\limits_{i=1}^{k}{n_{ij}}}{n}.
+\end{dcases}
+ \qquad
+ \mathbb{P} \left\lbrace
+ \begin{bmatrix}
+  \xi \\ \eta
+ \end{bmatrix} \in \Delta_i \times \nabla_j   \right\rbrace  \xleftarrow[n\to\i]{\mathbb{P}} \dfrac{n_{ij}}{n}
+ \)\\
+ Таким чином, якщо виконується \( H_0 \), то має бути \ \( \displaystyle \frac{n_{ij}}{n} \approx \frac{n^*_i}{n} \cdot \frac{n^{**}_j}{n} \).
+\end{itemize}
+
+\begin{boxteo} Якщо виконано \( H_0 = \left\lbrace \xi \independent \eta \right\rbrace \), то:
+\[
+ \chi^2(n) \xrightarrow[n\to\i]{\mathrm{d}} \chi^2_{(k-1)(l-1)}(n) \qquad \quad
+ \chi^2(n) =  \sum\limits_{i=1}^{k}{
+  \sum\limits_{j=1}^{l}{
+  \frac{\left( n_{ij} - \frac{n^*_i \cdot n^{**}_j}{n} \right)^2}{
+  \frac{n^*_i \cdot n^{**}_j}{n}
+  }
+  }
+ }
+\]
+\end{boxteo}
+\subsection{Ранговий критерій однорідності Манна-Уітні.}
+\begin{itemize}
+  \item Дві незалежні Г.С.: \( \xi \) та \( \eta \). \item
+  Відповідно, дві вибірки: \( \overrightarrow{\xi} = (\xi_1, \dots, \xi_m) \) та \( \overrightarrow{\eta} = (\eta_1 , \dots , \eta_n) \).\item
+  Гіпотеза: \( H_0 = \left\lbrace \mathcal{F}_{\xi} = \mathcal{F}_{\eta} \right\rbrace \).\item
+  Умова: обидві Г.С. мають неперервну функцію розподілу.
+\end{itemize}
+Спочатку побудуємо \blue{спільний} варіаційний ряд для реалізацій:
+\[
+  \overrightarrow{\xi} \mapsto (x_1 , \dots, x_m) \qquad \quad \overrightarrow{\eta} \mapsto (y_1 , \dots, y_n)
+\]
+\blue{Функція статистичного критерію}: \( \mathcal{W} \) --- сума рангів всіх елементів вибірки \( \overrightarrow{\eta} \).
+\[
+ W = \frac{1}{2} n (n+1) +  \sum\limits_{i=1}^{m}{
+  \sum\limits_{j=1}^{n}{\index \left\lbrace \xi_i < \eta_j \right\rbrace}
+ }
+\]
+\def\mcW{\mathcal{W}}
+Знайдемо характеристики функції критерію \( \mathcal{W} \) та віднормуємо:
+\begin{enumerate}
+  \item \( \mathbb{E} \mcW = \dfrac{n(n+1)}{2} + \sum\limits_{i=1}^{m}{
+   \sum\limits_{j=1}^{n}{ \mathbb{P} \left\lbrace \xi_i < \eta_j \right\rbrace}
+  } = \dfrac{n(n+1)}{2} + mn\cdot \mathbb{P} \left\lbrace \xi < \eta \right\rbrace = \dfrac{n(n+1)}{2} + \dfrac{mn}{2} \)
+  \item \(
+    \displaystyle
+    \mathbb{D} \mcW = \frac{mn(m+n+1)}{12}
+   \)
+   \item За ЦГТ: \mathbox{     \frac{\mathcal{W} - \frac{n(m+n+1)}{2}}{
+        \sqrt{
+        \frac{mn(m+n+1)}{12}
+        }
+        } \xrightarrow[m,n\to\i]{\mathrm{d}} N (0,1) } -- за умови $H_0$.
+\end{enumerate}
+\newpage
+\subsection{Перевірка параметричних гіпотез.}
+\subsubsection{Перевірка гіпотези про математичне сподівання для гаусівської Г.С.}
+Нехай задано Г.С.: \( \mathcal{N}(a, \sigma) \) та гіпотезу \( H_0 = \left\lbrace  a = a_0 \right\rbrace; \ H_1 = \left\lbrace a = a_1 \right\rbrace \). \par
+Надалі проведемо перевірку гіпотези про \( a  \) в гаусівській Г.С. при відомій дисперсії.
+\[
+ \text{ За гіпотези } H_0 : \  \sqrt{n} \cdot \frac{\overline{\xi} - a_0}{\sigma} \sim \mathcal{N}(0,1)
+\]
+Побудуємо критерій. Альтернативною гіпотезою можемо взяти:
+\[
+ \begin{gathered}
+  \text{Лівостороння}\\
+  \left\lbrace a <  a_0 \right\rbrace
+ \end{gathered} \qquad \quad
+ \begin{gathered}
+  \text{Двостороння}\\
+  \left\lbrace a \neq   a_0 \right\rbrace
+ \end{gathered} \qquad \quad
+ \begin{gathered}
+  \text{Правостороння}\\
+  \left\lbrace a >  a_0 \right\rbrace
+ \end{gathered}
+\]
+\begin{itemize}
+  \item Для \textit{двосторонньої} альтернативної гіпотези: \( \displaystyle
+  T = \sqrt{n} \frac{\overline{x} - a}{\sigma} \Rightarrow   t : \Laplas(t) = \frac{1 - \alpha}{2}
+  \).
+  \item Для \textit{правосторонньої} альтернативної гіпотези:
+  \( T \Longrightarrow  t : \Laplas (t) = \frac{1}{2} - \alpha
+   \).
+   \item Для \textit{лівосторонньої} альтернативної гіпотези:
+   \( T \Longrightarrow  t : \Laplas (|t|) = \frac{1}{2} - \alpha
+    \).
+\end{itemize}
+\subsubsection{Перевірка гіпотези про дисперсію для гаусівської Г.С.}
+При невідомому математичному сподіванні можемо перевірити гіпотезу для \( \sigma^2 \):
+\[
+ T = \frac{n \cdot \mathbb{D}^{**}}{\sigma^2_0} \sim \chi^2_{n-1}
+\]
+Аналогічно будується критерій для таких альтернативних гіпотез можемо взяти:
+\[
+ \begin{gathered}
+  \text{Лівостороння}\\
+  \left\lbrace \sigma^2 <  \sigma^2_0 \right\rbrace
+ \end{gathered} \qquad \quad
+ \begin{gathered}
+  \text{Двостороння}\\
+  \left\lbrace \sigma^2 \neq   \sigma^2_0 \right\rbrace
+ \end{gathered} \qquad \quad
+ \begin{gathered}
+  \text{Правостороння}\\
+  \left\lbrace \sigma^2 >  \sigma^2_0 \right\rbrace
+ \end{gathered}
+\]
+\newpage
+\subsubsection{Гіпотези про співвідношення параметрів 2-х гаусівських Г.С.}
+Маємо дві гаусівські Г.С.: \(  \xi \sim \mathcal{N}(a_1, \sigma^2_1); \ \eta \sim \mathcal{N}(a_2, \sigma^2_2)\ \mapsto \ (\xi_1 , \dots , \xi_{n_1}) ; \ (\eta_1, \dots , \eta_{n_2}) \).
+\begin{enumerate}
+  \item \(\displaystyle
+   \sigma_1, \sigma_2 \ \blue{ -- відомі;} \  H_0 = \left\lbrace a_1 = a_2 \right\rbrace
+   \  H_2 = \left\lbrace a_1 \neq (>,<) a_2 \right\rbrace
+  \).\par
+  Розглядаємо \(  \overline{\xi} - \overline{\eta}  \sim \mathcal{N}(a_1 - a_2, \frac{\sigma^2_1}{n_1} + \frac{\sigma_2^2}{n_2}) \):
+  \[
+\begin{gathered}
+\frac{
+(\overline{\xi} - \overline{\eta}) - (a_1  - a_2 )
+}{
+\sqrt{ \frac{\sigma^2_1}{n_1} + \frac{\sigma_2^2}{n_2}}
+} \sim \mathcal{N}(0,1) \quad \xRightarrow{H_0 \text{ виконується}} \quad
+ \frac{
+ (\overline{\xi} - \overline{\eta})
+ }{
+\sqrt{ \frac{\sigma^2_1}{n_1} + \frac{\sigma_2^2}{n_2}}
+ } \sim \mathcal{N}(0,1)
+\\   T =    \frac{
+  (\overline{x} - \overline{y})
+  }{
+ \sqrt{ \frac{\sigma^2_1}{n_1} + \frac{\sigma_2^2}{n_2}}
+  } \sim \mathcal{N}(0,1) \qquad H_0 = \left\lbrace  a_1 = a_2 \right\rbrace
+  \qquad H_1 = \left\lbrace a_1 < a_2 \right\rbrace
+\\   H_1 : a_1 - a_2 < 0 \quad \Longrightarrow \quad  \alpha = \Laplas(-t) - \Laplas(-\i) = \frac{1}{2} - \Laplas(t) \leadsto t
+\end{gathered}
+  \]
+  \item Якщо дисперсії \blue{невідомі}, але однакові. Гіпотеза: \( H_0 = \left\lbrace a_1 = a_2 \right\rbrace \). Маємо:
+  \[
+    \frac{n_1 \cdot \mathbb{D}^{**}_{\xi}}{\sigma^2} \sim \chi^2_{n_1 - 1} \text{\ та \  }
+   \frac{n_2 \cdot \mathbb{D}^{**}_{\eta}}{\sigma^2} \sim \chi^2_{n_2 - 1} \Longrightarrow
+   \frac{n_1 \cdot \mathbb{D}^{**}_{\xi} + n_2 \cdot \mathbb{D}^{**}_{\eta}}{\sigma^2} \sim \chi^2_{n_1 + n_2 - 1} \ (*)
+  \]
+  Розглянемо вираз \(\displaystyle
+   \overline{\xi} - \overline{\eta} \sim \mathcal{N}\left( a_1 - a_2,
+   \sigma^2 ( \frac{1}{n_1} + \frac{1}{n_2}  ) \right)\). Віднормуємо, розділивши на дисперсію. Тоді при виконанні гіпотези \( H_0 \) маємо \( (**) \): \(\displaystyle
+\frac{\overline{\xi} - \overline{\eta}}{\sigma \sqrt{
+\frac{1}{n_1} + \frac{1}{n_2}
+}} \sim \mathcal{N}(0,1)
+    \)
+  \par
+  Знайдемо частку від ділення виразу \( (**) \) на корінь з виразу \( (*) \):
+  \[ T =
+  \dfrac{\left( \overline{\xi} - \overline{\eta} \right) \cdot \sqrt{n_1 + n_2  -2}}{
+   \sqrt{
+  \left( \frac{1}{n_1} + \frac{1}{n_2} \right) \left( n_1 \cdot \mathbb{D}^{**}_{\xi} + n_2 \cdot \mathbb{D}^{**}_{\eta}  \right)
+  }
+    } \sim \frac{\mathcal{N}(0,1)\cdot \sqrt{n_1 + n_2  -2}}{\sqrt{\chi^2_{n_1 + n_2 - 2}}}  \sim \mathrm{St}_{n_1 + n_2 - 2}
+  \]
+\item Як перевірити рівність дисперсій? Перевіряємо гіпотезу:
+\(
+ H_0= \left\lbrace \sigma_1^2 = \sigma_2^2 \right\rbrace
+\).\par
+Розглядаючи попередньо отримані факти, приходимо до вигляду критерію:
+\[
+ T = \frac{\mathbb{D}^{***}_{\xi}}{\mathbb{D}^{***}_{\eta}} \sim \mathcal{F}_{n_1, n_2}
+\]
+\end{enumerate}
+\subsubsection{Гіпотези про параметри бернулівської Г.С.}
+Нехай проведено \( n \) випробувань з \( p \) -- імовірністю успіху в одному. \( k \) -- кількість успіхів, випадкова величина. Гіпотеза: \( H_0 = \left\lbrace p = p_0 \right\rbrace \ n>>1\).\par
+Розглянемо оцінку ймовірності успіху:
+\[
+p^* = \frac{k}{n} \sim \frac{\mathrm{Bin}(n, p)}{n} \overset{\text{ЦГТ}}\approx \frac{\mathcal{N}(np,npq)}{n} = \mathcal{N}\left( p, \frac{pq}{n} \right)
+\]
+\[
+ T =\left| H_0 \text{ виконується} \right| = \frac{\sqrt{n} \cdot (p^* -  p_0)}{\sqrt{p_0(1-p_0)}} \sim N(0,1)
+\]
+Для двох бернулівських Г.С.: \( (n_1, p_1); \ (n_2, p_2);\ H_0= \left\lbrace p_1 = p_2 \right\rbrace \). Кількість успіхів:
+\[
+ k_1 - k_2 \sim \overbrace{\mathrm{Bin}(n_1, p_1) - \mathrm{Bin}(n_2, p_2)}^{\independent}
+\]
+\[
+ p_1^* - p_2^* = \frac{k_1}{n_1} - \frac{k_2}{n_2} \sim \frac{\mathrm{Bin}(n_1, p_1)}{n_1}
+ - \frac{\mathrm{Bin}(n_2, p_2)}{n_1} \approx \mathcal{N} \left( p_1 - p_2 , \frac{p_1q_1}{n_1} + \frac{p_2q_2}{n_2} \right)
+\]
+\[
+ H_0 = \left\lbrace p_1 = p_2 \right\rbrace \quad \Rightarrow\quad \frac{k_1}{n_1} - \frac{k_2}{n_2}= p^*_1- p_2^* \approx \mathcal{N} \left(
+0, p_1 (1-p_1)\cdot \left( \frac{1}{n_1} + \frac{1}{n_2} \right)
+  \right)
+\]
+\[
+ T = \frac{p_1^* - p^*_2}{
+ \sqrt{
+ \left( \frac{k_1 + k_2}{n_1 + n_2} \right) \left( 1 - \frac{k_1 + k_2}{n_1 + n_2} \right)
+ \left( \frac{1}{n_1} + \frac{1}{n_2}\right)
+ }
+ }
+\]
+При великих \( n_1, n_2: T\approx \mathcal{N}(0,1) \).
+\begin{center}
+\textbf{	--- Happy End --- }\\
+{\tiny Без некоторых рисунков. }
+\end{center}

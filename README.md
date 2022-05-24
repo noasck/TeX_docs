@@ -40,25 +40,37 @@ Snippets are an important part of my TeX environment. You can use them with ```A
 '.tex':
   'limit':
     'prefix': 'lim'
-    'body': ' \\\\lim\\\\limits_{$1\\\\to ${2: \\\\infty}}{$3} = $4'
+    'body': ' \\\\lim\\\\limits_{$1\\\\to $2}{$3}'
   'summ':
     'prefix': 'sum'
-    'body': ' \\\\sum\\\\limits_{$1 = $2}^{${3: \\\\infty}}{$4}'
+    'body': ' \\\\sum\\\\limits_{$1}^{$2}{$3}'
+  'min':
+    'prefix': 'min'
+    'body': ' \\\\min\\\\limits_{$1}{$2}'
+  'max':
+    'prefix': 'max'
+    'body': ' \\\\max\\\\limits_{$1}{$2}'
+  'sup':
+    'prefix': 'sup'
+    'body': ' \\\\sup\\\\limits_{$1}{$2}'
+  'inf':
+    'prefix': 'inf'
+    'body': ' \\\\inf\\\\limits_{$1}{$2}'
   'multiplication':
     'prefix': 'mult'
-    'body': ' \\\\prod\\\\limits_{$1 = $2}^{${3: \\\\infty}}{$4}'
+    'body': ' \\\\prod\\\\limits_{$1}^{$2}{$3}'
   'Integr a_b':
     'prefix': 'int'
-    'body': ' \\\\int\\\\limits_{$1}^{${2: +\\\\infty}}{$3}'
-  'limit_to_o':
-    'prefix': 'lim0'
-    'body': ' \\\\lim\\\\limits_{$1\\\\to0}{$2} $3'
+    'body': ' \\\\int\\\\limits_{$1}^{$2}{$3}'
   'fraction':
     'prefix': '\/'
-    'body': '\\\\frac{$1}{$2} $3'
+    'body': '\\\\frac{$1}{$2}'
+  'dfraction':
+    'prefix': 'd\/'
+    'body': '\\\\dfrac{$1}{$2}'
   'epsilon':
     'prefix': 'eps'
-    'body': '\\\\varepsilon $1'
+    'body': '\\\\varepsilon'
   'sigma':
     'prefix': 'g'
     'body': '\\\\sigma $1'
@@ -77,6 +89,21 @@ Snippets are an important part of my TeX environment. You can use them with ```A
   'neq':
     'prefix': '\!\='
     'body': '\\\\neq '
+  'dlra':
+    'prefix': '\=\>'
+    'body': '\\\\Longrightarrow '
+  'dlla':
+    'prefix': '\<\='
+    'body': '\\\\Longleftarrow '
+  'lla':
+    'prefix': '\<\-'
+    'body': '\\\\longleftarrow '
+  'dllra':
+    'prefix': '\<\=\>'
+    'body': '\\\\Longleftrightarrow '
+  'lra':
+    'prefix': '\-\>'
+    'body': '\\\\xrightarrow\\\[$1\\\]\\\{$2\\\}'
   'geq':
     'prefix': '\>\='
     'body': '\\\\geq '
@@ -113,6 +140,9 @@ Snippets are an important part of my TeX environment. You can use them with ```A
   'vmatrix':
     'prefix': 'vmatrix'
     'body': '\\\\begin\\\{vmatrix\\\}\n $1 \n\\\\end\\\{vmatrix\\\}'
+  'split':
+    'prefix': 'split'
+    'body': '\\\\begin\\\{split\\\}\n $1 \n\\\\end\\\{split\\\}'
   'alpha':
     'prefix': 'alpha'
     'body': '\\\\alpha'
@@ -122,7 +152,7 @@ Snippets are an important part of my TeX environment. You can use them with ```A
   'rational':
     'prefix': 'R',
     'body': '\\\\mathbb\\\{R\\\}'
-  'probability':t
+  'probability':
     'prefix': 'P',
     'body': '\\\\mathbb\\\{P\\\} \\\\left\\\\lbrace $1 \\\\right\\\\rbrace'
   'natural':
@@ -145,13 +175,28 @@ Snippets are an important part of my TeX environment. You can use them with ```A
     'body': '\\\\overline\\\{$1\\\}'
   'sin':
     'prefix': 'sin'
-    'body': '\\\\sin\\\{\\\($1\\\)\\\} '
+    'body': '\\\\sin\\\{$1\\\}'
   'cos':
     'prefix': 'cos'
-    'body': '\\\\cos\\\{\\\($1\\\)\\\} '
+    'body': '\\\\cos\\\{$1\\\}'
+  'derivative':
+    'prefix': 'd'
+    'body': '\\\\mathrm{d}'
   'tg':
     'prefix': 'tg'
-    'body': '\\\\tg\\\{\\\($1\\\)\\\} '
+    'body': '\\\\tg\\\{$1\\\}'
+  'Math mode':
+    'prefix': 'q_uation'
+    'body': '\\\\\\\[\\\n $1 \\\n\\\\\\\]'
+  'Inline Math mode':
+    'prefix': 'f_ormulae'
+    'body': '\\\\\\\( $1 \\\\\\\)'
+  'separator':
+    'prefix': 'sep1'
+    'body': '\\\\  \\\\big\\\| \\\\  $1'
+  'restriction':
+    'prefix': 'restr'
+    'body': '\\\\bigg\\\|_\\\{$1\\\}^\\\{\\\}'
   'varphi':
     'prefix': 'phi'
     'body': '\\\\varphi'

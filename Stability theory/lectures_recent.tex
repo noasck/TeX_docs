@@ -1,0 +1,452 @@
+
+Розглянемо \( \delta^2 J(y, h): \)
+\[
+ \begin{split}
+ \delta^2 J(y, h) &= \frac{\mathrm{d}^2 J(y + \alpha h)}{\mathrm{d} \alpha^2} \bigg|_{ \alpha = 0} = \frac{\mathrm{d}^2}{\mathrm{d} \alpha^2}   \int\limits_{a}^{b}{
+ F(x,y + \alpha h, y' + \alpha h') \mathrm{d} x \bigg|_{\alpha} = 0 =
+ } \\
+ &= \! \frac{\mathrm{d}}{\mathrm{d} \alpha}\!
+ \int\limits_{a}^{b}{\!\!
+ \left(
+\frac{\d F}{\d y} (x, y + \alpha h, y' + \alpha h') h + \frac{\d F}{\d y'} (x, y + \alpha h, y' + \alpha h')  h'
+  \right) \mathrm{d} x \bigg|_{\alpha = 0}\!\!\!\!
+ }= \\
+ &=  \int\limits_{a}^{b}{
+ \left(
+\frac{\d^2 F}{\d y ^2 } (x, y, \ty) \cdot h^2 + 2 \frac{\d F}{\d y \d \ty} h h' + \frac{\d^2 F}{\d (y')^2} \cdot (h')^2
+  \right) \mathrm{d} x
+ } \oeq
+ \end{split}
+\]
+Проінтегруємо другий доданок частинами:
+\[
+\begin{split}
+\int\limits_{a}^{b}{
+\frac{\d^2 F}{\d y \d y'} 2 h h' \mathrm{d} x
+}  = [2hh' = (h^2)'] =  \int\limits_{a}^{b}{ \frac{\d^2 F}{\d y\d y'} \cdot (h^2)' \mathrm{d} x} = \\
+= \left|
+\begin{gathered}
+u = \frac{\d^2 F}{\d y \d y'} \\
+u' = \frac{\mathrm{d}}{\mathrm{d} x} \left(  \frac{\d^2 F}{\d y \d y'} \right)
+\end{gathered} \
+\begin{gathered}
+
+\end{gathered}
+ \right| = \underbrace{\frac{\d^2 F}{\d y \d y'} \cdot h^2 \bigg|_{a}^{b}}_{=0} -  \int\limits_{a}^{b}{
+ \frac{\mathrm{d}}{\mathrm{d} x} \left( \frac{\d^2 F}{\d y \d y'} \right) \cdot h^2
+ \mathrm{d} x}
+\end{split}
+\]
+
+\[
+  \Rightarrow \delta^2 J(y, h) =  \int\limits_{a}^{b}{
+  \left[
+\frac{\d^2 F}{\d (y')^2} \cdot (h')^2 + \left(
+\frac{\d^2 F}{\d y^2} - \frac{\mathrm{d}}{\mathrm{d} x} \frac{\d^2 F}{\d y \d y'}
+\right)\cdot  h^2
+   \right] \mathrm{d} x
+  }
+\]
+
+
+Маємо: \( \delta^2 J(y, h) =  \int\limits_{a}^{b}{
+\underbrace{P(x) \cdot (h')^2 + Q(x)\cdot h^2}_{= \mathcal{C}}
+  \mathrm{d} x
+} \). \par
+Запишемо рівняння Ейлера для \(  \delta^2 J(y, h) \) відносно \( h \):
+\[
+ \frac{\d \mathcal{C}}{h} - \frac{\mathrm{d}}{\mathrm{d} x} \frac{\d \mathcal{C}}{\d h'} = 0
+\]
+\[
+2 h Q(x) - \frac{\mathrm{d}}{\mathrm{d} x } \left( 2 P'(x) \cdot h' \right) = 0
+\]
+\begin{center}
+ \fbox{\( \displaystyle \frac{\mathrm{d}}{\mathrm{d} x} \left( P(x) \cdot h' \right) =
+ h \cdot Q(x)
+  \)}  \textbf{ --- рівняння Якобі.}
+\end{center}
+\[
+ \frac{\mathrm{d}}{\mathrm{d} x}  \left(  \frac{\d^2 F}{\d (y')^2} \cdot h' \right) = h \cdot
+ \frac{\d^2 F}{\d y^2}  - h \cdot \frac{\mathrm{d}}{\mathrm{d} x} \frac{\d^2 F}{\d y \d y'}
+\]
+\[
+\frac{\mathrm{d}}{\mathrm{d} x}  \left(  \frac{\d^2 F}{\d (y')^2} \cdot h' \right) = h \cdot
+\frac{\d^2 F}{\d y^2}  - h \cdot \frac{\mathrm{d}}{\mathrm{d} x} \frac{\d^2 F}{\d y \d y'} + h' \cdot \frac{\d^2 F}{\d y \d y'} -  h' \cdot \frac{\d^2 F}{\d y \d y'}
+\]
+\[
+ \Rightarrow \frac{\mathrm{d}}{\mathrm{d} x}   \left(  \frac{\d^2 F}{\d (y')^2} \cdot h' \right) =   h \cdot
+ \frac{\d^2 F}{\d y^2}  -
+ \frac{\mathrm{d}}{\mathrm{d} x} \left( \frac{\d^2 F}{\d y \d y'} \cdot h \right) +
+ h' \cdot \frac{\d^2 F}{\d y \d y'}
+\]
+\begin{center}
+\fbox{\( \displaystyle
+ \frac{\mathrm{d} }{\mathrm{d} x} \left( \frac{\d^2 F}{ \d (y')^2} \cdot h' + \frac{\d^2 F}{\d y \d y'} \cdot h \right) = h \frac{\d^2}{\d y^2} + h' \frac{\d^2 F}{\d y \d y'} \)}
+\end{center}
+\begin{defo}
+ Назвемо т. \( \mathcal{C} \in (a,b] \) \textit{спряженою} з точкою \( a \), якщо
+ існує розв'язок рівняння Якобі: \( h(x) \neq 0 \) такий, що \( h(a) = h(\mathcal{C}) = 0 \).
+\end{defo}
+
+\begin{boxteo}
+ Якщо \( \ty (x) \in M \) забезпечує слабкий локальний екстремум функціоналу \( J(y) \) на
+ \(  M \), то виконується \textbf{умова Якобі}: на \( (a,b) \) немає  точок, спряжених з точкою \( a \). \par
+ Без доведення. \( \blacksquare \)
+\end{boxteo}
+\newpage
+\begin{boxteo}[про достатні умови]
+  Нехай для \( \ty(x) \in M \) виконується:
+  \begin{enumerate}
+    \item Рівняння Ейлера на \( [a,b] \).
+    \item Посилена умова Лежандра:
+    \[
+     \frac{\d^2 F}{\d (y')^2} > 0 \ \ (< 0)
+    \]
+    \item Посилена умова Якобі: на \( (a,b] \) немає точок спряжених з точкою \( a \).\par
+    Тоді \( \ty (x) \) забезпечує слабкий локальний мінімум (максимум) функціоналу \( J(y) \) на \( M \).\par
+    Без доведення. \( \blacksquare \)
+  \end{enumerate}
+\end{boxteo}
+\subsection{Сильний локальний екстремум.}
+Нехай \( a,b \in \mathbb{R}, a< b  \) -- задані числа.
+\[
+ F(x,y,p) \in C^2 \left( [a,b] \times \mathbb{R}^2 \right)
+\]
+Розглянемо простір \( KC^1[a,b] \) -- простір кусково-гладких функцій на \( [a,b] \) (неперервних функцій на \( [a,b] \), похідна яких має не більш, ніж скінчену кількість особливих точок І-го роду).\par
+\( KC^1[a,b] \) -- нормований простір з нормою:
+\[
+ ||y(x)||_{KC^1[a,b]} =  \max\limits_{x\in[a,b]}{|y(x)|}
+\]
+Розглянемо інтеграл:
+\[
+ J(y) =  \int\limits_{a}^{b}{
+ F(x, y(x), y'(x)) \mathrm{d} x
+ }
+\]
+на множині \( M = \left\lbrace
+y(x) \in KC^1 [a,b] \ \big| \  y(a) = A, y(b) = B
+ \right\rbrace \)
+\begin{defo}
+ Функція \( \ty (x) \in M \) забезпечує \textit{сильний локальний екстремум} функціоналу \( J(y) \) на \( M \), якщо:
+ \[
+  \exists \delta>0 : \forall y \in M \ \  ||y - \ty||_{KC^1[a,b]} < \delta \text{ справдовується, що:}
+ \]
+ \[
+  J(y) \geq J(\ty) \text{ (для мінімуму)}
+ \]
+ \[
+  J(y) \leq  J(\ty) \text{ (для максимуму)}
+ \]
+ --- \textit{сильний глобальний} екстремум, якщо нерівність виконується \( \forall y \in M \).
+\end{defo}
+\begin{lema}[про зглажування кутів]
+\[
+\inf_{
+\substack{y\in KC^1[a,b] \\
+y(a) = A \\
+y(b) = B}
+}{J(y)} =
+\inf_{
+\substack{y\in C^1[a,b] \\
+y(a) = A \\
+y(b) = B}
+}{J(y)}
+\]
+\[\sup_{
+\substack{y\in KC^1[a,b] \\
+y(a) = A \\
+y(b) = B}
+}{J(y)} =
+\sup_{
+\substack{y\in C^1[a,b] \\
+y(a) = A \\
+y(b) = B}
+}{J(y)}
+\]
+\end{lema}
+
+\begin{consequence}
+  Якщо слабкий глобальний мінімум (максимум) досягається, то він дорівнює сильному глобальному мінімуму (максимуму) і функція, яка забезпечує слабкий глобальний екстремум, забезпечує водночас і сильний глобальний екстремум.
+\end{consequence}
+\begin{boxteo}[Вейєрштрасса]
+  Нехай допустима функція:
+  \[
+   \ty (x) \in C^1[a,b] \ \text{ задовольняє:}
+  \]
+  \begin{enumerate}
+    \item Рівняння Ейлера.
+    \item Посилену умову Лежандра:
+    \[
+     \frac{\d^2 F}{\d (y')^2} > 0 \text{ -- для мінімума.} \qquad
+     \frac{\d^2 F}{\d (y')^2} < 0 \text{ -- для максимума.}
+    \]
+    \item Посилену умову Якобі.
+    \item Умову Вейєрштрасса:
+    \( \
+     \forall (x,y,u) , (x,y,v)  \text{ функція Вейєрштрасса:}
+    \)
+    \[
+     E(x,y,u,v) = F(x,y,v) - F(x,y,u) - (v-u) \frac{\d F}{\d u}  \underset{\text{для min}}{ (x,y,u) \geq  0}
+    \]
+    \[
+      E(x,y,u,v) \leq 0\text{ --- для максимума.}
+    \]
+    Тоді \( \ty(x) \) забезпечує водночас і слабкий, і сильний локальний мінімум (максимум) функціоналу \( J(y) \) на \( M \).
+  \end{enumerate}
+\end{boxteo}
+\begin{example}
+\[
+ \begin{dcases}
+    \int\limits_{0}^{1}{ (y'(x))^2 + xy(x) \mathrm{d} x} \to \mathrm{extr};\\
+    y(0) = 0 \qquad y(1) = 0.\\
+ \end{dcases}
+\]
+\begin{enumerate}
+  \item Складемо і розв'яжемо рівняння Ейлера:
+  \[
+   \frac{\d F}{\d y} - \frac{\mathrm{d}}{\mathrm{d} x} \frac{\d F}{\d y'} = 0
+  \]
+  \[
+   x - 2y'' = 0 \quad \Longrightarrow \quad y'' = \frac{x}{2} \qquad y' = \frac{x^2}{4} + C_1
+  \]
+  \[
+   y(x) = \frac{x^3}{12} + C_1 x + C_2 \text{ -- сімейство екстремалей.}
+  \]
+  \item Знайдемо допустимі екстремалі:
+  \[
+   y(0) = 0 \quad \Longrightarrow \quad C_2 = 0 \quad \Longrightarrow \quad y(1) = 0
+  \]
+  \[
+   \frac{1}{12} + C_1 = 0 \quad \Longrightarrow \quad C_1 = - \frac{1}{12}
+  \]
+  \[
+   \ty(x) = \frac{x^3}{12} - \frac{x}{12} \text{ --- єдина допустима екстремаль.}
+  \]
+  \item Запишемо умову Лежандра:
+  \[
+   \frac{\d^2 F}{\d (y')^2} = \frac{\d}{\d y'} (2y') = 2 > 0 \Longrightarrow \text{виконується.}
+  \]
+  Посилена умова Лежандра для мінімума.
+  \item Запишемо умову Якобі. Рівняння Якобі:
+  \[
+   \frac{\mathrm{d}}{\mathrm{d} x} \left( \frac{\d^2 F}{\d (y')^2} h' + \frac{\d^2 F}{\d y \d y'} h \right) = h \frac{\d^2 F}{\d y^2} + h' \frac{\d^2 F}{\d y \d y'} \qquad \quad F = (y')^2 + xy
+  \]
+  \[
+   \frac{\d F}{\d y'} = 2 y' \qquad
+   \frac{\d F}{\d y} = x \qquad
+   \frac{\d^2 F}{\d (y')^2} = 2\qquad
+   \frac{\d^2 F}{\d y \d y'} = 0 \qquad
+   \frac{\d^2 F}{\d y^2}= 0
+  \]
+  \[
+   \frac{\mathrm{d}}{\mathrm{d} x } (2h') =0  \quad \Longrightarrow \quad h'' = 0 \text{ -- рівняння Якобі} \quad \Longrightarrow \quad h(x) = C_1 x + C_2
+  \]
+  \( h(0) = 0 \Longrightarrow h(x) = C_1 x \) --- не перетворюється в нуль в жодній точці або є тотожним нулем, тобто виконується посилена умова Якобі.
+  \item Запишемо умову Вейєрштрасса:
+  \[
+   E(x,y,u,v) = F(x,y,v) - F(x,y,u)  - (v-u) \frac{\d F}{\d u} (x,y,u) =
+  \]
+  \[
+   = \left| F(x,y,u)  = u^2 + xy \qquad \frac{\d F}{\d u} = 2 u \right| = v^2 + xy - u^2 - xy - (v-u) \cdot 2u =
+  \]
+  \[
+   v^2 - u^2 - 2uv + 2 u^2 = v^2 -2 uv + u^2 = (v-u)^2  \geq 0
+  \]
+  Тобто, виконується умова Вейєрштрасса для мінімума. \par
+  \( \displaystyle \ty (x) = \frac{x^3}{12} - \frac{x}{12} \) забезпечує водночас і сильний і слабкий лок. мінімум.
+\end{enumerate}
+\end{example}
+\begin{example}
+ \[
+  \begin{dcases}
+    \int\limits_{1}^{e}
+    x(y')^2 + yy' \mathrm{d} x \to \mathrm{extr};\\
+    y(1) = 0 \qquad y(e) = 1.
+  \end{dcases}
+ \]
+\begin{enumerate}
+  \item Складемо і розв'яжемо рівняння Ейлера:
+  \[
+   \frac{\d F}{\d y} - \frac{\mathrm{d}}{\mathrm{d} x} \frac{\d F}{\d y'} = 0
+  \]
+  \[
+   y' - \frac{\mathrm{d}}{\mathrm{d} x} (2 xy' + y) = 0
+  \]
+  \[
+   y' - 2 y' - 2 xy'' - y' = 0
+  \]
+  \[
+    xy'' + y' = 0 \qquad y' = z , y'' = z' \qquad xz' + z = 0
+  \]
+  \[
+   z' = - \frac{z}{x} \quad \Longrightarrow \quad \frac{\mathrm{d} z}{z} = -\frac{ \mathrm{d} x}{x}
+  \]
+  \[
+   \ln |z| = \ln \left| \frac{1}{x} \right| + \ln |C_1|\qquad z = \frac{C_1}{x} \qquad y' = \frac{C_1}{x}
+  \]
+  \[
+  y = C_1 \ln x + C_2 \text{ --- сімейство екстремалей.}
+  \]
+  \item Знайдемо допустимі екстремалі:
+  \[
+\begin{split}
+y(1) = 0 &\quad \Longrightarrow \quad C_1 \cdot 0 + C_2 = 0 \quad \Longrightarrow \quad C_2 = 0 \\
+y(e) = 1 &\quad \Longrightarrow \quad C_1 = 1   \\
+& \ty = \ln x \text{ -- єдина допустима екстремаль.}
+\end{split}
+  \]
+\item Запишемо умову Лежандра:
+\[
+ \frac{\d^2 F}{\d (y')^2} = \frac{\d}{\d y'} (2 xy' + y) = 2 x >0 \qquad \forall x \in [1, e]
+\]
+виконується посилена умова Лежандра для мінімума.
+\item Запишемо умову Якобі:
+\[
+ \frac{\mathrm{d}}{\mathrm{d} x} \left( \frac{\d^2 F}{\d (y')^2} h' + \frac{\d^2 F}{\d y \d y'} h \right)  = h \frac{\d^2 F}{\d y^2} + h' \frac{\d^2 F}{\d y \d y'}
+\]
+\[
+ F = x(y')^2 + yy'
+\]
+\[
+ \frac{\d^2 F}{\d (y')^2} = 2x \qquad \frac{\d^2 F}{\d y \d y'} = \frac{\d}{\d y} (2xy' + y) = 1 \qquad \frac{\d^2 F}{\d y^2}  = 0
+\]
+\[
+\begin{split}
+\frac{\mathrm{d}}{\mathrm{d} x} (2xy' + h) = h' &\qquad   \frac{\mathrm{d}}{\mathrm{d} x} (2xy' + h) = \frac{\mathrm{d}}{\mathrm{d}x}(h)\\
+\frac{\mathrm{d}}{\mathrm{d} x} (2 xh' + h - h) = 0 &\qquad \frac{\mathrm{d}}{\mathrm{d} x} (2xh') \quad \Longrightarrow \quad \frac{\mathrm{d}}{\mathrm{d}x} (xh') = 0
+\end{split}
+\]
+\[
+  xh' = C_1 \quad \Longrightarrow \quad h' = \frac{C_1}{x} \quad \Longrightarrow\quad h(x) = C_1 \ln x + C_2
+\]
+Якщо \( h(1) = 0 \  \Longrightarrow \  C_2 = 0 \  \Longrightarrow \  f(x) = C_1 \ln x \) --- не перетворюється в нуль в жодній точці \( x \in (1,e] \) або є тотожним нулем, тобто виконується посилена умова Якобі.
+\item Запишемо умову Вейєрштрасса:
+\[
+ E = F(x,y,v) - F(x,y,u) - (v-u) \frac{\d F}{\d u} (x,y,u)  =
+\]
+\[
+= \left| F(x,y,u) = xu^2 + yu ; \frac{\d F}{\d u} = 2xu + y \right| =
+\]
+\[
+ = xv^2 + yv - xu^2 - yu - (v-u)(2xu + y) =
+\]
+\[
+= xv^2 + yv - xu^2 - yu - 2xuv - yv + 2xu^2 + yu =
+\]
+\[
+ = xv^2 - 2xuv  + xu^2 = x(u-v)^2 \geq 0 \qquad \forall x \in [1, e]
+\]
+Таким чином, умова Вейєрштрасса виконується для мінімума.\par
+Отже, \( \ty (x) = \ln x \) забезпечує і сильний, і слабкий лок. мінімум.
+\end{enumerate}
+\end{example}
+\begin{example}
+ \[
+\begin{dcases}
+\inf\limits_{1}^{e} (2y - x^2 (y')^2) \mathrm{d} x \to \mathrm{extr}; \\
+y(1) = e \qquad y(e) = 0 .
+\end{dcases} \]
+\begin{enumerate}
+  \item Запишемо та розв'яжемо рівняння Ейлера:
+  \[
+   \frac{\d F}{\d y} - \frac{\mathrm{d}}{\mathrm{d} x} \frac{\d F}{\d y'} = 0
+  \]
+  \[
+   2 + \frac{\mathrm{d}}{\mathrm{d} x} (x^2 \cdot 2 y') = 0
+  \]
+  \[
+   2 + 2 x \cdot 2 y' + x^2 \cdot 2 y'' = 0
+  \]
+  \[
+   1 + 2 x y' + x^2 y'' = 0
+  \]
+  \[
+   x^2 y'' + 2 x y' = -1 \text{ --- рівняння Ейлера.} \qquad x = e^t
+  \]
+  \[
+   \frac{\mathrm{d} y}{\mathrm{d} x} = \frac{\mathrm{d} y}{ \mathrm{d} t} \cdot \frac{\mathrm{d} t}{ \mathrm{d} x} = \frac{\mathrm{d} y}{ \mathrm{d} t}  \bigg/ \frac{\mathrm{d} x}{ \mathrm{d} t} = y'_t \cdot e^{-t}
+  \]
+  \[
+   \frac{\d^2 y}{ \d x^2} = \frac{\mathrm{d}}{\mathrm{d} x} \left( \frac{\mathrm{d} y}{\mathrm{d} x} \right) = \frac{\mathrm{d}}{\mathrm{d} t} \left( \frac{\mathrm{d} y}{\mathrm{d} x} \right)
+   \bigg/ \frac{\mathrm{d} x}{ \mathrm{d} t} =
+  \]
+  \[
+   = (y''_t \cdot e^{-t} - y'_t \cdot e^{-t}) \cdot e^{-t} = (y''_t - y'_t) \cdot e^{-2t}
+  \]
+  \[
+   (y''_t - y'_t) \cdot e^{-2t} \cdot e^{2t} + 2y'_t e^t e^{-t} = -1
+  \]
+  \[
+   y''_t + y'_t  = 1 \qquad \Longrightarrow \qquad \begin{gathered}
+    \lambda^2 + \lambda = 0\\
+    \lambda(\lambda+ 1)= 0\\
+    \lambda  = 0 \quad \lambda = -1
+   \end{gathered}
+  \]
+  \[
+   y_o = C_1 + C_2 e^{-t} \qquad y_{p} = A x , y_{p}' = A, y_{p}'' = 0, A = 1:
+  \]
+  \[
+   y_p = -t \quad \Longrightarrow \quad y(t) = C_1 + C_2 e^{-t} - t
+  \]
+  \[
+   y(x) = C_1 + \frac{C_2}{x}  - \ln x \textit{ --- сімейство екстремалей.}
+  \]
+  \item Знайдемо допустимі екстремалі:
+  \[
+\begin{split}
+y(1) = e &\qquad  C_1 + C_2 = e \\
+y(e) = 0 &\qquad C_1 + \frac{C_2}{e} -1 = 0
+\end{split}
+  \]
+  \[
+   C_2 - \frac{C_2}{e} + 1 = e \qquad C_2 \left( \frac{e-1}{e} \right) = e - 1 \quad \Longrightarrow \quad
+   \begin{cases}
+    C_2 = e \\ C_1 = 0
+   \end{cases}
+  \]
+  \(
+   \ty (x) = \frac{e}{x} - \ln x \text{ --- єдина допустима екстремаль.}
+  \)
+  \item Запишемо умови Лежандра:
+  \[
+   F = 2y - x^2 (y')^2 \qquad \frac{\d F}{\d y'} = -2y' x^2
+  \]
+  \[
+   \frac{\d^2 F}{\d (y')^2} = -2 x^2 < 0 \qquad \forall x \in [1, e]
+  \]
+  Тобто, посилена умова Лежандра виконується.
+  \item Запишемо умову Якобі:
+  \[
+   \frac{\mathrm{d}}{\mathrm{d} x} \left(  \frac{\d^2 F}{\d (y')^2} h' + \frac{\d^2 F}{\d y \d y'} h \right) = h \frac{\d^2 F}{\d y^2} + h' \frac{\d^2 F}{\d y \d y'}
+  \]
+  \[
+   \frac{\d^2 F}{\d (y')^2} = -2 x^2 \qquad \frac{\d^2 F}{\d y \d y'} = 0 \qquad \frac{\d^2 F}{\d y^2} = 0
+  \]
+  \[
+    \frac{\mathrm{d}}{\mathrm{d} x} (-2 x^2 h') = 0 \quad \Longrightarrow \quad \frac{\mathrm{d} }{\mathrm{d} x} (x^2 h') = 0 \quad \Longrightarrow \quad x^2 h' = C_1
+  \]
+  \[
+    h' = \frac{C_1}{x^2} \quad \Longrightarrow \quad h = - \frac{C_1}{x} + C_2
+  \]
+  \[
+   h(1) = 0 \quad \Longrightarrow \quad \frac{- C_1}{1} + C_2 = 0 \quad \Longrightarrow \quad C_2 = C_1 \quad \Longrightarrow \quad h = C_1 \cdot (1 - \frac{1}{x})
+  \]
+  Вираз не перетворюється на нуль \( \forall x \in [1, e] \) або є тотожним нулем, тому виконується посилена умова Якобі.
+  \item Запишемо умову Вейєрштрасса:
+  \[
+   E = F(x,y,v) - F(x,y,u) - (v-u) \frac{\d F}{\d u} (x,y,u)  =
+  \]
+  \[
+   = \left| F(x,y,u) = 2 y - x^2 u^2 \quad \frac{\d F}{\d u} = -2ux^2 \right| =
+  \]
+  \[
+   = 2 y - x^2 v^2 - 2 y + x^2 u^2 - (v-u)\cdot(-2ux^2) = -x^2 v^2 + x^2 u^2 + 2uvx^2 - 2 u^2 x^2 =
+  \]
+  \[
+   = -x^2 (v^2 - 2 uv + u^2) = -x^2 (v-u)^2 \leq 0
+  \]
+  Тобто, виконується умова Вейєрштрасса для максимума. \par
+  Отже, \( \ty (x) = \frac{e}{x} - \ln x \) забезпечує водночас і сильний, і слабкий лок. max.
+\end{enumerate}
+\end{example}
